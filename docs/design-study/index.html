@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio design study</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="studybar"><span><strong>DESIGN STUDY 01</strong> · The learning journal</span><span>Fictional data · sample text · no live AI</span></div>
+<header class="topbar">
+  <a class="brand" href="#editor" aria-label="Learning portfolios"><span class="brandmark"><svg><use href="assets/icons.svg#book-open"/></svg></span><span><strong>LEARNING JOURNAL</strong><small>Learning portfolios</small></span></a>
+  <nav class="view-switch" aria-label="Design views"><button data-view="editor" aria-pressed="true">Portfolio editor</button><button data-view="class" aria-pressed="false">My class</button><button data-view="report" aria-pressed="false">Report preview</button></nav>
+  <div class="teacher"><span class="avatar small">JL</span><span>Jamie Lee<small>Teacher · K1 Willow</small></span></div>
+</header>
+<main>
+  <section id="editor-view" class="workspace">
+    <aside class="roster">
+      <div class="aside-heading"><span class="eyebrow">MY CLASS</span><h2>K1 Willow <span class="count">20</span></h2><p>2026 · Semester 2</p></div>
+      <div class="class-progress"><div><strong id="reviewed-count">0 of 20</strong><span>portfolios reviewed</span></div><div class="track"><i id="reviewed-bar"></i></div></div>
+      <label class="search"><svg><use href="assets/icons.svg#magnifying-glass"/></svg><input id="search" placeholder="Find a child" aria-label="Find a child"></label>
+      <div class="filter-row"><button id="all-filter" class="selected">All children</button><button id="unfinished-filter">Unfinished</button></div>
+      <nav id="roster-list" aria-label="Children"></nav>
+      <div class="roster-footer"><svg><use href="assets/icons.svg#plant"/></svg><span>Every small step<br>is worth noticing.</span></div>
+    </aside>
+    <div class="editor-main">
+      <div class="breadcrumb">K1 Willow <span>/</span> Semester 2 <span>/</span> <strong class="child-name"></strong></div>
+      <div class="child-heading"><div class="child-identity"><span class="avatar large child-initials"></span><div><span class="eyebrow">LEARNING PORTFOLIO</span><h1 class="child-name"></h1><p>Kindergarten 1 <span>·</span> July – December 2026</p></div></div><div class="child-controls"><span id="child-position"></span><button id="previous" class="icon-button" aria-label="Previous child"><svg><use href="assets/icons.svg#arrow-left"/></svg></button><button id="next" class="icon-button" aria-label="Next child"><svg><use href="assets/icons.svg#arrow-right"/></svg></button></div></div>
+      <div class="domain-tabs" role="tablist" aria-label="Learning domains" id="domain-tabs"></div>
+      <div class="editor-grid">
+        <div class="inputs-column">
+          <section class="panel rating-panel"><div class="section-title"><span class="step">01</span><h2>Learning indicator</h2><span class="muted tiny">Teacher selected</span></div><p class="help">A snapshot of learning, supported by your observations.</p><div id="ratings" class="rating-options" role="group" aria-label="Learning indicator"></div><div class="previous-rating"><svg><use href="assets/icons.svg#file-text"/></svg><span>Semester 1</span><strong id="prior-rating"></strong></div><p class="micro">Sample levels for this design study.</p></section>
+          <section class="panel"><div class="section-title"><span class="step">02</span><h2>Your observations</h2></div><p class="help">Rough notes are enough. What have you noticed?</p><label for="observations" class="sr-only">Your observations</label><textarea id="observations" rows="5" placeholder="A moment, an activity, or something the child is working on…"></textarea><div class="suggestion-heading">Add an observation <span>Optional</span></div><div id="suggestions" class="suggestions"></div><p class="micro">Only select observations you have seen.</p></section>
+          <section class="panel"><div class="section-title"><span class="step">03</span><h2>Learning moments</h2><span class="muted tiny">Optional</span></div><div class="photo-grid" id="photo-grid"></div><p class="micro">Illustrated placeholders only. Photos stay out of AI drafting.</p></section>
+        </div>
+        <section class="panel narrative-panel"><div class="narrative-heading"><span class="ai-icon"><svg><use href="assets/icons.svg#sparkle"/></svg></span><span class="eyebrow">BRINGING THE OBSERVATIONS TOGETHER</span></div><h2>A story of learning</h2><p class="help">Start with a draft, then make it your own.</p><div class="narrative-meta"><span id="output-language"></span><span id="draft-state" class="status-badge">Needs review</span></div><label class="sr-only" for="narrative">Report narrative</label><textarea id="narrative" rows="10"></textarea><div class="draft-actions"><button id="sample-draft" class="primary"><svg><use href="assets/icons.svg#sparkle"/></svg>Use sample draft</button><button id="translate" class="text-button"><svg><use href="assets/icons.svg#translate"/></svg>View translation</button></div><div id="translation" class="translation" hidden></div><div class="review-hint"><svg><use href="assets/icons.svg#book-open"/></svg><p>Your words, with a little support.<br><span>Check that the narrative reflects what you observed.</span></p></div><div class="narrative-bottom"><span id="save-status" role="status">Saved in this browser</span><button id="review" class="review-button"><svg><use href="assets/icons.svg#check"/></svg>Mark reviewed</button></div></section>
+      </div>
+      <footer class="editor-footer"><span><svg><use href="assets/icons.svg#check-circle"/></svg> Changes save as you work in this design preview.</span><button id="open-report" class="secondary">Preview portfolio <svg><use href="assets/icons.svg#arrow-right"/></svg></button></footer>
+    </div>
+  </section>
+  <section id="class-view" class="class-view" hidden><div class="page-heading"><div><span class="eyebrow">2026 · SEMESTER 2</span><h1>A little progress, every day.</h1><p>Your class portfolios, all in one place.</p></div><span class="class-label"><svg><use href="assets/icons.svg#users-three"/></svg>K1 Willow · 20 children</span></div><div class="class-summary"><span><strong id="class-reviewed">0</strong> reviewed</span><span><strong id="class-pending">20</strong> in progress</span><span>Four domains · one portfolio per child</span></div><div class="panel table-container"><table><thead><tr><th>Child</th><th>English</th><th>Chinese</th><th>Mathematics</th><th>Social-emotional</th><th></th></tr></thead><tbody id="class-table"></tbody></table></div><p class="micro">Names and portfolio content are fictional. Completion reflects the review states in this browser.</p></section>
+  <section id="report-view" class="report-view" hidden><div class="report-toolbar"><div><span class="eyebrow">PARENT-FACING LAYOUT</span><h2>Portfolio preview</h2><p>A fixed layout with room for each child's story.</p></div><button id="print" class="secondary"><svg><use href="assets/icons.svg#printer"/></svg>Print layout</button></div><div id="report-pages"></div></section>
+</main>
+<div id="toast" role="status" class="toast" hidden></div>
+<dialog id="replace-dialog"><h2>Replace this narrative?</h2><p>This inserts a fixed sample for the selected domain. Your observations will stay as they are. This preview does not call an AI model.</p><div class="dialog-actions"><button id="cancel-replace" class="secondary">Keep current text</button><button id="confirm-replace" class="primary">Use sample</button></div></dialog>
+<script src="app.js"></script>
+</body></html>

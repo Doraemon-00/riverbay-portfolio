@@ -1,0 +1,2 @@
+-- Auth users and related fictional portfolios are seeded via npm run setup:local.
+-- Never seed real children or photographs.
