@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Icon } from "@/components/icon";
 import { requireViewer } from "@/lib/auth";
 import { domains, rosterSelect, type RosterItem } from "@/lib/portfolio";
 import { Shell } from "@/components/shell";
@@ -23,7 +24,7 @@ export default async function Home() {
       <div className="page-heading">
         <p className="eyebrow">YOUR WORKSPACE</p>
         <h1>Room for every little story.</h1>
-        <p>Choose a child to continue their learning portfolio.</p>
+        <p>Every observation is a starting point. Choose a child to continue.</p>
       </div>
       {roster.length === 0 && (
         <section className="panel">
@@ -41,7 +42,8 @@ export default async function Home() {
               children
             </span>
           </div>
-          <div className="panel table-wrap">
+          <p className="hint mobile-table-hint">Swipe the table to see all four domains and open a portfolio.</p>
+          <div className="panel table-wrap" tabIndex={0} role="region" aria-label={`${children[0].classes.name} portfolio progress`}>
             <table>
               <thead>
                 <tr>
@@ -68,7 +70,7 @@ export default async function Home() {
                             className={`status ${entry?.narrative ? "started" : ""}`}
                           >
                             {entry?.narrative
-                              ? "Draft saved"
+                              ? "Draft"
                               : entry?.comments || entry?.rating
                                 ? "In progress"
                                 : "Not started"}
@@ -82,7 +84,7 @@ export default async function Home() {
                           className="text-link"
                           href={`/portfolio/${child.portfolios.id}`}
                         >
-                          Open →
+                          Open <Icon name="arrow-right" size={16} />
                         </Link>
                       ) : (
                         "Awaiting setup"

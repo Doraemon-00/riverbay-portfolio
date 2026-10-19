@@ -1,0 +1,437 @@
+[
+  {
+    "path": "cutouts/badges/bear.png",
+    "size": "1117x1228",
+    "sha256_16": "9b12f7f14b910fec"
+  },
+  {
+    "path": "cutouts/badges/bear.webp",
+    "size": "1117x1228",
+    "sha256_16": "92e52c607bbe2242"
+  },
+  {
+    "path": "cutouts/badges/beaver.png",
+    "size": "588x584",
+    "sha256_16": "d1bb03702290245a"
+  },
+  {
+    "path": "cutouts/badges/beaver.webp",
+    "size": "588x584",
+    "sha256_16": "8260d4577992fe30"
+  },
+  {
+    "path": "cutouts/badges/rabbit.png",
+    "size": "1190x1213",
+    "sha256_16": "63accf992f4b5d5f"
+  },
+  {
+    "path": "cutouts/badges/rabbit.webp",
+    "size": "1190x1213",
+    "sha256_16": "bcae0d5883e7c7d1"
+  },
+  {
+    "path": "cutouts/badges/squirrel.png",
+    "size": "1240x1222",
+    "sha256_16": "59749eee8ec2e04a"
+  },
+  {
+    "path": "cutouts/badges/squirrel.webp",
+    "size": "1240x1222",
+    "sha256_16": "a9696a240921d0f9"
+  },
+  {
+    "path": "cutouts/botanicals/clover.png",
+    "size": "198x300",
+    "sha256_16": "5d338a67749f5ed0"
+  },
+  {
+    "path": "cutouts/botanicals/clover.webp",
+    "size": "198x300",
+    "sha256_16": "bdf25b7632212ac9"
+  },
+  {
+    "path": "cutouts/botanicals/daisy.png",
+    "size": "203x241",
+    "sha256_16": "c985b3fa99badd20"
+  },
+  {
+    "path": "cutouts/botanicals/daisy.webp",
+    "size": "203x241",
+    "sha256_16": "13fa036e067fc54b"
+  },
+  {
+    "path": "cutouts/botanicals/leafy-sprig.png",
+    "size": "144x385",
+    "sha256_16": "821026e7513a35cf"
+  },
+  {
+    "path": "cutouts/botanicals/leafy-sprig.webp",
+    "size": "144x385",
+    "sha256_16": "529746a4e8b93cf2"
+  },
+  {
+    "path": "cutouts/botanicals/reeds.png",
+    "size": "169x415",
+    "sha256_16": "951850c4dfa7dee8"
+  },
+  {
+    "path": "cutouts/botanicals/reeds.webp",
+    "size": "169x415",
+    "sha256_16": "df27081b4e42a170"
+  },
+  {
+    "path": "cutouts/botanicals/wildflowers.png",
+    "size": "184x360",
+    "sha256_16": "8a8d8d0d6f64b716"
+  },
+  {
+    "path": "cutouts/botanicals/wildflowers.webp",
+    "size": "184x360",
+    "sha256_16": "e0b779764ef07051"
+  },
+  {
+    "path": "cutouts/botanicals/willow-leaves.png",
+    "size": "184x432",
+    "sha256_16": "a11199c1043bf471"
+  },
+  {
+    "path": "cutouts/botanicals/willow-leaves.webp",
+    "size": "184x432",
+    "sha256_16": "5f5b25ec7aa882a7"
+  },
+  {
+    "path": "cutouts/characters/bear.png",
+    "size": "945x1540",
+    "sha256_16": "fd000cf5511d5943"
+  },
+  {
+    "path": "cutouts/characters/bear.webp",
+    "size": "945x1540",
+    "sha256_16": "23ebd00428869d49"
+  },
+  {
+    "path": "cutouts/characters/beaver.png",
+    "size": "784x700",
+    "sha256_16": "8042cf00bc5036d0"
+  },
+  {
+    "path": "cutouts/characters/beaver.webp",
+    "size": "784x700",
+    "sha256_16": "44987939ed4f2b44"
+  },
+  {
+    "path": "cutouts/characters/deer.png",
+    "size": "328x520",
+    "sha256_16": "0c0b1246ae910d52"
+  },
+  {
+    "path": "cutouts/characters/deer.webp",
+    "size": "328x520",
+    "sha256_16": "6be73c2b6e892d2c"
+  },
+  {
+    "path": "cutouts/characters/rabbit.png",
+    "size": "992x1523",
+    "sha256_16": "0220003f2f8d063d"
+  },
+  {
+    "path": "cutouts/characters/rabbit.webp",
+    "size": "992x1523",
+    "sha256_16": "b2c146618da26abd"
+  },
+  {
+    "path": "cutouts/characters/squirrel.png",
+    "size": "328x412",
+    "sha256_16": "7a3e0a3c58260b67"
+  },
+  {
+    "path": "cutouts/characters/squirrel.webp",
+    "size": "328x412",
+    "sha256_16": "8f8a4a73fa73e457"
+  },
+  {
+    "path": "cutouts/decor/bottom-border.png",
+    "size": "2050x158",
+    "sha256_16": "ca52caef0d4e0839"
+  },
+  {
+    "path": "cutouts/decor/bottom-border.webp",
+    "size": "2050x158",
+    "sha256_16": "47e9febeb327e444"
+  },
+  {
+    "path": "cutouts/decor/corner-cluster.png",
+    "size": "534x615",
+    "sha256_16": "0abf1fda72c84599"
+  },
+  {
+    "path": "cutouts/decor/corner-cluster.webp",
+    "size": "534x615",
+    "sha256_16": "d5045134fb4e32f2"
+  },
+  {
+    "path": "cutouts/props/acorn.png",
+    "size": "1094x1241",
+    "sha256_16": "823c8f9f3dd35770"
+  },
+  {
+    "path": "cutouts/props/acorn.webp",
+    "size": "1094x1241",
+    "sha256_16": "5601e76f3cdc01ed"
+  },
+  {
+    "path": "cutouts/props/beehive.png",
+    "size": "1310x1168",
+    "sha256_16": "aa59763557ec19c4"
+  },
+  {
+    "path": "cutouts/props/beehive.webp",
+    "size": "1310x1168",
+    "sha256_16": "ed51af5e3d7883c7"
+  },
+  {
+    "path": "cutouts/props/carrot.png",
+    "size": "1181x1257",
+    "sha256_16": "75e7c16dfeb275e3"
+  },
+  {
+    "path": "cutouts/props/carrot.webp",
+    "size": "1181x1257",
+    "sha256_16": "f51116d821984eea"
+  },
+  {
+    "path": "cutouts/props/daisy.png",
+    "size": "1024x1531",
+    "sha256_16": "b090614abe6ecbc9"
+  },
+  {
+    "path": "cutouts/props/daisy.webp",
+    "size": "1024x1531",
+    "sha256_16": "12007f9b80e5baf6"
+  },
+  {
+    "path": "manifest.json",
+    "size": null,
+    "sha256_16": "f3d78b738e156e39"
+  },
+  {
+    "path": "mark/riverbay-logo-on-dark.svg",
+    "size": null,
+    "sha256_16": "cd7ec7cee48a2e55"
+  },
+  {
+    "path": "mark/riverbay-logo.svg",
+    "size": null,
+    "sha256_16": "9b668f78705cb734"
+  },
+  {
+    "path": "mark/riverbay-mark-mono-small.svg",
+    "size": null,
+    "sha256_16": "8190202e5fb4321f"
+  },
+  {
+    "path": "mark/riverbay-mark-mono.svg",
+    "size": null,
+    "sha256_16": "6dd0447c8e46291e"
+  },
+  {
+    "path": "mark/riverbay-mark-on-dark.svg",
+    "size": null,
+    "sha256_16": "0ccb6a3ee119283c"
+  },
+  {
+    "path": "mark/riverbay-mark-small.svg",
+    "size": null,
+    "sha256_16": "8e60490f82c59698"
+  },
+  {
+    "path": "mark/riverbay-mark.svg",
+    "size": null,
+    "sha256_16": "739563d02517b871"
+  },
+  {
+    "path": "mark/riverbay-wordmark-on-dark.svg",
+    "size": null,
+    "sha256_16": "64b26b967de1c7a7"
+  },
+  {
+    "path": "mark/riverbay-wordmark.svg",
+    "size": null,
+    "sha256_16": "4db243f9c21c46dc"
+  },
+  {
+    "path": "README.md",
+    "size": null,
+    "sha256_16": "85aa37ebcd806a73"
+  },
+  {
+    "path": "rings/ring-beginning.svg",
+    "size": null,
+    "sha256_16": "d7eb53eb6faa46fd"
+  },
+  {
+    "path": "rings/ring-consistently-shown.svg",
+    "size": null,
+    "sha256_16": "79666436800de938"
+  },
+  {
+    "path": "rings/ring-developing.svg",
+    "size": null,
+    "sha256_16": "f538a45c7feb18b9"
+  },
+  {
+    "path": "rings/ring-unassessed.svg",
+    "size": null,
+    "sha256_16": "2c2a01e550ebf2ac"
+  },
+  {
+    "path": "source/badge-bear.png",
+    "size": "1254x1254",
+    "sha256_16": "ea62e5ec4bd624b0"
+  },
+  {
+    "path": "source/badge-rabbit.png",
+    "size": "1254x1254",
+    "sha256_16": "7949770c45bfe2e0"
+  },
+  {
+    "path": "source/badge-squirrel.png",
+    "size": "1254x1254",
+    "sha256_16": "236e630fa91b84b0"
+  },
+  {
+    "path": "source/banner-riverbank.png",
+    "size": "1584x672",
+    "sha256_16": "9e2a1165a10d3bd2"
+  },
+  {
+    "path": "source/banner-riverbank.webp",
+    "size": "1584x672",
+    "sha256_16": "62db84e3899407c7"
+  },
+  {
+    "path": "source/botanicals-sheet.png",
+    "size": "1584x672",
+    "sha256_16": "66f16e34b0ff960b"
+  },
+  {
+    "path": "source/bottom-border.png",
+    "size": "2064x512",
+    "sha256_16": "92cf5a67597de76f"
+  },
+  {
+    "path": "source/corner-cluster.png",
+    "size": "1024x1024",
+    "sha256_16": "e4006a5ea68e10ab"
+  },
+  {
+    "path": "source/fonts/Nunito.ttf",
+    "size": null,
+    "sha256_16": "bb55a5ca5c204233"
+  },
+  {
+    "path": "source/fonts/OFL.txt",
+    "size": null,
+    "sha256_16": "580df76c95a1ec5a"
+  },
+  {
+    "path": "source/mark-option-a-beaver-badge.png",
+    "size": "1024x1024",
+    "sha256_16": "de12829b236a50ec"
+  },
+  {
+    "path": "source/mascot-beaver.png",
+    "size": "1024x1024",
+    "sha256_16": "f1614d824cb782b2"
+  },
+  {
+    "path": "source/prop-acorn.png",
+    "size": "1187x1325",
+    "sha256_16": "b75996d7a2d78aa9"
+  },
+  {
+    "path": "source/prop-beehive-smooth-v1.png",
+    "size": "1312x1199",
+    "sha256_16": "90f475b5e6b9a6dc"
+  },
+  {
+    "path": "source/prop-beehive.png",
+    "size": "1312x1199",
+    "sha256_16": "b32901ca562e98de"
+  },
+  {
+    "path": "source/prop-carrot.png",
+    "size": "1238x1271",
+    "sha256_16": "da1003864ce45ebe"
+  },
+  {
+    "path": "source/prop-daisy-smooth-v1.png",
+    "size": "1024x1536",
+    "sha256_16": "bb139aaee7abde61"
+  },
+  {
+    "path": "source/prop-daisy.png",
+    "size": "1024x1536",
+    "sha256_16": "c3b25bbc0df98452"
+  },
+  {
+    "path": "source/supporting-animals-sheet.png",
+    "size": "1584x672",
+    "sha256_16": "5e73c3e5da1fa93e"
+  },
+  {
+    "path": "source/supporting-bear-beehive-smooth-v1.png",
+    "size": "945x1665",
+    "sha256_16": "60a097d1555a6e8b"
+  },
+  {
+    "path": "source/supporting-bear-beehive.png",
+    "size": "945x1665",
+    "sha256_16": "7c48eed79030d786"
+  },
+  {
+    "path": "source/supporting-bear-honeycomb.png",
+    "size": "945x1665",
+    "sha256_16": "751e8ec54852fa72"
+  },
+  {
+    "path": "source/supporting-rabbit-carrot.png",
+    "size": "1024x1536",
+    "sha256_16": "fcae2e340dff446e"
+  },
+  {
+    "path": "tokens/riverbay-tokens.css",
+    "size": null,
+    "sha256_16": "60020965f28393d4"
+  },
+  {
+    "path": "tokens/riverbay-tokens.json",
+    "size": null,
+    "sha256_16": "7ff1fc2348156f13"
+  },
+  {
+    "path": "tools/badge-prompts.json",
+    "size": null,
+    "sha256_16": "3d443a916201822b"
+  },
+  {
+    "path": "tools/bear-held-beehive-matte-prompt.json",
+    "size": null,
+    "sha256_16": "3d64c3e215f88e89"
+  },
+  {
+    "path": "tools/build_assets.py",
+    "size": null,
+    "sha256_16": "3ede7f7e2cc9ae55"
+  },
+  {
+    "path": "tools/prop-matte-prompts.json",
+    "size": null,
+    "sha256_16": "9bd1bc34af2f74e7"
+  },
+  {
+    "path": "tools/prop-prompts.json",
+    "size": null,
+    "sha256_16": "1761b44cb22ba7dd"
+  }
+]

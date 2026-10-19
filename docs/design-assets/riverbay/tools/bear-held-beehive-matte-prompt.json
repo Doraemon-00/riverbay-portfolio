@@ -1,0 +1,5 @@
+{
+  "date": "2026-10-19",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Image 1 is edit target, a full-body yellow preschool bear holding a beehive. Image 2 is the approved MATTE BEEHIVE texture reference. Change ONLY the golden beehive that the bear holds: remove every bold white shiny highlight, smooth gradient shading and glow, replacing with flat matte golden yellow colouring with fine diagonal uneven crayon/felt-marker strokes and tiny paperlike pigment gaps, matching image 2. Keep the held hive's current exact size, silhouette, stacked horizontal bands, small oval entrance and position between the paws. Preserve ALL of the bear exactly as in image 1, including fur colouring, white marker streaks on fur, eyes, muzzle, smile, ears, cheeks, mint belly, body proportions, outline, pose, paws, tail and feet. Do not apply the new texture across the bear. No new objects, no words, no scene. Full body visible. Preserve genuine transparent background and alpha; no halo or shadows."
+}

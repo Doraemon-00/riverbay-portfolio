@@ -2,6 +2,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { saveEntry } from "@/app/actions";
 import { type Entry, domains, ratingLabels } from "@/lib/portfolio";
+import { Icon } from "./icon";
 import { RatingRing } from "./rating-ring";
 
 export function DomainEditor({
@@ -119,6 +120,7 @@ export function DomainEditor({
                   </button>
                 ))}
               </div>
+              <button type="button" className={`unassessed-option ${rating === null ? "selected" : ""}`} aria-pressed={rating === null} onClick={() => { setRating(null); changed(); }}><RatingRing level={null} />Not yet assessed</button>
               <div className="previous-rating">
                 Semester 1:{" "}
                 <strong>
@@ -127,16 +129,6 @@ export function DomainEditor({
                     : ratingLabels[previousRating - 1]}
                 </strong>
               </div>
-              <button
-                type="button"
-                className="quiet"
-                onClick={() => {
-                  setRating(null);
-                  changed();
-                }}
-              >
-                Clear indicator
-              </button>
             </section>
             <section className="panel">
               <label htmlFor="comments">
@@ -192,8 +184,7 @@ export function DomainEditor({
               }
             />
             <p className="hint">
-              Saving stores a draft. Final review and PDF export are not
-              connected yet.
+              Draft only · Final review and PDF export are not connected yet.
             </p>
           </section>
         </div>
@@ -205,7 +196,7 @@ export function DomainEditor({
             {pending ? "Saving…" : message}
           </p>
           <button className="primary" disabled={pending || !dirty}>
-            {pending ? "Saving…" : "Save changes"}
+            <Icon name="check-circle" />{pending ? "Saving…" : "Save changes"}
           </button>
         </div>
       </fieldset>

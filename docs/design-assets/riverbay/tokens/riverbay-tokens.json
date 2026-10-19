@@ -1,0 +1,38 @@
+{
+  "color": {
+    "neutral/paper": "#FBF7EE",
+    "neutral/surface": "#FFFFFF",
+    "neutral/line": "#E4E2D8",
+    "neutral/field-border": "#8F978F",
+    "text/ink": "#2B3631",
+    "text/muted": "#5B6862",
+    "action/primary": "#2F5C4D",
+    "action/primary-tint": "#E3F1E8",
+    "action/on-primary": "#FFFFFF",
+    "decor/mint": "#D5EDDF",
+    "decor/peach": "#F6D5C1",
+    "decor/powder-blue": "#DCECF2",
+    "decor/butter": "#F8EDBC",
+    "decor/lavender": "#E9E0F3",
+    "ring/fill": "#8467C4",
+    "ring/track": "#ECE7F4",
+    "status/success": "#2E6B4E",
+    "status/success-bg": "#E3F1E8",
+    "status/attention": "#7A5300",
+    "status/attention-bg": "#FBF0C9",
+    "status/danger": "#A1392C",
+    "status/danger-bg": "#FBE4DE",
+    "status/info": "#2D5C78",
+    "status/info-bg": "#E1EEF5"
+  },
+  "radius": {
+    "control": 10,
+    "card": 18,
+    "pill": 999
+  },
+  "font": {
+    "display": "Nunito",
+    "ui": "DM Sans",
+    "zh": "Noto Sans SC"
+  }
+}

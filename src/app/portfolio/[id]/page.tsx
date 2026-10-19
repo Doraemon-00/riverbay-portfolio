@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Icon } from "@/components/icon";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 import { requireViewer } from "@/lib/auth";
@@ -69,7 +70,7 @@ export default async function Portfolio({
   return (
     <Shell profile={profile}>
       <Link className="text-link" href="/">
-        ← Back to my classes
+        <Icon name="arrow-left" size={18} /> Back to my classes
       </Link>
       <div className="child-heading">
         <div>
@@ -82,7 +83,7 @@ export default async function Portfolio({
         <nav className="child-nav" aria-label="Children">
           {previous && (
             <Link href={`/portfolio/${previous.id}?domain=${selected.id}`}>
-              ← Previous
+              <Icon name="arrow-left" size={18} /> Previous
             </Link>
           )}
           <span>
@@ -90,7 +91,7 @@ export default async function Portfolio({
           </span>
           {next && (
             <Link href={`/portfolio/${next.id}?domain=${selected.id}`}>
-              Next →
+              Next <Icon name="arrow-right" size={18} />
             </Link>
           )}
         </nav>
