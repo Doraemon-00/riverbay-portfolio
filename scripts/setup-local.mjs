@@ -1,6 +1,5 @@
 import { execFileSync } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
-import { randomBytes } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 
 // Local-only: never seed or reset a hosted project with this script.
@@ -21,10 +20,9 @@ const check = (result) => {
   return result.data;
 };
 const id = (n) => `10000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
-await writeFile(
-  ".env.local",
-  `NEXT_PUBLIC_SUPABASE_URL=${endpoint}\nNEXT_PUBLIC_SUPABASE_ANON_KEY=${status.ANON_KEY}\n`,
-);
+const priorEnv = await readFile(".env.local", "utf8").catch(error => { if (error.code === "ENOENT") return ""; throw error; });
+const retainedEnv = priorEnv.split(/\r?\n/).filter(line => !/^(NEXT_PUBLIC_SUPABASE_URL|NEXT_PUBLIC_SUPABASE_ANON_KEY|SUPABASE_SERVICE_ROLE_KEY)=/.test(line)).join("\n").trim();
+await writeFile(".env.local", `${retainedEnv ? retainedEnv + "\n" : ""}NEXT_PUBLIC_SUPABASE_URL=${endpoint}\nNEXT_PUBLIC_SUPABASE_ANON_KEY=${status.ANON_KEY}\nSUPABASE_SERVICE_ROLE_KEY=${status.SERVICE_ROLE_KEY}\n`);
 const existing = check(await db.from("children").select("id").limit(1));
 if (existing.length) {
   console.log(
@@ -32,15 +30,8 @@ if (existing.length) {
   );
   process.exit(0);
 }
-// Keep the chosen password local; new checkouts generate one unless overridden.
-let password = process.env.DEMO_PASSWORD;
-if (!password) {
-  try {
-    password = JSON.parse(await readFile(".demo-access.txt", "utf8")).password;
-  } catch {
-    password = `Rb!${randomBytes(18).toString("base64url")}`;
-  }
-}
+// Shared credentials for this fictional demo, matching newly provisioned teachers.
+const password = "teach2LEARN";
 const accounts = [
   { email: "admin@riverbay.com", name: "Morgan Tan", role: "admin" },
   { email: "teacher@riverbay.com", name: "Jamie Lee", role: "teacher" },
@@ -61,7 +52,7 @@ for (const account of accounts) {
   check(
     await db
       .from("profiles")
-      .upsert({ id: user.id, display_name: account.name, role: account.role }),
+      .upsert({ id: user.id, display_name: account.name, role: account.role, email: account.email }),
   );
 }
 await writeFile(
@@ -89,9 +80,9 @@ check(
   ]),
 );
 check(
-  await db.from("teacher_assignments").upsert([
-    { teacher_id: accounts[1].id, class_id: id(1), period_id: id(12) },
-    { teacher_id: accounts[2].id, class_id: id(2), period_id: id(12) },
+  await db.from("class_teachers").upsert([
+    { teacher_id: accounts[1].id, class_id: id(1) },
+    { teacher_id: accounts[2].id, class_id: id(2) },
   ]),
 );
 const names = [
@@ -128,22 +119,10 @@ const admin = createClient(endpoint, status.ANON_KEY, {
 check(
   await admin.auth.signInWithPassword({ email: accounts[0].email, password }),
 );
-for (let i = 0; i < children.length; i++) {
-  check(
-    await admin.rpc("set_enrolment", {
-      student_id: children[i].id,
-      target_class: id(i < 20 ? 1 : 2),
-      target_period: id(12),
-    }),
-  );
-  if (i < 3) {
-    check(
-      await admin.rpc("set_enrolment", {
-        student_id: children[i].id,
-        target_class: id(2),
-        target_period: id(11),
-      }),
-    );
+for (const [classId, selected] of [[id(1), children.slice(0, 20)], [id(2), children.slice(20)]]) {
+  check(await admin.rpc("manage_class", { command: "assign_students", payload: { year: 2026, class_id: classId, ids: selected.map(c => c.id) } }));
+}
+for (let i = 0; i < 3; i++) {
     const enrolment = check(
       await db
         .from("enrolments")
@@ -165,7 +144,6 @@ for (let i = 0; i < children.length; i++) {
         .update({ rating: 1 })
         .eq("portfolio_id", portfolio.id),
     );
-  }
 }
 console.log(
   "Local setup complete: admin, two teachers, two classes, 20-child main class and semester history. Access details: .demo-access.txt",

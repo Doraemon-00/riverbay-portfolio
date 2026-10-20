@@ -159,3 +159,22 @@ The line below Welcome back is now "A home for every child’s story." This repl
 ### Latest approved sign-in subtitle
 
 "Every little observation, part of their story." replaces the previous subtitle below Welcome back. Keep normal wrapping for accessibility; target a single line at desktop and 390px.
+
+
+## Class administration — selected Style A implemented
+
+Open class directory on the cream page, with a faint mint navigation area, fine dividers and inline bulk actions. Students, Teachers and Settings share the selected class/year context. Mobile uses a class picker above the detail area. B (full-width index) and C (allocation board) remain future options, not current screens. No illustration in administration and no quick-tour source changes.
+
+## Administration navigation — school-wide directories
+
+Classes / Students / Teachers are persistent navigation inside Administration, using Style A's open cream surfaces, fine dividers, Phosphor icons and mint selection toolbar. No separate card landing page. Classes retain their existing annual directory and contextual Students / Teachers / Settings navigation. Students and Teachers clearly say All students / All teachers. Names/IDs and actions remain visible at 390px; auxiliary status and class columns become a summary under the name. Existing focus/dropdown and spacing refinements are retained. Quick-tour content remains unchanged pending explicit approval.
+
+## Administration polish — 20 October 2026
+
+Plus and close now use their clean foreground Phosphor paths without tinted square layers. This is a trial for those two symbols only; extending the rule to the other icons awaits user approval. Other sprite symbols are unchanged.
+
+Administration notifications float at the upper right (inset at mobile width), so success feedback does not move controls or tables. Success expires after five seconds with hover/focus pause and an explicit dismiss action. Errors persist or stay in their form dialog. Status changes preserve the current filter; View active / View archived / View inactive are explicit shortcuts. Creating a student/teacher intentionally shows that record in Active. Add teacher follows the existing form/dialog style, with optional class selection collapsed initially and initial credentials shown once after creation. Quick tour remains untouched.
+
+### Demo account lifecycle — 20 October 2026
+
+Teachers and students use **Archive / Restore** and **Active / Archived** in the interface. Teacher archive confirmations explain that sign-in and class access are blocked while assignments and contributions are retained. Internal teacher access flags and RPC identifiers remain unchanged. All fictional demo staff accounts, including newly added teachers, use the shared password `teach2LEARN`. Production invitations and recovery remain future work.

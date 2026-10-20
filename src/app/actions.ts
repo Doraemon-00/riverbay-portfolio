@@ -11,48 +11,19 @@ export async function login(form: FormData) {
     .safeParse(Object.fromEntries(form));
   if (!parsed.success) redirect("/login?error=invalid");
   const db = await database();
-  const { error } = await db.auth.signInWithPassword(parsed.data);
+  const { data: session, error } = await db.auth.signInWithPassword(parsed.data);
   if (error) redirect("/login?error=invalid");
+  const { data: profile } = await db.from("profiles").select("is_active").eq("id", session.user!.id).single();
+  if (profile && !profile.is_active) {
+    await db.auth.signOut({ scope: "local" });
+    redirect("/login?error=inactive");
+  }
   redirect("/");
 }
 export async function logout() {
   const db = await database();
   await db.auth.signOut();
   redirect("/login");
-}
-const assignment = z.object({
-  teacher_id: z.uuid(),
-  class_id: z.uuid(),
-  period_id: z.uuid(),
-});
-export async function changeAssignment(form: FormData) {
-  const { db } = await requireViewer(true);
-  const parsed = assignment.safeParse(Object.fromEntries(form));
-  if (!parsed.success) redirect("/admin?error=invalid");
-  const value = parsed.data;
-  const { error } =
-    form.get("operation") === "remove"
-      ? await db.from("teacher_assignments").delete().match(value)
-      : await db.from("teacher_assignments").insert(value);
-  if (error)
-    redirect(`/admin?error=${error.code === "23505" ? "duplicate" : "save"}`);
-  revalidatePath("/", "layout");
-  redirect("/admin?notice=assignment");
-}
-export async function enrolChild(form: FormData) {
-  const { db } = await requireViewer(true);
-  const parsed = z
-    .object({
-      student_id: z.uuid(),
-      target_class: z.uuid(),
-      target_period: z.uuid(),
-    })
-    .safeParse(Object.fromEntries(form));
-  if (!parsed.success) redirect("/admin?error=invalid");
-  const { error } = await db.rpc("set_enrolment", parsed.data);
-  if (error) redirect("/admin?error=save");
-  revalidatePath("/", "layout");
-  redirect("/admin?notice=enrolment");
 }
 export type SaveResult = { ok: boolean; revision?: number; message: string };
 export async function saveEntry(form: FormData): Promise<SaveResult> {

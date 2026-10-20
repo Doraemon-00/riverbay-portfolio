@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "db:start": "node scripts/start-local.mjs",
     "setup:local": "node scripts/setup-local.mjs",
-    "test:access": "node --env-file=.env.local scripts/check-access.mjs"
+    "test:access": "node --env-file=.env.local scripts/check-access.mjs",
+    "test:directory": "node --env-file=.env.local scripts/check-directory.mjs",
+    "test:teacher-setup": "node --experimental-strip-types --conditions=react-server --env-file=.env.local scripts/check-teacher-setup.mjs"
   },
   "dependencies": {
     "@fontsource-variable/noto-sans-sc": "5.3.1",
@@ -22,6 +24,7 @@
     "next": "16.4.2",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {

@@ -34,7 +34,7 @@ export default async function Login({ searchParams }: {
             </div>
             {error && (
               <p role="alert" className="error">
-                {error === "profile"
+                {error === "inactive" ? "Your account is archived. Contact your administrator." : error === "profile"
                   ? "Your account needs a staff profile. Contact your administrator."
                   : "Unable to sign in. Check your email and password."}
               </p>

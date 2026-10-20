@@ -36,7 +36,7 @@ export function Shell({
             My classes
           </Link>
           {profile.role === "admin" && (
-            <Link href="/admin">Class administration</Link>
+            <Link href="/admin">Administration</Link>
           )}
         </nav>
         <QuickTour />

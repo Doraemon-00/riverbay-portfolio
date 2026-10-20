@@ -69,7 +69,7 @@ export default async function Portfolio({
     next = classmates[index + 1]?.portfolios;
   return (
     <Shell profile={profile}>
-      <Link className="text-link" href="/">
+      <Link className="text-link" href={`/?period=${child.period_id}`}>
         <Icon name="arrow-left" size={18} /> Back to my classes
       </Link>
       <div className="child-heading">
@@ -82,7 +82,7 @@ export default async function Portfolio({
         </div>
         <nav className="child-nav" aria-label="Children">
           {previous && (
-            <Link href={`/portfolio/${previous.id}?domain=${selected.id}`}>
+            <Link scroll={false} href={`/portfolio/${previous.id}?domain=${selected.id}`}>
               <Icon name="arrow-left" size={18} /> Previous
             </Link>
           )}
@@ -90,7 +90,7 @@ export default async function Portfolio({
             {index + 1} of {classmates.length}
           </span>
           {next && (
-            <Link href={`/portfolio/${next.id}?domain=${selected.id}`}>
+            <Link scroll={false} href={`/portfolio/${next.id}?domain=${selected.id}`}>
               Next <Icon name="arrow-right" size={18} />
             </Link>
           )}
@@ -100,7 +100,7 @@ export default async function Portfolio({
         {domains.map((d) => (
           <Link
             key={d.id}
-            href={`/portfolio/${id}?domain=${d.id}`}
+            scroll={false} href={`/portfolio/${id}?domain=${d.id}`}
             aria-current={selected.id === d.id ? "page" : undefined}
           >
             <span className={`domain-badge ${d.id}`}>{d.short}</span>

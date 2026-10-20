@@ -4,11 +4,20 @@ import { requireViewer } from "@/lib/auth";
 import { domains, rosterSelect, type RosterItem } from "@/lib/portfolio";
 import { Shell } from "@/components/shell";
 export const instant = false;
-export default async function Home() {
+export default async function Home({ searchParams }: { searchParams: Promise<{ period?: string }> }) {
   const { db, profile } = await requireViewer();
-  const { data, error } = await db.from("enrolments").select(rosterSelect);
-  if (error) throw new Error("Could not load your classes. Please try again.");
-  const roster = (data as unknown as RosterItem[]).sort(
+  const query = await searchParams;
+  const results = await Promise.all([
+    db.from("enrolments").select(rosterSelect),
+    db.from("reporting_periods").select("id,year,semester").order("year", { ascending: false }).order("semester", { ascending: false }),
+    db.from("class_memberships").select("child_id,class_id,academic_year,access_enabled"),
+  ]);
+  if (results.some(r => r.error)) throw new Error("Could not load your classes. Please try again.");
+  const all = (results[0].data as unknown as RosterItem[]).filter(item => item.children && !item.children.archived_at && !item.classes.archived_at && results[2].data!.some(m => m.child_id === item.child_id && m.class_id === item.class_id && m.academic_year === item.reporting_periods.year && m.access_enabled));
+  const available = results[1].data!.filter(p => all.some(item => item.period_id === p.id));
+  const periods = available.length ? available : results[1].data!;
+  const chosen = periods.find(p => p.id === query.period) ?? periods[0];
+  const roster = all.filter(item => item.period_id === chosen?.id).sort(
     (a, b) =>
       b.reporting_periods.year - a.reporting_periods.year ||
       b.reporting_periods.semester - a.reporting_periods.semester ||
@@ -26,10 +35,11 @@ export default async function Home() {
         <h1>Room for every little story.</h1>
         <p>Every observation is a starting point. Choose a child to continue.</p>
       </div>
+      {periods.length > 0 && <form className="semester-picker" method="get" action="/"><label>Portfolio semester<select name="period" defaultValue={chosen?.id}>{periods.map(p => <option key={p.id} value={p.id}>{p.year} · Semester {p.semester}</option>)}</select></label><button className="secondary">Open semester</button></form>}
       {roster.length === 0 && (
         <section className="panel">
-          <h2>No class assigned yet</h2>
-          <p>Your administrator can assign your class and reporting period.</p>
+          <h2>No portfolios here yet</h2>
+          <p>Your administrator can assign teachers and students to a class for the academic year.</p>
         </section>
       )}
       {[...groups.entries()].map(([key, children]) => (

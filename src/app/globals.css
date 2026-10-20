@@ -5,14 +5,17 @@
 :root {
  --paper:var(--rb-neutral-paper); --ink:var(--rb-text-ink); --muted:var(--rb-text-muted); --line:var(--rb-neutral-line); --green:var(--rb-action-primary); --mint:var(--rb-decor-mint); --peach:var(--rb-decor-peach); --blue:var(--rb-decor-powder-blue); --yellow:var(--rb-decor-butter); --lavender:var(--rb-decor-lavender);
 }
-* { box-sizing:border-box; }
+* { box-sizing:border-box; scrollbar-width:thin; scrollbar-color:#C6CEC2 transparent; }
+@media (hover:hover) { .admin-dialog-content:hover,.directory-table-scroll:hover,.people-picker:hover { scrollbar-color:#A3B19F transparent; } }
+@media (forced-colors:active) { * { scrollbar-color:auto; } }
+html { scrollbar-gutter:stable; }
 body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.6 "DM Sans","Noto Sans SC Variable",sans-serif; }
 a { color:inherit; text-decoration:none; }
 button,input,textarea,select { font:inherit; }
 button,.button { cursor:pointer; }
 button { border:0; }
 button:disabled { cursor:default; opacity:.6; }
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible { outline:3px solid var(--green); outline-offset:4px; }
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid var(--green); outline-offset:2px; }
 h1,h2,p { margin-top:0; }
 h1,h2 { font-family:"Nunito Variable","Noto Sans SC Variable",sans-serif; }
 h1 { font-size:40px; line-height:1.18; font-weight:800; letter-spacing:-1px; margin-bottom:12px; }
@@ -160,4 +163,181 @@ label h2 { margin-bottom:0; }
 @media(min-width:601px) and (max-width:1000px) {
  .login-layout { gap:40px; } .login-story h1 { font-size:40px; }
  .login-page .login-auth { padding:28px; }
+}
+
+/* Class administration: open directory layout, no enclosing paper cards. */
+.admin-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:32px; }
+.admin-heading h1 { margin:0; font-size:36px; }
+.admin-heading h2 { margin:0; font-size:28px; }
+.admin-heading .hint { margin:6px 0 0; max-width:620px; }
+.administration-heading { margin-bottom:22px; }
+.administration-heading h1 { margin:0; font-size:36px; }
+.administration-nav { display:flex; gap:8px; padding-bottom:24px; margin-bottom:28px; border-bottom:1px solid var(--line); }
+.administration-nav button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:10px 22px; border-radius:10px; background:transparent; color:var(--muted); font-weight:600; }
+.administration-nav button:hover { background:color-mix(in srgb,var(--mint) 45%,transparent); }
+.administration-nav button[aria-current="page"] { background:var(--green); color:white; }
+.person-reference { display:block; font-size:12px; color:var(--muted); font-weight:400; margin-top:4px; }
+.assignment-list { display:flex; flex-direction:column; gap:6px; font-size:13px; }
+.people-table th[scope="row"] { min-width:130px; }
+.directory-table-scroll { overflow:auto; }
+.people-table td:last-child { text-align:right; }
+.people-table .text-action { white-space:nowrap; }
+.mobile-person-summary { display:none; }
+.people-directory .status.started { background:var(--rb-status-success-bg); color:var(--rb-status-success); }
+.admin-heading-actions { display:flex; align-items:flex-end; gap:16px; }
+.compact-label { margin:0; font-size:12px; font-weight:400; }
+.compact-label select { margin-top:4px; min-width:110px; }
+.admin-directory { display:grid; grid-template-columns:220px minmax(0,1fr); gap:32px; }
+.class-directory { padding:18px 14px; background:color-mix(in srgb,var(--mint) 25%,transparent); border-right:1px solid var(--line); min-width:0; }
+.class-directory > .eyebrow { padding:0 10px; }
+.class-directory nav { display:flex; flex-direction:column; gap:4px; }
+.class-directory nav button { display:flex; align-items:center; gap:10px; min-height:54px; padding:12px 10px; width:100%; background:transparent; color:var(--muted); text-align:left; border-left:3px solid transparent; }
+.class-directory nav button[aria-current="page"] { color:var(--green); background:var(--mint); border-left-color:var(--green); font-weight:600; }
+.class-directory nav small { display:block; font-size:11px; font-weight:400; }
+.directory-count { margin-left:auto; font-size:13px; font-variant-numeric:tabular-nums; }
+.class-directory .unassigned-class { border-top:1px solid var(--line); margin-top:14px; padding-top:16px; }
+.class-detail { min-width:0; }
+.class-detail-heading h2 { font-size:28px; margin-bottom:6px; }
+.class-detail-heading p { color:var(--muted); font-size:14px; margin-bottom:20px; }
+.admin-tabs { display:flex; border-bottom:1px solid var(--line); gap:28px; margin-bottom:24px; }
+.admin-tabs button { background:transparent; color:var(--muted); border-bottom:3px solid transparent; padding:12px 4px; font-size:15px; min-height:48px; }
+.admin-tabs button[aria-current="page"] { border-bottom-color:var(--green); color:var(--green); font-weight:600; }
+.directory-toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:20px; }
+.search-field { display:flex; align-items:center; gap:8px; border:1px solid var(--rb-neutral-field-border); border-radius:10px; padding:0 12px; margin:0; flex:1; min-width:180px; font-weight:400; }
+.search-field input { border:0; background:transparent; margin:0; padding:11px 0; font-size:15px; }
+.search-field:focus-within { border-color:var(--green); box-shadow:inset 0 0 0 1px var(--green); }
+.search-field input:focus-visible { outline:0; }
+.directory-toolbar select { margin:0; background:transparent; }
+.bulk-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:16px 24px; padding:16px 20px; background:var(--mint); margin-bottom:20px; border-radius:6px; font-size:13px; }
+.bulk-toolbar strong { margin-right:4px; }
+.bulk-toolbar .text-action { padding-inline:8px; white-space:nowrap; }
+.bulk-toolbar > .text-action:last-child { margin-left:auto; }
+.bulk-toolbar select { margin:0; background:var(--paper); max-width:180px; font-size:13px; }
+.text-action { display:inline-flex; align-items:center; gap:6px; min-height:44px; padding:6px 3px; color:var(--green); background:transparent; font-size:13px; font-weight:600; }
+.text-action.danger { color:var(--rb-status-danger); }
+.directory-table { white-space:normal; }
+.directory-table thead { background:transparent; color:var(--muted); }
+.directory-table th,.directory-table td { padding:16px 12px; font-size:14px; }
+.directory-table td:last-child { color:var(--muted); font-size:13px; }
+.directory-table .selection-column { width:48px; }
+.directory-table input[type="checkbox"],.check-label input[type="checkbox"],.picker-row input { width:20px; height:20px; min-height:20px; padding:0; margin:0; accent-color:var(--green); flex-shrink:0; cursor:pointer; }
+.directory-table tbody tr:hover { background:color-mix(in srgb,var(--mint) 25%,transparent); }
+.directory-table .is-selected,.picker-row.is-selected { background:color-mix(in srgb,var(--mint) 60%,transparent); }
+.check-label { display:flex; gap:10px; align-items:center; min-height:44px; margin:0; font-weight:400; font-size:13px; }
+.directory-archive-toggle { margin-top:24px; align-items:flex-start; }
+.directory-archive-toggle input { margin-top:3px!important; }
+.directory-empty { padding:32px 12px; }
+.directory-empty h3 { font-size:18px; margin:0 0 8px; }
+.directory-footnote { margin-top:24px; }
+.secondary { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 16px; border:1px solid var(--rb-neutral-field-border); border-radius:10px; background:transparent; color:var(--green); font-size:14px; }
+.secondary.danger { color:var(--rb-status-danger); }
+.class-settings { max-width:650px; }
+.class-settings h3 { font-family:"Nunito Variable",sans-serif; font-size:20px; margin:0 0 12px; font-weight:800; }
+.settings-fields { display:grid; grid-template-columns:1fr 2fr; gap:16px; }
+.settings-section { margin-top:28px; padding-top:24px; border-top:1px solid var(--line); }
+.icon-button { display:inline-grid; place-items:center; width:44px; min-height:44px; border-radius:8px; background:transparent; color:var(--green); }
+.admin-notification { position:fixed; top:24px; right:24px; z-index:50; display:flex; align-items:flex-start; gap:12px; max-width:min(440px,calc(100vw - 32px)); padding:14px 12px 14px 16px; border:1px solid var(--line); border-radius:14px; background:var(--rb-status-success-bg); color:var(--rb-status-success); box-shadow:0 8px 28px #2B36311A; }
+.admin-notification > .icon { margin-top:4px; }
+.admin-notification .icon-button { flex-shrink:0; margin-top:-4px; color:inherit; }
+.notice-content { min-width:0; flex:1; font-size:14px; }
+.notice-content p { margin:0; }
+.notice-action { background:transparent; color:inherit; text-decoration:underline; text-underline-offset:4px; padding:6px 0 0; min-height:36px; font-weight:600; text-align:left; }
+.admin-notification.is-error { background:var(--rb-status-danger-bg); color:var(--rb-status-danger); }
+.optional-assignments { border-top:1px solid var(--line); padding-top:12px; }
+.optional-assignments summary { cursor:pointer; color:var(--green); font-size:14px; font-weight:600; padding:8px 0; min-height:44px; }
+.optional-assignments[open] summary { margin-bottom:12px; }
+.credential-field { display:flex; align-items:center; gap:12px; }
+.credential-field input { min-width:0; }
+.credential-field .text-action { margin-top:7px; padding:8px; }
+.admin-dialog { width:calc(100% - 32px); max-width:560px; max-height:calc(100svh - 32px); border:1px solid var(--line); padding:24px; border-radius:18px; color:var(--ink); background:var(--paper); margin:auto; box-shadow:0 24px 80px #2B363133; }
+.admin-dialog::backdrop { background:#2B363166; }
+.admin-dialog .section-heading { flex-wrap:nowrap; gap:12px; }
+.admin-dialog .icon-button { flex-shrink:0; }
+.dialog-actions { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.dialog-actions > .hint { margin-right:auto; }
+.people-picker { max-height:320px; overflow:auto; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.picker-row { display:flex; align-items:center; gap:12px; margin:0; padding:12px; border-bottom:1px solid var(--line); font-size:14px; font-weight:400; cursor:pointer; }
+.picker-row small { display:block; font-size:12px; color:var(--muted); }
+.picker-search { margin:12px 0; }
+.picker-select-all { margin-bottom:8px; }
+.semester-picker { display:flex; gap:12px; align-items:flex-end; margin-bottom:28px; }
+.semester-picker label { margin:0; }
+@media(max-width:1000px) { .admin-directory { grid-template-columns:185px minmax(0,1fr); gap:22px; } .admin-heading { align-items:flex-start; flex-wrap:wrap; } }
+@media(max-width:700px) {
+ .admin-notification { top:16px; right:16px; left:16px; max-width:none; }
+ .administration-heading h1 { font-size:30px; }
+ .administration-nav { gap:4px; padding-bottom:20px; margin-bottom:24px; }
+ .administration-nav button { flex:1; padding:10px 8px; font-size:13px; gap:6px; }
+ .people-table th:nth-child(3),.people-table td:nth-child(3),.people-table th:nth-child(4),.people-table td:nth-child(4) { display:none; }
+ .people-table th[scope="row"] { min-width:0; overflow-wrap:anywhere; }
+ .people-table td:last-child { width:92px; padding-left:4px; }
+ .people-table .text-action { white-space:normal; text-align:left; line-height:1.5; }
+ .mobile-person-summary { display:block; color:var(--muted); font-size:12px; font-weight:400; margin-top:8px; line-height:1.5; }
+ .mobile-person-summary > span { display:block; margin-top:4px; }
+ .admin-heading { gap:16px; margin-bottom:24px; } .admin-heading h1 { font-size:30px; }
+ .admin-heading-actions { width:100%; justify-content:space-between; }
+ .admin-directory { grid-template-columns:1fr; gap:24px; }
+ .class-directory { padding:12px 0; border-right:0; border-bottom:1px solid var(--line); background:transparent; }
+ .class-directory nav { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+ .class-directory nav button { padding:10px 8px; border-radius:6px; font-size:13px; }
+ .class-directory .unassigned-class { margin-top:0; padding-top:10px; border-top:0; }
+ .directory-archive-toggle { margin-top:12px; }
+ .directory-toolbar { gap:12px; } .search-field { flex-basis:100%; }
+ .directory-toolbar > .primary { margin-left:auto; padding:10px 14px; }
+ .directory-toolbar .compact-label { flex:1; }
+ .directory-table th,.directory-table td { padding:14px 8px; }
+ .bulk-toolbar { padding:16px; gap:12px 16px; }
+ .bulk-toolbar > .text-action:last-child { margin-left:0; }
+ .admin-tabs { gap:24px; }
+ .settings-fields { grid-template-columns:1fr; gap:0; }
+ .admin-dialog { padding:20px; }
+ .dialog-actions { gap:8px; }
+ .semester-picker { flex-wrap:wrap; }
+}
+
+.checkbox-hit { display:grid; place-items:center; width:44px; min-height:44px; margin:0; cursor:pointer; }
+.directory-table .selection-column { width:60px; }
+.directory-table td:first-child,.directory-table th.selection-column { padding:6px 4px; }
+
+.mobile-class-picker { display:none; }
+.people-picker { max-height:min(280px,32svh); }
+@media(max-width:700px) { .mobile-class-picker { display:block; margin-bottom:8px; } .class-directory nav,.class-directory > .eyebrow { display:none; } .directory-archive-toggle { margin-top:4px; } }
+
+/* Calm, compact controls; keep the native select's keyboard and form behaviour. */
+select { cursor:pointer; background-color:var(--paper); border-color:var(--rb-neutral-field-border); font-size:14px; }
+select:hover:not(:disabled) { border-color:var(--green); }
+input:focus,textarea:focus,select:focus { border-color:var(--green); }
+input:focus-visible,textarea:focus-visible,select:focus-visible { outline-width:1px; outline-offset:1px; }
+.admin-tabs button { border-bottom-width:2px; }
+.class-directory nav button { border-left-width:2px; border-radius:0 8px 8px 0; }
+@supports (appearance:base-select) {
+ select,select::picker(select) { appearance:base-select; }
+ select { display:flex; align-items:center; gap:14px; text-align:left; }
+ select::picker-icon { color:var(--green); font-size:12px; }
+ select::picker(select) { color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:5px; margin-top:6px; box-shadow:0 8px 24px #2B363118; max-height:min(320px,50svh); overflow:auto; }
+ select option { min-height:44px; padding:10px 12px; gap:10px; border-radius:7px; font-size:14px; }
+ select option:hover,select option:focus { background:var(--mint); outline:none; }
+ select option:checked { background:color-mix(in srgb,var(--mint) 65%,var(--paper)); color:var(--green); font-weight:600; }
+ select option::checkmark { color:var(--green); }
+}
+
+/* Keep one quiet scroll surface in admin dialogs, with controls in reach. */
+.admin-dialog { padding:0; overflow:hidden; }
+.admin-dialog[open] { display:flex; flex-direction:column; }
+.admin-dialog > .section-heading { flex-shrink:0; padding:24px 24px 16px; margin:0; }
+.admin-dialog-content { min-height:0; overflow:auto; overscroll-behavior:contain; padding:0 24px; }
+.admin-dialog-content > :last-child { margin-bottom:24px; }
+.admin-dialog-content .people-picker { max-height:none; overflow:visible; }
+.admin-dialog-content .dialog-actions { position:sticky; bottom:0; z-index:1; padding:16px 0 24px; margin-bottom:0; background:var(--paper); }
+.student-directory-toolbar { display:grid; grid-template-columns:minmax(240px,1fr) auto minmax(150px,auto) auto; }
+@media(max-width:1000px) {
+ .student-directory-toolbar { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .student-directory-toolbar .search-field { grid-column:1/-1; }
+}
+@media(max-width:700px) {
+ .admin-dialog > .section-heading { padding:20px 20px 16px; }
+ .admin-dialog-content { padding:0 20px; }
+ .admin-dialog-content .dialog-actions { padding-bottom:20px; }
+ .student-directory-toolbar { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .student-directory-toolbar .compact-label:last-child { grid-column:1/-1; }
 }

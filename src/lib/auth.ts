@@ -16,10 +16,14 @@ export async function requireViewer(adminOnly = false) {
   if (error || !user) redirect("/login");
   const { data: profile } = await db
     .from("profiles")
-    .select("id, display_name, role")
+    .select("id, display_name, role, is_active")
     .eq("id", user.id)
     .single();
   if (!profile) redirect("/login?error=profile");
+  if (!profile.is_active) {
+    await db.auth.signOut({ scope: "local" });
+    redirect("/login?error=inactive");
+  }
   if (adminOnly && profile.role !== "admin") redirect("/?notice=admin-only");
   return { db, profile: profile as Profile };
 }
