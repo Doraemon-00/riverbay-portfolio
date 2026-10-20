@@ -27,10 +27,10 @@ export type RosterItem = {
   child_id: string;
   class_id: string;
   period_id: string;
-  children: { display_name: string; archived_at: string | null };
+  children: { display_name: string; student_code: string; archived_at: string | null };
   classes: { name: string; archived_at: string | null; academic_year: number };
   reporting_periods: { year: number; semester: number };
   portfolios: { id: string; domain_entries: Entry[] } | null;
 };
 export const rosterSelect =
-  "id, child_id, class_id, period_id, children(display_name, archived_at), classes(name, archived_at, academic_year), reporting_periods(year, semester), portfolios(id, domain_entries(*))";
+  "id, child_id, class_id, period_id, children(display_name, student_code, archived_at), classes(name, archived_at, academic_year), reporting_periods(year, semester), portfolios(id, domain_entries(*))";

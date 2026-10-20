@@ -89,3 +89,7 @@ Apply `202610200001_teacher_provisioning.sql` with the normal local migration co
 ## Deliberately deferred work
 
 See [Deferred features](docs/DEFERRED_FEATURES.md) for the consolidated decisions and revisit conditions, including keeping administrators separate from teaching roles in this prototype.
+
+## My classes workspace
+
+The teacher roster now follows the open class-directory layout, with direct domain links, name/ID search, responsive student rows and navigation memory. See [My classes](docs/MY_CLASSES.md) and [verification](docs/verification/MY_CLASSES.md).

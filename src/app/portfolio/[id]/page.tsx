@@ -69,7 +69,7 @@ export default async function Portfolio({
     next = classmates[index + 1]?.portfolios;
   return (
     <Shell profile={profile}>
-      <Link className="text-link" href={`/?period=${child.period_id}`}>
+      <Link className="text-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
         <Icon name="arrow-left" size={18} /> Back to my classes
       </Link>
       <div className="child-heading">
