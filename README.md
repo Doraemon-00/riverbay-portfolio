@@ -1,6 +1,6 @@
 # Riverbay learning portfolios
 
-An internal teacher workspace for preparing learning portfolio content. Fictional demonstration data only. Annual administration checkpoint, 19 October 2026; not yet the complete submission prototype.
+An internal teacher workspace for preparing learning portfolio content. Fictional demonstration data only. Local prototype checkpoint, 22 October 2026; hosting and final submission write-up remain pending.
 
 ## Implemented
 
@@ -11,9 +11,10 @@ An internal teacher workspace for preparing learning portfolio content. Fictiona
 - Database persistence, explicit saving/error feedback and revision conflicts to prevent silent overwrites from stale tabs.
 - Previous/next child retains the domain. Unsaved work prompts on in-app links, sign-out and page unload; browser history back/forward within the app is not yet covered.
 - Same-year Semester 1 ring comparison in Semester 2. Narrow history function returns ratings only, including when the previous class differs. Incompatible scales are not compared.
-- Row-level security for data and private photo storage. Upload UI is not yet connected.
+- Row-level security for data, private photo uploads/placeholders and private PDF downloads.
+- Optional dated/general observation timeline, editable AI draft suggestions and deterministic bilingual portrait/landscape PDF export.
 
-Not implemented yet: AI drafting/checking, teacher final review, photo upload UI, PDF rendering/export, translation, report-template artwork, cloud deployment, account invitations and bulk file import. The UI labels pending capabilities explicitly. No consumer chatbot or external AI receives data at this checkpoint.
+Not implemented yet: school-specific AI guideline enforcement, formal teacher final review, translation, cloud deployment, account invitations and bulk file import. Configured cloud providers receive the fictional observation payload for drafting; names, student IDs and photos are excluded from the structured model payload, but teachers must still avoid personal details in free text.
 
 ## Run locally
 
@@ -44,7 +45,7 @@ npm run test:access
 
 The access test authenticates the local demo accounts and creates isolated disposable fixtures. It checks annual names, both semesters, class isolation, denied anonymous/direct writes, role escalation, cross-year rejection, bulk atomicity, preserved portfolio IDs/content/revisions through moves, unassignment, archive/restore, teacher revocation, class clearing, stale-save conflicts and private storage. It removes only its own test records afterwards, preserving seeded and user-entered data. It refuses non-local endpoints. Do not run against live data.
 
-Verified at this checkpoint: migration applied by local startup; fixture seeding; lint/typecheck/production build; access checks above; browser teacher/admin sign-in, English and Chinese saves, reload persistence, next/previous domain retention, prior rating rendering and admin enrolment submission. Screenshots are local under ignored `evidence/`. No production security certification, PDF test, AI evaluation, performance measurement or fresh-clone deployment claim.
+Historical foundation verification (19 October): migration applied by local startup; fixture seeding; lint/typecheck/production build; access checks above; browser teacher/admin sign-in, English and Chinese saves, reload persistence, next/previous domain retention, prior rating rendering and admin enrolment submission. Screenshots are local under ignored `evidence/`. No production security certification, PDF test, AI evaluation, performance measurement or fresh-clone deployment claim.
 
 `npm audit --omit=dev` found no runtime advisories at the checkpoint. Full audit reports five high-severity findings through ESLint/Next's dev tooling and the braces pattern parser; registry offers no patched braces release at the checkpoint. Do not apply the suggested framework downgrade blindly. Track this tooling dependency before submission; the generic static quality scanner does not replace npm audit or the access tests.
 
@@ -60,14 +61,18 @@ Proposed brand and asset direction (logo, tokens, type, illustration rules, inte
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for data relationships, access boundaries and output adapters. Canonical schema: [supabase/migrations/202610180001_foundation.sql](supabase/migrations/202610180001_foundation.sql).
 
-The database holds content, independent of report layout. PDF generation will populate an HTML/CSS template from saved content; a viable future Canva integration can map the same content into prepared template fields. No Canva integration is implemented or required to run the editor.
+The database holds content, independent of report layout. PDF generation populates an HTML/CSS template from saved content; a viable future Canva integration can map the same content into prepared template fields. No Canva integration is implemented or required to run the editor.
 
-Visual direction: Riverbay Preschool, Riverbank Garden, pastel marker illustrations and a beaver mascot. Current foundation uses the selected palette direction and ring progression; the sign-in illustration is applied and report artwork remains provisional. DM Sans files are from @fontsource/dm-sans 5.3.0 (OFL); Phosphor duotone sprite is from @phosphor-icons/core 2.1.1 (MIT). Licenses accompany assets in public/assets. Nunito and Noto Sans SC variable fonts are bundled locally; PDF font embedding remains pending. No real child photos or third-party school branding are included.
+Proposed PDF content and page structure: [Portfolio PDF baseline](docs/PORTFOLIO_PDF_BASELINE.md). This is a recommendation awaiting layout review, not a final template.
+
+Domain photo import now supports private uploads, labelled demo placeholders, previews and removal: see [photo import](docs/PHOTO_IMPORT.md) for scope, storage behaviour and verification. Both portrait and landscape export are connected; see the runtime requirements below.
+
+Visual direction: Riverbay Preschool, Riverbank Garden, pastel marker illustrations and a beaver mascot. Current foundation uses the selected palette direction and ring progression; the sign-in illustration is applied and report artwork remains provisional. DM Sans files are from @fontsource/dm-sans 5.3.0 (OFL); Phosphor duotone sprite is from @phosphor-icons/core 2.1.1 (MIT). Licenses accompany assets in public/assets. Nunito and Noto Sans SC variable fonts are bundled locally; The selected PDF renderer bundles Chinese fonts; both orientations have been checked with fictional bilingual content. No real child photos or third-party school branding are included.
 
 
 ### Riverbay visual foundation
 
-The local app now uses the selected Riverbay logo, colour tokens, Nunito/DM Sans/Noto Sans SC typography, segmented learning rings and a login welcome illustration. Quick tour is optional and context-specific; Motion respects reduced motion. See `docs/APP_STATES.md` and the asset README for scope and asset provenance. AI drafting, photo upload, translation, review and PDF export remain subsequent milestones.
+The local app now uses the selected Riverbay logo, colour tokens, Nunito/DM Sans/Noto Sans SC typography, segmented learning rings and a login welcome illustration. Quick tour is optional and context-specific; Motion respects reduced motion. See `docs/APP_STATES.md` and the asset README for scope and asset provenance. AI drafting, private photo upload and PDF export are now connected. Translation and a formal review workflow remain subsequent milestones.
 
 
 ### Annual class administration (Style A)
@@ -93,3 +98,31 @@ See [Deferred features](docs/DEFERRED_FEATURES.md) for the consolidated decision
 ## My classes workspace
 
 The teacher roster now follows the open class-directory layout, with direct domain links, name/ID search, responsive student rows and navigation memory. See [My classes](docs/MY_CLASSES.md) and [verification](docs/verification/MY_CLASSES.md).
+
+## Portfolio student navigation
+
+Portfolio editors include a searchable student sidebar/mobile picker, saved narrative counts and Save/Discard/Stay protection for in-app navigation. See [portfolio navigation](docs/PORTFOLIO_NAVIGATION.md) and [verification](docs/verification/PORTFOLIO_NAVIGATION.md) for scope and browser-history limits.
+
+Observation timeline behaviour and storage: [docs/OBSERVATIONS.md](docs/OBSERVATIONS.md).
+
+AI drafting setup, behaviour and verification: [docs/AI_DRAFTING.md](docs/AI_DRAFTING.md).
+
+
+## Current editor and export checkpoint — 22 October 2026
+
+- Optional dated/general observations, editable AI draft suggestions, manual indicators and narratives, private photo uploads/placeholders, and direct PDF download are connected.
+- Gemini is the locally verified development provider. OpenAI and Groq adapters have transport contract checks; their live availability/output are not verified. Model output needs teacher checking; no school-specific guideline enforcement or production quality acceptance is claimed.
+- Domain stamps describe saved fields: mint base = indicator, animal = narrative, both = export-ready fields. There is no formal review flag in this workflow. The student sidebar count describes saved narratives only.
+- Apply pending migrations with `node node_modules/supabase/dist/supabase.js migration up --local`; do not reset existing records.
+
+### PDF runtime and limits
+
+The app calls the selected renderer under `docs/pdf-concepts/claude/`. Keep its template, schema, tools and assets with the app. Node.js 22+ and a separately installed Chromium browser are required; set `CHROME_PATH` if automatic detection fails. `PDF_RENDERER_DIR` optionally overrides the renderer directory. Generated concept PDFs and previews are ignored and can be reproduced with the renderer's commands.
+
+Exports read saved text and private photos, preserve Chinese text, and store the PDF in the private `portfolio-exports` bucket with a ten-minute signed download link. Each domain currently allows at most four photos in the PDF. The prototype keeps only the newest export for each portfolio; it does not retain an immutable issued-report history. Production evidence retention/versioning remains a separate decision.
+
+This runtime has been exercised locally, not on a hosted deployment. Chromium packaging, child processes, filesystem use and request duration must be proven on the chosen host before claiming compatibility with Vercel or another service. Provider keys belong in ignored local environment files or server environment settings, never source control. Only fictional data is authorised for the current demo.
+
+### Verification at this checkpoint
+
+Lint has no errors and seven existing warnings in PDF concept tooling. Typecheck and production build pass. Recent UI changes were checked on desktop and 390px; recorded scenarios/screenshots live in `docs/verification/`. Access and draft contract checks have separate scripts; earlier benchmark output is synthetic feasibility evidence, not matched API benchmarking or school acceptance. No deployment or production security certification is implied.

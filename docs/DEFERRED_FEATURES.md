@@ -1,5 +1,7 @@
 # Deferred features
 
+AI drafting milestone A is documented in [AI_DRAFTING.md](AI_DRAFTING.md). The user reassigned **milestone B** to the current-input writing/resource comparison: see [classroom benchmark](../benchmarks/live-classroom/RESULTS.md). This experiment does not implement school-guideline checking or change the app provider/prompt. Durable generation provenance, school-specific checks, distributed spend/request limits and broader quality validation remain later work. Live Gemini drafting is connected; OpenAI/Groq live verification remains pending.
+
 A central index of deliberately postponed work, not a promise to build every item. Update this list when a decision changes or an item ships. Detailed design/verification documents remain the supporting record. AI drafting, photos and PDF delivery are core submission requirements; incomplete work on those belongs in the current milestone, not this backlog.
 
 ## Agreed deferrals
@@ -22,6 +24,12 @@ A central index of deliberately postponed work, not a promise to build every ite
 | Automatic photo selection/analysis | Photos are assigned explicitly to sections; no inference about children from images. | A validated need, privacy review and separate technical evaluation exist. |
 | Classroom recording and syllabus coverage | Potential teacher-reflection direction; outside the portfolio prototype. | Separate discovery/pilot with recording and data governance decisions. |
 | Fine-tuning / Hugging Face ML Intern | Potential research direction only; no automatic training on teacher edits. | Curated approved examples, evaluation criteria and data-use decisions exist. |
+| Cross-semester AI narrative synthesis | Prototype drafting evaluation uses only the selected semester's observations. Missing previous notes must not become an invented baseline. Semester 2 still needs to show Semester 1 ratings independently. | Define bounded previous-semester evidence, teacher-approved summary provenance, missing-history behaviour and fresh evaluations. |
+| Photo editing and production storage lifecycle | Basic private import, placeholders, preview and removal are implemented; captions, manual reordering/cropping, original-file retention, automatic signed-link renewal and orphan cleanup jobs are deferred. | PDF layout review or production retention/access requirements; see PHOTO_IMPORT.md. |
+
+## Editor navigation follow-up
+
+The student sidebar/mobile picker and in-app Save/Discard/Stay protection are now implemented. Browser Back/Forward history protection and recoverable unsaved drafts remain a separate compatibility task. Native reload/close warnings remain browser controlled; no universal navigation-protection claim is made. See [portfolio navigation](PORTFOLIO_NAVIGATION.md).
 
 ## Supporting documents
 
@@ -30,4 +38,8 @@ A central index of deliberately postponed work, not a promise to build every ite
 - [Model improvement roadmap](MODEL_IMPROVEMENT_ROADMAP.md): evaluation/training possibilities.
 - [Design direction](DESIGN_DIRECTION.md): visual decisions and pending approvals.
 
-Last updated: 20 October 2026.
+Last updated: 22 October 2026.
+
+- Observation timeline follow-up: optional plant/leaf decoration; per-note author attribution, server-recorded creation/edit times and full revision history. Current implementation: see [OBSERVATIONS.md](OBSERVATIONS.md).
+
+- PDF production follow-up: immutable issued-report history/retention, atomic snapshots, concurrent-export coordination, and hosted Chromium packaging. The current local prototype retains only the latest PDF; see README runtime limits.

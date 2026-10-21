@@ -1,6 +1,6 @@
 # Riverbay architecture
 
-Status: annual administration implementation, 19 October 2026. Fictional data only. See README for verified capabilities and setup.
+Status: local editor, AI/photo integration and PDF export checkpoint, 22 October 2026. Fictional data only. See README for verified capabilities and setup.
 
 ## Scope and assumptions
 
@@ -11,8 +11,8 @@ One developer builds an internal teacher workspace for one preschool; no 12-mont
 - Next.js App Router + TypeScript: forms, server actions, access-aware queries.
 - Supabase: PostgreSQL, password login, private object storage. Local CLI stack for development; the same migrations can be applied to an approved hosted project. Local CLI is not a production self-host deployment.
 - Authenticated server client uses the user's session, preserving database row-level security. Service-role credentials are restricted to local setup and disposable test fixtures, never the web application.
-- Server-only narrative adapter (proposed, not integrated): selected domain evidence and trusted guideline in; candidate text and checks out. GPT is the provisional fictional-data development provider (19 October); exact API model, credentials and budget need configuration and endpoint verification. Keep provider payloads/model IDs out of the portfolio schema and PDF renderer. Standalone Qwen and GPT-subagent writing benchmarks exist in benchmarks/temporal; they do not establish an integrated API model or production acceptance. No pretending sample text is live AI.
-- Export adapter: saved report data -> HTML/CSS -> Chromium PDF, with locally bundled Chinese fonts. Canva would be another adapter over the same data, not a replacement database.
+- Server-only narrative adapter: current domain observations and a trusted baseline prompt produce a candidate narrative or a clarification. Gemini is the locally verified development provider; OpenAI/Groq adapters have contract checks but no live verification. The teacher explicitly accepts and saves a candidate. The baseline prompt is not school-specific guideline enforcement. Provider choice stays outside the portfolio schema and PDF renderer; benchmarks remain synthetic evidence, not production acceptance.
+- Export adapter (connected locally): saved report data -> the selected renderer under docs/pdf-concepts/claude -> Chromium PDF, with locally bundled Chinese fonts and private stored downloads. Canva would be another adapter over the same data, not a replacement database.
 - UI direction: Riverbay Preschool, Riverbank Garden, pastel marker doodles, beaver mascot. Dark readable text and uncluttered forms. Selected sign-in artwork is applied; report artwork remains provisional.
 
 ## Relationships
@@ -46,9 +46,9 @@ Semester 2 reads only the same child's same-year Semester 1 ratings through a na
 
 ## Saving and narrative lifecycle
 
-Domain entries carry a revision number. Saves use compare-and-swap with the expected revision, return a conflict for stale edits, and clear review when content changes. Editing is allowed without AI. Input and narrative remain separate fields. A future AI response must match the captured revision before it can be accepted. Generated candidates and provenance belong in generation_runs; runtime editing cannot forge server-generated run records.
+Domain entries carry a revision number. Saves use compare-and-swap with the expected revision, return a conflict for stale edits, and clear review when content changes. Editing is allowed without AI. Input and narrative remain separate fields. AI responses are tied to the captured revision and input snapshot before acceptance. Durable generation-run/provenance storage remains deferred; the current UI response is not an audit history.
 
-AI/review/export are integration work after the persistent foundation. Final PDF must use the exact saved reviewed revision. An input or wording-guide change invalidates review. Photo changes also invalidate review when connected. Save incomplete work freely; do not fake a completed checker. The full proposed bounded drafting/checking flow is maintained in private planning; submission docs must describe actual implemented checks.
+AI suggestions, photos and PDF export are connected; formal review and school-specific checks remain deferred. PDF export uses current saved records without AI rewriting and requires an indicator plus narrative in every domain. Saving incomplete work is allowed. Photo operations save separately. The prototype retains only the latest exported file; immutable report/version retention, atomic export snapshots, concurrent-export coordination and production approval rules remain future work.
 
 ## Boundaries
 

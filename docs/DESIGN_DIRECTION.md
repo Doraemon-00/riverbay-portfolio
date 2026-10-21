@@ -58,7 +58,7 @@ These are computed WCAG 2.x contrast ratios, not a full accessibility audit.
 - Standalone object illustrations: daisy, stacked beehive, carrot and acorn, matching the characters' props (19 October 2026). Transparent exports in `cutouts/props/`. Decorative use only; do not replace Phosphor action icons. App adoption remains pending.
 - Daisy and beehive colouring revised to matte, visibly textured marker/crayon strokes with small pigment gaps; avoid glossy highlights and smooth gradient shading. Shape and palette retained. The beehive held by the full-body bear uses the same matte treatment; the rest of the bear retains its existing colouring.
 
-- Optional face badges: beaver, bear, squirrel and rabbit on butter-yellow blobs (19 October 2026). Individual transparent exports in `cutouts/badges/`; suitable for decorative/avatar placements. These do not change the selected logo, carry workflow meaning or replace action icons. App adoption remains pending.
+- Face badges: beaver, bear, squirrel and rabbit on butter-yellow blobs (19 October 2026). Original exports remain in `cutouts/badges/`. On 22 October the user approved separating the faces into `cutouts/stamp-faces/` for saved-content readiness inside domain tabs: mint circle = indicator saved; animal = narrative saved; both = ready for PDF; empty = neither. These do not change the logo or replace action icons. A saved narrative is not a formal review or quality endorsement.
 
 - **Expressive** (banner, cover, welcome, "class complete"):
   - The mascot plus at most two botanicals.
@@ -66,7 +66,7 @@ These are computed WCAG 2.x contrast ratios, not a full accessibility audit.
   - The mascot is at least 96px.
 - **Light** (empty states, login, cover section openers): one animal or one corner cluster at 64–160px, beside one line of guidance.
 - **None** (domain editor, roster, notes and narrative fields, dialogs): no illustration and Phosphor icons only. Pastels appear only as domain badges and selected fills.
-- Animals never replace action icons or carry status. Art is never recoloured to signal meaning, and nothing sits behind text.
+- Animals never replace action icons. The approved exception to the no-editor-art rule is the small readiness stamp in each domain tab. Each animal keeps its original colours; the independent mint circle and animal layers represent saved fields. Hover and keyboard focus explain missing fields; accessible descriptions provide the same explanation. No illustration is added inside form fields, roster rows or dialogs.
 - Original artwork is concept art generated in Figma on 18 Oct 2026 (Figma AI, gemini-3.1-flash-image, original prompts). The individual bear holding a rounded stacked beehive and rabbit holding a carrot were generated with the built-in image tool on 19 October using the original characters as references. Source PNG alpha is preserved by the build. No new art is applied to the app. Before production:
   - Split the sheets into single items with transparent backgrounds.
   - First-pass transparent cut-outs (PNG and WebP) are already in `docs/design-assets/riverbay/cutouts/`. Decide the final sizes once the direction is approved.
@@ -92,11 +92,12 @@ Components: Learning ring, Ring option, Domain workflow status, Button, Save fee
   - Needs review: a narrative exists and has not been reviewed.
   - Edited after review: any change to inputs, photos or narrative clears the review.
   - Reviewed: the teacher marked this exact saved revision as reviewed.
-- **Minimum export rule** (recommended)
-  - All four domains are Reviewed.
-  - An indicator left unassessed on purpose prints as "Not assessed this semester".
+- **Export rule** (decided 21 October 2026; replaces the earlier "all four domains Reviewed" recommendation)
+  - "Download for parents" needs an indicator and a learning story in every domain. There is no per-domain review step.
+  - Prototype override (21 October 2026): Landscape / Portrait sit immediately to the left of Create PDF. Clicking Create PDF generates the saved content and starts a direct download, with inline loading/error feedback and no extra confirmation or blank tab.
+  - The prototype button requires an indicator and a learning story in each domain. The backend retains the same completeness/access checks. The internal preview API remains available, but there is no separate preview action in this simplified UI. A parent copy cannot show "Not assessed". This shortcut is not a formal teacher-review assertion; any production approval workflow remains a later decision.
   - No admin approval chain.
-  - The PDF uses the exact reviewed revisions, with no regeneration at export.
+  - The PDF is rendered from the saved records at the moment of export; nothing is rewritten or added.
 - **Save feedback** covers persistence only:
   - Saved.
   - Unsaved.
@@ -178,3 +179,18 @@ Administration notifications float at the upper right (inset at mobile width), s
 ### Demo account lifecycle — 20 October 2026
 
 Teachers and students use **Archive / Restore** and **Active / Archived** in the interface. Teacher archive confirmations explain that sign-in and class access are blocked while assignments and contributions are retained. Internal teacher access flags and RPC identifiers remain unchanged. All fictional demo staff accounts, including newly added teachers, use the shared password `teach2LEARN`. Production invitations and recovery remain future work.
+
+## Saved-content readiness and softer controls — 22 October 2026
+
+The PDF panel shows a brief thank-you message. Readiness is conveyed by domain stamps; the redundant overall count was removed at the user's request. Orientation appears only once every domain has a saved indicator and a nonblank saved narrative; Create PDF remains visible and disabled beforehand. Export still validates completeness on the server. Stamps and the panel share the same readiness helper; unsaved edits do not change readiness. Saving a narrative does not mark it formally reviewed.
+
+Calendar month/year controls and PDF orientation choices use borderless idle states, the existing mint fill and forest text on hover/selection, and visible keyboard focus. Selected calendar days keep the established forest fill. The selected domain underline remains distinct from the readiness stamp.
+
+
+### Mint readiness-stamp trial — 22 October 2026
+
+Following the honey / purple / forest / mint comparison, the user requested mint in the app. The base uses the existing decor/mint #D5EDDF token. Desktop: 38px base with 27px face; mobile: 32px base with 23px face. The wider rim helps separate the indicator layer from the animal. Original badges and colour tokens are unchanged. This is a visual trial; saved-field semantics stay the same.
+
+### Readiness text removed — 22 October 2026
+
+At the user's request, remove the overall 'N of 4 areas ready' / 'All areas ready' line: domain stamps already communicate completeness. Keep the warm heading and thank-you message, per-domain accessible explanations, and existing export enablement/orientation conditions. Removed the unused readiness CSS and button description reference. Verified ready desktop and incomplete 390px views; Create PDF remains disabled for incomplete portfolios. Lint/typecheck/build passed (seven existing PDF concept lint warnings). Screenshots: verification/pdf-clean-status-desktop.png and verification/pdf-clean-status-mobile.png. No commit or deployment.
