@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useId, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { adminChange } from "@/app/admin/actions";
 import type { AdminData } from "@/lib/admin";
@@ -12,14 +12,15 @@ type Modal = { kind: "class" | "students" | "student" | "teachers" | "restore" }
 
 export function Dialog({ title, children, close, pending }: { title: string; children: React.ReactNode; close: () => void; pending: boolean }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
   useEffect(() => {
     const dialog = ref.current!;
     const previous = document.activeElement as HTMLElement | null;
     dialog.showModal();
     return () => { dialog.close(); previous?.focus({ preventScroll: true }); };
   }, []);
-  return <dialog ref={ref} className="admin-dialog" onCancel={event => { event.preventDefault(); if (!pending) close(); }} aria-labelledby="admin-dialog-title">
-    <div className="section-heading"><h2 id="admin-dialog-title">{title}</h2><button type="button" className="icon-button" aria-label="Close dialog" disabled={pending} onClick={close}><Icon name="x" /></button></div>
+  return <dialog ref={ref} className="admin-dialog" onCancel={event => { event.preventDefault(); if (!pending) close(); }} aria-labelledby={titleId}>
+    <div className="section-heading"><h2 id={titleId}>{title}</h2><button type="button" className="icon-button" aria-label="Close dialog" disabled={pending} onClick={close}><Icon name="x" /></button></div>
     <div className="admin-dialog-content">{children}</div>
   </dialog>;
 }
@@ -102,13 +103,13 @@ export function AdminWorkspace({ data, notify }: { data: AdminData; notify: Noti
   const modalTitle = modal?.kind === "class" ? "Add class" : modal?.kind === "student" ? "Create student" : modal?.kind === "teachers" ? "Add teachers" : modal?.kind === "students" ? "Add students" : modal?.kind === "restore" ? "Restore students" : modal?.kind === "confirm" ? modal.title : "";
   return <div className="admin-workspace" aria-busy={pending}>
     <div className="admin-heading"><div><h2>Classes</h2><p className="hint">Manage students and teacher access by academic year.</p></div>
-      <div className="admin-heading-actions"><label className="compact-label">Academic year<select aria-label="Academic year" value={data.year} disabled={pending} onChange={e => router.push(`/admin?year=${e.target.value}`, { scroll: false })}>{data.years.map(y => <option key={y}>{y}</option>)}</select></label><button className="primary" disabled={pending} onClick={() => open({ kind: "class" })}><Icon name="users-three" />Add class</button></div>
+      <div className="admin-heading-actions"><label className="compact-label">Academic year<select aria-label="Academic year" value={data.year} disabled={pending} onChange={e => router.push(`/admin?year=${e.target.value}`, { scroll: false })}>{data.years.map(y => <option key={y}>{y}</option>)}</select></label><button className="primary" disabled={pending} onClick={() => open({ kind: "class" })}><Icon name="books" />Add class</button></div>
     </div>
     <div className="admin-directory">
       <aside className="class-directory" aria-label="Class directory">
         <p className="eyebrow">CLASSES · {data.year}</p>
         <label className="mobile-class-picker">Class<select aria-label="Choose class" value={selectedClass} disabled={pending} onChange={e => choose(e.target.value)}>{visibleClasses.map(c => <option key={c.id} value={c.id}>{c.name}{c.archived_at ? " · Archived" : ""}</option>)}<option value="unassigned">Unassigned</option></select></label>
-        <nav aria-label="Choose class">{visibleClasses.map(c => <button key={c.id} disabled={pending} aria-current={selectedClass === c.id ? "page" : undefined} onClick={() => choose(c.id)}><Icon name="users-three" /><span>{c.name}{c.archived_at && <small>Archived</small>}</span><span className="directory-count">{count(c.id)}</span></button>)}
+        <nav aria-label="Choose class">{visibleClasses.map(c => <button key={c.id} disabled={pending} aria-current={selectedClass === c.id ? "page" : undefined} onClick={() => choose(c.id)}><Icon name="books" /><span>{c.name}{c.archived_at && <small>Archived</small>}</span><span className="directory-count">{count(c.id)}</span></button>)}
           <button className="unassigned-class" disabled={pending} aria-current={selectedClass === "unassigned" ? "page" : undefined} onClick={() => choose("unassigned")}><Icon name="users-three" /><span>Unassigned</span><span className="directory-count">{count(null)}</span></button></nav>
         {!data.classes.length && <p className="hint">No classes yet. Add the first class for {data.year}.</p>}
         <label className="check-label directory-archive-toggle"><input type="checkbox" checked={showArchivedClasses} onChange={e => { setShowArchivedClasses(e.target.checked); if (!e.target.checked && current?.archived_at) choose("unassigned"); }} />Show archived classes</label>

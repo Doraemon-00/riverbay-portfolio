@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Brand } from "./brand";
+import { Icon } from "./icon";
 import { QuickTour } from "./quick-tour";
 import { WorkspaceMotion } from "./workspace-motion";
 import type { Profile } from "@/lib/auth";
@@ -14,29 +15,17 @@ export function Shell({
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to workspace</a>
-      <div className="demo-strip">
-        RIVERBAY DESIGN PROTOTYPE{" "}
-        <span>Fictional people · placeholder content</span>
-      </div>
       <header className="topbar">
         <Link href="/" className="brand">
           <Brand />
         </Link>
         <nav aria-label="Main navigation">
           <Link href="/">
-            <svg
-              width="17"
-              height="17"
-              viewBox="0 0 256 256"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <use href="/assets/icons.svg#book-open" />
-            </svg>{" "}
+            <Icon name="books" />
             My classes
           </Link>
           {profile.role === "admin" && (
-            <Link href="/admin">Administration</Link>
+            <Link href="/admin"><Icon name="note-pencil" />Administration</Link>
           )}
         </nav>
         <QuickTour />
@@ -48,7 +37,7 @@ export function Shell({
             </small>
           </span>
           <form action={logout}>
-            <button className="quiet">Sign out</button>
+            <button className="quiet"><Icon name="sign-out" size={18} />Sign out</button>
           </form>
         </div>
       </header>

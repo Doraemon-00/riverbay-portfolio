@@ -20,7 +20,7 @@ OUT = Path(sys.argv[2])  # .../riverbay
 for d in ("cutouts", "mark", "tokens", "rings"):
     if (OUT / d).exists():
         shutil.rmtree(OUT / d)
-for d in ("source", "cutouts/characters", "cutouts/badges", "cutouts/props", "cutouts/botanicals", "cutouts/decor", "mark", "tokens", "rings"):
+for d in ("source", "cutouts/characters", "cutouts/badges", "cutouts/stamp-faces", "cutouts/props", "cutouts/botanicals", "cutouts/decor", "mark", "tokens", "rings"):
     (OUT / d).mkdir(parents=True, exist_ok=True)
 
 SOURCES = {
@@ -102,6 +102,22 @@ def save(img, rel):
     img.save(p.with_suffix(".webp"), quality=90, method=6)
     made.append(rel)
 
+
+def stamp_face(img):
+    """Separate the original closed brown silhouette from its yellow badge.
+
+    Flood only the exterior of the outline: enclosed fur/whites stay unchanged.
+    This is a reproducible cut-out, not a redraw or a global yellow colour key.
+    Inspect the result if replacing a source: it depends on a closed outline.
+    """
+    rgba = img.convert("RGBA")
+    barrier = Image.new("L", rgba.size)
+    barrier.putdata([255 if a > 100 and r < 190 and g < 150 and b < 130 and r > g * 1.1 else 0
+                     for r, g, b, a in rgba.getdata()])
+    ImageDraw.floodfill(barrier, (0, 0), 128)
+    rgba.putalpha(barrier.point(lambda p: 0 if p == 128 else 255))
+    return trim(rgba, pad=4)
+
 save(trim(transparent(Image.open(files["mascot-beaver"]))), "cutouts/characters/beaver")
 for n, im in split_columns(transparent(Image.open(files["supporting-animals-sheet"])), ["squirrel", "bear", "deer"]):
     if n == "bear" and "supporting-bear-beehive" in files:
@@ -114,6 +130,9 @@ save(trim(transparent(Image.open(files["mark-option-a-beaver-badge"]))), "cutout
 for animal in ("bear", "squirrel", "rabbit"):
     if f"badge-{animal}" in files:
         save(trim(Image.open(files[f"badge-{animal}"]).convert("RGBA")), f"cutouts/badges/{animal}")
+for animal in ("beaver", "bear", "squirrel", "rabbit"):
+    source = "mark-option-a-beaver-badge" if animal == "beaver" else f"badge-{animal}"
+    save(stamp_face(Image.open(files[source])), f"cutouts/stamp-faces/{animal}")
 for prop in ("daisy", "beehive", "carrot", "acorn"):
     if f"prop-{prop}" in files:
         save(trim(Image.open(files[f"prop-{prop}"]).convert("RGBA")), f"cutouts/props/{prop}")

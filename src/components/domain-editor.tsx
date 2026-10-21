@@ -1,9 +1,14 @@
 "use client";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useId, useRef, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { Dialog } from "./admin-workspace";
 import { saveEntry } from "@/app/actions";
 import { type Entry, domains, ratingLabels } from "@/lib/portfolio";
 import { Icon } from "./icon";
+import { ObservationTimeline } from "./observation-timeline";
+import { NarrativeDraft } from "./narrative-draft";
 import { RatingRing } from "./rating-ring";
+import { DomainPhotos } from "./domain-photos";
 
 export function DomainEditor({
   entry,
@@ -12,82 +17,90 @@ export function DomainEditor({
   entry: Entry;
   previousRating: number | null;
 }) {
+  const fieldId = useId();
   const [rating, setRating] = useState(entry.rating);
+  const [observations, setObservations] = useState(() => entry.observations?.length ? entry.observations : [{ id:entry.id, date:null, text:entry.comments ?? "" }]);
+  const [narrative, setNarrative] = useState(entry.narrative);
+  const baseline = useRef({ rating: entry.rating, observations: entry.observations?.length ? entry.observations : [{ id:entry.id, date:null, text:entry.comments ?? "" }], narrative: entry.narrative });
   const [revision, setRevision] = useState(entry.revision);
   const [dirty, setDirty] = useState(false);
   const [message, setMessage] = useState("All changes saved");
   const [failed, setFailed] = useState(false);
   const [pending, startTransition] = useTransition();
   const domain = domains.find((d) => d.id === entry.domain)!;
+  const router = useRouter();
+  const formRef = useRef<HTMLFormElement>(null);
+  const bypass = useRef(false);
+  const [navigation, setNavigation] = useState<{ href: string } | { form: HTMLFormElement } | null>(null);
   useEffect(() => {
     if (!dirty) return;
-    const unload = (event: BeforeUnloadEvent) => {
-      event.preventDefault();
-    };
+    const unload = (event: BeforeUnloadEvent) => { if (!bypass.current) event.preventDefault(); };
     const click = (event: MouseEvent) => {
-      const link = (event.target as Element).closest(
-        "a[href]",
-      ) as HTMLAnchorElement | null;
-      if (
-        link &&
-        link.href !== window.location.href &&
-        !window.confirm("You have unsaved changes. Leave without saving?")
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
+      if (bypass.current || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      const link = (event.target as Element).closest("a[href]") as HTMLAnchorElement | null;
+      if (!link || link.target === "_blank" || link.hasAttribute("download") || link.href === window.location.href) return;
+      event.preventDefault(); event.stopPropagation();
+      setNavigation({ href: link.href });
     };
     const submit = (event: SubmitEvent) => {
-      if (
-        (event.target as HTMLFormElement).id !== "domain-editor" &&
-        !window.confirm("You have unsaved changes. Leave without saving?")
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
+      if (bypass.current || event.target === formRef.current) return;
+      event.preventDefault(); event.stopPropagation();
+      setNavigation({ form: event.target as HTMLFormElement });
     };
-    window.addEventListener("beforeunload", unload);
-    document.addEventListener("click", click, true);
-    document.addEventListener("submit", submit, true);
+    const requested = (event: Event) => {
+      if (bypass.current) return;
+      const href = (event as CustomEvent<{ href: string }>).detail?.href;
+      if (!href) return;
+      event.preventDefault(); setNavigation({ href });
+    };
+    window.addEventListener("riverbay:before-navigate",requested);
+    window.addEventListener("beforeunload",unload);
+    document.addEventListener("click",click,true);
+    document.addEventListener("submit",submit,true);
     return () => {
-      window.removeEventListener("beforeunload", unload);
-      document.removeEventListener("click", click, true);
-      document.removeEventListener("submit", submit, true);
+      window.removeEventListener("beforeunload",unload);
+      window.removeEventListener("riverbay:before-navigate",requested);
+      document.removeEventListener("click",click,true);
+      document.removeEventListener("submit",submit,true);
     };
-  }, [dirty]);
+  },[dirty]);
+  async function persist() {
+    if (!formRef.current?.reportValidity()) return false;
+    try {
+      const result = await saveEntry(new FormData(formRef.current));
+      setMessage(result.message); setFailed(!result.ok);
+      if (result.ok) { baseline.current = { rating, observations, narrative }; setRevision(result.revision!); setDirty(false); }
+      return result.ok;
+    } catch {
+      setMessage("Could not save. Your text is still here; please retry."); setFailed(true); return false;
+    }
+  }
+  function continueNavigation() {
+    if (!navigation) return;
+    bypass.current = true;
+    setDirty(false); setNavigation(null);
+    if ("form" in navigation) { navigation.form.requestSubmit(); return; }
+    const target = new URL(navigation.href,window.location.href);
+    if (target.origin === window.location.origin) router.push(`${target.pathname}${target.search}${target.hash}`,{ scroll:false });
+    else window.location.assign(target.href);
+  }
   const changed = () => {
+    bypass.current = false;
     setDirty(true);
     setMessage("Unsaved changes");
     setFailed(false);
   };
-  return (
+  return (<>
     <form
-      id="domain-editor"
+      ref={formRef}
+      id={`${fieldId}-editor`}
       onChange={changed}
-      onSubmit={(event) => {
-        event.preventDefault();
-        const form = new FormData(event.currentTarget);
-        startTransition(async () => {
-          try {
-            const result = await saveEntry(form);
-            setMessage(result.message);
-            setFailed(!result.ok);
-            if (result.ok) {
-              setRevision(result.revision!);
-              setDirty(false);
-            }
-          } catch {
-            setMessage(
-              "Could not save. Your text is still here; please retry.",
-            );
-            setFailed(true);
-          }
-        });
-      }}
+      onSubmit={event => { event.preventDefault(); startTransition(async () => { await persist(); }); }}
     >
       <input type="hidden" name="entry_id" value={entry.id} />
       <input type="hidden" name="revision" value={revision} />
       <input type="hidden" name="rating" value={rating ?? ""} />
+      <input type="hidden" name="observations" value={JSON.stringify(observations.filter(o => o.text.trim()))} />
       <fieldset disabled={pending} className="editor-fields">
         <div className="editor-grid">
           <div className="input-column">
@@ -130,62 +143,33 @@ export function DomainEditor({
                 </strong>
               </div>
             </section>
-            <section className="panel">
-              <label htmlFor="comments">
-                <h2>Your observations</h2>
-              </label>
-              <p className="hint" id="comments-help">
-                Rough notes are welcome. Include what you observed and any
-                support needed.
-              </p>
-              <textarea
-                id="comments"
-                name="comments"
-                defaultValue={entry.comments}
-                rows={7}
-                maxLength={6000}
-                aria-describedby="comments-help"
-                placeholder={
-                  entry.domain === "chinese"
-                    ? "例如：在提示下，能用短句分享自己的想法。"
-                    : "For example: shared an idea during group time, with a little prompting."
-                }
-              />
-            </section>
-            <section className="panel">
-              <h2>Photos</h2>
-              <p className="hint">
-                Photo upload and placement are coming in the next build step.
-                Use fictional illustrations only.
-              </p>
-            </section>
+            <ObservationTimeline observations={observations} chinese={entry.domain === "chinese"} onChange={items => { setObservations(items); changed(); }} />
+            <DomainPhotos entryId={entry.id} domainLabel={domain.label} />
           </div>
           <section className="panel narrative-panel">
             <p className="eyebrow">THE LEARNING STORY</p>
-            <label htmlFor="narrative">
+            <label htmlFor={`${fieldId}-narrative`}>
               <h2>{domain.label} narrative</h2>
             </label>
-            <p className="hint" id="narrative-help">
-              Write or edit the report text here. AI drafting and guideline
-              checks will be connected next.
+            <p className="hint" id={`${fieldId}-narrative-help`}>
+              Write or edit the report text here, or use your observations to draft a starting point.
             </p>
             <textarea
-              id="narrative"
+              id={`${fieldId}-narrative`}
               name="narrative"
               lang={domain.language}
-              defaultValue={entry.narrative}
+              value={narrative}
+              onChange={e => setNarrative(e.target.value)}
               rows={16}
               maxLength={10000}
-              aria-describedby="narrative-help"
+              aria-describedby={`${fieldId}-narrative-help`}
               placeholder={
                 entry.domain === "chinese"
                   ? "在这里撰写中文学习反馈……"
                   : "The child's learning story goes here…"
               }
             />
-            <p className="hint">
-              Draft only · Final review and PDF export are not connected yet.
-            </p>
+            <NarrativeDraft entryId={entry.id} revision={revision} rating={rating} observations={observations} narrative={narrative} language={domain.language} onAccept={text => {setNarrative(text);changed();}} />
           </section>
         </div>
         <div className="save-bar">
@@ -201,5 +185,14 @@ export function DomainEditor({
         </div>
       </fieldset>
     </form>
-  );
+    {navigation && <Dialog title="Save your changes?" pending={pending} close={() => setNavigation(null)}>
+      <p>You have unsaved changes in {domain.label}. Save them before continuing, or discard them and open your next page.</p>
+      {failed && <p role="alert" className="error">{message}</p>}
+      <div className="dialog-actions unsaved-actions">
+        <button type="button" className="secondary stay-action" disabled={pending} onClick={() => setNavigation(null)}>Stay</button>
+        <button type="button" className="secondary danger" disabled={pending} onClick={() => { setRating(baseline.current.rating); setObservations(baseline.current.observations); setNarrative(baseline.current.narrative); setMessage("All changes saved"); setFailed(false); continueNavigation(); }}>Discard changes</button>
+        <button type="button" className="primary save-continue-action" disabled={pending} onClick={() => startTransition(async () => { if (await persist()) continueNavigation(); })}>{pending ? "Saving…" : "Save and continue"}</button>
+      </div>
+    </Dialog>}
+  </>);
 }

@@ -5,13 +5,17 @@ import { z } from "zod";
 import { requireViewer } from "@/lib/auth";
 import {
   domains,
+  ratingLabels,
   rosterSelect,
   scaleVersion,
   type Entry,
   type RosterItem,
 } from "@/lib/portfolio";
-import { Shell } from "@/components/shell";
+import { StudentNavigator } from "@/components/student-navigator";
+import { loadPortfolioNavigation } from "@/lib/portfolio-navigation";
 import { DomainEditor } from "@/components/domain-editor";
+import { PdfExport } from "@/components/pdf-export";
+import { DomainStamp } from "@/components/domain-stamp";
 export const instant = false;
 export default async function Portfolio({
   params,
@@ -43,35 +47,26 @@ export default async function Portfolio({
     (e) => e.domain === selected.id,
   );
   if (!entry) notFound();
-  const results = await Promise.all([
+  const [history, navigation] = await Promise.all([
     db.rpc("previous_semester_ratings", { current_portfolio: id }),
-    db
-      .from("enrolments")
-      .select(rosterSelect)
-      .eq("class_id", child.class_id)
-      .eq("period_id", child.period_id),
+    loadPortfolioNavigation(db, child.period_id, child.reporting_periods.year),
   ]);
-  if (results.some((r) => r.error))
-    throw new Error("Could not load class navigation or semester history.");
-  const prior = (
-    results[0].data as Pick<
-      Entry,
-      "domain" | "rating" | "rating_scale_version"
-    >[]
-  ).find(
-    (e) => e.domain === selected.id && e.rating_scale_version === scaleVersion,
-  );
-  const classmates = (results[1].data as unknown as RosterItem[]).sort((a, b) =>
-    a.children.display_name.localeCompare(b.children.display_name),
-  );
+  if (history.error) throw new Error("Could not load semester history.");
+  const prior = (history.data as Pick<Entry, "domain" | "rating" | "rating_scale_version">[])
+    .find(e => e.domain === selected.id && e.rating_scale_version === scaleVersion);
+  const { classChoices } = navigation;
+  const classmates = navigation.students.filter(c => c.class_id === child.class_id);
   const index = classmates.findIndex((c) => c.id === child.id);
   const previous = classmates[index - 1]?.portfolios,
     next = classmates[index + 1]?.portfolios;
   return (
-    <Shell profile={profile}>
-      <Link className="text-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
+    <>
+      <Link className="text-link portfolio-back-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
         <Icon name="arrow-left" size={18} /> Back to my classes
       </Link>
+      <div className="portfolio-workspace">
+        <StudentNavigator viewerId={profile.id} classmates={classmates} currentId={id} domain={selected.id} className={child.classes.name} year={child.reporting_periods.year} semester={child.reporting_periods.semester} classId={child.class_id} classChoices={classChoices} periodId={child.period_id} />
+        <section className="portfolio-main" aria-label="Student portfolio">
       <div className="child-heading">
         <div>
           <p className="eyebrow">
@@ -96,23 +91,33 @@ export default async function Portfolio({
           )}
         </nav>
       </div>
+      <PdfExport key={id} portfolioId={id} areas={domains.map((d) => {
+        const e = child.portfolios?.domain_entries.find((x) => x.domain === d.id) as (Entry & { updated_at: string }) | undefined;
+        return { id: d.id, label: d.label, indicator: e?.rating ? ratingLabels[e.rating - 1] : null, hasStory: Boolean(e?.narrative.trim()), savedAt: e?.updated_at ?? new Date(0).toISOString() };
+      })} />
       <nav className="domain-tabs" aria-label="Learning domains">
-        {domains.map((d) => (
+        {domains.map((d) => {
+          const saved = child.portfolios?.domain_entries.find(e => e.domain === d.id);
+          return (
           <Link
             key={d.id}
             scroll={false} href={`/portfolio/${id}?domain=${d.id}`}
             aria-current={selected.id === d.id ? "page" : undefined}
+            aria-describedby={`readiness-${id}-${selected.id}-${d.id}`}
           >
             <span className={`domain-badge ${d.id}`}>{d.short}</span>
-            {d.label}
+            <span className="domain-tab-label">{d.label}</span>
+            <DomainStamp domain={d.id} tooltipId={`readiness-${id}-${selected.id}-${d.id}`} hasIndicator={Boolean(saved?.rating)} hasStory={Boolean(saved?.narrative.trim())} />
           </Link>
-        ))}
+        ); })}
       </nav>
       <DomainEditor
         key={entry.id}
         entry={entry}
         previousRating={prior?.rating ?? null}
       />
-    </Shell>
+        </section>
+      </div>
+    </>
   );
 }

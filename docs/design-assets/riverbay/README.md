@@ -60,7 +60,7 @@ Four standalone decorative icons: daisy (ivory petals, yellow centre, green stem
 - The original beaver badge already exists; it is reused via the existing edge-connected background-removal build routine. Original source is preserved.
 - Each badge has a butter-yellow organic blob, warm brown outlines and no lettering or held objects. Transparent space surrounds the blob. These are optional decorative/avatar assets, not replacements for the selected Tail & ripple logo or Phosphor action icons.
 - Source files: `source/badge-bear.png`, `source/badge-squirrel.png`, `source/badge-rabbit.png`. Build preserves their generated alpha.
-- No badge copied into the app or Figma in this pass.
+- No badge copied into the app or Figma in that pass; see the 22 October readiness-stamp adoption below.
 
 ### Individual friends — 19 October 2026
 
@@ -123,3 +123,20 @@ The same `signin-scrapbook-v1.png` runtime copy now appears inside the right-han
 ### Current placement: open two-column layout restored
 
 At the user's request, the inline landscape frame beside a separate white sign-in card is restored. `signin-scrapbook-v1.png` and its source remain unchanged. This supersedes the split-frame and full-backdrop trials. Current desktop reference: `docs/verification/signin-selected-desktop.png`.
+
+### Domain readiness stamps — 22 October 2026
+
+User-approved exception to decorative-only badges: a fixed 38px space in each domain tab (32px on mobile). English uses beaver, Chinese rabbit, Mathematics squirrel, Social-emotional bear. The mint circle means a saved learning indicator; the animal means a saved narrative; the combined stamp means both fields are ready for PDF. Empty means neither. This is saved-content completeness, not formal teacher review. Hover/focus and accessible descriptions explain each state.
+
+The existing closed brown face outline is used by `stamp_face()` in `tools/build_assets.py` to remove only the exterior background. Original coloured faces and enclosed whites are retained; no new artwork was generated. Rebuild with the command above. If replacing a source, inspect its closed outline and all resulting alpha masks before adopting it.
+
+Runtime copies (only these new files):
+
+| App file under public/assets/riverbay | Canonical output |
+|---|---|
+| stamp-beaver.webp | cutouts/stamp-faces/beaver.webp |
+| stamp-rabbit.webp | cutouts/stamp-faces/rabbit.webp |
+| stamp-squirrel.webp | cutouts/stamp-faces/squirrel.webp |
+| stamp-bear.webp | cutouts/stamp-faces/bear.webp |
+
+The separate circle is CSS `--mint` / `--rb-decor-mint` (#D5EDDF), not a raster. After the four-colour comparison, the user selected a mint trial on 22 October: 38px base / 27px animal on desktop, 32px / 23px on mobile. This replaces the initial butter base and leaves a wider visible rim. Generated PNGs remain useful for inspecting transparency. Rebuild and recopy these four WebPs to update runtime faces. No full badges or illustrations are placed in editor fields.

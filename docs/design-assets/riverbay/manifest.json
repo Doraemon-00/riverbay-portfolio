@@ -210,9 +210,49 @@
     "sha256_16": "12007f9b80e5baf6"
   },
   {
+    "path": "cutouts/stamp-faces/bear.png",
+    "size": "719x641",
+    "sha256_16": "f5bd116b05b8ba3f"
+  },
+  {
+    "path": "cutouts/stamp-faces/bear.webp",
+    "size": "719x641",
+    "sha256_16": "b7364d7d2c4b298e"
+  },
+  {
+    "path": "cutouts/stamp-faces/beaver.png",
+    "size": "375x339",
+    "sha256_16": "ffbaa227da3bf247"
+  },
+  {
+    "path": "cutouts/stamp-faces/beaver.webp",
+    "size": "375x339",
+    "sha256_16": "69adf27a53a2228a"
+  },
+  {
+    "path": "cutouts/stamp-faces/rabbit.png",
+    "size": "734x822",
+    "sha256_16": "3ba9ebc0d790aa13"
+  },
+  {
+    "path": "cutouts/stamp-faces/rabbit.webp",
+    "size": "734x822",
+    "sha256_16": "1e484032d3f886d2"
+  },
+  {
+    "path": "cutouts/stamp-faces/squirrel.png",
+    "size": "740x669",
+    "sha256_16": "f641d8d901949461"
+  },
+  {
+    "path": "cutouts/stamp-faces/squirrel.webp",
+    "size": "740x669",
+    "sha256_16": "511f98aed76ff907"
+  },
+  {
     "path": "manifest.json",
     "size": null,
-    "sha256_16": "f3d78b738e156e39"
+    "sha256_16": "660e0f150d0a6b88"
   },
   {
     "path": "mark/riverbay-logo-on-dark.svg",
@@ -262,7 +302,7 @@
   {
     "path": "README.md",
     "size": null,
-    "sha256_16": "85aa37ebcd806a73"
+    "sha256_16": "c647e4553a7f9630"
   },
   {
     "path": "rings/ring-beginning.svg",
@@ -283,6 +323,11 @@
     "path": "rings/ring-unassessed.svg",
     "size": null,
     "sha256_16": "2c2a01e550ebf2ac"
+  },
+  {
+    "path": "signin-scrapbook-concept-v1.md",
+    "size": null,
+    "sha256_16": "4c975f134449fbf0"
   },
   {
     "path": "source/badge-bear.png",
@@ -375,6 +420,11 @@
     "sha256_16": "c3b25bbc0df98452"
   },
   {
+    "path": "source/signin-scrapbook-concept-v1.png",
+    "size": "1536x1024",
+    "sha256_16": "96ebc7f8aa97d810"
+  },
+  {
     "path": "source/supporting-animals-sheet.png",
     "size": "1584x672",
     "sha256_16": "5e73c3e5da1fa93e"
@@ -422,7 +472,7 @@
   {
     "path": "tools/build_assets.py",
     "size": null,
-    "sha256_16": "3ede7f7e2cc9ae55"
+    "sha256_16": "f5338b67bb9f71dc"
   },
   {
     "path": "tools/prop-matte-prompts.json",

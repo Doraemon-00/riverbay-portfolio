@@ -29,27 +29,30 @@ export type SaveResult = { ok: boolean; revision?: number; message: string };
 export async function saveEntry(form: FormData): Promise<SaveResult> {
   const { db } = await requireViewer();
   const rawRating = form.get("rating");
+  let observations: unknown;
+  try { observations = JSON.parse(String(form.get("observations"))); }
+  catch { return { ok:false, message:"Check your observations, then try saving again." }; }
   const parsed = z
     .object({
       entry_id: z.uuid(),
       expected_revision: z.coerce.number().int().min(0),
       new_rating: z.number().int().min(1).max(3).nullable(),
-      new_comments: z.string().max(6000),
+      new_observations: z.array(z.object({ id:z.uuid(), date:z.iso.date().nullable(), text:z.string().max(6000).refine(text => text.trim().length > 0) })).max(100).refine(items => new Set(items.map(o => o.id)).size === items.length).refine(items => JSON.stringify(items).length <= 120000),
       new_narrative: z.string().max(10000),
     })
     .safeParse({
       entry_id: form.get("entry_id"),
       expected_revision: form.get("revision"),
       new_rating: rawRating ? Number(rawRating) : null,
-      new_comments: form.get("comments"),
+      new_observations: observations,
       new_narrative: form.get("narrative"),
     });
   if (!parsed.success)
     return {
       ok: false,
-      message: "Check the rating and text length, then try saving again.",
+      message: "Check the rating, observation dates and text lengths, then try saving again.",
     };
-  const { data, error } = await db.rpc("save_domain_entry", parsed.data);
+  const { data, error } = await db.rpc("save_domain_observations", parsed.data);
   if (error)
     return {
       ok: false,
@@ -59,5 +62,6 @@ export async function saveEntry(form: FormData): Promise<SaveResult> {
           : "Could not save. Your text is still here; please retry.",
     };
   revalidatePath("/");
+  revalidatePath("/portfolio/[id]", "page");
   return { ok: true, revision: data.revision, message: "Saved" };
 }
