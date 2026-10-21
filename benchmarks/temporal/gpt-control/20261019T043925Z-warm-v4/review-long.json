@@ -1,0 +1,617 @@
+{
+  "reviewed_pairs": 18,
+  "records": [
+    {
+      "pair_id": "pair58",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_gender",
+          "quote": "他的表达逐渐丰富。",
+          "source_fact": "在小组看图活动中，老师提问后能用中文说出图中的动物名称。 最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "The observations do not supply gender; use 孩子."
+        },
+        {
+          "severity": "material",
+          "type": "lost_support",
+          "quote": "从学期初能在看图活动中说出动物名称",
+          "source_fact": "在小组看图活动中，老师提问后能用中文说出图中的动物名称。",
+          "explanation": "The early naming achievement loses its teacher-question condition."
+        },
+        {
+          "severity": "material",
+          "type": "lost_frequency_and_scope",
+          "quote": "最近一次观察中，借助图片支持，他能够按顺序讲述故事的开头和结尾，并在同伴互动中回应简单问题。",
+          "source_fact": "最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "The source specifies the last two group story sessions, one peer, and questions about characters; the draft obscures that frequency and scope."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_participation_and_understanding",
+          "quote": "他已能积极参与小组故事活动，逐步建立起对叙事结构的理解。",
+          "source_fact": "最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "Active participation as a strength and developing understanding of narrative structure are not recorded; task performance alone does not establish them."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "虽然连接中间情节时仍需老师提问提示，但他已能积极参与小组故事活动",
+          "source_fact": "最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "The 虽然/但 framing treats a genuine support condition as something to overcome and ends with unsupported praise."
+        },
+        {
+          "severity": "minor",
+          "type": "unused_evidence",
+          "quote": "\"evidence_ids\": [\"jan\", \"mar\", \"may\", \"jun\"]",
+          "source_fact": "may: 在一次小组故事活动中，借助三张图片，按先后顺序讲述小兔子找朋友的故事。老师在故事转折处给过两次提示。",
+          "explanation": "The paragraph omits the May event while citing it."
+        }
+      ],
+      "left_style_note": "Specific, coherent and appropriately substantial; the developmental opening connects the dated examples and current support remains visible.",
+      "right_style_note": "Readable, but generic growth language and the final praise weaken its warmth and precision; its length does not add grounded detail."
+    },
+    {
+      "pair_id": "pair59",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "lost_support",
+          "quote": "孩子在小组看图活动中便能用中文说出图中的动物名称。",
+          "source_fact": "在小组看图活动中，老师提问后能用中文说出图中的动物名称。",
+          "explanation": "The teacher question attached to naming is omitted."
+        },
+        {
+          "severity": "material",
+          "type": "incorrect_progress_flag",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "在小组看图活动中，老师提问后能用中文说出图中的动物名称。 mar: 在老师追问下，能用简短中文句子描述小兔子在做什么。 最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "The dated observations support concrete expansion from naming to describing and story sharing, even though support remains necessary."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivots",
+          "quote": "尽管老师在转折处给予了两次提示。",
+          "source_fact": "may: 在一次小组故事活动中，借助三张图片，按先后顺序讲述小兔子找朋友的故事。老师在故事转折处给过两次提示。",
+          "explanation": "尽管 frames support as diminishing the achievement; the later 不过 repeats this deficit pivot."
+        },
+        {
+          "severity": "material",
+          "type": "lost_peer_scope",
+          "quote": "并能回应同伴关于故事人物的简单问题",
+          "source_fact": "最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "The specific audience of one peer becomes unqualified peers."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Clear enough and a useful length, though date-led reporting and concession phrases make it less natural and supportive.",
+      "right_style_note": "Warm through concrete examples and a connected developmental opening; useful detail and current support are balanced."
+    },
+    {
+      "pair_id": "pair60",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "lost_support",
+          "quote": "孩子在小组看图活动中便能用中文说出图中的动物名称。",
+          "source_fact": "在小组看图活动中，老师提问后能用中文说出图中的动物名称。",
+          "explanation": "The initial teacher question is omitted."
+        },
+        {
+          "severity": "material",
+          "type": "incorrect_progress_flag",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "在小组看图活动中，老师提问后能用中文说出图中的动物名称。 mar: 在老师追问下，能用简短中文句子描述小兔子在做什么。 最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "The dated observations support concrete expansion from naming to describing and story sharing, even though support remains necessary."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivots",
+          "quote": "尽管老师在转折处提供了两次提示。",
+          "source_fact": "may: 在一次小组故事活动中，借助三张图片，按先后顺序讲述小兔子找朋友的故事。老师在故事转折处给过两次提示。",
+          "explanation": "The concession makes support detract from the achievement, and 不过 later creates another cancelling turn."
+        },
+        {
+          "severity": "material",
+          "type": "lost_peer_scope",
+          "quote": "并在回应同伴关于故事人物的简单问题时表现良好",
+          "source_fact": "最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。",
+          "explanation": "The one-peer limit is omitted; 表现良好 also adds an unnecessary evaluation."
+        }
+      ],
+      "left_style_note": "Specific and coherently linked, with natural support-first phrasing and sufficient useful detail.",
+      "right_style_note": "Mostly readable but more like a sequence of records; evaluative padding and cancelling pivots reduce warmth."
+    },
+    {
+      "pair_id": "pair61",
+      "left_findings": [
+        {
+          "severity": "minor",
+          "type": "repetition",
+          "quote": "近期的参与表现显示，在小组交流中等候同伴说完，仍需要老师的提醒与支持。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "This repeats the immediately preceding current need without adding an observation."
+        }
+      ],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "false_conflict_and_unjustified_refusal",
+          "quote": "这两条记录针对的是同一项技能（等待发言），但表现结果存在直接冲突：从‘能等候’变为‘需要提醒’。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "Different dates and frequencies can coexist. A faithful account of one earlier success and three recent supported sessions is possible, so withholding the narrative and requesting clarification is unjustified."
+        }
+      ],
+      "left_style_note": "Respectful and accurate in emphasis; brief, but the final sentence repeats the current need.",
+      "right_style_note": "No portfolio paragraph is supplied. The lengthy procedural clarification obscures a simple, usable developmental snapshot."
+    },
+    {
+      "pair_id": "pair62",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "unjustified_refusal",
+          "quote": "因此不适合撰写一段描述持续进步或当前独立能力的叙述。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "The task permits a paragraph about current support needs. Neither progress nor independence is required for a usable narrative; the empty narrative is unjustified."
+        }
+      ],
+      "right_findings": [
+        {
+          "severity": "minor",
+          "type": "repetition",
+          "quote": "近期的表现呈现了孩子目前参与轮流交流时，仍需要老师提醒等候的支持。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "The sentence restates the recent need already explicitly described."
+        }
+      ],
+      "left_style_note": "The clarification replaces the requested paragraph and gives unnecessary reasoning; a short factual account would suffice.",
+      "right_style_note": "Respectful, clear and appropriately short, with a somewhat mechanical, repetitive final sentence."
+    },
+    {
+      "pair_id": "pair63",
+      "left_findings": [
+        {
+          "severity": "minor",
+          "type": "repetition",
+          "quote": "这几次观察显示，在当前的小组交流中，等候同伴说完仍需要老师的提醒支持。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "The last sentence duplicates the preceding account of three recent supported sessions."
+        }
+      ],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "misplaced_support_timing",
+          "quote": "孩子开始讲述时需要老师提醒才能做到这一点。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "The reminder concerns waiting until a peer has finished, not beginning narration."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_internal_state",
+          "quote": "目前，在老师的温和提示下，孩子能够意识到轮流说话的重要性，并尝试控制自己插话的冲动。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "Gentleness, awareness of importance, attempts at impulse control, and an impulse to interrupt are not observed."
+        },
+        {
+          "severity": "minor",
+          "type": "unnecessary_clarification",
+          "quote": "因此，不宜将‘supports_progress'设为 true，也不宜在叙事中掩盖近期的支持需求。",
+          "source_fact": "apr (2026-04): 有一次在小组活动中，能等候同伴说完后再发言。 jun (2026-06): 最近三次小组活动都需要老师提醒等候同伴说完后再发言。",
+          "explanation": "No genuine conflict requires clarification. This field contains editorial reasoning and system jargon rather than a teacher question."
+        }
+      ],
+      "left_style_note": "Calm, factual and short; the repeated current-need sentence could be removed without loss.",
+      "right_style_note": "The paragraph sounds encouraging but substitutes inferred psychology for concrete participation; the extra clarification is procedural and unnecessarily long."
+    },
+    {
+      "pair_id": "pair64",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_support_details",
+          "quote": "在老师的图片提示和开始讲述的提醒下",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "The note supplies only unspecified prompting, not pictures or a reminder specifically to begin."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_motivation",
+          "quote": "展现出了积极的参与意愿",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "A prompted sharing performance does not establish positive willingness or motivation."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_gender",
+          "quote": "他能够向小组成员分享一件事情。",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "Gender is not supplied."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "虽然目前还需要这些辅助支持来启动表达，但他愿意开口并与同伴互动的努力值得肯定。",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "The concession treats support as a negative and ends with unrecorded willingness and effort."
+        }
+      ],
+      "right_findings": [
+        {
+          "severity": "minor",
+          "type": "repetition",
+          "quote": "五月的观察记录了孩子借助提示参与小组分享、向同伴讲述事情的表现。",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "This repeats the first sentence and adds report-like phrasing rather than useful content."
+        }
+      ],
+      "left_style_note": "Overextended for one sparse fact; an encouraging tone depends on invented details and effort.",
+      "right_style_note": "Support-first and clear, with a short legitimate snapshot; its second sentence is redundant."
+    },
+    {
+      "pair_id": "pair65",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_willingness",
+          "quote": "展现出了愿意分享的能力",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "A prompted sharing performance does not establish willingness to share."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_gender",
+          "quote": "他能够向小组成员讲述一件事情。",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "The source does not specify gender."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_support_timing",
+          "quote": "目前还需要成人的引导来开启话题",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "The observation does not locate prompting at topic initiation."
+        },
+        {
+          "severity": "critical",
+          "type": "invented_development",
+          "quote": "这标志着他在集体交流方面迈出了积极的一步",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "One final snapshot cannot establish a new developmental step or change."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "虽然目前还需要成人的引导来开启话题，但这标志着他在集体交流方面迈出了积极的一步",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "The 虽然/但 structure diminishes support and introduces generic praise."
+        }
+      ],
+      "left_style_note": "Respectful and brief, though its second sentence mostly restates the first; the sparse evidence does not require more prose.",
+      "right_style_note": "Too elaborated for the single fact; its developmental and motivational language sounds generic rather than specifically warm."
+    },
+    {
+      "pair_id": "pair66",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_support_details",
+          "quote": "在老师的图片提示和开始讲述的提醒下",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "Pictures and a reminder to begin are absent from the note."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_motivation_and_confidence",
+          "quote": "展现出了积极的参与意愿",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "The note records a prompted performance, without willingness; the ending also invents confidence: 正在逐步建立与同伴互动的信心."
+        },
+        {
+          "severity": "critical",
+          "type": "invented_development",
+          "quote": "这标志着孩子在集体交流中迈出了重要的一步，正在逐步建立与同伴互动的信心。",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "There is no prior observation establishing a developmental step or growing confidence."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "虽然目前还需要这些辅助支持来启动表达，但这标志着孩子在集体交流中迈出了重要的一步",
+          "source_fact": "能在提示下向小组讲述一件事情。",
+          "explanation": "Support is framed as a concession before generic praise."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Fluent but padded beyond the sparse evidence; invented confidence and development supply most of the apparent warmth.",
+      "right_style_note": "Calm, clear and support-first. Brief enough for one fact, although the second sentence could be shortened."
+    },
+    {
+      "pair_id": "pair67",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_fluency",
+          "quote": "能够用中文流畅地向同伴们分享故事。",
+          "source_fact": "在小组活动中能自信地用中文分享故事。",
+          "explanation": "Recorded confidence does not establish fluent delivery."
+        }
+      ],
+      "right_findings": [
+        {
+          "severity": "minor",
+          "type": "repetition",
+          "quote": "在小组的故事分享中展现了用中文表达的自信。",
+          "source_fact": "在小组活动中能自信地用中文分享故事。",
+          "explanation": "This restates the same confidence and context already given in the first clause."
+        }
+      ],
+      "left_style_note": "A short, natural snapshot of suitable length, but fluency overstates the observation.",
+      "right_style_note": "Faithful and warm in recognizing recorded confidence, with unnecessary repetition even at this short length."
+    },
+    {
+      "pair_id": "pair68",
+      "left_findings": [
+        {
+          "severity": "minor",
+          "type": "repetition",
+          "quote": "在这一分享情境中，孩子呈现了用中文讲述故事的能力，也展现了参与小组故事分享时的自信。",
+          "source_fact": "在小组活动中能自信地用中文分享故事。",
+          "explanation": "The second sentence repeats the whole first observation without additional evidence."
+        }
+      ],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_fluency",
+          "quote": "能够流利地用中文向同伴分享自己的故事。",
+          "source_fact": "在小组活动中能自信地用中文分享故事。",
+          "explanation": "Confidence does not establish fluency, and the story is not identified as the child's own."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_generalized_participation",
+          "quote": "他/她积极参与集体讨论，愿意表达自己的想法，这种在群体中自如交流的能力令人欣慰。",
+          "source_fact": "在小组活动中能自信地用中文分享故事。",
+          "explanation": "Group discussion, willingness to express personal ideas and general ease of group communication go beyond the specific story-sharing observation."
+        },
+        {
+          "severity": "minor",
+          "type": "child_reference",
+          "quote": "他/她积极参与集体讨论",
+          "source_fact": "在小组活动中能自信地用中文分享故事。",
+          "explanation": "The guide asks for 孩子; the unresolved pronoun is awkward and unnecessary."
+        }
+      ],
+      "left_style_note": "Faithful, respectful and readable, but duplicates the sparse source rather than adding useful detail.",
+      "right_style_note": "Pleasant sounding but padded and generalized; the longer ending does not add supported information."
+    },
+    {
+      "pair_id": "pair69",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "minor",
+          "type": "repetition",
+          "quote": "这一观察呈现了孩子在小组故事分享中的表达，也让我们看到孩子在这一情境下自信地参与中文讲述。",
+          "source_fact": "在小组活动中能自信地用中文分享故事。",
+          "explanation": "This repeats the first sentence's story-sharing context, language and confidence."
+        }
+      ],
+      "left_style_note": "A natural, warm snapshot; its short length fits the evidence.",
+      "right_style_note": "Respectful and factual, but the second sentence is report-like repetition; added length gives no extra useful detail."
+    },
+    {
+      "pair_id": "pair40",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_gender",
+          "quote": "他需要在老师提示下才能说出自己的名字",
+          "source_fact": "w01 (2026-01-02): 在老师提示下说出自己的名字。 w14 (2026-04-03): 能向两位熟悉的朋友讲述一件事情。 w27 (2026-07-03): 在小组活动中能在图片提示下讲述故事。 w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "Gender is not supplied."
+        },
+        {
+          "severity": "material",
+          "type": "incorrect_progress_flag",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "w01 (2026-01-02): 在老师提示下说出自己的名字。 w14 (2026-04-03): 能向两位熟悉的朋友讲述一件事情。 w27 (2026-07-03): 在小组活动中能在图片提示下讲述故事。 w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "The dated observations show concrete expansion in content and audience despite continued support."
+        },
+        {
+          "severity": "minor",
+          "type": "latest_id_not_in_evidence",
+          "quote": "\"latest_observation_ids\": [\"w52\"]",
+          "source_fact": "w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "w52 is not in evidence_ids, which ends at w40, despite the paragraph referring to recent repeated observations."
+        },
+        {
+          "severity": "material",
+          "type": "unsupported_necessity_in_early_stage",
+          "quote": "需要在老师提示下才能说出自己的名字",
+          "source_fact": "w01: 在老师提示下说出自己的名字。",
+          "explanation": "An observed prompted performance does not prove the child could only say their name with prompting."
+        }
+      ],
+      "left_style_note": "Coherent and concrete, with a helpful developmental frame and visible current start reminder; length is useful, though the final synthesis slightly repeats the opening.",
+      "right_style_note": "Mostly coherent and factual in sequence, but dependency language is heavier than necessary; the current reminder is repeated and the pronoun breaks the guide."
+    },
+    {
+      "pair_id": "pair41",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_effort_and_gender",
+          "quote": "孩子一直在努力发展自己的表达能力。学期初，他需要在老师提示下才能说出自己的名字；",
+          "source_fact": "w01 (2026-01-02): 在老师提示下说出自己的名字。 w14 (2026-04-03): 能向两位熟悉的朋友讲述一件事情。 w27 (2026-07-03): 在小组活动中能在图片提示下讲述故事。 w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "Sustained effort is not recorded; repeated 他 also supplies unrecorded gender."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_fluency_and_context",
+          "quote": "进入夏季和秋季，在小组活动中，借助图片提示，他可以流畅地讲述故事。",
+          "source_fact": "w27–w39 (July–September): 在小组活动中能在图片提示下讲述故事。 w40–w52 (October–December): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "Fluency is unrecorded; the group-picture condition is also extended into autumn without distinguishing October's whole-class context."
+        },
+        {
+          "severity": "material",
+          "type": "incorrect_progress_flag",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "w01 (2026-01-02): 在老师提示下说出自己的名字。 w14 (2026-04-03): 能向两位熟悉的朋友讲述一件事情。 w27 (2026-07-03): 在小组活动中能在图片提示下讲述故事。 w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "The dated examples support expansion from naming to event and story sharing to wider audiences."
+        },
+        {
+          "severity": "minor",
+          "type": "latest_id_not_in_evidence",
+          "quote": "\"latest_observation_ids\": [\"w52\"]",
+          "source_fact": "w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "w52 is absent from evidence_ids despite the recent observations used."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "孩子依然需要老师在开始时给予提醒来启动讲述，但他能完成这一任务。",
+          "source_fact": "w52: 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "The 但 separates the achievement from support as a concession."
+        },
+        {
+          "severity": "material",
+          "type": "unsupported_necessity_in_early_stage",
+          "quote": "需要在老师提示下才能说出自己的名字",
+          "source_fact": "在老师提示下说出自己的名字。",
+          "explanation": "A prompted performance does not establish that the child could only say their name with prompting."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Readable and reasonably sized, but effort language, fluency and the task-completion ending make it more evaluative and mechanical than warm.",
+      "right_style_note": "Warm through specific observed development, with natural support-first phrasing. The length is useful and the final synthesis connects the examples."
+    },
+    {
+      "pair_id": "pair42",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "unsupported_effort_and_gender",
+          "quote": "孩子一直在努力发展自己的表达能力。学期初，他需要在老师提示下才能说出自己的名字；",
+          "source_fact": "w01 (2026-01-02): 在老师提示下说出自己的名字。 w14 (2026-04-03): 能向两位熟悉的朋友讲述一件事情。 w27 (2026-07-03): 在小组活动中能在图片提示下讲述故事。 w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "Sustained effort is absent; 他 repeatedly assumes gender."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_fluency",
+          "quote": "借助图片提示，他可以流畅地讲述故事。",
+          "source_fact": "w27: 在小组活动中能在图片提示下讲述故事。",
+          "explanation": "The source records supported storytelling, not fluency."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_willingness_and_courage",
+          "quote": "但他依然愿意站在大家面前尝试讲述一段故事，展现了持续的进步与参与勇气。",
+          "source_fact": "w52: 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "Willingness, standing and courage are not recorded; the concrete achievement is reduced to an attempt."
+        },
+        {
+          "severity": "material",
+          "type": "lost_audience_qualifier",
+          "quote": "向熟悉的朋友讲述一件事情",
+          "source_fact": "w14: 能向两位熟悉的朋友讲述一件事情。",
+          "explanation": "The audience of two familiar friends loses its numerical scope."
+        },
+        {
+          "severity": "minor",
+          "type": "latest_id_not_in_evidence",
+          "quote": "\"latest_observation_ids\": [\"w52\"]",
+          "source_fact": "w52 (2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "w52 is absent from evidence_ids, though the latest months are represented."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "虽然开始时仍需要老师提醒一下，但他依然愿意站在大家面前尝试讲述一段故事",
+          "source_fact": "w52: 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "The concession diminishes the current support and pivots to invented motivational praise."
+        },
+        {
+          "severity": "material",
+          "type": "unsupported_necessity_in_early_stage",
+          "quote": "需要在老师提示下才能说出自己的名字",
+          "source_fact": "在老师提示下说出自己的名字。",
+          "explanation": "A prompted performance does not establish that the child could only say their name with prompting."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Fluent but unnecessarily evaluative; its final praise adds unsupported personal qualities instead of concrete warmth.",
+      "right_style_note": "Clear developmental account with useful examples and current support; the final sentence recaps rather than pads substantially."
+    },
+    {
+      "pair_id": "pair46",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "incorrect_progress_flag",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "w01 (2026-01-02): Counts a group of 3 counters with a teacher reminder to touch each counter once. w52 (2026-12-25): Counts a group of 12 counters with a teacher reminder to touch each counter once.",
+          "explanation": "The counted quantity expands from three to twelve on dated observations, so concrete positive development is supported."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_causal_accuracy",
+          "quote": "when given a specific strategy to ensure accuracy.",
+          "source_fact": "w01 (2026-01-02): Counts a group of 3 counters with a teacher reminder to touch each counter once. w52 (2026-12-25): Counts a group of 12 counters with a teacher reminder to touch each counter once.",
+          "explanation": "The notes record the reminder and successful counting, but do not assert its causal effect of ensuring accuracy."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Clear and concrete but weighted toward a chronological inventory and a general closing claim; the length is adequate without needing the final inference.",
+      "right_style_note": "Specific, coherent and support-first; the supported increase in quantities gives the paragraph a clear developmental thread."
+    },
+    {
+      "pair_id": "pair47",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "incorrect_progress_flag",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "w01 (2026-01-02): Counts a group of 3 counters with a teacher reminder to touch each counter once. w52 (2026-12-25): Counts a group of 12 counters with a teacher reminder to touch each counter once.",
+          "explanation": "Increasing quantities across dated observations support concrete expansion despite the same support."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_causal_accuracy",
+          "quote": "This ongoing support helps ensure accurate counting.",
+          "source_fact": "w01 (2026-01-02): Counts a group of 3 counters with a teacher reminder to touch each counter once. w52 (2026-12-25): Counts a group of 12 counters with a teacher reminder to touch each counter once.",
+          "explanation": "The observation does not state that the reminder causes or guarantees accuracy."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Compact and readable; the generic opening and causal closing add less than the concrete quantities.",
+      "right_style_note": "Warm through precise attention to observed growth, with clear year-long scope and the latest support intact; the length is useful."
+    },
+    {
+      "pair_id": "pair48",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "incorrect_progress_flag",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "w01 (2026-01-02): Counts a group of 3 counters with a teacher reminder to touch each counter once. w52 (2026-12-25): Counts a group of 12 counters with a teacher reminder to touch each counter once.",
+          "explanation": "The dated records document a concrete increase from three to twelve counters."
+        },
+        {
+          "severity": "material",
+          "type": "wrong_coverage_frame",
+          "quote": "Throughout the semester",
+          "source_fact": "w01 observed_at: 2026-01-02; w52 observed_at: 2026-12-25; reporting_period: 2026-01-01 to 2026-12-31.",
+          "explanation": "A January-to-December annual account is incorrectly framed as one semester."
+        }
+      ],
+      "left_style_note": "Concise, coherent and specific; support remains visible while the observed expansion supplies a constructive ending.",
+      "right_style_note": "Readable and adequately sized, though the date-by-date structure and generic engagement ending sound more like a report log than a teacher's connected account."
+    }
+  ]
+}

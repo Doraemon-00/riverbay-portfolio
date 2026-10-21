@@ -1,0 +1,198 @@
+[
+  {
+    "id": "english",
+    "input": {
+      "domain": "English",
+      "target_language": "English",
+      "indicator": "Developing",
+      "indicator_context": "A broad teacher-selected indicator; not a score and not evidence of a specific skill.",
+      "observations": [
+        {
+          "observed_on": "2026-07-14",
+          "text": "Named familiar characters while looking through a picture book and answered a simple who question."
+        },
+        {
+          "observed_on": "2026-08-25",
+          "text": "Shared a short account of a picnic with two friends. Used a picture prompt to recall what happened next."
+        },
+        {
+          "observed_on": "2026-10-13",
+          "text": "Retold the beginning and middle of a familiar story during a small-group activity. Needed a question from the teacher to explain the ending."
+        },
+        {
+          "observed_on": null,
+          "text": "Shared an idea during group time with a little prompting."
+        }
+      ],
+      "evidence_scope": {
+        "semester": 2,
+        "start": "2026-07-01",
+        "end": "2026-12-31",
+        "previous_semester_included": false
+      }
+    },
+    "excluded_notes": 0
+  },
+  {
+    "id": "chinese",
+    "input": {
+      "domain": "Chinese",
+      "target_language": "Simplified Chinese",
+      "indicator": "Developing",
+      "indicator_context": "A broad teacher-selected indicator; not a score and not evidence of a specific skill.",
+      "observations": [
+        {
+          "observed_on": "2026-07-09",
+          "text": "在阅读角主动选择了一本动物图画书。能指出图片中的小猫和小狗，并跟着教师说出名称。"
+        },
+        {
+          "observed_on": "2026-07-21",
+          "text": "在点名活动中，能用中文说出自己的名字；回答其他问题时，有时需要教师重复或提示。"
+        },
+        {
+          "observed_on": "2026-08-04",
+          "text": "在问候活动中，能回应教师的早安，并在提示下向身旁的同伴问好。"
+        },
+        {
+          "observed_on": "2026-08-18",
+          "text": "听完熟悉的故事后，能根据图片指出主要角色。回答发生了什么时，仍需要教师用简短问题引导。"
+        },
+        {
+          "observed_on": "2026-09-03",
+          "text": "看图时能说出几个熟悉的动物名称，并在提示下用短句描述图片。"
+        },
+        {
+          "observed_on": "2026-09-17",
+          "text": "在角色扮演活动中，尝试用中文表达自己想要的物品，例如我要苹果。遇到不熟悉的词语时，会配合手势表达。"
+        },
+        {
+          "observed_on": "2026-09-29",
+          "text": "在小组活动中，根据三张图片讲述先后顺序。能说出先吃饭、再洗手等短句；在说明图片之间的联系时，需要教师帮助整理表达。"
+        },
+        {
+          "observed_on": "2026-10-15",
+          "text": "在小组分享中，用两三个短句介绍自己的画。遇到不熟悉的词语时，会停下来向教师求助。"
+        },
+        {
+          "observed_on": "2026-10-19",
+          "text": "在分享活动中，向同伴介绍自己喜欢的动物，并补充了颜色和动作等细节。能回应一个简单的追问；轮到较长的回答时，会先停下来组织语言。"
+        },
+        {
+          "observed_on": null,
+          "text": "在提示下，能用短句分享自己的想法。"
+        },
+        {
+          "observed_on": null,
+          "text": "喜欢动物和自然主题的图画书。图片能帮助他理解故事，并为分享提供表达的线索。"
+        },
+        {
+          "observed_on": null,
+          "text": "在熟悉的小组中较愿意开口表达。教师给予等待时间和简短提示时，他会继续尝试用中文说明自己的想法。"
+        },
+        {
+          "observed_on": null,
+          "text": "遇到不熟悉的词语时，会通过手势或向教师求助来表达。可继续在日常活动中提供自然使用中文的机会。"
+        }
+      ],
+      "evidence_scope": {
+        "semester": 2,
+        "start": "2026-07-01",
+        "end": "2026-12-31",
+        "previous_semester_included": false
+      }
+    },
+    "excluded_notes": 0
+  },
+  {
+    "id": "mathematics",
+    "input": {
+      "domain": "Mathematics",
+      "target_language": "English",
+      "indicator": "Not yet assessed",
+      "indicator_context": "A broad teacher-selected indicator; not a score and not evidence of a specific skill.",
+      "observations": [
+        {
+          "observed_on": "2026-07-07",
+          "text": "Counted four toy animals with one-to-one pointing. Needed a reminder to slow down when counting a larger group."
+        },
+        {
+          "observed_on": "2026-07-16",
+          "text": "Sorted buttons by colour and explained which pile each button belonged to."
+        },
+        {
+          "observed_on": "2026-07-29",
+          "text": "Matched numeral cards 1 to 5 to groups of blocks, with a prompt to check the group of five."
+        },
+        {
+          "observed_on": "2026-08-06",
+          "text": "Copied a red-blue repeating pattern and added the next two blocks independently."
+        },
+        {
+          "observed_on": "2026-08-18",
+          "text": "Compared two groups of counters and used more and fewer correctly during a small-group game."
+        },
+        {
+          "observed_on": "2026-08-31",
+          "text": "Counted eight shells accurately after arranging them in a line. Skipped a shell when the objects were scattered, then corrected the count with a reminder to move each shell."
+        },
+        {
+          "observed_on": "2026-09-10",
+          "text": "Recognised a circle, square and triangle in classroom objects. Described the triangle as having three sides."
+        },
+        {
+          "observed_on": "2026-09-24",
+          "text": "Used counters to explore adding one more to a group of five. Counted all the counters to check the answer."
+        },
+        {
+          "observed_on": "2026-10-06",
+          "text": "Created a two-colour pattern for a friend to continue and noticed when one colour was out of sequence."
+        },
+        {
+          "observed_on": "2026-10-19",
+          "text": "Counted groups up to ten during a pretend-shop activity, using one-to-one pointing. Still benefits from arranging scattered objects before counting."
+        }
+      ],
+      "evidence_scope": {
+        "semester": 2,
+        "start": "2026-07-01",
+        "end": "2026-12-31",
+        "previous_semester_included": false
+      }
+    },
+    "excluded_notes": 0
+  },
+  {
+    "id": "social_emotional",
+    "input": {
+      "domain": "Social-emotional",
+      "target_language": "English",
+      "indicator": "Not yet assessed",
+      "indicator_context": "A broad teacher-selected indicator; not a score and not evidence of a specific skill.",
+      "observations": [
+        {
+          "observed_on": "2026-07-09",
+          "text": "Joined a paired building activity after the teacher helped introduce the task."
+        },
+        {
+          "observed_on": "2026-08-20",
+          "text": "Asked a classmate for a turn with the toy truck. Waited with a reminder while the classmate finished."
+        },
+        {
+          "observed_on": "2026-10-08",
+          "text": "Invited a friend to join a drawing activity and offered to share crayons. Asked the teacher for help when both children wanted the same colour."
+        },
+        {
+          "observed_on": null,
+          "text": "Enjoys collaborative building and drawing activities. A brief reminder of the next step helps during transitions."
+        }
+      ],
+      "evidence_scope": {
+        "semester": 2,
+        "start": "2026-07-01",
+        "end": "2026-12-31",
+        "previous_semester_included": false
+      }
+    },
+    "excluded_notes": 0
+  }
+]

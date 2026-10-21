@@ -1,0 +1,556 @@
+[
+  {
+    "id": "weekly-52-en",
+    "language": "en",
+    "period_start": "2026-01-01",
+    "period_end": "2026-12-31",
+    "notes": [
+      {
+        "id": "w01",
+        "observed_at": "2026-01-02",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w02",
+        "observed_at": "2026-01-09",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w03",
+        "observed_at": "2026-01-16",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w04",
+        "observed_at": "2026-01-23",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w05",
+        "observed_at": "2026-01-30",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w06",
+        "observed_at": "2026-02-06",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w07",
+        "observed_at": "2026-02-13",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w08",
+        "observed_at": "2026-02-20",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w09",
+        "observed_at": "2026-02-27",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w10",
+        "observed_at": "2026-03-06",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w11",
+        "observed_at": "2026-03-13",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w12",
+        "observed_at": "2026-03-20",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w13",
+        "observed_at": "2026-03-27",
+        "text": "Counts a group of 3 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w14",
+        "observed_at": "2026-04-03",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w15",
+        "observed_at": "2026-04-10",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w16",
+        "observed_at": "2026-04-17",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w17",
+        "observed_at": "2026-04-24",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w18",
+        "observed_at": "2026-05-01",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w19",
+        "observed_at": "2026-05-08",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w20",
+        "observed_at": "2026-05-15",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w21",
+        "observed_at": "2026-05-22",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w22",
+        "observed_at": "2026-05-29",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w23",
+        "observed_at": "2026-06-05",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w24",
+        "observed_at": "2026-06-12",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w25",
+        "observed_at": "2026-06-19",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w26",
+        "observed_at": "2026-06-26",
+        "text": "Counts a group of 6 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w27",
+        "observed_at": "2026-07-03",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w28",
+        "observed_at": "2026-07-10",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w29",
+        "observed_at": "2026-07-17",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w30",
+        "observed_at": "2026-07-24",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w31",
+        "observed_at": "2026-07-31",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w32",
+        "observed_at": "2026-08-07",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w33",
+        "observed_at": "2026-08-14",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w34",
+        "observed_at": "2026-08-21",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w35",
+        "observed_at": "2026-08-28",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w36",
+        "observed_at": "2026-09-04",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w37",
+        "observed_at": "2026-09-11",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w38",
+        "observed_at": "2026-09-18",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w39",
+        "observed_at": "2026-09-25",
+        "text": "Counts a group of 9 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w40",
+        "observed_at": "2026-10-02",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w41",
+        "observed_at": "2026-10-09",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w42",
+        "observed_at": "2026-10-16",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w43",
+        "observed_at": "2026-10-23",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w44",
+        "observed_at": "2026-10-30",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w45",
+        "observed_at": "2026-11-06",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w46",
+        "observed_at": "2026-11-13",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w47",
+        "observed_at": "2026-11-20",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w48",
+        "observed_at": "2026-11-27",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w49",
+        "observed_at": "2026-12-04",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w50",
+        "observed_at": "2026-12-11",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w51",
+        "observed_at": "2026-12-18",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      },
+      {
+        "id": "w52",
+        "observed_at": "2026-12-25",
+        "text": "Counts a group of 12 counters with a teacher reminder to touch each counter once."
+      }
+    ],
+    "expected": {
+      "progress": true,
+      "clarification": false,
+      "latest": [
+        "w52"
+      ],
+      "must_preserve": "Supported early-to-late progression, latest support needs, no general independence; concise synthesis rather than 52-item log.",
+      "forbidden": "No invented fluency/confidence/causes; no erasing latest prompts or reminders."
+    }
+  },
+  {
+    "id": "weekly-52-zh",
+    "language": "zh-Hans",
+    "period_start": "2026-01-01",
+    "period_end": "2026-12-31",
+    "notes": [
+      {
+        "id": "w01",
+        "observed_at": "2026-01-02",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w02",
+        "observed_at": "2026-01-09",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w03",
+        "observed_at": "2026-01-16",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w04",
+        "observed_at": "2026-01-23",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w05",
+        "observed_at": "2026-01-30",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w06",
+        "observed_at": "2026-02-06",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w07",
+        "observed_at": "2026-02-13",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w08",
+        "observed_at": "2026-02-20",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w09",
+        "observed_at": "2026-02-27",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w10",
+        "observed_at": "2026-03-06",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w11",
+        "observed_at": "2026-03-13",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w12",
+        "observed_at": "2026-03-20",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w13",
+        "observed_at": "2026-03-27",
+        "text": "在老师提示下说出自己的名字。"
+      },
+      {
+        "id": "w14",
+        "observed_at": "2026-04-03",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w15",
+        "observed_at": "2026-04-10",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w16",
+        "observed_at": "2026-04-17",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w17",
+        "observed_at": "2026-04-24",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w18",
+        "observed_at": "2026-05-01",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w19",
+        "observed_at": "2026-05-08",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w20",
+        "observed_at": "2026-05-15",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w21",
+        "observed_at": "2026-05-22",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w22",
+        "observed_at": "2026-05-29",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w23",
+        "observed_at": "2026-06-05",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w24",
+        "observed_at": "2026-06-12",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w25",
+        "observed_at": "2026-06-19",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w26",
+        "observed_at": "2026-06-26",
+        "text": "能向两位熟悉的朋友讲述一件事情。"
+      },
+      {
+        "id": "w27",
+        "observed_at": "2026-07-03",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w28",
+        "observed_at": "2026-07-10",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w29",
+        "observed_at": "2026-07-17",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w30",
+        "observed_at": "2026-07-24",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w31",
+        "observed_at": "2026-07-31",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w32",
+        "observed_at": "2026-08-07",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w33",
+        "observed_at": "2026-08-14",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w34",
+        "observed_at": "2026-08-21",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w35",
+        "observed_at": "2026-08-28",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w36",
+        "observed_at": "2026-09-04",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w37",
+        "observed_at": "2026-09-11",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w38",
+        "observed_at": "2026-09-18",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w39",
+        "observed_at": "2026-09-25",
+        "text": "在小组活动中能在图片提示下讲述故事。"
+      },
+      {
+        "id": "w40",
+        "observed_at": "2026-10-02",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w41",
+        "observed_at": "2026-10-09",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w42",
+        "observed_at": "2026-10-16",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w43",
+        "observed_at": "2026-10-23",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w44",
+        "observed_at": "2026-10-30",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w45",
+        "observed_at": "2026-11-06",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w46",
+        "observed_at": "2026-11-13",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w47",
+        "observed_at": "2026-11-20",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w48",
+        "observed_at": "2026-11-27",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w49",
+        "observed_at": "2026-12-04",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w50",
+        "observed_at": "2026-12-11",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w51",
+        "observed_at": "2026-12-18",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      },
+      {
+        "id": "w52",
+        "observed_at": "2026-12-25",
+        "text": "在全班面前讲述一段故事，开始时仍需要老师提醒。"
+      }
+    ],
+    "expected": {
+      "progress": true,
+      "clarification": false,
+      "latest": [
+        "w52"
+      ],
+      "must_preserve": "Supported early-to-late progression, latest support needs, no general independence; concise synthesis rather than 52-item log.",
+      "forbidden": "No invented fluency/confidence/causes; no erasing latest prompts or reminders."
+    }
+  }
+]

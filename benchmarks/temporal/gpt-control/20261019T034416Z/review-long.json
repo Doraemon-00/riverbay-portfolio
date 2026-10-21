@@ -1,0 +1,75 @@
+{
+  "reviewed_pairs": 6,
+  "records": [
+    {
+      "pair_id": "pair19",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "support_qualifier_loss",
+          "quote": "孩子在全班面前讲述故事时仍需老师提醒。",
+          "source_fact": "w40–w52 (2026-10-02 through 2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "The source locates the reminder at the start. Dropping 开始时 makes the reminder sound necessary during storytelling generally, losing a meaningful boundary on the current support need."
+        },
+        {
+          "severity": "minor",
+          "type": "unused_evidence_ids",
+          "quote": "随后，孩子能在小组活动中借助图片提示讲述故事。",
+          "source_fact": "w14–w26 (2026-04-03 through 2026-06-26): 能向两位熟悉的朋友讲述一件事情。",
+          "explanation": "Omitting the intermediate familiar-friend stage is acceptable compression. However, evidence_ids still includes w14–w26 even though that distinct observation is not used in the narrative, reducing traceability under the supplied contract."
+        }
+      ]
+    },
+    {
+      "pair_id": "pair20",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "support_misattribution",
+          "quote": "孩子能在图片提示下向熟悉的朋友讲述事情",
+          "source_fact": "w14–w26 (2026-04-03 through 2026-06-26): 能向两位熟悉的朋友讲述一件事情。 Picture support is recorded separately in w27–w39: 在小组活动中能在图片提示下讲述故事。",
+          "explanation": "The draft transfers picture prompting from the later small-group story task to the familiar-friend event task, inventing a support condition for that earlier observation."
+        },
+        {
+          "severity": "material",
+          "type": "context_qualifier_loss",
+          "quote": "向熟悉的朋友讲述事情",
+          "source_fact": "w14–w26: 能向两位熟悉的朋友讲述一件事情。",
+          "explanation": "The source specifies an audience of two familiar friends. Removing the number loses the concrete audience size that bounds this observation, especially in a sequence involving expansion to small-group and whole-class audiences."
+        },
+        {
+          "severity": "minor",
+          "type": "incorrect_latest_evidence_id",
+          "quote": "\"latest_observation_ids\": [\"w51\", \"w52\"]",
+          "source_fact": "w51 occurred on 2026-12-18; w52 occurred on 2026-12-25. Both record 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "w51 is not tied at the latest occurrence date and should not be included in the latest-ID field. The narrative's factual meaning is unaffected because both observations contain the same fact."
+        }
+      ]
+    },
+    {
+      "pair_id": "pair21",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "support_qualifier_loss",
+          "quote": "孩子在全班面前讲述故事时仍需老师提醒。",
+          "source_fact": "w40–w52 (2026-10-02 through 2026-12-25): 在全班面前讲述一段故事，开始时仍需要老师提醒。",
+          "explanation": "The source locates the reminder at the start. Dropping 开始时 makes the reminder sound necessary during storytelling generally, losing a meaningful boundary on the current support need."
+        },
+        {
+          "severity": "minor",
+          "type": "unused_evidence_ids",
+          "quote": "随后，孩子能在小组活动中借助图片提示讲述故事。",
+          "source_fact": "w14–w26 (2026-04-03 through 2026-06-26): 能向两位熟悉的朋友讲述一件事情。",
+          "explanation": "Omitting the intermediate familiar-friend stage is acceptable compression. However, evidence_ids still includes w14–w26 even though that distinct observation is not used in the narrative, reducing traceability under the supplied contract."
+        }
+      ],
+      "right_findings": []
+    },
+    {"pair_id": "pair28", "left_findings": [], "right_findings": []},
+    {"pair_id": "pair29", "left_findings": [], "right_findings": []},
+    {"pair_id": "pair30", "left_findings": [], "right_findings": []}
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-19",
+  "prompt": "prompt-v4-warm.txt",
+  "scope": "19 unchanged legacy cases plus 4 richer fictional examples; 69 first attempts per candidate",
+  "model": "Inherited Codex GPT configuration; no override; exact snapshot and sampling not exposed",
+  "fork_turns": "none",
+  "local_run": "20261019T043925Z-qwen9b-warm-v4",
+  "local_settings": {
+    "model": "riverbay-qwen35-9b",
+    "temperature": 0.2,
+    "seeds": [
+      11,
+      29,
+      47
+    ],
+    "context": 8192,
+    "output_token_ceiling": 1000,
+    "thinking": false
+  },
+  "writer_calls": [
+    {
+      "task_name": "/root/warm_writer_a",
+      "message": "You are a narrative writer. Read ONLY C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/packet.json. It contains writing_instructions, output_schema and 23 independent items. Apply those instructions exactly to each input. Keep facts isolated between items. Produce one first-attempt actual narrative output for each item; do not simulate another model. No browsing, outside model calls, other file reads, answer-key search, evaluation, grading feedback, repair loop or delegation. Tools may only read the packet and write your output. Write UTF-8 JSONL to C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/writer-a.jsonl. Each line must be {\"case_id\":\"itemNN\",\"output\":{...the five schema fields...}}. Preserve all item IDs; no explanation outside output fields. Do not change any other file, commit or push. Return only output path and number of items."
+    },
+    {
+      "task_name": "/root/warm_writer_b",
+      "message": "You are a narrative writer. Read ONLY C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/packet.json. It contains writing_instructions, output_schema and 23 independent items. Apply those instructions exactly to each input. Keep facts isolated between items. Produce one first-attempt actual narrative output for each item; do not simulate another model. No browsing, outside model calls, other file reads, answer-key search, evaluation, grading feedback, repair loop or delegation. Tools may only read the packet and write your output. Write UTF-8 JSONL to C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/writer-b.jsonl. Each line must be {\"case_id\":\"itemNN\",\"output\":{...the five schema fields...}}. Preserve all item IDs; no explanation outside output fields. Do not change any other file, commit or push. Return only output path and number of items."
+    },
+    {
+      "task_name": "/root/warm_writer_c",
+      "message": "You are a narrative writer. Read ONLY C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/packet.json. It contains writing_instructions, output_schema and 23 independent items. Apply those instructions exactly to each input. Keep facts isolated between items. Produce one first-attempt actual narrative output for each item; do not simulate another model. No browsing, outside model calls, other file reads, answer-key search, evaluation, grading feedback, repair loop or delegation. Tools may only read the packet and write your output. Write UTF-8 JSONL to C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/writer-c.jsonl. Each line must be {\"case_id\":\"itemNN\",\"output\":{...the five schema fields...}}. Preserve all item IDs; no explanation outside output fields. Do not change any other file, commit or push. Return only output path and number of items."
+    }
+  ],
+  "reviewer_calls": [
+    {
+      "task_name": "/root/warm_review_a",
+      "message": "Review ONLY C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/blind-review-short-a.json. It has the actual writing guide and 26 anonymous left/right candidate pairs with source observations. Candidate sides are independently randomized. No other reads, browsing, delegation, outside model calls or edits except your result file. Assess every output independently against its facts and warm-developmental guide; do not choose a winner or infer model identity. Look for invented confidence/energy/motivation/gender/causes or abilities, misplaced support, lost frequency/context/current needs, false contradictions/refusal, wrong progress/IDs, praise cancelled by but/however or Chinese equivalents, padded/repetitive prose and chronological logs. Support-first phrasing is preferred where sensible, but must not hide current needs or force a positive ending. Short sparse drafts are legitimate; intermediate stages can be omitted if retained claims remain faithful. No home/parent-contact advice or serious-concern format is requested. Severity: critical = unsupported fact, missing current need, false contradiction or unjustified no-draft; material = meaningful qualifier/strength omission or ambiguous meaning; minor = tone/style/traceability concern that does not change facts. Quote exact draft and source for findings. Also give a short style_note for each side on warmth, coherence and useful length; do not equate length with quality. Write UTF-8 JSON to C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/review-short-a.json with {\"reviewed_pairs\":26,\"records\":[{\"pair_id\":\"pairNN\",\"left_findings\":[{\"severity\":\"critical|material|minor\",\"type\":\"...\",\"quote\":\"...\",\"source_fact\":\"...\",\"explanation\":\"...\"}],\"right_findings\":[...],\"left_style_note\":\"...\",\"right_style_note\":\"...\"}]}. Include all pairs, [] for no issue. Preserve drafts; no repair. Return only path and pair count."
+    },
+    {
+      "task_name": "/root/warm_review_b",
+      "message": "Review ONLY C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/blind-review-short-b.json. It has the actual writing guide and 25 anonymous left/right candidate pairs with source observations. Candidate sides are independently randomized. No other reads, browsing, delegation, outside model calls or edits except your result file. Assess every output independently against its facts and warm-developmental guide; do not choose a winner or infer model identity. Look for invented confidence/energy/motivation/gender/causes or abilities, misplaced support, lost frequency/context/current needs, false contradictions/refusal, wrong progress/IDs, praise cancelled by but/however or Chinese equivalents, padded/repetitive prose and chronological logs. Support-first phrasing is preferred where sensible, but must not hide current needs or force a positive ending. Short sparse drafts are legitimate; intermediate stages can be omitted if retained claims remain faithful. No home/parent-contact advice or serious-concern format is requested. Severity: critical = unsupported fact, missing current need, false contradiction or unjustified no-draft; material = meaningful qualifier/strength omission or ambiguous meaning; minor = tone/style/traceability concern that does not change facts. Quote exact draft and source for findings. Also give a short style_note for each side on warmth, coherence and useful length; do not equate length with quality. Write UTF-8 JSON to C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/review-short-b.json with {\"reviewed_pairs\":25,\"records\":[{\"pair_id\":\"pairNN\",\"left_findings\":[{\"severity\":\"critical|material|minor\",\"type\":\"...\",\"quote\":\"...\",\"source_fact\":\"...\",\"explanation\":\"...\"}],\"right_findings\":[...],\"left_style_note\":\"...\",\"right_style_note\":\"...\"}]}. Include all pairs, [] for no issue. Preserve drafts; no repair. Return only path and pair count."
+    },
+    {
+      "task_name": "/root/warm_review_c",
+      "message": "Review ONLY C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/blind-review-long.json. It has the actual writing guide and 18 anonymous left/right candidate pairs with source observations (some have 52 weekly notes). Candidate sides are independently randomized. No other reads, browsing, delegation, outside model calls or edits except your result file. Assess every output independently against its facts and warm-developmental guide; do not choose a winner or infer model identity. Look for invented confidence/energy/motivation/gender/causes or abilities, misplaced support, lost frequency/context/current needs, false contradictions/refusal, wrong progress/IDs, praise cancelled by but/however or Chinese equivalents, padded/repetitive prose and chronological logs. Support-first phrasing is preferred where sensible, but must not hide current needs or force a positive ending. Short sparse drafts are legitimate; intermediate stages can be omitted if retained claims remain faithful. No home/parent-contact advice or serious-concern format is requested. Severity: critical = unsupported fact, missing current need, false contradiction or unjustified no-draft; material = meaningful qualifier/strength omission or ambiguous meaning; minor = tone/style/traceability concern that does not change facts. Quote exact draft and source for findings. Also give a short style_note for each side on warmth, coherence and useful length; do not equate length with quality. Write UTF-8 JSON to C:/Users/doraemon/Documents/GitHub/dora-pocket/worlds/peterhouse-portfolio/benchmarks/temporal/gpt-control/20261019T043925Z-warm-v4/review-long.json with {\"reviewed_pairs\":18,\"records\":[{\"pair_id\":\"pairNN\",\"left_findings\":[{\"severity\":\"critical|material|minor\",\"type\":\"...\",\"quote\":\"...\",\"source_fact\":\"...\",\"explanation\":\"...\"}],\"right_findings\":[...],\"left_style_note\":\"...\",\"right_style_note\":\"...\"}]}. Include all pairs, [] for no issue. Preserve drafts; no repair. Return only path and pair count."
+    }
+  ],
+  "limits": [
+    "Three batched GPT writer sessions, not 69 independent API calls.",
+    "Same-family blinded agent reviewers, not human ground truth.",
+    "No writer feedback/repair; original v2 artifacts remain intact.",
+    "v2 short local runs used 4096 context/650 output tokens; v4 uses 8192/1000. Not a prompt-only timing comparison.",
+    "Split review packets: first 26 short pairs, next 25 short pairs, remaining 12 short pairs plus six long pairs. Freeze packets before review; re-splitting needed if rebuilding with score_gpt_control.py.",
+    "Lexical pivot counts are warnings, not semantic scores. Reviewer word/meaning judgments can differ."
+  ]
+}

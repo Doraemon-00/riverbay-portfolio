@@ -1,0 +1,197 @@
+{
+  "capturedAt": "2026-10-20T13:44:22.796Z",
+  "source": "Avery fictional Semester 2 persisted records; original generation inputs/model/prompt and subsequent edits are not established",
+  "rows": [
+    {
+      "id": "7e9ef2f2-09c5-477e-a0fd-cc93bbcc95bf",
+      "domain": "english",
+      "rating": 2,
+      "narrative": "The child explores stories and personal experiences in various ways throughout the school day. When looking through a picture book, the child named familiar characters and answered simple questions. The child has shared short accounts of personal events, like a picnic, using picture prompts to help recall the sequence of events. During small-group activities, the child retold the beginning and middle portions of a familiar story, and with a question from the teacher, explained the ending. Additionally, the child shared an idea during group time with the support of a little prompting.",
+      "revision": 5,
+      "observations": [
+        {
+          "id": "e0527fec-2327-410b-8f52-26077e7fedb7",
+          "date": null,
+          "text": "Shared an idea during group time with a little prompting."
+        },
+        {
+          "id": "4d0e11ce-e55e-4361-969c-dbd1dff6697e",
+          "date": "2026-07-14",
+          "text": "Named familiar characters while looking through a picture book and answered a simple who question."
+        },
+        {
+          "id": "1d1cfc37-277f-4b5c-9545-f149e88aee45",
+          "date": "2026-08-25",
+          "text": "Shared a short account of a picnic with two friends. Used a picture prompt to recall what happened next."
+        },
+        {
+          "id": "59549a18-fc1e-4631-b691-62acdf7f0e4b",
+          "date": "2026-10-13",
+          "text": "Retold the beginning and middle of a familiar story during a small-group activity. Needed a question from the teacher to explain the ending."
+        }
+      ]
+    },
+    {
+      "id": "4ce85bbc-132a-41c1-930f-4ba1bb9bbdef",
+      "domain": "chinese",
+      "rating": 2,
+      "narrative": "孩子近期在小组活动和分享中表现得越来越积极。他喜欢动物和自然主题的图画书，常通过图片中的线索来理解故事内容并尝试表达。在阅读角或小组分享时，孩子不仅能准确说出动物名称，还能用两三个短句介绍自己的画作或喜欢的动物，并尝试补充颜色和动作等细节。在教师给予一定的等待时间、简短提示或问题引导下，他乐于尝试用中文表达想法。当遇到不熟悉的词汇时，孩子会运用手势或向教师求助来完成沟通。在连贯讲述图片顺序或进行较长的回答时，他会先停下来组织语言，并在教师的帮助下梳理表达内容。",
+      "revision": 6,
+      "observations": [
+        {
+          "id": "4920c5a7-99b9-4939-b6ca-f62983c3dc0d",
+          "date": null,
+          "text": "在提示下，能用短句分享自己的想法。"
+        },
+        {
+          "id": "34fc54cf-08da-41a7-9dc8-c8f3e6030b84",
+          "date": "2026-07-21",
+          "text": "在点名活动中，能用中文说出自己的名字；回答其他问题时，有时需要教师重复或提示。"
+        },
+        {
+          "id": "abf5eb12-ccb7-488e-9660-0e5625b396fa",
+          "date": "2026-09-03",
+          "text": "看图时能说出几个熟悉的动物名称，并在提示下用短句描述图片。"
+        },
+        {
+          "id": "2be4eded-1ef3-400c-8430-0b6bde6bfe6f",
+          "date": "2026-10-15",
+          "text": "在小组分享中，用两三个短句介绍自己的画。遇到不熟悉的词语时，会停下来向教师求助。"
+        },
+        {
+          "id": "b68682dd-587d-4ef3-b2cb-3cc7dc6227cb",
+          "date": "2026-07-09",
+          "text": "在阅读角主动选择了一本动物图画书。能指出图片中的小猫和小狗，并跟着教师说出名称。"
+        },
+        {
+          "id": "b8837c25-31b6-4a19-8937-e0d96f4ba5dc",
+          "date": "2026-08-04",
+          "text": "在问候活动中，能回应教师的早安，并在提示下向身旁的同伴问好。"
+        },
+        {
+          "id": "b626faf1-642a-425c-8771-82f10251d2cd",
+          "date": "2026-08-18",
+          "text": "听完熟悉的故事后，能根据图片指出主要角色。回答发生了什么时，仍需要教师用简短问题引导。"
+        },
+        {
+          "id": "5724916d-642a-4d73-b4cf-cbb9bfe8de50",
+          "date": "2026-09-17",
+          "text": "在角色扮演活动中，尝试用中文表达自己想要的物品，例如我要苹果。遇到不熟悉的词语时，会配合手势表达。"
+        },
+        {
+          "id": "58bb8f01-3450-44f3-a3c6-6159f6a45e60",
+          "date": "2026-09-29",
+          "text": "在小组活动中，根据三张图片讲述先后顺序。能说出先吃饭、再洗手等短句；在说明图片之间的联系时，需要教师帮助整理表达。"
+        },
+        {
+          "id": "acc11459-c7b2-4048-9cef-b7bd9f218f4f",
+          "date": "2026-10-19",
+          "text": "在分享活动中，向同伴介绍自己喜欢的动物，并补充了颜色和动作等细节。能回应一个简单的追问；轮到较长的回答时，会先停下来组织语言。"
+        },
+        {
+          "id": "59f6ee9b-0249-481d-9a8f-0a1289f77ef8",
+          "date": null,
+          "text": "喜欢动物和自然主题的图画书。图片能帮助他理解故事，并为分享提供表达的线索。"
+        },
+        {
+          "id": "61a84201-8047-45a9-9d46-b6fb199c3ee9",
+          "date": null,
+          "text": "在熟悉的小组中较愿意开口表达。教师给予等待时间和简短提示时，他会继续尝试用中文说明自己的想法。"
+        },
+        {
+          "id": "3b87ed8a-055b-4efd-a7b3-242e1835f5d8",
+          "date": null,
+          "text": "遇到不熟悉的词语时，会通过手势或向教师求助来表达。可继续在日常活动中提供自然使用中文的机会。"
+        }
+      ]
+    },
+    {
+      "id": "675c8416-37ad-4b76-9564-93bae8508fda",
+      "domain": "mathematics",
+      "rating": null,
+      "narrative": "The child explores various mathematical concepts through play. When counting, the child uses one-to-one pointing for groups up to ten, often finding it helpful to arrange items in a line first to ensure accuracy. The child has demonstrated an ability to sort buttons by color, recognize shapes like circles, squares, and triangles, and correctly use terms such as more and fewer when comparing groups. Additionally, the child is beginning to work with patterns, having successfully copied, created, and checked two-color sequences. When engaging with addition, the child uses counters to add one more to a group, counting the total to verify the result.",
+      "revision": 3,
+      "observations": [
+        {
+          "id": "d31144d6-b220-45d6-b7c4-378252b02060",
+          "date": "2026-07-07",
+          "text": "Counted four toy animals with one-to-one pointing. Needed a reminder to slow down when counting a larger group."
+        },
+        {
+          "id": "613db1dd-647f-4b5a-81a0-7dfb3a32e47c",
+          "date": "2026-07-16",
+          "text": "Sorted buttons by colour and explained which pile each button belonged to."
+        },
+        {
+          "id": "672dc281-ee99-4401-86e3-0bb5a1cb63f3",
+          "date": "2026-07-29",
+          "text": "Matched numeral cards 1 to 5 to groups of blocks, with a prompt to check the group of five."
+        },
+        {
+          "id": "61efba83-2eb0-48f5-a917-a60fcda72b15",
+          "date": "2026-08-06",
+          "text": "Copied a red-blue repeating pattern and added the next two blocks independently."
+        },
+        {
+          "id": "ffc4bb34-4e03-446f-8c0f-6caed95f49d8",
+          "date": "2026-08-18",
+          "text": "Compared two groups of counters and used more and fewer correctly during a small-group game."
+        },
+        {
+          "id": "741472a4-681a-406e-a14e-0864ed0796ba",
+          "date": "2026-08-31",
+          "text": "Counted eight shells accurately after arranging them in a line. Skipped a shell when the objects were scattered, then corrected the count with a reminder to move each shell."
+        },
+        {
+          "id": "bb9c741f-9434-40b0-be14-ed3797ace375",
+          "date": "2026-09-10",
+          "text": "Recognised a circle, square and triangle in classroom objects. Described the triangle as having three sides."
+        },
+        {
+          "id": "bd0598fc-80e6-4d34-bf5d-4be48fef8b24",
+          "date": "2026-09-24",
+          "text": "Used counters to explore adding one more to a group of five. Counted all the counters to check the answer."
+        },
+        {
+          "id": "eb83cbd2-fe73-4927-b98f-cc8c0afa80e3",
+          "date": "2026-10-06",
+          "text": "Created a two-colour pattern for a friend to continue and noticed when one colour was out of sequence."
+        },
+        {
+          "id": "5297a4f6-b349-4057-b792-1bcd5f84a528",
+          "date": "2026-10-19",
+          "text": "Counted groups up to ten during a pretend-shop activity, using one-to-one pointing. Still benefits from arranging scattered objects before counting."
+        }
+      ]
+    },
+    {
+      "id": "825cabd1-99c7-48c2-9272-7cd8fc2e043f",
+      "domain": "social_emotional",
+      "rating": null,
+      "narrative": "The child engages in collaborative play, such as building and drawing with peers. With teacher support to introduce a task or a reminder during transitions, the child participates in activities. When interacting with classmates, the child has asked for a turn with a toy truck and waited with a reminder until the other child finished. During a drawing activity, the child invited a friend to join, offered to share crayons, and asked the teacher for assistance when a conflict arose over sharing a specific colour.",
+      "revision": 3,
+      "observations": [
+        {
+          "id": "88bca028-bb0b-46c0-b9e2-57d8f6fff244",
+          "date": "2026-07-09",
+          "text": "Joined a paired building activity after the teacher helped introduce the task."
+        },
+        {
+          "id": "251b42cc-1718-4996-b51b-30483de35ced",
+          "date": "2026-08-20",
+          "text": "Asked a classmate for a turn with the toy truck. Waited with a reminder while the classmate finished."
+        },
+        {
+          "id": "5992e4cf-2d66-4cfa-a62f-58d9765a147e",
+          "date": "2026-10-08",
+          "text": "Invited a friend to join a drawing activity and offered to share crayons. Asked the teacher for help when both children wanted the same colour."
+        },
+        {
+          "id": "a397633c-ad62-47d9-98fe-2a15d89b42c0",
+          "date": null,
+          "text": "Enjoys collaborative building and drawing activities. A brief reminder of the next step helps during transitions."
+        }
+      ]
+    }
+  ]
+}

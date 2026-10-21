@@ -1,0 +1,21 @@
+{
+  "cases": 4,
+  "planned_attempts": 36,
+  "qwen_completed": 12,
+  "gpt_completed": 12,
+  "gemini_completed": 1,
+  "gemini_failed": 1,
+  "gemini_unattempted": 10,
+  "qwen_warm_seconds": {
+    "median": 3.557,
+    "minimum": 2.332,
+    "maximum": 4.202
+  },
+  "qwen_first_request_seconds": 9.016,
+  "qwen_model_load_seconds": 5.9027868,
+  "qwen_peak_device_vram_mib": 5409,
+  "qwen_first_baseline_mib": 0,
+  "qwen_peak_gib": 5.282,
+  "prompt_sha256": "ac7176dad9985d3132c11c3c6761d87c251dd4c32893131bdddccc02bc43c3f1",
+  "cases_sha256": "fa74ff66b23c4567fb32bf8bbcbe3b34b6a980a22bf06198c2455401f4d1cdf6"
+}

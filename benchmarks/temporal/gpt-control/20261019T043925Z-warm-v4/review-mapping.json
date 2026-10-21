@@ -1,0 +1,554 @@
+{
+  "pair01": {
+    "item_id": "item01",
+    "case_id": "instruction-in-note-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair02": {
+    "item_id": "item01",
+    "case_id": "instruction-in-note-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair03": {
+    "item_id": "item01",
+    "case_id": "instruction-in-note-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair04": {
+    "item_id": "item02",
+    "case_id": "snapshot-only-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair05": {
+    "item_id": "item02",
+    "case_id": "snapshot-only-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair06": {
+    "item_id": "item02",
+    "case_id": "snapshot-only-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair07": {
+    "item_id": "item03",
+    "case_id": "growth-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair08": {
+    "item_id": "item03",
+    "case_id": "growth-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair09": {
+    "item_id": "item03",
+    "case_id": "growth-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair10": {
+    "item_id": "item04",
+    "case_id": "recent-setback-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair11": {
+    "item_id": "item04",
+    "case_id": "recent-setback-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair12": {
+    "item_id": "item04",
+    "case_id": "recent-setback-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair13": {
+    "item_id": "item05",
+    "case_id": "year-to-date-growth-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair14": {
+    "item_id": "item05",
+    "case_id": "year-to-date-growth-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair15": {
+    "item_id": "item05",
+    "case_id": "year-to-date-growth-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair16": {
+    "item_id": "item06",
+    "case_id": "rich-social-participation",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair17": {
+    "item_id": "item06",
+    "case_id": "rich-social-participation",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair18": {
+    "item_id": "item06",
+    "case_id": "rich-social-participation",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair19": {
+    "item_id": "item07",
+    "case_id": "undated-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair20": {
+    "item_id": "item07",
+    "case_id": "undated-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair21": {
+    "item_id": "item07",
+    "case_id": "undated-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair22": {
+    "item_id": "item08",
+    "case_id": "mixed-year-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair23": {
+    "item_id": "item08",
+    "case_id": "mixed-year-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair24": {
+    "item_id": "item08",
+    "case_id": "mixed-year-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair25": {
+    "item_id": "item09",
+    "case_id": "rich-english-sharing",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair26": {
+    "item_id": "item09",
+    "case_id": "rich-english-sharing",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair27": {
+    "item_id": "item09",
+    "case_id": "rich-english-sharing",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair28": {
+    "item_id": "item10",
+    "case_id": "shuffled-and-backfilled-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair29": {
+    "item_id": "item10",
+    "case_id": "shuffled-and-backfilled-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair30": {
+    "item_id": "item10",
+    "case_id": "shuffled-and-backfilled-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair31": {
+    "item_id": "item11",
+    "case_id": "rich-math-exploration",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair32": {
+    "item_id": "item11",
+    "case_id": "rich-math-exploration",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair33": {
+    "item_id": "item11",
+    "case_id": "rich-math-exploration",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair34": {
+    "item_id": "item12",
+    "case_id": "contradiction-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair35": {
+    "item_id": "item12",
+    "case_id": "contradiction-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair36": {
+    "item_id": "item12",
+    "case_id": "contradiction-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair37": {
+    "item_id": "item13",
+    "case_id": "math-snapshot-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair38": {
+    "item_id": "item13",
+    "case_id": "math-snapshot-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair39": {
+    "item_id": "item13",
+    "case_id": "math-snapshot-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair40": {
+    "item_id": "item14",
+    "case_id": "weekly-52-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair41": {
+    "item_id": "item14",
+    "case_id": "weekly-52-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair42": {
+    "item_id": "item14",
+    "case_id": "weekly-52-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair43": {
+    "item_id": "item15",
+    "case_id": "social-growth-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair44": {
+    "item_id": "item15",
+    "case_id": "social-growth-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair45": {
+    "item_id": "item15",
+    "case_id": "social-growth-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair46": {
+    "item_id": "item16",
+    "case_id": "weekly-52-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair47": {
+    "item_id": "item16",
+    "case_id": "weekly-52-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair48": {
+    "item_id": "item16",
+    "case_id": "weekly-52-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair49": {
+    "item_id": "item17",
+    "case_id": "context-difference-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair50": {
+    "item_id": "item17",
+    "case_id": "context-difference-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair51": {
+    "item_id": "item17",
+    "case_id": "context-difference-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair52": {
+    "item_id": "item18",
+    "case_id": "growth-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair53": {
+    "item_id": "item18",
+    "case_id": "growth-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair54": {
+    "item_id": "item18",
+    "case_id": "growth-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair55": {
+    "item_id": "item19",
+    "case_id": "math-growth-en",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair56": {
+    "item_id": "item19",
+    "case_id": "math-growth-en",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair57": {
+    "item_id": "item19",
+    "case_id": "math-growth-en",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair58": {
+    "item_id": "item20",
+    "case_id": "rich-chinese-storytelling",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair59": {
+    "item_id": "item20",
+    "case_id": "rich-chinese-storytelling",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair60": {
+    "item_id": "item20",
+    "case_id": "rich-chinese-storytelling",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair61": {
+    "item_id": "item21",
+    "case_id": "frequency-setback-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair62": {
+    "item_id": "item21",
+    "case_id": "frequency-setback-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair63": {
+    "item_id": "item21",
+    "case_id": "frequency-setback-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair64": {
+    "item_id": "item22",
+    "case_id": "semester-cutoff-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair65": {
+    "item_id": "item22",
+    "case_id": "semester-cutoff-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair66": {
+    "item_id": "item22",
+    "case_id": "semester-cutoff-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair67": {
+    "item_id": "item23",
+    "case_id": "snapshot-only-zh",
+    "writer": "a",
+    "seed": 11,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  },
+  "pair68": {
+    "item_id": "item23",
+    "case_id": "snapshot-only-zh",
+    "writer": "b",
+    "seed": 29,
+    "left": "gpt",
+    "right": "qwen9b-v4"
+  },
+  "pair69": {
+    "item_id": "item23",
+    "case_id": "snapshot-only-zh",
+    "writer": "c",
+    "seed": 47,
+    "left": "qwen9b-v4",
+    "right": "gpt"
+  }
+}

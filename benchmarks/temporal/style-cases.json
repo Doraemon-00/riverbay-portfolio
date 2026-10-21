@@ -1,0 +1,54 @@
+[
+  {
+    "id": "rich-english-sharing",
+    "language": "en",
+    "period_start": "2026-01-01",
+    "period_end": "2026-06-30",
+    "notes": [
+      {"id": "jan", "observed_at": "2026-01", "text": "During small-group picture discussions, answers questions using one or two words when the teacher asks a direct question."},
+      {"id": "mar", "observed_at": "2026-03", "text": "During a picture discussion with two classmates, uses short sentences to describe what the characters are doing, with teacher questions to help extend the description."},
+      {"id": "may", "observed_at": "2026-05", "text": "At a class sharing session about a visit to the park, confidently tells classmates about seeing ducks and playing on the slide. Uses a drawing to support the account and needs a reminder to begin."},
+      {"id": "jun", "observed_at": "2026-06", "text": "In the two most recent class sharing sessions, uses a drawing and a reminder to begin to tell classmates about a personal experience in three or four sentences. Answers one follow-up question from a peer with a teacher prompt."}
+    ],
+    "expected": {"progress": true, "clarification": false, "latest": ["jun"], "must_preserve": "Small group to class; teacher questions, drawing and reminder to begin; last two sessions, three or four sentences; peer follow-up still needs teacher prompt. Confidence recorded in May only.", "forbidden": "No universal confidence, independence, fluency, teacher-free peer answers, invented motivation or goals."}
+  },
+  {
+    "id": "rich-chinese-storytelling",
+    "language": "zh-Hans",
+    "period_start": "2026-01-01",
+    "period_end": "2026-06-30",
+    "notes": [
+      {"id": "jan", "observed_at": "2026-01", "text": "在小组看图活动中，老师提问后能用中文说出图中的动物名称。"},
+      {"id": "mar", "observed_at": "2026-03", "text": "在老师追问下，能用简短中文句子描述小兔子在做什么。"},
+      {"id": "may", "observed_at": "2026-05", "text": "在一次小组故事活动中，借助三张图片，按先后顺序讲述小兔子找朋友的故事。老师在故事转折处给过两次提示。"},
+      {"id": "jun", "observed_at": "2026-06", "text": "最近两次小组故事活动中，借助图片能说出故事的开始和结尾，在连接中间情节时仍需要老师提问提示。能回应一位同伴关于故事人物的简单问题。"}
+    ],
+    "expected": {"progress": true, "clarification": false, "latest": ["jun"], "must_preserve": "Picture supports; May one activity and two prompts; recent two small-group sessions, beginning/end and teacher questions for middle; one peer simple character question.", "forbidden": "No fluent independent full retelling, invented confidence, expanded audience, invented home practice or recommendations."}
+  },
+  {
+    "id": "rich-math-exploration",
+    "language": "en",
+    "period_start": "2026-01-01",
+    "period_end": "2026-06-30",
+    "notes": [
+      {"id": "jan", "observed_at": "2026-01", "text": "During small-group number activities, matches numerals 1 to 3 to groups of counters with teacher prompting."},
+      {"id": "mar", "observed_at": "2026-03", "text": "In the same small-group number activities, matches numerals 1 to 6 to counters with teacher prompting. Enjoyment was not recorded."},
+      {"id": "may", "observed_at": "2026-05", "text": "During a small-group shop activity, selects a numeral card from 1 to 6 and counts out the matching number of toy fruits. Needs a teacher reminder to touch each fruit once."},
+      {"id": "jun", "observed_at": "2026-06", "text": "In the last two small-group counting activities, counts groups of up to 8 objects with a teacher reminder to touch each object once. When asked which of two groups has more, checks by placing the objects side by side with teacher guidance."}
+    ],
+    "expected": {"progress": true, "clarification": false, "latest": ["jun"], "must_preserve": "Numeral matching 1–3 then 1–6 is distinct from counting up to 8; teacher prompting/reminders/guidance; last two activities and small-group context.", "forbidden": "No matching numerals to 8, independent comparison, enthusiasm inferred from participation, invented explanation or goals."}
+  },
+  {
+    "id": "rich-social-participation",
+    "language": "en",
+    "period_start": "2026-01-01",
+    "period_end": "2026-06-30",
+    "notes": [
+      {"id": "jan", "observed_at": "2026-01", "text": "During shared block play with two classmates, needs the teacher to model the words for asking to use a block."},
+      {"id": "mar", "observed_at": "2026-03", "text": "During shared block play with two classmates, asks for a turn using the teacher's suggested phrase after a verbal reminder."},
+      {"id": "may", "observed_at": "2026-05", "text": "During one shared block activity with two classmates, asks to use a block without a teacher prompt. Teacher notes describe energetic participation: carries blocks to the building area and contributes ideas for a bridge."},
+      {"id": "jun", "observed_at": "2026-06", "text": "In the last three shared block activities with two classmates, contributes ideas to the shared construction and asks for a turn after a teacher reminder. Still needs reminders to wait until a peer has finished speaking. No unprompted request was recorded in those three sessions."}
+    ],
+    "expected": {"progress": true, "clarification": false, "latest": ["jun"], "must_preserve": "Modelled words to prompted turn request; May one unprompted request and observed energy; last three June sessions need turn-request and listening reminders; two classmates.", "forbidden": "No current universal independence, loss of reminders, negative label, permanent regression, fabricated cause, resolving disagreements or home advice."}
+  }
+]

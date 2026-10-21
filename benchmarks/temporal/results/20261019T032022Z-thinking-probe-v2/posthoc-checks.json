@@ -1,0 +1,18 @@
+{
+  "checker_sha256": "00ee84e4cefb747229f3a15a4b01d795848583606478a5f3c994098bc1383a41",
+  "note": "Post-hoc stricter check adds latest_not_used. Original inference evidence and summaries unchanged. No prose faithfulness score.",
+  "attempts": 1,
+  "mechanically_clean": 0,
+  "checks": [
+    {
+      "case_id": "growth-zh",
+      "seed": 11,
+      "original_findings": [
+        "request_or_parse_failure"
+      ],
+      "findings": [
+        "request_or_parse_failure"
+      ]
+    }
+  ]
+}

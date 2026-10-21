@@ -1,0 +1,545 @@
+{
+  "reviewed_pairs": 25,
+  "records": [
+    {
+      "pair_id": "pair27",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "frequency_and_scope",
+          "quote": "More recently, in June class sessions, the child tells three or four sentences about personal experiences",
+          "source_fact": "In the two most recent class sharing sessions, uses a drawing and a reminder to begin to tell classmates about a personal experience in three or four sentences. Answers one follow-up question from a peer with a teacher prompt.",
+          "explanation": "Drops the restriction to the two most recent sessions, widening the current observation."
+        },
+        {
+          "severity": "critical",
+          "type": "unsupported_generalization",
+          "quote": "requires teacher prompts to answer follow-up questions from peers, they actively participate",
+          "source_fact": "In the two most recent class sharing sessions, uses a drawing and a reminder to begin to tell classmates about a personal experience in three or four sentences. Answers one follow-up question from a peer with a teacher prompt.",
+          "explanation": "One prompted answer to one peer question becomes a general requirement for plural questions; active participation is an additional unrecorded strength."
+        },
+        {
+          "severity": "minor",
+          "type": "concessive_tone",
+          "quote": "Although the child needs a gentle reminder to begin sharing",
+          "source_fact": "In the two most recent class sharing sessions, uses a drawing and a reminder to begin to tell classmates about a personal experience in three or four sentences. Answers one follow-up question from a peer with a teacher prompt.",
+          "explanation": "Frames the support as a concession instead of integrating it with the achievement."
+        },
+        {
+          "severity": "minor",
+          "type": "evidence_traceability",
+          "quote": "\"evidence_ids\": [\"jan\", \"mar\", \"may\", \"jun\"]",
+          "source_fact": "During a picture discussion with two classmates, uses short sentences to describe what the characters are doing, with teacher questions to help extend the description.",
+          "explanation": "The March picture-description stage is omitted from the narrative, so its evidence ID has no clear corresponding claim."
+        }
+      ],
+      "left_style_note": "Warm through concrete examples, coherent development and useful detail; support and latest scope stay visible.",
+      "right_style_note": "Connected and readable, but the final concession and broad praise weaken the developmental tone; length is useful only where specific."
+    },
+    {
+      "pair_id": "pair28",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_support",
+          "quote": "With these visual supports and gentle reminders to begin",
+          "source_fact": "Tells a short story to the class with picture prompts.",
+          "explanation": "The April observation supplies picture prompts, with no reminder to begin."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Readable chronological account; the closing general sentence adds length and introduces an unrecorded support.",
+      "right_style_note": "Clear and specific with a useful development summary; dates make it somewhat report-like, and the final sentence repeats earlier content."
+    },
+    {
+      "pair_id": "pair29",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "support_specificity",
+          "quote": "describe a picture when supported",
+          "source_fact": "Uses short sentences to describe a picture with prompting.",
+          "explanation": "Generic support loses the recorded prompting condition for picture description."
+        }
+      ],
+      "left_style_note": "Coherent, accurate account; the closing reference to recorded supports sounds administrative and repeats the progression.",
+      "right_style_note": "Concise and readable; the ending broadly repeats the activity and could be more specific about prompting."
+    },
+    {
+      "pair_id": "pair30",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "support_specificity",
+          "quote": "describe a picture when supported",
+          "source_fact": "Uses short sentences to describe a picture with prompting.",
+          "explanation": "Replaces the specific prompting condition with unspecified support."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Compact and coherent, with an appropriately modest developmental ending; support wording is less precise.",
+      "right_style_note": "Specific and clear with supports attached correctly; its concluding sentence repeats the progression, but overall length remains useful."
+    },
+    {
+      "pair_id": "pair31",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "latest_frequency_context",
+          "quote": "In June, during counting activities",
+          "source_fact": "In the last two small-group counting activities, counts groups of up to 8 objects with a teacher reminder to touch each object once. When asked which of two groups has more, checks by placing the objects side by side with teacher guidance.",
+          "explanation": "Omits the last-two-activities restriction and the small-group context of the current observation."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "though they needed a teacher reminder to touch each fruit once",
+          "source_fact": "During a small-group shop activity, selects a numeral card from 1 to 6 and counts out the matching number of toy fruits. Needs a teacher reminder to touch each fruit once.",
+          "explanation": "Presents the reminder as a qualification cancelling the preceding achievement."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Readable and specific, but the sequence feels like a chronological report and the 'though' pivot weakens warmth.",
+      "right_style_note": "Concrete, connected number work with support and recent scope retained; useful length without empty praise."
+    },
+    {
+      "pair_id": "pair32",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "latest_frequency_context",
+          "quote": "In June, the child continued to count groups of up to eight objects",
+          "source_fact": "In the last two small-group counting activities, counts groups of up to 8 objects with a teacher reminder to touch each object once. When asked which of two groups has more, checks by placing the objects side by side with teacher guidance.",
+          "explanation": "Omits the last-two-activities restriction and the small-group context of the current observation."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "though they needed a reminder to touch each fruit once",
+          "source_fact": "During a small-group shop activity, selects a numeral card from 1 to 6 and counts out the matching number of toy fruits. Needs a teacher reminder to touch each fruit once.",
+          "explanation": "Presents the reminder as a qualification cancelling the preceding achievement."
+        },
+        {
+          "severity": "material",
+          "type": "support_specificity",
+          "quote": "with a teacher reminder to touch each item",
+          "source_fact": "In the last two small-group counting activities, counts groups of up to 8 objects with a teacher reminder to touch each object once. When asked which of two groups has more, checks by placing the objects side by side with teacher guidance.",
+          "explanation": "The June reminder no longer specifies touching each item once, losing the one-to-one counting support."
+        },
+        {
+          "severity": "material",
+          "type": "support_omission",
+          "quote": "By March, this skill expanded to include matching numerals up to 6.",
+          "source_fact": "In the same small-group number activities, matches numerals 1 to 6 to counters with teacher prompting. Enjoyment was not recorded.",
+          "explanation": "The March achievement is stated without its teacher-prompting condition."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Readable and specific, but the sequence feels like a chronological report and the 'though' pivot weakens warmth.",
+      "right_style_note": "Concrete, connected number work with support and recent scope retained; useful length without empty praise."
+    },
+    {
+      "pair_id": "pair33",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "latest_frequency_context",
+          "quote": "In June, during counting activities",
+          "source_fact": "In the last two small-group counting activities, counts groups of up to 8 objects with a teacher reminder to touch each object once. When asked which of two groups has more, checks by placing the objects side by side with teacher guidance.",
+          "explanation": "Omits the last-two-activities restriction and the small-group context of the current observation."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "though they needed a reminder to touch each fruit once",
+          "source_fact": "During a small-group shop activity, selects a numeral card from 1 to 6 and counts out the matching number of toy fruits. Needs a teacher reminder to touch each fruit once.",
+          "explanation": "Presents the reminder as a qualification cancelling the preceding achievement."
+        },
+        {
+          "severity": "material",
+          "type": "support_specificity",
+          "quote": "with a teacher reminder to touch each item",
+          "source_fact": "In the last two small-group counting activities, counts groups of up to 8 objects with a teacher reminder to touch each object once. When asked which of two groups has more, checks by placing the objects side by side with teacher guidance.",
+          "explanation": "The June reminder no longer specifies touching each item once, losing the one-to-one counting support."
+        },
+        {
+          "severity": "material",
+          "type": "support_omission",
+          "quote": "By March, this range expanded to include numbers up to 6.",
+          "source_fact": "In the same small-group number activities, matches numerals 1 to 6 to counters with teacher prompting. Enjoyment was not recorded.",
+          "explanation": "The March achievement is stated without its teacher-prompting condition."
+        }
+      ],
+      "left_style_note": "Concrete, connected number work with support and recent scope retained; useful length without empty praise.",
+      "right_style_note": "Readable and specific, but the sequence feels like a chronological report and the 'though' pivot weakens warmth."
+    },
+    {
+      "pair_id": "pair34",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "minor",
+          "type": "clarification_action",
+          "quote": "The teacher has recorded two contradictory observations for the exact same date and task: one stating the child spoke independently without prompts, and another stating they could not begin or continue without sentence-by-sentence prompts. These facts cannot both be true simultaneously for the same instance of activity.",
+          "source_fact": "For the same classroom storytelling task today, spoke independently without any prompts. | For that same classroom storytelling task today, could not begin or continue without sentence-by-sentence prompts.",
+          "explanation": "Correctly identifies the real conflict, but explains why a draft is unavailable without directly asking the teacher to resolve the support used."
+        }
+      ],
+      "left_style_note": "Brief, specific clarification request appropriately replaces a narrative for this genuine conflict.",
+      "right_style_note": "Accurate conflict explanation, somewhat formal and longer than needed; a direct clarification request would be more useful."
+    },
+    {
+      "pair_id": "pair35",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "minor",
+          "type": "clarification_action",
+          "quote": "The provided observations for June 10 describe directly contradictory outcomes for the same specific task and date: one record states the child spoke independently without prompts, while another states they could not begin or continue without sentence-by-sentence prompts. Because these are genuine factual disagreements regarding the same event, a faithful narrative paragraph cannot be constructed.",
+          "source_fact": "For the same classroom storytelling task today, spoke independently without any prompts. | For that same classroom storytelling task today, could not begin or continue without sentence-by-sentence prompts.",
+          "explanation": "Correctly identifies the real conflict, but explains why a draft is unavailable without directly asking the teacher to resolve the support used."
+        }
+      ],
+      "left_style_note": "Brief, specific clarification request appropriately replaces a narrative for this genuine conflict.",
+      "right_style_note": "Accurate conflict explanation, somewhat formal and longer than needed; a direct clarification request would be more useful."
+    },
+    {
+      "pair_id": "pair36",
+      "left_findings": [
+        {
+          "severity": "minor",
+          "type": "clarification_action",
+          "quote": "The provided observations for June 10, 2026, present a direct factual contradiction regarding the child's ability to perform the same storytelling task independently versus requiring sentence-by-sentence prompts. As these are genuine disagreements about the same task and date, a faithful narrative cannot be constructed without resolving this conflict.",
+          "source_fact": "For the same classroom storytelling task today, spoke independently without any prompts. | For that same classroom storytelling task today, could not begin or continue without sentence-by-sentence prompts.",
+          "explanation": "Correctly identifies the real conflict, but explains why a draft is unavailable without directly asking the teacher to resolve the support used."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Accurate conflict explanation, somewhat formal and longer than needed; a direct clarification request would be more useful.",
+      "right_style_note": "Brief, specific clarification request appropriately replaces a narrative for this genuine conflict."
+    },
+    {
+      "pair_id": "pair37",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_development",
+          "quote": "the child's growing engagement with mathematical concepts",
+          "source_fact": "Counts eight counters with a reminder from the teacher to touch each one.",
+          "explanation": "A single counting snapshot provides no prior engagement or growth evidence."
+        },
+        {
+          "severity": "minor",
+          "type": "padded_generalization",
+          "quote": "their ability to participate in structured learning when supported",
+          "source_fact": "Counts eight counters with a reminder from the teacher to touch each one.",
+          "explanation": "Broad educational commentary adds little to the specific counting observation."
+        }
+      ],
+      "left_style_note": "A short, clear support-first snapshot; the second sentence repeats the first but remains modest.",
+      "right_style_note": "The activity and reminder are readable, but broad educational praise pads sparse evidence and invents development."
+    },
+    {
+      "pair_id": "pair38",
+      "left_findings": [],
+      "right_findings": [],
+      "left_style_note": "Short and useful with the support explicit; 'More recently' loosely implies a sequence absent from this single snapshot.",
+      "right_style_note": "Clear support-first snapshot of suitable length; the second sentence is mildly repetitive."
+    },
+    {
+      "pair_id": "pair39",
+      "left_findings": [
+        {
+          "severity": "minor",
+          "type": "padded_interpretation",
+          "quote": "demonstrating engagement with the concept of quantity while receiving specific support to ensure accuracy",
+          "source_fact": "Counts eight counters with a reminder from the teacher to touch each one.",
+          "explanation": "Adds abstract commentary and an inferred purpose to a simple supported count; the concrete observation already communicates the useful information."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Readable but inflated for one observation; abstract commentary adds little warmth or specificity.",
+      "right_style_note": "Appropriately short and clear; the second sentence repeats the counting group and support."
+    },
+    {
+      "pair_id": "pair43",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_gender",
+          "quote": "他需要在老师一句句的提示下",
+          "source_fact": "在老师逐句提示下，向同伴提出轮流使用积木的请求。 | 积木活动中，有一次没有老师提示便向同伴提出轮流使用的请求。",
+          "explanation": "Gender is not supplied; the guide requests 孩子."
+        },
+        {
+          "severity": "critical",
+          "type": "invented_confidence_and_trajectory",
+          "quote": "孩子在社交互动中的自信心和表达能力正在稳步增长",
+          "source_fact": "在老师逐句提示下，向同伴提出轮流使用积木的请求。 | 积木活动中，有一次没有老师提示便向同伴提出轮流使用的请求。",
+          "explanation": "One unprompted request does not establish confidence or steady growth across social interaction."
+        },
+        {
+          "severity": "critical",
+          "type": "overgeneralized_independence",
+          "quote": "他不再依赖老师的提醒",
+          "source_fact": "积木活动中，有一次没有老师提示便向同伴提出轮流使用的请求。",
+          "explanation": "No longer relying on reminders implies an established change beyond the one observed occasion."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Warm in intent, but celebratory language and inferred traits overstate the two observations; the ending adds unsupported meaning.",
+      "right_style_note": "Clear and restrained, with the one-time scope visible; the final sentence repeats the same interaction but remains useful."
+    },
+    {
+      "pair_id": "pair44",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_cause_and_internalization",
+          "quote": "随着引导和支持的持续，孩子正逐渐将这种合作行为内化，并在需要时能更自主地发起互动",
+          "source_fact": "在老师逐句提示下，向同伴提出轮流使用积木的请求。 | 积木活动中，有一次没有老师提示便向同伴提出轮流使用的请求。",
+          "explanation": "Invents continuing guidance as a cause, internalization, and a general capacity to initiate interactions when needed; only one unprompted request is recorded."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Connected and warm, but the final explanatory sentence is speculative and disproportionate to sparse evidence.",
+      "right_style_note": "Specific and coherent with one-time scope preserved; the final sentence is somewhat repetitive but restrained."
+    },
+    {
+      "pair_id": "pair45",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_gender",
+          "quote": "他需要在老师逐句的提示下",
+          "source_fact": "在老师逐句提示下，向同伴提出轮流使用积木的请求。 | 积木活动中，有一次没有老师提示便向同伴提出轮流使用的请求。",
+          "explanation": "No gender is supplied; the requested reference is 孩子."
+        },
+        {
+          "severity": "critical",
+          "type": "invented_confidence_and_trajectory",
+          "quote": "孩子在同伴交往中的自信与主动性正在稳步成长",
+          "source_fact": "在老师逐句提示下，向同伴提出轮流使用积木的请求。 | 积木活动中，有一次没有老师提示便向同伴提出轮流使用的请求。",
+          "explanation": "The observations do not record confidence or a steady trajectory."
+        },
+        {
+          "severity": "critical",
+          "type": "frequency_generalization",
+          "quote": "能够偶尔自主表达需求",
+          "source_fact": "积木活动中，有一次没有老师提示便向同伴提出轮流使用的请求。",
+          "explanation": "One occasion becomes an occasional recurring capacity."
+        }
+      ],
+      "left_style_note": "Concise and coherent; the concrete one-time development is clear without requiring a longer paragraph.",
+      "right_style_note": "Smooth but inflated by inferred traits and recurring ability; the sparse evidence does not support the added ending."
+    },
+    {
+      "pair_id": "pair49",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "context_scope",
+          "quote": "与熟悉的朋友交谈时",
+          "source_fact": "与两位熟悉的朋友交谈时能清楚地讲故事。",
+          "explanation": "Omits that the clear storytelling was observed with two familiar friends, broadening the audience context."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "然而",
+          "source_fact": "在全班面前分享时需要老师逐句提示。",
+          "explanation": "Uses a cancelling contrast after the observed strength instead of describing the two contexts alongside their supports."
+        }
+      ],
+      "left_style_note": "Clear coexistence of the two contexts, with current support visible; the closing sentence repeats both facts.",
+      "right_style_note": "Brief and understandable, but the contrast frames whole-class support as a drawback."
+    },
+    {
+      "pair_id": "pair50",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "context_scope",
+          "quote": "与熟悉的同伴交流时",
+          "source_fact": "与两位熟悉的朋友交谈时能清楚地讲故事。",
+          "explanation": "Omits that the clear storytelling was observed with two familiar friends, broadening the audience context."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "然而",
+          "source_fact": "在全班面前分享时需要老师逐句提示。",
+          "explanation": "Uses a cancelling contrast after the observed strength instead of describing the two contexts alongside their supports."
+        },
+        {
+          "severity": "minor",
+          "type": "requested_reference",
+          "quote": "他/她",
+          "source_fact": "在全班面前分享时需要老师逐句提示。",
+          "explanation": "Use 孩子 as requested; the gender placeholder interrupts natural parent-facing prose."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Brief and understandable, but the contrast frames whole-class support as a drawback; the gender placeholder is awkward.",
+      "right_style_note": "Clear and respectful account of the distinct audiences; some closing repetition, with length still proportionate."
+    },
+    {
+      "pair_id": "pair51",
+      "left_findings": [
+        {
+          "severity": "material",
+          "type": "context_scope",
+          "quote": "与熟悉的朋友交谈时",
+          "source_fact": "与两位熟悉的朋友交谈时能清楚地讲故事。",
+          "explanation": "Omits that the clear storytelling was observed with two familiar friends, broadening the audience context."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "然而",
+          "source_fact": "在全班面前分享时需要老师逐句提示。",
+          "explanation": "Uses a cancelling contrast after the observed strength instead of describing the two contexts alongside their supports."
+        },
+        {
+          "severity": "minor",
+          "type": "requested_reference",
+          "quote": "他/她",
+          "source_fact": "在全班面前分享时需要老师逐句提示。",
+          "explanation": "Use 孩子 as requested; the gender placeholder interrupts natural parent-facing prose."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Brief and understandable, but the contrast frames whole-class support as a drawback; the gender placeholder is awkward.",
+      "right_style_note": "Clear and respectful account of the distinct audiences; some closing repetition, with length still proportionate."
+    },
+    {
+      "pair_id": "pair52",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_confidence",
+          "quote": "this confidence grew",
+          "source_fact": "Tells two friends about a weekend activity.",
+          "explanation": "No confidence is recorded in any observation."
+        },
+        {
+          "severity": "material",
+          "type": "task_change",
+          "quote": "identify their own name",
+          "source_fact": "Names own name with a teacher prompt.",
+          "explanation": "The observation is saying the child's name; identifying it is ambiguous and can imply a recognition task."
+        },
+        {
+          "severity": "minor",
+          "type": "cancelling_pivot",
+          "quote": "however, they needed a reminder to begin the narrative",
+          "source_fact": "Shares a short story with the class, needing a reminder to begin.",
+          "explanation": "Makes the starting reminder cancel the achievement."
+        },
+        {
+          "severity": "material",
+          "type": "progress_field",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "Names own name with a teacher prompt. | Tells two friends about a weekend activity. | Shares a short story with the class, needing a reminder to begin.",
+          "explanation": "The dated observations show concrete expansion from saying a name to sharing experiences with peers and a story with the class, and the narrative describes that development."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Readable and reasonably brief, but invented confidence and the final 'however' undermine specific developmental warmth.",
+      "right_style_note": "Coherent and specific; supports and expansion are explicit, although the concluding sentence repeats the sequence."
+    },
+    {
+      "pair_id": "pair53",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_confidence",
+          "quote": "growing confidence in sharing their thoughts with others",
+          "source_fact": "Names own name with a teacher prompt. | Tells two friends about a weekend activity. | Shares a short story with the class, needing a reminder to begin.",
+          "explanation": "Confidence is not recorded and cannot be inferred from sharing."
+        },
+        {
+          "severity": "critical",
+          "type": "wrong_task",
+          "quote": "write their own name",
+          "source_fact": "Names own name with a teacher prompt.",
+          "explanation": "The recorded task is naming the child's own name, not writing it."
+        },
+        {
+          "severity": "material",
+          "type": "progress_field",
+          "quote": "\"supports_progress\": false",
+          "source_fact": "Names own name with a teacher prompt. | Tells two friends about a weekend activity. | Shares a short story with the class, needing a reminder to begin.",
+          "explanation": "The source has dated concrete expansion in spoken content and audience; false fails to represent that supported progression."
+        }
+      ],
+      "left_style_note": "Warm through concrete development and specific support; the final sentence is somewhat repetitive but remains coherent.",
+      "right_style_note": "Compact and smooth, but an invented strength and a changed task make its apparent warmth unreliable."
+    },
+    {
+      "pair_id": "pair54",
+      "left_findings": [
+        {
+          "severity": "critical",
+          "type": "invented_confidence",
+          "quote": "growing confidence in sharing their thoughts with others",
+          "source_fact": "Names own name with a teacher prompt. | Tells two friends about a weekend activity. | Shares a short story with the class, needing a reminder to begin.",
+          "explanation": "No observation records confidence."
+        },
+        {
+          "severity": "material",
+          "type": "task_change",
+          "quote": "identify their own name",
+          "source_fact": "Names own name with a teacher prompt.",
+          "explanation": "Identification is ambiguous where the source specifically records naming the child's own name."
+        },
+        {
+          "severity": "minor",
+          "type": "concessive_support",
+          "quote": "while they needed a reminder to begin",
+          "source_fact": "Shares a short story with the class, needing a reminder to begin.",
+          "explanation": "The concessive phrasing frames the starting support as an obstacle before a general success statement."
+        }
+      ],
+      "right_findings": [],
+      "left_style_note": "Connected and concise, but generic confidence and completion language add little useful warmth; the final concession weakens the specific achievement.",
+      "right_style_note": "Clear development in audience and content, with the latest starting support preserved; the final sentence repeats earlier points."
+    },
+    {
+      "pair_id": "pair55",
+      "left_findings": [],
+      "right_findings": [
+        {
+          "severity": "material",
+          "type": "support_specificity",
+          "quote": "still working alongside the teacher for support",
+          "source_fact": "Matches numerals 1 to 6 to groups of objects with teacher prompting.",
+          "explanation": "Teacher presence or generic support does not preserve the explicit teacher-prompting condition of the latest task."
+        }
+      ],
+      "left_style_note": "Brief and support-first, with the expanded numeral range clear; appropriate length for two simple facts.",
+      "right_style_note": "Concise and coherent; the current support needs more precise wording than working alongside the teacher."
+    },
+    {
+      "pair_id": "pair56",
+      "left_findings": [],
+      "right_findings": [],
+      "left_style_note": "Clear, specific and appropriately short; mild repetition of teacher prompting keeps the continuing condition visible.",
+      "right_style_note": "Concise and natural, preserving both numeral ranges and prompting without padding."
+    },
+    {
+      "pair_id": "pair57",
+      "left_findings": [],
+      "right_findings": [],
+      "left_style_note": "Coherent and supportive; the last sentence repeats the range expansion in broader educational terms and adds little.",
+      "right_style_note": "Specific, support-first account; the closing sentence is repetitive but remains grounded and reasonably brief."
+    }
+  ]
+}

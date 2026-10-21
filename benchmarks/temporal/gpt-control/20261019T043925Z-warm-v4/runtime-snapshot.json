@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "name": "riverbay-qwen35-9b:latest",
+      "model": "riverbay-qwen35-9b:latest",
+      "size": 5484597739,
+      "digest": "46e44275b617f2b582f3d6475b8cf5ef37eff7e3e4cc62be60a302c5cbea76ff",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen35",
+        "families": [
+          "qwen35"
+        ],
+        "parameter_size": "9.0B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-10-19T12:53:10.9471737+08:00",
+      "size_vram": 5484597739,
+      "context_length": 8192,
+      "runner": "llamacpp"
+    }
+  ]
+}

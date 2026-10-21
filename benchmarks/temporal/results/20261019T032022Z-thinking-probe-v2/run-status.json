@@ -1,0 +1,6 @@
+{
+  "status": "interrupted",
+  "reason": "First completed probe exhausted 2048 output tokens in thinking mode with no final JSON. A second in-flight request was cancelled; remaining planned cases were not executed.",
+  "completed_records": 1,
+  "acceptance": "not accepted"
+}

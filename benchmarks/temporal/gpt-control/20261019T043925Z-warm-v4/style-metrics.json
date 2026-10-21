@@ -1,0 +1,1165 @@
+{
+  "note": "Lengths and lexical contrast warnings only. A contrast word may require context; absence does not prove supportive tone or factual grounding. Sparse narratives have no minimum length.",
+  "contrast_warning_outputs": {
+    "gpt": 0,
+    "qwen9b-v4": 12
+  },
+  "rich_case_lengths": {
+    "qwen9b-v4:en": {
+      "count": 9,
+      "median": 112,
+      "min": 101,
+      "max": 122
+    },
+    "gpt:en": {
+      "count": 9,
+      "median": 93,
+      "min": 87,
+      "max": 95
+    },
+    "gpt:zh-Hans": {
+      "count": 3,
+      "median": 165,
+      "min": 157,
+      "max": 177
+    },
+    "qwen9b-v4:zh-Hans": {
+      "count": 3,
+      "median": 181,
+      "min": 150,
+      "max": 186
+    }
+  },
+  "records": [
+    {
+      "pair_id": "pair01",
+      "case_id": "instruction-in-note-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 27,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair01",
+      "case_id": "instruction-in-note-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair02",
+      "case_id": "instruction-in-note-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair02",
+      "case_id": "instruction-in-note-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 25,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair03",
+      "case_id": "instruction-in-note-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair03",
+      "case_id": "instruction-in-note-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 26,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair04",
+      "case_id": "snapshot-only-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 22,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair04",
+      "case_id": "snapshot-only-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 28,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair05",
+      "case_id": "snapshot-only-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 29,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair05",
+      "case_id": "snapshot-only-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 35,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair06",
+      "case_id": "snapshot-only-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 28,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair06",
+      "case_id": "snapshot-only-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 30,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair07",
+      "case_id": "growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 139,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair07",
+      "case_id": "growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 104,
+      "contrast_word_warnings": [
+        "尽管"
+      ]
+    },
+    {
+      "pair_id": "pair08",
+      "case_id": "growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 121,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair08",
+      "case_id": "growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 99,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair09",
+      "case_id": "growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 139,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair09",
+      "case_id": "growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 115,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair10",
+      "case_id": "recent-setback-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 61,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair10",
+      "case_id": "recent-setback-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 34,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair11",
+      "case_id": "recent-setback-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 38,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair11",
+      "case_id": "recent-setback-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 61,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair12",
+      "case_id": "recent-setback-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 34,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair12",
+      "case_id": "recent-setback-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 57,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair13",
+      "case_id": "year-to-date-growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 122,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair13",
+      "case_id": "year-to-date-growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 152,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair14",
+      "case_id": "year-to-date-growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 134,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair14",
+      "case_id": "year-to-date-growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 116,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair15",
+      "case_id": "year-to-date-growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 141,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair15",
+      "case_id": "year-to-date-growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 120,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair16",
+      "case_id": "rich-social-participation",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 112,
+      "contrast_word_warnings": [
+        "however"
+      ]
+    },
+    {
+      "pair_id": "pair16",
+      "case_id": "rich-social-participation",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 95,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair17",
+      "case_id": "rich-social-participation",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 87,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair17",
+      "case_id": "rich-social-participation",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 117,
+      "contrast_word_warnings": [
+        "however"
+      ]
+    },
+    {
+      "pair_id": "pair18",
+      "case_id": "rich-social-participation",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 122,
+      "contrast_word_warnings": [
+        "However"
+      ]
+    },
+    {
+      "pair_id": "pair18",
+      "case_id": "rich-social-participation",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 94,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair19",
+      "case_id": "undated-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 71,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair19",
+      "case_id": "undated-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 56,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair20",
+      "case_id": "undated-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 77,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair20",
+      "case_id": "undated-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 55,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair21",
+      "case_id": "undated-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 81,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair21",
+      "case_id": "undated-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 84,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair22",
+      "case_id": "mixed-year-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 25,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair22",
+      "case_id": "mixed-year-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 33,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair23",
+      "case_id": "mixed-year-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 26,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair23",
+      "case_id": "mixed-year-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 30,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair24",
+      "case_id": "mixed-year-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 38,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair24",
+      "case_id": "mixed-year-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 33,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair25",
+      "case_id": "rich-english-sharing",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 103,
+      "contrast_word_warnings": [
+        "Although"
+      ]
+    },
+    {
+      "pair_id": "pair25",
+      "case_id": "rich-english-sharing",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 93,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair26",
+      "case_id": "rich-english-sharing",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 112,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair26",
+      "case_id": "rich-english-sharing",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 95,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair27",
+      "case_id": "rich-english-sharing",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 95,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair27",
+      "case_id": "rich-english-sharing",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 104,
+      "contrast_word_warnings": [
+        "Although"
+      ]
+    },
+    {
+      "pair_id": "pair28",
+      "case_id": "shuffled-and-backfilled-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 70,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair28",
+      "case_id": "shuffled-and-backfilled-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 69,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair29",
+      "case_id": "shuffled-and-backfilled-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 80,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair29",
+      "case_id": "shuffled-and-backfilled-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 55,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair30",
+      "case_id": "shuffled-and-backfilled-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 50,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair30",
+      "case_id": "shuffled-and-backfilled-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 71,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair31",
+      "case_id": "rich-math-exploration",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 121,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair31",
+      "case_id": "rich-math-exploration",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 91,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair32",
+      "case_id": "rich-math-exploration",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 101,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair32",
+      "case_id": "rich-math-exploration",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 90,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair33",
+      "case_id": "rich-math-exploration",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 93,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair33",
+      "case_id": "rich-math-exploration",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 102,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair34",
+      "case_id": "contradiction-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair34",
+      "case_id": "contradiction-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair35",
+      "case_id": "contradiction-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair35",
+      "case_id": "contradiction-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair36",
+      "case_id": "contradiction-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair36",
+      "case_id": "contradiction-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair37",
+      "case_id": "math-snapshot-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 24,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair37",
+      "case_id": "math-snapshot-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 49,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair38",
+      "case_id": "math-snapshot-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 24,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair38",
+      "case_id": "math-snapshot-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 25,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair39",
+      "case_id": "math-snapshot-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 43,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair39",
+      "case_id": "math-snapshot-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 34,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair43",
+      "case_id": "social-growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 132,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair43",
+      "case_id": "social-growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 116,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair44",
+      "case_id": "social-growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 150,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair44",
+      "case_id": "social-growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 112,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair45",
+      "case_id": "social-growth-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 93,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair45",
+      "case_id": "social-growth-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 139,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair49",
+      "case_id": "context-difference-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 102,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair49",
+      "case_id": "context-difference-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 62,
+      "contrast_word_warnings": [
+        "然而"
+      ]
+    },
+    {
+      "pair_id": "pair50",
+      "case_id": "context-difference-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 59,
+      "contrast_word_warnings": [
+        "然而"
+      ]
+    },
+    {
+      "pair_id": "pair50",
+      "case_id": "context-difference-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 114,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair51",
+      "case_id": "context-difference-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 54,
+      "contrast_word_warnings": [
+        "然而"
+      ]
+    },
+    {
+      "pair_id": "pair51",
+      "case_id": "context-difference-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 108,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair52",
+      "case_id": "growth-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 66,
+      "contrast_word_warnings": [
+        "however"
+      ]
+    },
+    {
+      "pair_id": "pair52",
+      "case_id": "growth-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 90,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair53",
+      "case_id": "growth-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 85,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair53",
+      "case_id": "growth-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 62,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair54",
+      "case_id": "growth-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 72,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair54",
+      "case_id": "growth-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 82,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair55",
+      "case_id": "math-growth-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 47,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair55",
+      "case_id": "math-growth-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 45,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair56",
+      "case_id": "math-growth-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 48,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair56",
+      "case_id": "math-growth-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 39,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair57",
+      "case_id": "math-growth-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 57,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair57",
+      "case_id": "math-growth-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 59,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair58",
+      "case_id": "rich-chinese-storytelling",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 157,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair58",
+      "case_id": "rich-chinese-storytelling",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 150,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair59",
+      "case_id": "rich-chinese-storytelling",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 186,
+      "contrast_word_warnings": [
+        "尽管",
+        "不过"
+      ]
+    },
+    {
+      "pair_id": "pair59",
+      "case_id": "rich-chinese-storytelling",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 177,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair60",
+      "case_id": "rich-chinese-storytelling",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 165,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair60",
+      "case_id": "rich-chinese-storytelling",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 181,
+      "contrast_word_warnings": [
+        "尽管",
+        "不过"
+      ]
+    },
+    {
+      "pair_id": "pair61",
+      "case_id": "frequency-setback-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 85,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair61",
+      "case_id": "frequency-setback-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair62",
+      "case_id": "frequency-setback-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 0,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair62",
+      "case_id": "frequency-setback-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 87,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair63",
+      "case_id": "frequency-setback-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 83,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair63",
+      "case_id": "frequency-setback-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 112,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair64",
+      "case_id": "semester-cutoff-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 89,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair64",
+      "case_id": "semester-cutoff-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 48,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair65",
+      "case_id": "semester-cutoff-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 48,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair65",
+      "case_id": "semester-cutoff-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 97,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair66",
+      "case_id": "semester-cutoff-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 107,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair66",
+      "case_id": "semester-cutoff-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 58,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair67",
+      "case_id": "snapshot-only-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 35,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair67",
+      "case_id": "snapshot-only-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 42,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair68",
+      "case_id": "snapshot-only-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 61,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair68",
+      "case_id": "snapshot-only-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 73,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair69",
+      "case_id": "snapshot-only-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 31,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair69",
+      "case_id": "snapshot-only-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 62,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair40",
+      "case_id": "weekly-52-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 157,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair40",
+      "case_id": "weekly-52-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 149,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair41",
+      "case_id": "weekly-52-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 137,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair41",
+      "case_id": "weekly-52-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 153,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair42",
+      "case_id": "weekly-52-zh",
+      "candidate": "qwen9b-v4",
+      "language": "zh-Hans",
+      "length": 145,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair42",
+      "case_id": "weekly-52-zh",
+      "candidate": "gpt",
+      "language": "zh-Hans",
+      "length": 151,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair46",
+      "case_id": "weekly-52-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 95,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair46",
+      "case_id": "weekly-52-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 91,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair47",
+      "case_id": "weekly-52-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 63,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair47",
+      "case_id": "weekly-52-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 86,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair48",
+      "case_id": "weekly-52-en",
+      "candidate": "gpt",
+      "language": "en",
+      "length": 75,
+      "contrast_word_warnings": []
+    },
+    {
+      "pair_id": "pair48",
+      "case_id": "weekly-52-en",
+      "candidate": "qwen9b-v4",
+      "language": "en",
+      "length": 88,
+      "contrast_word_warnings": []
+    }
+  ]
+}

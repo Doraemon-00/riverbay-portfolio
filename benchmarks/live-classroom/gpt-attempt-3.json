@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "english",
+    "attempt": 3,
+    "output": {
+      "narrative": "Picture prompts and teacher questions helped the child share experiences and stories. When describing a picnic to two friends, the child used a picture prompt to recall what happened next. In a small group, the child retold the beginning and middle of a familiar story, then needed a teacher question to explain the ending. These examples show the child expressing events in sequence with support. While looking through a picture book, the child also named familiar characters and answered a simple who question. A little prompting helped the child contribute an idea during group time.",
+      "clarification": ""
+    }
+  },
+  {
+    "case_id": "chinese",
+    "attempt": 3,
+    "output": {
+      "narrative": "图片、等待时间和简短提示为孩子的中文表达提供了支持。七月看动物图画书时，孩子能指出小猫和小狗，并跟着教师说出名称；九月看图时，已能说出几个熟悉的动物名称，在提示下用短句描述图片。十月向同伴介绍喜欢的动物时，孩子补充了颜色和动作等细节，也能回应一个简单追问，表达的内容更丰富了。孩子还在角色扮演中用“我要苹果”表达需要。遇到不熟悉的词语时，孩子会用手势或向教师求助；较长的回答仍需要时间组织语言，讲述图片之间的联系时需要教师帮助整理表达。",
+      "clarification": ""
+    }
+  },
+  {
+    "case_id": "mathematics",
+    "attempt": 3,
+    "output": {
+      "narrative": "Arranging objects supports the child's counting: the child counted eight shells accurately in a line and corrected a skipped shell among scattered objects after a reminder to move each one. Across the semester's observations, counting extended from four toy animals to groups up to ten in a pretend shop, using one-to-one pointing. Arranging scattered objects remains helpful. The child also moved from copying a red-blue pattern and independently adding two blocks to creating a two-colour pattern for a friend, noticing a colour out of sequence. These examples show developing use of counting to track quantities and recognition of the order within a repeating pattern.",
+      "clarification": ""
+    }
+  },
+  {
+    "case_id": "social_emotional",
+    "attempt": 3,
+    "output": {
+      "narrative": "With the teacher's help introducing the task, the child joined a paired building activity. In another play interaction, the child asked a classmate for a turn with a toy truck and waited with a reminder while the classmate finished. During drawing, the child invited a friend to join and offered to share crayons, then asked the teacher for help when both wanted the same colour. These moments show ways the child takes part in shared activities, communicates a wish for a turn and seeks help with a disagreement. A brief reminder of the next step helps the child during transitions.",
+      "clarification": ""
+    }
+  }
+]

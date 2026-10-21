@@ -1,0 +1,1388 @@
+{
+  "attempts": 57,
+  "mechanically_clean": 57,
+  "checker_sha256": "00ee84e4cefb747229f3a15a4b01d795848583606478a5f3c994098bc1383a41",
+  "warning": "Not semantic accuracy. Batch GPT subagents do not expose API sampling or inference latency.",
+  "records": [
+    {
+      "writer": "a",
+      "item_id": "item01",
+      "case_id": "math-snapshot-en",
+      "output": {
+        "narrative": "The child counts eight counters with a teacher reminder to touch each one.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item02",
+      "case_id": "undated-zh",
+      "output": {
+        "narrative": "孩子在提示下说出自己的名字，也在全班面前讲述故事，讲述开始时需要提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "a",
+          "b"
+        ],
+        "latest_observation_ids": [],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item03",
+      "case_id": "year-to-date-growth-zh",
+      "output": {
+        "narrative": "一月，孩子在老师提示下说出自己的名字；四月，孩子用短句向两位朋友讲述周末的事情。十二月，孩子能自信地在全班面前讲述一段故事。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "apr",
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item04",
+      "case_id": "instruction-in-note-zh",
+      "output": {
+        "narrative": "孩子分享故事时需要老师提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "may"
+        ],
+        "latest_observation_ids": [
+          "may"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item05",
+      "case_id": "recent-setback-en",
+      "output": {
+        "narrative": "In March, the child told a short story to the class without a prompt. In the last two whole-class sharing sessions in June, the child needed prompting to begin and stopped after one sentence.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item06",
+      "case_id": "mixed-year-en",
+      "output": {
+        "narrative": "The child shares a short story with classmates using picture prompts.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "current"
+        ],
+        "latest_observation_ids": [
+          "current"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [
+        "old"
+      ],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item07",
+      "case_id": "weekly-52-zh",
+      "output": {
+        "narrative": "一月至三月，孩子在老师提示下说出自己的名字。四月至六月，孩子向两位熟悉的朋友讲述一件事情；七月至九月，孩子在小组活动中借助图片提示讲述故事。十月至十二月，孩子在全班面前讲述一段故事，开始时仍需要老师提醒。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "w01",
+          "w02",
+          "w03",
+          "w04",
+          "w05",
+          "w06",
+          "w07",
+          "w08",
+          "w09",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15",
+          "w16",
+          "w17",
+          "w18",
+          "w19",
+          "w20",
+          "w21",
+          "w22",
+          "w23",
+          "w24",
+          "w25",
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41",
+          "w42",
+          "w43",
+          "w44",
+          "w45",
+          "w46",
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52"
+        ],
+        "latest_observation_ids": [
+          "w52"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item08",
+      "case_id": "context-difference-zh",
+      "output": {
+        "narrative": "六月，孩子与两位熟悉的朋友交谈时能清楚地讲故事，在全班面前分享时需要老师逐句提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "small",
+          "class"
+        ],
+        "latest_observation_ids": [
+          "small",
+          "class"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item09",
+      "case_id": "shuffled-and-backfilled-en",
+      "output": {
+        "narrative": "In January, the child gave single-word answers with prompting; in March, the child used short sentences to describe a picture with prompting. In April, the child told a short story to the class with picture prompts.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "apr"
+        ],
+        "latest_observation_ids": [
+          "apr"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item10",
+      "case_id": "weekly-52-en",
+      "output": {
+        "narrative": "From January to March, the child counted groups of three counters, then groups of six from April to June and nine from July to September, with teacher reminders to touch each counter once. From October to December, the child counted groups of twelve counters with a teacher reminder to touch each counter once.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "w01",
+          "w02",
+          "w03",
+          "w04",
+          "w05",
+          "w06",
+          "w07",
+          "w08",
+          "w09",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15",
+          "w16",
+          "w17",
+          "w18",
+          "w19",
+          "w20",
+          "w21",
+          "w22",
+          "w23",
+          "w24",
+          "w25",
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41",
+          "w42",
+          "w43",
+          "w44",
+          "w45",
+          "w46",
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52"
+        ],
+        "latest_observation_ids": [
+          "w52"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item11",
+      "case_id": "contradiction-en",
+      "output": {
+        "narrative": "",
+        "supports_progress": false,
+        "evidence_ids": [
+          "a",
+          "b"
+        ],
+        "latest_observation_ids": [],
+        "clarification": "Please clarify whether the child spoke without prompts or needed sentence-by-sentence prompts to begin and continue during the classroom storytelling task on June 10."
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item12",
+      "case_id": "growth-en",
+      "output": {
+        "narrative": "In January, the child said their own name with a teacher prompt; in March, the child told two friends about a weekend activity. In June, the child shared a short story with the class, needing a reminder to begin.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item13",
+      "case_id": "social-growth-zh",
+      "output": {
+        "narrative": "二月，孩子在老师逐句提示下向同伴提出轮流使用积木的请求。六月的积木活动中，孩子有一次没有老师提示便向同伴提出轮流使用的请求。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "feb",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item14",
+      "case_id": "snapshot-only-en",
+      "output": {
+        "narrative": "The child confidently shares a story in Chinese during small-group time.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item15",
+      "case_id": "growth-zh",
+      "output": {
+        "narrative": "一月，孩子在老师提示下说出自己的名字；三月，孩子向两位朋友讲述周末发生的事。六月，孩子在全班面前分享一段故事，开始时需要老师提醒。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item16",
+      "case_id": "math-growth-en",
+      "output": {
+        "narrative": "In February, the child matched numerals 1 and 2 to groups of objects with teacher prompting. In June, the child matched numerals 1 to 6 to groups of objects with teacher prompting.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "feb",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item17",
+      "case_id": "frequency-setback-zh",
+      "output": {
+        "narrative": "四月，孩子有一次在小组活动中等候同伴说完后再发言。六月最近三次小组活动中，孩子都需要老师提醒等候同伴说完后再发言。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "apr",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item18",
+      "case_id": "semester-cutoff-zh",
+      "output": {
+        "narrative": "孩子在提示下向小组讲述一件事情。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "may"
+        ],
+        "latest_observation_ids": [
+          "may"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [
+        "dec"
+      ],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "a",
+      "item_id": "item19",
+      "case_id": "snapshot-only-zh",
+      "output": {
+        "narrative": "孩子在小组活动中能自信地用中文分享故事。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item01",
+      "case_id": "math-snapshot-en",
+      "output": {
+        "narrative": "The child counts eight counters with a teacher reminder to touch each one.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item02",
+      "case_id": "undated-zh",
+      "output": {
+        "narrative": "孩子在提示下说出自己的名字，也在全班面前讲述故事，开始时需要提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "a",
+          "b"
+        ],
+        "latest_observation_ids": [],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item03",
+      "case_id": "year-to-date-growth-zh",
+      "output": {
+        "narrative": "孩子一月在老师提示下说出自己的名字，四月用短句向两位朋友讲述周末的事情。十二月，孩子能自信地在全班面前讲述一段故事。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "apr",
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item04",
+      "case_id": "instruction-in-note-zh",
+      "output": {
+        "narrative": "孩子分享故事时需要老师提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "may"
+        ],
+        "latest_observation_ids": [
+          "may"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item05",
+      "case_id": "recent-setback-en",
+      "output": {
+        "narrative": "In March, the child told a short story to the class without a prompt. In June, during the last two whole-class sharing sessions, the child needed prompting to begin and stopped after one sentence.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item06",
+      "case_id": "mixed-year-en",
+      "output": {
+        "narrative": "The child shares a short story with classmates using picture prompts.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "current"
+        ],
+        "latest_observation_ids": [
+          "current"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [
+        "old"
+      ],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item07",
+      "case_id": "weekly-52-zh",
+      "output": {
+        "narrative": "孩子一月至三月在老师提示下说出自己的名字，四月至六月能向两位熟悉的朋友讲述一件事情。七月至九月，孩子在小组活动中借助图片提示讲述故事。十月至十二月，孩子在全班面前讲述一段故事，开始时仍需要老师提醒。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "w01",
+          "w02",
+          "w03",
+          "w04",
+          "w05",
+          "w06",
+          "w07",
+          "w08",
+          "w09",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15",
+          "w16",
+          "w17",
+          "w18",
+          "w19",
+          "w20",
+          "w21",
+          "w22",
+          "w23",
+          "w24",
+          "w25",
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41",
+          "w42",
+          "w43",
+          "w44",
+          "w45",
+          "w46",
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52"
+        ],
+        "latest_observation_ids": [
+          "w52"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item08",
+      "case_id": "context-difference-zh",
+      "output": {
+        "narrative": "六月，孩子与两位熟悉的朋友交谈时能清楚地讲故事，在全班面前分享时需要老师逐句提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "small",
+          "class"
+        ],
+        "latest_observation_ids": [
+          "small",
+          "class"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item09",
+      "case_id": "shuffled-and-backfilled-en",
+      "output": {
+        "narrative": "In January, the child used single-word answers with prompting; in March, the child used short sentences to describe a picture with prompting. In April, the child told a short story to the class with picture prompts.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "apr"
+        ],
+        "latest_observation_ids": [
+          "apr"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item10",
+      "case_id": "weekly-52-en",
+      "output": {
+        "narrative": "The child counted groups of three counters from January to March, six from April to June, and nine from July to September, with a teacher reminder to touch each counter once. From October to December, the child counted groups of twelve counters with the same reminder to touch each counter once.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "w01",
+          "w02",
+          "w03",
+          "w04",
+          "w05",
+          "w06",
+          "w07",
+          "w08",
+          "w09",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15",
+          "w16",
+          "w17",
+          "w18",
+          "w19",
+          "w20",
+          "w21",
+          "w22",
+          "w23",
+          "w24",
+          "w25",
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41",
+          "w42",
+          "w43",
+          "w44",
+          "w45",
+          "w46",
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52"
+        ],
+        "latest_observation_ids": [
+          "w52"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item11",
+      "case_id": "contradiction-en",
+      "output": {
+        "narrative": "",
+        "supports_progress": false,
+        "evidence_ids": [
+          "a",
+          "b"
+        ],
+        "latest_observation_ids": [],
+        "clarification": "Please clarify whether the child spoke without prompts or needed sentence-by-sentence prompts during the same classroom storytelling task on June 10."
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item12",
+      "case_id": "growth-en",
+      "output": {
+        "narrative": "In January, the child said their own name with a teacher prompt; in March, the child told two friends about a weekend activity. In June, the child shared a short story with the class, needing a reminder to begin.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item13",
+      "case_id": "social-growth-zh",
+      "output": {
+        "narrative": "二月，孩子在老师逐句提示下向同伴提出轮流使用积木的请求。六月的积木活动中，孩子有一次没有老师提示便向同伴提出轮流使用的请求。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "feb",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item14",
+      "case_id": "snapshot-only-en",
+      "output": {
+        "narrative": "The child confidently shares a story in Chinese during small-group time.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item15",
+      "case_id": "growth-zh",
+      "output": {
+        "narrative": "孩子一月在老师提示下说出自己的名字，三月能向两位朋友讲述周末发生的事。六月，孩子在全班面前分享一段故事，开始时需要老师提醒。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item16",
+      "case_id": "math-growth-en",
+      "output": {
+        "narrative": "In February, the child matched numerals 1 and 2 to groups of objects with teacher prompting. In June, the child matched numerals 1 to 6 to groups of objects with teacher prompting.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "feb",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item17",
+      "case_id": "frequency-setback-zh",
+      "output": {
+        "narrative": "四月，孩子有一次在小组活动中等候同伴说完后再发言。六月最近三次小组活动中，孩子都需要老师提醒等候同伴说完后再发言。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "apr",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item18",
+      "case_id": "semester-cutoff-zh",
+      "output": {
+        "narrative": "孩子能在提示下向小组讲述一件事情。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "may"
+        ],
+        "latest_observation_ids": [
+          "may"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [
+        "dec"
+      ],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "b",
+      "item_id": "item19",
+      "case_id": "snapshot-only-zh",
+      "output": {
+        "narrative": "孩子在小组活动中能自信地用中文分享故事。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item01",
+      "case_id": "math-snapshot-en",
+      "output": {
+        "narrative": "The child counts eight counters with a teacher reminder to touch each one.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item02",
+      "case_id": "undated-zh",
+      "output": {
+        "narrative": "孩子在提示下说出自己的名字，在全班面前讲述故事时需要提示才能开始。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "a",
+          "b"
+        ],
+        "latest_observation_ids": [],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item03",
+      "case_id": "year-to-date-growth-zh",
+      "output": {
+        "narrative": "一月，孩子在老师提示下说出自己的名字；四月，用短句向两位朋友讲述周末的事情。十二月，孩子能自信地在全班面前讲述一段故事。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "apr",
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item04",
+      "case_id": "instruction-in-note-zh",
+      "output": {
+        "narrative": "孩子分享故事时需要老师提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "may"
+        ],
+        "latest_observation_ids": [
+          "may"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item05",
+      "case_id": "recent-setback-en",
+      "output": {
+        "narrative": "In March, the child told a short story to the class without a prompt. In June, during the last two whole-class sharing sessions, the child needed prompting to begin and stopped after one sentence.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item06",
+      "case_id": "mixed-year-en",
+      "output": {
+        "narrative": "The child shares a short story with classmates using picture prompts.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "current"
+        ],
+        "latest_observation_ids": [
+          "current"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [
+        "old"
+      ],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item07",
+      "case_id": "weekly-52-zh",
+      "output": {
+        "narrative": "一至三月的观察中，孩子在老师提示下说出自己的名字；四至六月，孩子向两位熟悉的朋友讲述一件事情。七至九月，孩子在小组活动中借助图片提示讲述故事。十至十二月，孩子在全班面前讲述一段故事，开始时仍需要老师提醒。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "w01",
+          "w02",
+          "w03",
+          "w04",
+          "w05",
+          "w06",
+          "w07",
+          "w08",
+          "w09",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15",
+          "w16",
+          "w17",
+          "w18",
+          "w19",
+          "w20",
+          "w21",
+          "w22",
+          "w23",
+          "w24",
+          "w25",
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41",
+          "w42",
+          "w43",
+          "w44",
+          "w45",
+          "w46",
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52"
+        ],
+        "latest_observation_ids": [
+          "w52"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item08",
+      "case_id": "context-difference-zh",
+      "output": {
+        "narrative": "六月，孩子与两位熟悉的朋友交谈时能清楚地讲故事，在全班面前分享时需要老师逐句提示。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "small",
+          "class"
+        ],
+        "latest_observation_ids": [
+          "small",
+          "class"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item09",
+      "case_id": "shuffled-and-backfilled-en",
+      "output": {
+        "narrative": "In January, the child used single-word answers with prompting; in March, the child used short sentences to describe a picture with prompting. In April, the child told a short story to the class with picture prompts.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "apr"
+        ],
+        "latest_observation_ids": [
+          "apr"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item10",
+      "case_id": "weekly-52-en",
+      "output": {
+        "narrative": "From January to March, the child counted groups of three counters; from April to June, groups of six; and from July to September, groups of nine, each with a teacher reminder to touch each counter once. From October to December, the child counted groups of twelve counters with a teacher reminder to touch each counter once.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "w01",
+          "w02",
+          "w03",
+          "w04",
+          "w05",
+          "w06",
+          "w07",
+          "w08",
+          "w09",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15",
+          "w16",
+          "w17",
+          "w18",
+          "w19",
+          "w20",
+          "w21",
+          "w22",
+          "w23",
+          "w24",
+          "w25",
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41",
+          "w42",
+          "w43",
+          "w44",
+          "w45",
+          "w46",
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52"
+        ],
+        "latest_observation_ids": [
+          "w52"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item11",
+      "case_id": "contradiction-en",
+      "output": {
+        "narrative": "",
+        "supports_progress": false,
+        "evidence_ids": [
+          "a",
+          "b"
+        ],
+        "latest_observation_ids": [],
+        "clarification": "Please clarify whether the child spoke without prompts or needed sentence-by-sentence prompts to begin and continue during the same classroom storytelling task on June 10."
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item12",
+      "case_id": "growth-en",
+      "output": {
+        "narrative": "In January, the child said their own name with a teacher prompt; in March, the child told two friends about a weekend activity. In June, the child shared a short story with the class, needing a reminder to begin.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item13",
+      "case_id": "social-growth-zh",
+      "output": {
+        "narrative": "二月，孩子在老师逐句提示下，向同伴提出轮流使用积木的请求。六月的积木活动中，孩子有一次没有老师提示便向同伴提出轮流使用的请求。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "feb",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item14",
+      "case_id": "snapshot-only-en",
+      "output": {
+        "narrative": "The child confidently shares a story in Chinese during small-group time.",
+        "supports_progress": false,
+        "evidence_ids": [
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item15",
+      "case_id": "growth-zh",
+      "output": {
+        "narrative": "一月，孩子在老师提示下说出自己的名字；三月，孩子向两位朋友讲述周末发生的事。六月，孩子在全班面前分享一段故事，开始时需要老师提醒。",
+        "supports_progress": true,
+        "evidence_ids": [
+          "jan",
+          "mar",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item16",
+      "case_id": "math-growth-en",
+      "output": {
+        "narrative": "In February, the child matched numerals 1 and 2 to groups of objects with teacher prompting. In June, the child matched numerals 1 to 6 to groups of objects with teacher prompting.",
+        "supports_progress": true,
+        "evidence_ids": [
+          "feb",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item17",
+      "case_id": "frequency-setback-zh",
+      "output": {
+        "narrative": "四月，孩子有一次在小组活动中等候同伴说完后再发言。六月最近三次小组活动中，孩子都需要老师提醒等候同伴说完后再发言。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "apr",
+          "jun"
+        ],
+        "latest_observation_ids": [
+          "jun"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item18",
+      "case_id": "semester-cutoff-zh",
+      "output": {
+        "narrative": "孩子能在提示下向小组讲述一件事情。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "may"
+        ],
+        "latest_observation_ids": [
+          "may"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [
+        "dec"
+      ],
+      "mechanical_failures": []
+    },
+    {
+      "writer": "c",
+      "item_id": "item19",
+      "case_id": "snapshot-only-zh",
+      "output": {
+        "narrative": "孩子在小组活动中能自信地用中文分享故事。",
+        "supports_progress": false,
+        "evidence_ids": [
+          "dec"
+        ],
+        "latest_observation_ids": [
+          "dec"
+        ],
+        "clarification": ""
+      },
+      "excluded_ids": [],
+      "mechanical_failures": []
+    }
+  ]
+}

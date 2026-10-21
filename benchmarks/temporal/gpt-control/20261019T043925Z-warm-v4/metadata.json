@@ -1,0 +1,7 @@
+{
+  "created_utc": "20261019T043925Z",
+  "packet_sha256": "2ef0595bad35a6ca7caf4a642fb40d92e9dbdc608a03c3342817a0a8a9fbce7c",
+  "prompt_sha256": "139b9e8e1a8a825dba6c710cdd32bf7ca826bb0a3f6c6a2a5daedf1cdaa2afbf",
+  "cases": 23,
+  "protocol": "Three fresh no-history GPT subagents; same selected guide and filtered facts. No expected labels or local results in writer packet. Batch-context control, not matched API sampling or token latency."
+}

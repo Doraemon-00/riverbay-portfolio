@@ -1,0 +1,332 @@
+{
+  "checker_sha256": "00ee84e4cefb747229f3a15a4b01d795848583606478a5f3c994098bc1383a41",
+  "note": "Post-hoc stricter check adds latest_not_used. Original inference evidence and summaries unchanged. No prose faithfulness score.",
+  "attempts": 51,
+  "mechanically_clean": 48,
+  "checks": [
+    {
+      "case_id": "growth-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "growth-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "growth-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "growth-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "growth-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "growth-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "snapshot-only-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "snapshot-only-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "snapshot-only-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "snapshot-only-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "snapshot-only-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "snapshot-only-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "shuffled-and-backfilled-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "shuffled-and-backfilled-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "shuffled-and-backfilled-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "semester-cutoff-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "semester-cutoff-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "semester-cutoff-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "recent-setback-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "recent-setback-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "recent-setback-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "context-difference-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "context-difference-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "context-difference-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "contradiction-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "contradiction-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "contradiction-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "undated-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "undated-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "undated-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "mixed-year-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "mixed-year-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "mixed-year-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "instruction-in-note-zh",
+      "seed": 11,
+      "original_findings": [
+        "latest_ids",
+        "empty_narrative"
+      ],
+      "findings": [
+        "latest_ids",
+        "empty_narrative"
+      ]
+    },
+    {
+      "case_id": "instruction-in-note-zh",
+      "seed": 29,
+      "original_findings": [
+        "latest_ids",
+        "empty_narrative"
+      ],
+      "findings": [
+        "latest_ids",
+        "empty_narrative"
+      ]
+    },
+    {
+      "case_id": "instruction-in-note-zh",
+      "seed": 47,
+      "original_findings": [
+        "latest_ids",
+        "empty_narrative"
+      ],
+      "findings": [
+        "latest_ids",
+        "empty_narrative"
+      ]
+    },
+    {
+      "case_id": "year-to-date-growth-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "year-to-date-growth-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "year-to-date-growth-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "math-growth-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "math-growth-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "math-growth-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "social-growth-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "social-growth-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "social-growth-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "math-snapshot-en",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "math-snapshot-en",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "math-snapshot-en",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "frequency-setback-zh",
+      "seed": 11,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "frequency-setback-zh",
+      "seed": 29,
+      "original_findings": [],
+      "findings": []
+    },
+    {
+      "case_id": "frequency-setback-zh",
+      "seed": 47,
+      "original_findings": [],
+      "findings": []
+    }
+  ]
+}
