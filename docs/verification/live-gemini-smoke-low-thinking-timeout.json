@@ -1,0 +1,12 @@
+{
+  "provider": "gemini",
+  "createdAt": "2026-10-20T11:55:39.416Z",
+  "scope": "Two fictional smoke cases, not benchmark or teacher acceptance",
+  "results": [
+    {
+      "domain": "english",
+      "error": "timeout",
+      "milliseconds": 45020
+    }
+  ]
+}

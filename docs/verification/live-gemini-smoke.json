@@ -1,0 +1,55 @@
+{
+  "provider": "gemini",
+  "createdAt": "2026-10-20T11:57:21.694Z",
+  "scope": "Two fictional smoke cases, not benchmark or teacher acceptance",
+  "results": [
+    {
+      "domain": "english",
+      "notes": [
+        [
+          "2026-07-14",
+          "Named familiar characters in a picture book."
+        ],
+        [
+          "2026-08-25",
+          "Shared a short picnic story with picture prompts."
+        ],
+        [
+          "2026-10-13",
+          "Retold the beginning and middle of a familiar story to a small group. Needed a teacher question to explain the ending."
+        ]
+      ],
+      "narrative": "The child is developing their storytelling and literacy skills through regular engagement with books and stories. Over recent months, the child has shown a growing confidence in sharing narratives, from naming familiar characters in picture books to sharing a short picnic story using picture prompts. More recently, when retelling a familiar story to a small group, the child successfully described the beginning and middle sections. With a gentle guiding question from a teacher, the child was then able to explain the story's ending.",
+      "clarification": "",
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "promptVersion": "riverbay-draft-a-v1",
+      "inputRevision": 0,
+      "milliseconds": 8285
+    },
+    {
+      "domain": "chinese",
+      "notes": [
+        [
+          "2026-07-21",
+          "能说出自己的名字，回答其他问题时需要教师提示。"
+        ],
+        [
+          "2026-09-03",
+          "能说出熟悉动物的名称，并在提示下用短句描述图片。"
+        ],
+        [
+          "2026-10-15",
+          "用两三个短句介绍自己的画，遇到不熟悉的词语时会向教师求助。"
+        ]
+      ],
+      "narrative": "孩子目前能够说出自己的名字，并能说出熟悉动物的名称。在教师的提示下，孩子能够用短句描述图片。近期，孩子尝试用两三个短句介绍自己的画作，当遇到不熟悉的词语时，会主动向教师寻求帮助。",
+      "clarification": "",
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "promptVersion": "riverbay-draft-a-v1",
+      "inputRevision": 0,
+      "milliseconds": 30735
+    }
+  ]
+}
