@@ -12,11 +12,13 @@ export const domains = [
 export const ratingLabels = ["Beginning", "Developing", "Consistently shown"];
 export const scaleVersion = "sample-domain-ring-v1";
 export type Domain = (typeof domains)[number]["id"];
+export type Observation = { id: string; date: string | null; text: string };
 export type Entry = {
   id: string;
   domain: Domain;
   rating: number | null;
   comments: string;
+  observations: Observation[];
   narrative: string;
   revision: number;
   reviewed_revision: number | null;
