@@ -1,0 +1,24 @@
+{
+  "schema": "riverbay.portfolio-report.v1",
+  "fixture": { "kind": "fictional", "notes": ["Negative test: workflow and raw-observation fields must be rejected, not rendered."] },
+  "child": { "display_name": "Leak Test", "student_code": "FX-TEST-LEAK", "class_name": "Test class" },
+  "period": { "year": 2026, "semester": 2 },
+  "rating_scale_version": "sample-domain-ring-v1",
+  "domains": {
+    "english": {
+      "rating": 4,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "english_feedback": "Text.",
+      "observations": [{ "date": "2026-07-01", "text": "raw note" }],
+      "status": "needs_review",
+      "english_photos": [{ "src": "../../assets/illustrations/missing.jpg", "kind": "photo", "caption": null }]
+    },
+    "chinese": {
+      "rating": null,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "chinese_feedback": "",
+      "translation_preview": "preview",
+      "chinese_photos": []
+    }
+  }
+}

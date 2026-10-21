@@ -1,0 +1,40 @@
+{
+  "schema": "riverbay.portfolio-report.v1",
+  "fixture": {
+    "kind": "fictional",
+    "notes": [
+      "Negative test: an indicator left unset (null) must block PDF export."
+    ]
+  },
+  "child": {
+    "display_name": "Unassessed Test",
+    "student_code": "FX-TEST-SPARSE",
+    "class_name": "Test class"
+  },
+  "period": {
+    "year": 2026,
+    "semester": 2
+  },
+  "rating_scale_version": "sample-domain-ring-v1",
+  "domains": {
+    "english": {
+      "rating": null,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 2,
+        "rating_label": "Emerging",
+        "rating_scale_version": "sample-domain-ring-v0"
+      },
+      "english_feedback": "Joined in with the actions during a new song and named two animals in a picture book with support.",
+      "english_photos": []
+    },
+    "chinese": {
+      "rating": 3,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": null,
+      "chinese_feedback": "能在提示下用“你好”向同伴问好。",
+      "chinese_photos": []
+    }
+  }
+}

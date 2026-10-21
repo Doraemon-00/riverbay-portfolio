@@ -1,0 +1,35 @@
+{
+  "$comment": "Template copy, not child content. Heading pairs approved by the user on 21 Oct 2026. zh-Hans level names are PROPOSED translations awaiting school approval; the canonical English level name is printed beside them.",
+  "en": {
+    "coverEyebrow": "Semester portfolio",
+    "coverPeriod": "{year} · Semester {n}",
+    "coverTagline": "A semester of growing",
+    "closingLine": "Thank you for growing with us this semester",
+    "learningArea": "Learning area",
+    "ringSem": "SEM",
+    "semester": "Semester {n}",
+    "levels": { "1": "Beginning", "2": "Developing", "3": "Consistently shown" },
+    "notAssessed": "Not assessed",
+    "headings": {
+      "english": { "story": "Growing with words", "photos": "Little moments" },
+      "mathematics": { "story": "Exploring and discovering", "photos": "Moments of discovery" },
+      "social_emotional": { "story": "Growing together", "photos": "Moments together" }
+    },
+    "sample": { "fictional_illustration": "Sample illustration", "placeholder": "Sample placeholder" }
+  },
+  "zh-Hans": {
+    "learningArea": "学习领域",
+    "ringSemester": "第{n}学期",
+    "semester": "第{n}学期",
+    "levels": { "1": "起步", "2": "发展中", "3": "稳定表现" },
+    "notAssessed": "未评估",
+    "headings": {
+      "chinese": { "story": "成长的足迹", "photos": "小小瞬间" }
+    },
+    "sample": { "fictional_illustration": "示例插图", "placeholder": "示例占位图" }
+  },
+  "secondary": {
+    "$comment": "English canonical labels shown in small type under Chinese labels on zh-Hans pages.",
+    "zh-Hans": "en"
+  }
+}

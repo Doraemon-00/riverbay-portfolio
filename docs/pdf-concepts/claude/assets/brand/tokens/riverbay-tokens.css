@@ -1,0 +1,31 @@
+/* Riverbay proposed tokens (not yet wired into src/app/globals.css). Source: Figma variables 'Riverbay tokens'. */
+:root {
+  --rb-neutral-paper: #FBF7EE;
+  --rb-neutral-surface: #FFFFFF;
+  --rb-neutral-line: #E4E2D8;
+  --rb-neutral-field-border: #8F978F;
+  --rb-text-ink: #2B3631;
+  --rb-text-muted: #5B6862;
+  --rb-action-primary: #2F5C4D;
+  --rb-action-primary-tint: #E3F1E8;
+  --rb-action-on-primary: #FFFFFF;
+  --rb-decor-mint: #D5EDDF;
+  --rb-decor-peach: #F6D5C1;
+  --rb-decor-powder-blue: #DCECF2;
+  --rb-decor-butter: #F8EDBC;
+  --rb-decor-lavender: #E9E0F3;
+  --rb-ring-fill: #8467C4;
+  --rb-ring-track: #ECE7F4;
+  --rb-status-success: #2E6B4E;
+  --rb-status-success-bg: #E3F1E8;
+  --rb-status-attention: #7A5300;
+  --rb-status-attention-bg: #FBF0C9;
+  --rb-status-danger: #A1392C;
+  --rb-status-danger-bg: #FBE4DE;
+  --rb-status-info: #2D5C78;
+  --rb-status-info-bg: #E1EEF5;
+  --rb-radius-control: 10px;
+  --rb-radius-card: 18px;
+  --rb-font-display: "Nunito", "Noto Sans SC", sans-serif;
+  --rb-font-ui: "DM Sans", "Noto Sans SC", sans-serif;
+}

@@ -1,0 +1,120 @@
+/* Riverbay semester portfolio, template v2: A4 portrait and landscape.
+   Colours come from the canonical tokens (assets/brand/tokens/riverbay-tokens.css).
+   Page regions are positioned in mm by layout.mjs; this file styles their contents.
+   The @page size is written into the document head by tools/render.mjs. */
+
+:root {
+  --display: "Riverbay Nunito", "Riverbay Noto Sans SC", sans-serif;
+  --text: "Riverbay DM Sans", "Riverbay Noto Sans SC", sans-serif;
+  --zh: "Riverbay Noto Sans SC", "Riverbay DM Sans", sans-serif;
+  --paper: var(--rb-neutral-paper);
+  --ink: var(--rb-text-ink);
+  --muted: var(--rb-text-muted);
+  --green: var(--rb-action-primary);
+  --line: var(--rb-neutral-line);
+  --ring: var(--rb-ring-fill);
+  --mat: 2.4mm;
+  --ring-size: 22mm;
+}
+
+html, body { margin: 0; padding: 0; background: var(--paper); }
+body { -webkit-print-color-adjust: exact; print-color-adjust: exact; color: var(--ink); font-family: var(--text); font-kerning: normal; }
+* { box-sizing: border-box; }
+img { display: block; }
+
+.page { position: relative; overflow: hidden; background: var(--paper); break-after: page; page-break-after: always; }
+.page:last-child { break-after: auto; page-break-after: auto; }
+.page[lang^="zh"] { font-family: var(--zh); }
+.region { position: absolute; z-index: 2; }
+.decor { position: absolute; z-index: 3; object-fit: contain; pointer-events: none; }
+.decor--bg { z-index: 1; opacity: 0.9; }
+.decor--hanging { z-index: 4; }
+
+/* ---- Meadow strip and folio (every page) ----------------------------------- */
+.meadow { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; background-repeat: repeat-x; background-size: auto 100%; background-position: left bottom; }
+.folio { position: absolute; left: 0; right: 0; bottom: 3.5mm; z-index: 5; display: flex; justify-content: center; }
+.folio-num { min-width: 7mm; height: 7mm; padding: 0 1.6mm; border-radius: 3.5mm; background: var(--paper); border: 0.3mm solid var(--tint-deep); font: 700 9pt/6.4mm var(--display); color: var(--green); text-align: center; }
+
+/* ---- Domain header: title + learning rings ---------------------------------- */
+.dhead { display: flex; flex-wrap: wrap; align-items: flex-start; column-gap: 8mm; row-gap: 2mm; }
+.eyebrow { margin: 0 0 1.8mm; font: 600 8.5pt/1.2 var(--text); color: var(--green); text-transform: uppercase; letter-spacing: 0.14em; }
+.eyebrow span { text-transform: none; letter-spacing: 0.02em; color: var(--muted); margin-left: 1mm; }
+.page[lang^="zh"] .eyebrow { font-family: var(--zh); letter-spacing: 0.1em; }
+.domain-title { margin: 0; font: 800 34pt/1.02 var(--display); color: var(--green); white-space: nowrap; }
+.page[lang^="zh"] .domain-title { letter-spacing: 0.06em; }
+.domain-subtitle { font: 700 15pt/1 var(--display); color: var(--muted); letter-spacing: 0; margin-left: 1.5mm; }
+
+.rings { display: flex; align-items: flex-start; gap: 1mm; color: var(--green); }
+.ring { margin: 0; width: 25mm; display: flex; flex-direction: column; align-items: center; }
+.ring-art { position: relative; display: block; width: var(--ring-size); height: var(--ring-size); }
+.ring-art img { width: 100%; height: 100%; }
+.hole { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ring); line-height: 1; }
+.hole-sem { font: 800 6.8pt/1 var(--display); letter-spacing: 0.08em; }
+.hole-n { font: 800 13pt/1 var(--display); margin-top: 0.3mm; }
+.hole-zh { font: 700 7pt/1 var(--zh); letter-spacing: 0.02em; }
+.ring-label { margin-top: 1.4mm; text-align: center; color: var(--ink); }
+.ring-label-1 { display: block; font: 700 9.5pt/1.2 var(--text); }
+.page[lang^="zh"] .ring-label-1 { font-family: var(--zh); }
+.ring-label-2 { display: block; font: 400 8pt/1.25 var(--text); color: var(--muted); }
+.ring-arrow { width: 10mm; height: 5mm; margin-top: calc(var(--ring-size) / 2 - 2.5mm); flex: none; }
+
+/* ---- Story ------------------------------------------------------------------------ */
+.region.story { display: flex; flex-direction: column; }
+.section-heading { display: flex; align-items: center; gap: 2mm; margin: 0 0 3mm; font: 800 15pt/1.2 var(--display); color: var(--green); flex: none; }
+.page[lang^="zh"] .section-heading { font-family: var(--zh); font-weight: 700; letter-spacing: 0.04em; }
+.h-icon { height: 7mm; width: auto; }
+.flow { flex: 1 1 auto; min-height: 0; overflow: hidden; }
+.flow[data-cols="2"] { column-count: 2; column-gap: 9mm; column-fill: auto; }
+.flow[data-cols="2"].balanced { column-fill: balance; flex: 0 0 auto; height: auto; }
+.flow p { margin: 0; font: 400 12pt/1.68 var(--text); color: var(--ink); white-space: pre-line; text-wrap: pretty; hyphens: manual; }
+.flow p + p { margin-top: 3.2mm; }
+.page[lang^="zh"] .flow p { font-family: var(--zh); font-size: 11.5pt; line-height: 1.95; text-align: justify; text-justify: inter-character; line-break: strict; letter-spacing: 0.02em; text-wrap: wrap; }
+.area-tab { margin: 0; font: 600 8.5pt/1.2 var(--text); color: var(--green); text-transform: uppercase; letter-spacing: 0.14em; }
+.page[lang^="zh"] .area-tab { font-family: var(--zh); letter-spacing: 0.1em; }
+.area-tab span { text-transform: none; letter-spacing: 0.02em; color: var(--muted); margin-left: 1mm; }
+
+/* ---- Photos ----------------------------------------------------------------------- */
+.region.photos { display: flex; flex-direction: column; }
+.moments { display: flex; flex-direction: column; gap: 6mm; padding-top: 2.5mm; }
+.moment-row { display: flex; justify-content: center; align-items: flex-start; gap: 6mm; }
+.moment { margin: 0; flex: none; }
+.mat { position: relative; background: var(--rb-neutral-surface); padding: var(--mat); border: 0.3mm solid var(--line); border-radius: 2.6mm; transform: rotate(var(--tilt)); box-shadow: 1.1mm 1.3mm 0 var(--tint); }
+.photo { width: 100%; object-fit: cover; border-radius: 1.4mm; }
+.tape { position: absolute; top: -2.8mm; left: 50%; width: 19mm; height: 5.6mm; transform: translateX(-50%) rotate(-3deg); background: var(--tint-deep); opacity: 0.8;
+  clip-path: polygon(0 8%, 6% 0, 12% 10%, 18% 0, 100% 0, 96% 50%, 100% 100%, 88% 92%, 82% 100%, 0 100%, 4% 50%); }
+.sample-chip { position: absolute; left: calc(var(--mat) + 1.8mm); bottom: calc(var(--mat) + 1.8mm); padding: 0.7mm 2mm; border-radius: 3mm; background: rgba(255, 255, 255, 0.92); font: 600 8pt/1.2 var(--text); color: var(--muted); }
+.page[lang^="zh"] .sample-chip { font-family: var(--zh); }
+.caption { margin-top: 3.2mm; padding: 0 0.8mm; font: 400 10pt/1.45 var(--text); color: var(--ink); white-space: pre-line; text-wrap: pretty; }
+.page[lang^="zh"] .caption { font-family: var(--zh); line-height: 1.7; line-break: strict; letter-spacing: 0.02em; }
+
+/* ---- Cover ------------------------------------------------------------------------ */
+.cover-photo { z-index: 1; overflow: hidden; }
+.cover-photo img { width: 100%; height: 100%; object-fit: cover; }
+.cover-photo .sample-chip { left: auto; right: 6mm; bottom: 22mm; }
+.wave-panel { position: absolute; z-index: 2; }
+.region.cover-text { z-index: 3; }
+.cover-logo { height: 12mm; width: auto; margin-bottom: 14mm; }
+.cover-name { margin: 1mm 0 0; font: 800 40pt/1.06 var(--display); color: var(--green); }
+.cover-meta { margin: 4mm 0 0; font: 600 12.5pt/1.4 var(--text); color: var(--ink); }
+.cover-tagline { margin: 7mm 0 0; font: 700 13pt/1.3 var(--display); color: var(--muted); }
+.page--cover .eyebrow { margin-bottom: 1mm; }
+.region.closing-text { z-index: 3; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.closing-line { margin: 0; font: 800 24pt/1.2 var(--display); color: var(--green); width: fit-content; max-width: 100%; }
+.closing-logo { height: 17mm; width: auto; margin-top: 7mm; }
+
+.page--cover .meadow { z-index: 3; }
+
+/* Text boxes hug their words so decoration checks measure real text, not empty block width. */
+.area-tab, .section-heading, .eyebrow, .cover-meta, .cover-tagline, .cover-name { width: fit-content; max-width: 100%; }
+.flow.short { flex: 0 0 auto; height: auto; }
+
+.fade-veil { position: absolute; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, var(--paper) 0, var(--paper) 12%, rgba(251, 247, 238, 0) 100%); }
+.region.photos.photos--centred { justify-content: center; padding-bottom: 6mm; }
+
+/* Collage placement: figures positioned in mm inside the region (layout.mjs placeSlots). */
+.moments.collage { display: block; position: relative; height: 100%; padding-top: 0; }
+.moment.moment--placed { position: absolute; }
+/* The twine runs over the photos' top edge; the pegs sit on top of the twine. */
+.decor--line { z-index: 4; opacity: 1; }
+.decor--peg { z-index: 5; }
+.decor--camera { z-index: 3; }

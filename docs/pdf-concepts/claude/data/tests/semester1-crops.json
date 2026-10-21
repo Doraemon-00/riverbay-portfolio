@@ -1,0 +1,28 @@
+{
+  "schema": "riverbay.portfolio-report.v1",
+  "fixture": { "kind": "fictional", "notes": ["Stress test: Semester 1 report (no comparison), extreme aspect ratios, uncaptioned photos, a portrait pair. Fictional."] },
+  "child": { "display_name": "Jules Tan (test)", "student_code": "FX-TEST-S1", "class_name": "Test class" },
+  "period": { "year": 2026, "semester": 1 },
+  "rating_scale_version": "sample-domain-ring-v1",
+  "domains": {
+    "english": {
+      "rating": 1,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "english_feedback": "Jules listened closely to stories about animals and joined in with repeated phrases after hearing them a few times. In March, Jules pointed to the duck on each page and said “quack” before the adult turned the page. With a picture prompt, Jules told an adult two things that happened at the farm visit, and needed help to remember the order.",
+      "english_photos": [
+        { "src": "../../assets/illustrations/scene-willow-tall.jpg", "kind": "fictional_illustration", "alt": "Illustration", "caption": null, "focus": [0.5, 0.65] },
+        { "src": "../../assets/illustrations/scene-scrapbook-pages.jpg", "kind": "fictional_illustration", "alt": "Illustration", "caption": null },
+        { "src": "../../assets/illustrations/scene-acorn-line.jpg", "kind": "placeholder", "alt": "Placeholder", "caption": null }
+      ]
+    },
+    "chinese": {
+      "rating": 2,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "chinese_feedback": "Jules喜欢在阅读角听老师讲故事。三月份，Jules能跟着老师说出“小猫”“小狗”等动物名称，并在提示下用“我要……”表达自己的需要。在点名活动中，Jules能用中文回应“到”，有时需要老师示范。",
+      "chinese_photos": [
+        { "src": "../../assets/illustrations/scene-squirrel-leaf.jpg", "kind": "fictional_illustration", "alt": "插图", "caption": "跟着老师说出动物的名称。" },
+        { "src": "../../assets/illustrations/scene-bear-hive.jpg", "kind": "fictional_illustration", "alt": "插图", "caption": "在点名活动中回应“到”。" }
+      ]
+    }
+  }
+}

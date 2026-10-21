@@ -1,0 +1,572 @@
+[
+ {
+  "source": "art/rb2-squirrel-running.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   372,
+   206,
+   1089,
+   835
+  ],
+  "output_px": [
+   378,
+   332
+  ],
+  "outputs": [
+   "assets/art/rb2-squirrel-running.png"
+  ]
+ },
+ {
+  "source": "art/rb2-rabbit-hopping.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   410,
+   193,
+   1138,
+   820
+  ],
+  "output_px": [
+   378,
+   326
+  ],
+  "outputs": [
+   "assets/art/rb2-rabbit-hopping.png"
+  ]
+ },
+ {
+  "source": "art/rb2-beaver-hanging-willow.png",
+  "source_px": [
+   1415,
+   1112
+  ],
+  "trim_box": [
+   221,
+   0,
+   631,
+   990
+  ],
+  "output_px": [
+   372,
+   898
+  ],
+  "outputs": [
+   "assets/art/rb2-beaver-hanging-willow.png",
+   "assets/art/rb2-beaver-hanging-willow.mirrored.png"
+  ]
+ },
+ {
+  "source": "art/rb2-squirrel-hanging-willow.png",
+  "source_px": [
+   1383,
+   1137
+  ],
+  "trim_box": [
+   244,
+   0,
+   624,
+   786
+  ],
+  "output_px": [
+   380,
+   786
+  ],
+  "outputs": [
+   "assets/art/rb2-squirrel-hanging-willow.png",
+   "assets/art/rb2-squirrel-hanging-willow.mirrored.png"
+  ]
+ },
+ {
+  "source": "art/rb2-bear-climbing-vine.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   998,
+   0,
+   1353,
+   1024
+  ],
+  "output_px": [
+   355,
+   1024
+  ],
+  "outputs": [
+   "assets/art/rb2-bear-climbing-vine.png",
+   "assets/art/rb2-bear-climbing-vine.mirrored.png"
+  ]
+ },
+ {
+  "source": "art/rb2-squirrel-peeking.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   351,
+   611,
+   967,
+   1011
+  ],
+  "output_px": [
+   425,
+   276
+  ],
+  "outputs": [
+   "assets/art/rb2-squirrel-peeking.png"
+  ]
+ },
+ {
+  "source": "art/rb2-bear-rabbit-sharing.png",
+  "source_px": [
+   1926,
+   817
+  ],
+  "trim_box": [
+   928,
+   217,
+   1914,
+   808
+  ],
+  "output_px": [
+   803,
+   481
+  ],
+  "outputs": [
+   "assets/art/rb2-bear-rabbit-sharing.png"
+  ]
+ },
+ {
+  "source": "art/rb2-beaver-squirrel-waving.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   209,
+   207,
+   1276,
+   827
+  ],
+  "output_px": [
+   898,
+   522
+  ],
+  "outputs": [
+   "assets/art/rb2-beaver-squirrel-waving.png"
+  ]
+ },
+ {
+  "source": "art/rb2-beaver-letters.png",
+  "source_px": [
+   1024,
+   1536
+  ],
+  "trim_box": [
+   151,
+   0,
+   934,
+   1322
+  ],
+  "output_px": [
+   420,
+   709
+  ],
+  "outputs": [
+   "assets/art/rb2-beaver-letters.png"
+  ]
+ },
+ {
+  "source": "art/rb2-rabbit-brush.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   451,
+   173,
+   1078,
+   895
+  ],
+  "output_px": [
+   533,
+   614
+  ],
+  "outputs": [
+   "assets/art/rb2-rabbit-brush.png"
+  ]
+ },
+ {
+  "source": "art/rb2-squirrel-numbers.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   453,
+   47,
+   1186,
+   972
+  ],
+  "output_px": [
+   524,
+   661
+  ],
+  "outputs": [
+   "assets/art/rb2-squirrel-numbers.png"
+  ]
+ },
+ {
+  "source": "art/rb2-garland-top.png",
+  "source_px": [
+   1926,
+   817
+  ],
+  "trim_box": [
+   0,
+   0,
+   1926,
+   288
+  ],
+  "output_px": [
+   1926,
+   288
+  ],
+  "outputs": [
+   "assets/art/rb2-garland-top.png"
+  ]
+ },
+ {
+  "source": "art/rb2-willow-drop.png",
+  "source_px": [
+   1926,
+   817
+  ],
+  "trim_box": [
+   94,
+   0,
+   1867,
+   604
+  ],
+  "output_px": [
+   1606,
+   547
+  ],
+  "outputs": [
+   "assets/art/rb2-willow-drop.png"
+  ]
+ },
+ {
+  "source": "art/rb2-vine-edge.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   29,
+   0,
+   272,
+   1024
+  ],
+  "output_px": [
+   243,
+   1024
+  ],
+  "outputs": [
+   "assets/art/rb2-vine-edge.png",
+   "assets/art/rb2-vine-edge.mirrored.png"
+  ]
+ },
+ {
+  "source": "art/rb2-meadow-border.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   0,
+   690,
+   1536,
+   1024
+  ],
+  "output_px": [
+   1536,
+   334
+  ],
+  "outputs": [
+   "assets/art/rb2-meadow-border.png"
+  ]
+ },
+ {
+  "source": "art/rb2-river-landscape.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "output_px": [
+   1536,
+   1024
+  ],
+  "outputs": [
+   "assets/art/rb2-river-landscape.png"
+  ]
+ },
+ {
+  "source": "art/rb2-river-portrait.png",
+  "source_px": [
+   1024,
+   1536
+  ],
+  "output_px": [
+   1024,
+   1536
+  ],
+  "outputs": [
+   "assets/art/rb2-river-portrait.png"
+  ]
+ },
+ {
+  "source": "art/rb2-flower-accent.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   524,
+   178,
+   1025,
+   892
+  ],
+  "output_px": [
+   93,
+   132
+  ],
+  "outputs": [
+   "assets/art/rb2-flower-accent.png"
+  ]
+ },
+ {
+  "source": "art/rb2-scene-cover-garden.png",
+  "source_px": [
+   1926,
+   817
+  ],
+  "output_px": [
+   1926,
+   817
+  ],
+  "outputs": [
+   "assets/art/rb2-scene-cover-garden.jpg"
+  ]
+ },
+ {
+  "source": "art/rb2-scene-reading-corner.png",
+  "source_px": [
+   1926,
+   817
+  ],
+  "output_px": [
+   1112,
+   817
+  ],
+  "outputs": [
+   "assets/art/rb2-scene-reading-corner.jpg",
+   "assets/art/rb2-scene-reading-corner.mirrored.jpg"
+  ]
+ },
+ {
+  "source": "art/rb2-scene-story-circle.png",
+  "source_px": [
+   1926,
+   817
+  ],
+  "output_px": [
+   1280,
+   817
+  ],
+  "outputs": [
+   "assets/art/rb2-scene-story-circle.jpg",
+   "assets/art/rb2-scene-story-circle.mirrored.jpg"
+  ]
+ },
+ {
+  "source": "art/rb2-scene-garden-planting.png",
+  "source_px": [
+   1926,
+   817
+  ],
+  "output_px": [
+   1192,
+   817
+  ],
+  "outputs": [
+   "assets/art/rb2-scene-garden-planting.jpg",
+   "assets/art/rb2-scene-garden-planting.mirrored.jpg"
+  ]
+ },
+ {
+  "source": "art/rb2-scene-counting-stones.png",
+  "source_px": [
+   1024,
+   1536
+  ],
+  "output_px": [
+   1024,
+   1536
+  ],
+  "outputs": [
+   "assets/art/rb2-scene-counting-stones.jpg"
+  ]
+ },
+ {
+  "source": "art/rb2-scene-sharing-snack.png",
+  "source_px": [
+   1024,
+   1024
+  ],
+  "output_px": [
+   1024,
+   1024
+  ],
+  "outputs": [
+   "assets/art/rb2-scene-sharing-snack.jpg"
+  ]
+ },
+ {
+  "source": "art/rb2-beaver-camera.png",
+  "source_px": [
+   1024,
+   1024
+  ],
+  "trim_box": [
+   51,
+   224,
+   862,
+   815
+  ],
+  "output_px": [
+   586,
+   427
+  ],
+  "outputs": [
+   "assets/art/rb2-beaver-camera.png"
+  ]
+ },
+ {
+  "source": "art/rb2-squirrel-tripod.png",
+  "source_px": [
+   1024,
+   1536
+  ],
+  "trim_box": [
+   189,
+   512,
+   943,
+   1071
+  ],
+  "output_px": [
+   661,
+   490
+  ],
+  "outputs": [
+   "assets/art/rb2-squirrel-tripod.png"
+  ]
+ },
+ {
+  "source": "art/rb2-rabbit-snapshots.png",
+  "source_px": [
+   1024,
+   1024
+  ],
+  "trim_box": [
+   66,
+   92,
+   986,
+   954
+  ],
+  "output_px": [
+   567,
+   531
+  ],
+  "outputs": [
+   "assets/art/rb2-rabbit-snapshots.png"
+  ]
+ },
+ {
+  "source": "art/rb2-photo-line.png",
+  "source_px": [
+   1536,
+   1024
+  ],
+  "trim_box": [
+   0,
+   0,
+   1536,
+   282
+  ],
+  "output_px": [
+   1536,
+   282
+  ],
+  "outputs": [
+   "assets/art/rb2-photo-line.png"
+  ]
+ },
+ {
+  "source": "art/rb2-peg.png",
+  "source_px": [
+   1024,
+   1024
+  ],
+  "trim_box": [
+   375,
+   361,
+   581,
+   704
+  ],
+  "output_px": [
+   79,
+   132
+  ],
+  "outputs": [
+   "assets/art/rb2-peg.png"
+  ]
+ },
+ {
+  "source": "art/rb2-peg-front.png",
+  "source_px": [
+   1024,
+   1024
+  ],
+  "trim_box": [
+   375,
+   263,
+   578,
+   763
+  ],
+  "output_px": [
+   61,
+   151
+  ],
+  "outputs": [
+   "assets/art/rb2-peg-front.png"
+  ]
+ },
+ {
+  "source": "assets/art/rb2-garland-top.png",
+  "edits": "flipped vertically, cut at x=1527 (vine height/slope error 5.2 px) for seamless repeat",
+  "outputs": [
+   "assets/art/rb2-garland-bottom.png"
+  ],
+  "output_px": [
+   1527,
+   288
+  ]
+ }
+]

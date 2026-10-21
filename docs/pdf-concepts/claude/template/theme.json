@@ -1,0 +1,449 @@
+{
+  "$comment": "Template-level design configuration (riverbay template v2). Changing a child never requires editing this file. All sizes in mm.",
+  "pages": {
+    "portrait": {
+      "w": 210,
+      "h": 297,
+      "margin": 14,
+      "top": 13,
+      "bottom": 21
+    },
+    "landscape": {
+      "w": 297,
+      "h": 210,
+      "margin": 14,
+      "top": 11,
+      "bottom": 19
+    }
+  },
+  "layout": {
+    "landscape": {
+      "order": [
+        "split",
+        "stack",
+        "pages"
+      ],
+      "headerMm": 34,
+      "gapMm": 10,
+      "laneMm": 28,
+      "splitStoryMm": 118,
+      "splitPhotoTopMm": 42,
+      "maxSplitPhotos": 4,
+      "stackStoryMaxFraction": 0.5,
+      "maxStackPhotos": 4,
+      "photoPageTopMm": 44
+    },
+    "portrait": {
+      "order": [
+        "stack",
+        "pages"
+      ],
+      "headerMm": 36,
+      "gapMm": 8,
+      "laneMm": 26,
+      "stackStoryMaxFraction": 0.48,
+      "maxStackPhotos": 4,
+      "photoPageTopMm": 46
+    }
+  },
+  "ratingAssets": {
+    "unassessed": "assets/brand/rings/ring-unassessed.svg",
+    "1": "assets/brand/rings/ring-beginning.svg",
+    "2": "assets/brand/rings/ring-developing.svg",
+    "3": "assets/brand/rings/ring-consistently-shown.svg"
+  },
+  "ringMm": 22,
+  "art": {
+    "headingIcon": "assets/art/rb2-flower-accent.png",
+    "meadow": "assets/art/rb2-garland-bottom.png",
+    "garland": "assets/art/rb2-garland-top.png",
+    "willow": "assets/art/rb2-willow-drop.png",
+    "riverLandscape": "assets/art/rb2-river-landscape.png",
+    "riverPortrait": "assets/art/rb2-river-portrait.png",
+    "runner": {
+      "squirrel": "assets/art/rb2-squirrel-running.png",
+      "rabbit": "assets/art/rb2-rabbit-hopping.png"
+    },
+    "peeking": "assets/art/rb2-squirrel-peeking.png",
+    "lane": {
+      "hangingBeaver": {
+        "src": "assets/art/rb2-beaver-hanging-willow",
+        "kind": "hanging",
+        "minMm": 34,
+        "maxMm": 92
+      },
+      "hangingSquirrel": {
+        "src": "assets/art/rb2-squirrel-hanging-willow",
+        "kind": "hanging",
+        "minMm": 34,
+        "maxMm": 82
+      },
+      "vine": {
+        "src": "assets/art/rb2-vine-edge",
+        "kind": "climber",
+        "stem": {
+          "bottom": 0.181,
+          "top": 0.374,
+          "$comment": "stem x as a fraction of width where the vine leaves the bottom and top edges (assets/art/rb2-vine-edge.png)"
+        }
+      },
+      "bear": {
+        "src": "assets/art/rb2-bear-climbing-vine",
+        "kind": "climber"
+      }
+    },
+    "logo": "assets/brand/mark/riverbay-logo.svg",
+    "coverPair": "assets/art/rb2-beaver-squirrel-waving.png",
+    "meadowMm": 13,
+    "photoPage": {
+      "$comment": "Photo-only page decoration. Entries whose file does not exist yet are dropped by render.mjs, so styles switch on when the art arrives.",
+      "line": "assets/art/rb2-photo-line.png",
+      "peg": "assets/art/rb2-peg-front.png",
+      "cameras": {
+        "beaver": {
+          "src": "assets/art/rb2-beaver-camera.png",
+          "side": "left"
+        },
+        "squirrel": {
+          "src": "assets/art/rb2-squirrel-tripod.png",
+          "side": "right"
+        },
+        "rabbit": {
+          "src": "assets/art/rb2-rabbit-snapshots.png",
+          "side": "left"
+        }
+      },
+      "pegMm": 13,
+      "maxTiltDeg": 7
+    }
+  },
+  "photos": {
+    "maxPerDomain": 4,
+    "minAspect": 0.5625,
+    "maxAspect": 1.7778,
+    "minRowHeightMm": 36,
+    "maxRowHeightMm": {
+      "1": 120,
+      "2": 92,
+      "3": 70
+    },
+    "gapMm": 6,
+    "rowPlans": {
+      "1": [
+        [
+          0
+        ]
+      ],
+      "2": "pairs",
+      "3": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "4": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "pairRowMinWidthMm": 150,
+    "$comment": "Two photos share one row unless both are landscape in a column narrower than pairRowMinWidthMm (then they stack).",
+    "minPhotoMm": {
+      "landscape": 30,
+      "portrait": 30,
+      "$comment": "Shortest printed side of any photo beside a story or on a photo page. Below this, photos move to a photo page instead of shrinking."
+    },
+    "variety": {
+      "damp": 0.35,
+      "$comment": "Seeded choices: once an option is used, its weight is multiplied by damp, so alternatives become likelier but never certain."
+    },
+    "stagger": [
+      [
+        0,
+        0,
+        0.8,
+        0.5,
+        0,
+        0
+      ],
+      [
+        0.2,
+        0.5,
+        0.8,
+        0.5,
+        1,
+        1
+      ]
+    ],
+    "collage": {
+      "$comment": "Photo-only page arrangements. Slots [x, y, w, h, ax, ay] are fractions of the photo area (landscape); portrait swaps x/y. The seed picks one per page.",
+      "1": {
+        "centre": [
+          [
+            0.12,
+            0,
+            0.76,
+            1,
+            0.5,
+            0.35
+          ]
+        ]
+      },
+      "2": {
+        "high-low": [
+          [
+            0,
+            0,
+            0.48,
+            0.82,
+            0.25,
+            0
+          ],
+          [
+            0.52,
+            0.18,
+            0.48,
+            0.82,
+            0.75,
+            1
+          ]
+        ],
+        "low-high": [
+          [
+            0,
+            0.18,
+            0.48,
+            0.82,
+            0.25,
+            1
+          ],
+          [
+            0.52,
+            0,
+            0.48,
+            0.82,
+            0.75,
+            0
+          ]
+        ]
+      },
+      "3": {
+        "zigzag": [
+          [
+            0,
+            0,
+            0.32,
+            0.72,
+            0.5,
+            0
+          ],
+          [
+            0.34,
+            0.28,
+            0.32,
+            0.72,
+            0.5,
+            1
+          ],
+          [
+            0.68,
+            0,
+            0.32,
+            0.72,
+            0.5,
+            0
+          ]
+        ],
+        "feature": [
+          [
+            0,
+            0,
+            0.56,
+            1,
+            0.3,
+            0.5
+          ],
+          [
+            0.6,
+            0,
+            0.4,
+            0.49,
+            0.6,
+            0
+          ],
+          [
+            0.6,
+            0.51,
+            0.4,
+            0.49,
+            0.4,
+            1
+          ]
+        ]
+      },
+      "4": {
+        "scatter": [
+          [
+            0,
+            0,
+            0.48,
+            0.49,
+            0.15,
+            0
+          ],
+          [
+            0.52,
+            0.04,
+            0.48,
+            0.47,
+            0.85,
+            0
+          ],
+          [
+            0.02,
+            0.51,
+            0.47,
+            0.49,
+            0.3,
+            1
+          ],
+          [
+            0.52,
+            0.53,
+            0.48,
+            0.47,
+            0.75,
+            1
+          ]
+        ]
+      }
+    }
+  },
+  "domains": {
+    "english": {
+      "title": "English",
+      "subtitle": null,
+      "lang": "en",
+      "strings": "en",
+      "tint": "#D5EDDF",
+      "tintDeep": "#A9D6BC",
+      "mascot": {
+        "src": "assets/art/rb2-beaver-letters.png",
+        "heightMm": 52
+      },
+      "lane": [
+        "hangingBeaver",
+        "vine"
+      ],
+      "top": "willow",
+      "runner": null,
+      "river": false,
+      "decor": [
+        "lane",
+        "mascot",
+        "top",
+        "peeking",
+        "runner"
+      ]
+    },
+    "chinese": {
+      "title": "中文",
+      "subtitle": "Chinese",
+      "lang": "zh-Hans",
+      "strings": "zh-Hans",
+      "tint": "#F6D5C1",
+      "tintDeep": "#EDB596",
+      "mascot": {
+        "src": "assets/art/rb2-rabbit-brush.png",
+        "heightMm": 42
+      },
+      "lane": [
+        "vine"
+      ],
+      "top": "garland",
+      "runner": "rabbit",
+      "river": true,
+      "decor": [
+        "river",
+        "mascot",
+        "lane",
+        "top",
+        "peeking",
+        "runner"
+      ]
+    },
+    "mathematics": {
+      "title": "Mathematics",
+      "subtitle": null,
+      "lang": "en",
+      "strings": "en",
+      "tint": "#DCECF2",
+      "tintDeep": "#B3D4E1",
+      "mascot": {
+        "src": "assets/art/rb2-squirrel-numbers.png",
+        "heightMm": 44
+      },
+      "lane": [
+        "hangingSquirrel",
+        "vine"
+      ],
+      "top": "willow",
+      "runner": null,
+      "river": false,
+      "decor": [
+        "lane",
+        "mascot",
+        "top",
+        "peeking",
+        "runner"
+      ]
+    },
+    "social_emotional": {
+      "title": "Social-emotional",
+      "subtitle": null,
+      "lang": "en",
+      "strings": "en",
+      "tint": "#F8EDBC",
+      "tintDeep": "#EBD77F",
+      "mascot": {
+        "src": "assets/art/rb2-bear-rabbit-sharing.png",
+        "heightMm": 40
+      },
+      "lane": [
+        "vine"
+      ],
+      "top": "garland",
+      "runner": "squirrel",
+      "river": true,
+      "decor": [
+        "mascot",
+        "river",
+        "lane",
+        "top",
+        "peeking",
+        "runner"
+      ]
+    }
+  },
+  "cover": {
+    "tint": "#D5EDDF",
+    "tintDeep": "#A9D6BC",
+    "runner": "squirrel"
+  },
+  "decor": {
+    "$comment": "Decoration is used where a page is sparse: at most `budget` pieces per page, or `sparseBudget` when text and photos cover less than `sparseBelow` of the body. Pieces are taken in each subject's `decor` order.",
+    "budget": 2,
+    "sparseBudget": 3,
+    "sparseBelow": 0.42,
+    "riverMinVisible": 0.35
+  }
+}

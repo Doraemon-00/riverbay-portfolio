@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "riverbay.portfolio-report.v1",
+  "title": "Riverbay semester portfolio report (parent-facing content only)",
+  "description": "Input to tools/render.mjs. Contains only teacher-approved, parent-facing content. tools/validate.mjs enforces these rules at render time (no runtime JSON Schema dependency). Photo paths resolve relative to the data file.",
+  "type": "object",
+  "required": ["schema", "child", "period", "rating_scale_version", "domains"],
+  "additionalProperties": false,
+  "properties": {
+    "$comment": { "type": "string" },
+    "schema": { "const": "riverbay.portfolio-report.v1" },
+    "fixture": { "description": "Provenance notes for sample data. Never rendered.", "type": "object" },
+    "child": {
+      "type": "object",
+      "required": ["display_name"],
+      "properties": {
+        "display_name": { "type": "string", "description": "Printed once, on the cover only." },
+        "student_code": { "type": "string", "description": "Not printed. Kept for traceability." },
+        "class_name": { "type": "string", "description": "Printed once, on the cover only." }
+      }
+    },
+    "period": {
+      "type": "object",
+      "required": ["year", "semester"],
+      "properties": { "year": { "type": "integer" }, "semester": { "enum": [1, 2] } }
+    },
+    "rating_scale_version": { "type": "string", "examples": ["sample-domain-ring-v1"] },
+    "cover_photo": {
+      "description": "Optional teacher-selected cover image. Without it the cover uses the mascot layout.",
+      "type": "object",
+      "required": ["src", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "src": { "type": "string" },
+        "kind": { "$ref": "#/$defs/kind" },
+        "alt": { "type": "string" },
+        "focus": { "$ref": "#/$defs/focus" },
+        "fit": { "enum": ["cover", "width"], "description": "cover (default) fills the cover area, cropping around focus; width shows the whole image across the page width, bottom-aligned, for wide illustrations with a calm side." }
+      }
+    },
+    "domains": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "english": { "$ref": "#/$defs/english" },
+        "chinese": { "$ref": "#/$defs/chinese" },
+        "mathematics": { "$ref": "#/$defs/mathematics" },
+        "social_emotional": { "$ref": "#/$defs/social_emotional" }
+      }
+    }
+  },
+  "$defs": {
+    "rating": {
+      "description": "Teacher-selected categorical level: 1 Beginning, 2 Developing, 3 Consistently shown. null = not assessed: the renderer refuses to export it (render.mjs --preview shows a dashed ring for drafts only). For previous ratings, null or a different scale simply hides the comparison ring.",
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 3
+    },
+    "previous": {
+      "description": "Semester 1 comparison for a Semester 2 report. Shown as a second ring only when rating is set and rating_scale_version matches; otherwise only the current ring appears (user decision, 21 Oct 2026).",
+      "type": ["object", "null"],
+      "required": ["semester", "rating", "rating_scale_version"],
+      "properties": {
+        "semester": { "type": "integer" },
+        "rating": { "$ref": "#/$defs/rating" },
+        "rating_scale_version": { "type": "string" },
+        "rating_label": { "type": "string", "description": "Label in the earlier scale, used only when the scale differs." }
+      }
+    },
+    "kind": {
+      "description": "photo = real teacher photo (no chip). fictional_illustration and placeholder print a small sample chip on the image.",
+      "enum": ["photo", "fictional_illustration", "placeholder"]
+    },
+    "focus": {
+      "description": "Crop focal point [x, y] from 0 to 1. Used only when the aspect ratio is outside 9:16 to 16:9.",
+      "type": "array",
+      "items": { "type": "number", "minimum": 0, "maximum": 1 },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "photo": {
+      "type": "object",
+      "required": ["src", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "src": { "type": "string" },
+        "kind": { "$ref": "#/$defs/kind" },
+        "caption": { "type": ["string", "null"], "description": "Optional teacher-written caption, printed exactly." },
+        "alt": { "type": "string" },
+        "focus": { "$ref": "#/$defs/focus" }
+      }
+    },
+    "photos": { "type": "array", "items": { "$ref": "#/$defs/photo" }, "maxItems": 6, "description": "Teacher order is preserved." },
+    "narrative": { "type": "string", "minLength": 1, "pattern": "\\S", "description": "Exact approved text. Blank lines separate paragraphs." },
+    "english": {
+      "type": "object",
+      "required": ["rating", "english_feedback"],
+      "additionalProperties": false,
+      "properties": {
+        "rating": { "$ref": "#/$defs/rating" },
+        "rating_scale_version": { "type": "string" },
+        "previous": { "$ref": "#/$defs/previous" },
+        "english_feedback": { "$ref": "#/$defs/narrative" },
+        "english_photos": { "$ref": "#/$defs/photos" }
+      }
+    },
+    "chinese": {
+      "type": "object",
+      "required": ["rating", "chinese_feedback"],
+      "additionalProperties": false,
+      "properties": {
+        "rating": { "$ref": "#/$defs/rating" },
+        "rating_scale_version": { "type": "string" },
+        "previous": { "$ref": "#/$defs/previous" },
+        "chinese_feedback": { "$ref": "#/$defs/narrative" },
+        "chinese_photos": { "$ref": "#/$defs/photos" }
+      }
+    },
+    "mathematics": {
+      "type": "object",
+      "required": ["rating", "mathematics_feedback"],
+      "additionalProperties": false,
+      "properties": {
+        "rating": { "$ref": "#/$defs/rating" },
+        "rating_scale_version": { "type": "string" },
+        "previous": { "$ref": "#/$defs/previous" },
+        "mathematics_feedback": { "$ref": "#/$defs/narrative" },
+        "mathematics_photos": { "$ref": "#/$defs/photos" }
+      }
+    },
+    "social_emotional": {
+      "type": "object",
+      "required": ["rating", "social_emotional_feedback"],
+      "additionalProperties": false,
+      "properties": {
+        "rating": { "$ref": "#/$defs/rating" },
+        "rating_scale_version": { "type": "string" },
+        "previous": { "$ref": "#/$defs/previous" },
+        "social_emotional_feedback": { "$ref": "#/$defs/narrative" },
+        "social_emotional_photos": { "$ref": "#/$defs/photos" }
+      }
+    }
+  }
+}

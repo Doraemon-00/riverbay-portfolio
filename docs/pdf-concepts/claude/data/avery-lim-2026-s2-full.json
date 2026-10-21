@@ -1,0 +1,117 @@
+{
+  "schema": "riverbay.portfolio-report.v1",
+  "fixture": {
+    "kind": "saved-sample",
+    "source": "benchmarks/live-classroom/historical-reference.json (read-only capture of persisted fictional records)",
+    "captured_at": "2026-10-20T13:44:22.796Z",
+    "revisions": {
+      "english": 5,
+      "chinese": 6,
+      "mathematics": 3,
+      "social_emotional": 3
+    },
+    "notes": [
+      "Saved narratives are sample content, not proof of teacher approval (app status: Draft, not Reviewed).",
+      "Semester 1 ratings come from the setup-local.mjs seed, not a live read.",
+      "Photos are fictional illustrations, not evidence of events in Avery's observations.",
+      "Mathematics and Social-emotional have no saved indicator (rating null): render with --preview; export is blocked until a teacher sets one.",
+      "Each illustration appears once in the full report (five distinct scenes besides the cover)."
+    ]
+  },
+  "child": {
+    "display_name": "Avery Lim",
+    "student_code": "RB-000020",
+    "class_name": "K1 Willow"
+  },
+  "period": {
+    "year": 2026,
+    "semester": 2
+  },
+  "rating_scale_version": "sample-domain-ring-v1",
+  "cover_photo": {
+    "src": "../assets/art/rb2-scene-cover-garden.jpg",
+    "kind": "fictional_illustration",
+    "alt": "Illustration: four animal friends flying a kite by the river",
+    "fit": "width"
+  },
+  "domains": {
+    "english": {
+      "rating": 2,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "english_feedback": "The child explores stories and personal experiences in various ways throughout the school day. When looking through a picture book, the child named familiar characters and answered simple questions. The child has shared short accounts of personal events, like a picnic, using picture prompts to help recall the sequence of events. During small-group activities, the child retold the beginning and middle portions of a familiar story, and with a question from the teacher, explained the ending. Additionally, the child shared an idea during group time with the support of a little prompting.",
+      "english_photos": [
+        {
+          "src": "../assets/art/rb2-scene-reading-corner.jpg",
+          "caption": null,
+          "alt": "Illustration: a beaver and a rabbit reading a picture book under a willow",
+          "kind": "fictional_illustration"
+        },
+        {
+          "src": "../assets/art/rb2-scene-story-circle.jpg",
+          "caption": null,
+          "alt": "Illustration: four animal friends looking at a picture book at story time",
+          "kind": "fictional_illustration"
+        }
+      ]
+    },
+    "chinese": {
+      "rating": 2,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "chinese_feedback": "孩子近期在小组活动和分享中表现得越来越积极。他喜欢动物和自然主题的图画书，常通过图片中的线索来理解故事内容并尝试表达。在阅读角或小组分享时，孩子不仅能准确说出动物名称，还能用两三个短句介绍自己的画作或喜欢的动物，并尝试补充颜色和动作等细节。在教师给予一定的等待时间、简短提示或问题引导下，他乐于尝试用中文表达想法。当遇到不熟悉的词汇时，孩子会运用手势或向教师求助来完成沟通。在连贯讲述图片顺序或进行较长的回答时，他会先停下来组织语言，并在教师的帮助下梳理表达内容。",
+      "chinese_photos": [
+        {
+          "src": "../assets/art/rb2-scene-garden-planting.jpg",
+          "caption": null,
+          "alt": "插图：小动物们在菜园里种菜",
+          "kind": "fictional_illustration"
+        }
+      ]
+    },
+    "mathematics": {
+      "rating": null,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "mathematics_feedback": "The child explores various mathematical concepts through play. When counting, the child uses one-to-one pointing for groups up to ten, often finding it helpful to arrange items in a line first to ensure accuracy. The child has demonstrated an ability to sort buttons by color, recognize shapes like circles, squares, and triangles, and correctly use terms such as more and fewer when comparing groups. Additionally, the child is beginning to work with patterns, having successfully copied, created, and checked two-color sequences. When engaging with addition, the child uses counters to add one more to a group, counting the total to verify the result.",
+      "mathematics_photos": [
+        {
+          "src": "../assets/art/rb2-scene-counting-stones.jpg",
+          "caption": null,
+          "alt": "Illustration: a squirrel arranging river stones from small to large while a bear watches",
+          "kind": "fictional_illustration"
+        }
+      ]
+    },
+    "social_emotional": {
+      "rating": null,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "social_emotional_feedback": "The child engages in collaborative play, such as building and drawing with peers. With teacher support to introduce a task or a reminder during transitions, the child participates in activities. When interacting with classmates, the child has asked for a turn with a toy truck and waited with a reminder until the other child finished. During a drawing activity, the child invited a friend to join, offered to share crayons, and asked the teacher for assistance when a conflict arose over sharing a specific colour.",
+      "social_emotional_photos": [
+        {
+          "src": "../assets/art/rb2-scene-sharing-snack.jpg",
+          "caption": null,
+          "alt": "Illustration: animal friends sharing tea and biscuits on a picnic blanket",
+          "kind": "fictional_illustration"
+        }
+      ]
+    }
+  }
+}

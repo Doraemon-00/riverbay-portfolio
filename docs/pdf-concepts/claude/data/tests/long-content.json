@@ -1,0 +1,87 @@
+{
+  "schema": "riverbay.portfolio-report.v1",
+  "fixture": {
+    "kind": "fictional",
+    "notes": [
+      "Stress test: long English and Chinese narratives, four and three photos. Fictional."
+    ]
+  },
+  "child": {
+    "display_name": "Kit Lau (test)",
+    "student_code": "FX-TEST-LONG",
+    "class_name": "Test class"
+  },
+  "period": {
+    "year": 2026,
+    "semester": 2
+  },
+  "rating_scale_version": "sample-domain-ring-v1",
+  "domains": {
+    "english": {
+      "rating": 1,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "english_feedback": "At the start of the semester, Kit preferred to listen during group stories and usually answered with a nod or a single word. In July, Kit began to choose the same picture book about a lost duckling almost every day, and would turn the pages slowly while naming the animals. When an adult paused before a familiar line, Kit sometimes filled in the missing word, especially when the line repeated across several pages. By the end of July, Kit was asking “What happens next?” before the page was turned, and pointing to clues in the pictures to guess.\n\nIn August and September, Kit’s spoken sentences grew longer during small-group time. During a cooking activity, Kit explained the order of the steps using “first”, “then” and “last”, with one reminder about what came between mixing and baking. Kit enjoyed the class post office and made several cards for friends, drawing a picture and writing the first letter of the friend’s name. When Kit could not remember a letter shape, Kit looked for it on the name chart by the door without being asked. Kit also began to notice print around the room, reading the word “EXIT” and recognising the names of three classmates on their cubbies.\n\nIn October, Kit retold a familiar story to the whole class for the first time, holding the book and showing each page. Kit needed one prompt to remember the middle event but told the beginning and the ending clearly. Afterwards Kit asked to make a new book with the same characters, dictated four sentences to an adult, and then added labels to the drawings by copying words from a word card. Kit still finds it hard to take turns in a busy discussion and sometimes speaks over others when excited; with a gentle signal from the teacher, Kit waits and then shares. Rhyming games remain a favourite, and Kit can now hear whether two words rhyme, although producing a new rhyme usually needs an example first.",
+      "english_photos": [
+        {
+          "src": "../../assets/illustrations/scene-scrapbook-beaver.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration",
+          "caption": "Turning the pages slowly and naming each animal."
+        },
+        {
+          "src": "../../assets/illustrations/scene-squirrel-leaf.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration",
+          "caption": null
+        },
+        {
+          "src": "../../assets/illustrations/scene-bear-hive.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration",
+          "caption": "A card for a friend at the class post office."
+        },
+        {
+          "src": "../../assets/illustrations/scene-river-stones.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration",
+          "caption": "Looking for a letter on the name chart by the door, without being asked, and then copying it carefully onto the card."
+        }
+      ]
+    },
+    "chinese": {
+      "rating": 2,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 3,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "chinese_feedback": "本学期初，Kit在中文活动中多以聆听为主，常用点头或简单的词语回应老师。七月份，Kit在阅读角反复选择一本关于小鸭子找妈妈的图画书，能一边翻页一边说出“小鸭子”“妈妈”“池塘”等词语。老师读到重复的句子时，Kit会跟着一起说出最后几个字，并用手指着图片中的角色。\n\n八月到九月，Kit在小组活动中开始尝试用完整的短句表达自己的想法，例如“我喜欢红色的苹果”“我要和你一起玩”。在“小小商店”的角色扮演中，Kit能用“多少钱？”“我要买这个。”与同伴进行简单对话；遇到不会说的词语时，会先用手势表示，再请老师帮忙说出来。九月底的一次分享活动中，Kit带来了家里的照片，用三四句话介绍了自己的家人，并回答了同伴提出的一个问题。\n\n十月份，Kit在听完《拔萝卜》的故事后，能按照图片的顺序说出参与拔萝卜的角色，并模仿故事中的句子“一二三，拔萝卜！”。在老师的提示下，Kit还尝试用“先……然后……最后……”来讲述故事的经过，但在说明角色之间的关系时仍需要老师用问题引导。Kit对汉字的兴趣逐渐增加，能认出自己名字中的一个字，以及“大”“小”“人”“口”等常见字。在集体讨论中，Kit有时会因为着急而打断别人，经老师轻声提醒后，能够等待并举手发言。",
+      "chinese_photos": [
+        {
+          "src": "../../assets/illustrations/scene-rabbit-garden.jpg",
+          "kind": "fictional_illustration",
+          "alt": "插图",
+          "caption": "在阅读角翻看小鸭子的图画书。"
+        },
+        {
+          "src": "../../assets/illustrations/scene-willow-tall.jpg",
+          "kind": "fictional_illustration",
+          "alt": "插图",
+          "caption": "“小小商店”角色扮演：用“多少钱？”询问价格。"
+        },
+        {
+          "src": "../../assets/illustrations/scene-riverbank-friends.jpg",
+          "kind": "fictional_illustration",
+          "alt": "插图",
+          "caption": null
+        }
+      ]
+    }
+  }
+}

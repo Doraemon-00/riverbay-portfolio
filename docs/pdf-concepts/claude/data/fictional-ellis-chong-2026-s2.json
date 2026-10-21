@@ -1,0 +1,73 @@
+{
+  "schema": "riverbay.portfolio-report.v1",
+  "fixture": {
+    "kind": "fictional",
+    "notes": [
+      "Entirely fictional child, narratives and captions, written for this concept to test reuse. Not a Riverbay seed record.",
+      "Photos are fictional illustrations; captions describe the fictional child and are fixture text only.",
+      "No cover photo on purpose: exercises the illustrated cover fallback."
+    ]
+  },
+  "child": {
+    "display_name": "Ellis Chong",
+    "student_code": "FX-000101",
+    "class_name": "K2 Reed"
+  },
+  "period": {
+    "year": 2026,
+    "semester": 2
+  },
+  "rating_scale_version": "sample-domain-ring-v1",
+  "domains": {
+    "english": {
+      "rating": 3,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 2,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "english_feedback": "In July, Ellis began choosing books about rivers and minibeasts during quiet reading and often asked an adult to read the same page twice. By August, Ellis was pointing to repeated words such as “splash” and “stop” and joining in when the group read them aloud. During a September library visit, Ellis retold most of The Little Red Hen to a friend using the pictures, and added a new ending in which every animal shared the bread.\n\nEllis now writes the first sound of familiar words independently, for example “b” for bee and “s” for sun, and asked for help with longer words when labelling a garden map. In October, Ellis dictated a three-sentence story about a beaver building a dam, then copied the title using the alphabet strip as a guide. When a friend’s idea differed, Ellis listened and included it in the story after a reminder to take turns. Ellis is beginning to notice rhyme in songs and suggested “log” and “frog” during circle time, though rhyming words are still easier to hear than to produce.",
+      "english_photos": [
+        {
+          "src": "../assets/art/rb2-scene-reading-corner.mirrored.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration: a beaver and a rabbit reading together",
+          "caption": "Pointing to the repeated word on each page of the class book."
+        },
+        {
+          "src": "../assets/art/rb2-scene-sharing-snack.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration: friends sharing a picnic",
+          "caption": null
+        },
+        {
+          "src": "../assets/art/rb2-scene-garden-planting.mirrored.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration: friends planting a vegetable garden",
+          "caption": "Labelling the garden map: Ellis wrote the first sound of each word and asked for help with “sunflower”."
+        },
+        {
+          "src": "../assets/art/rb2-scene-story-circle.mirrored.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration: four friends at story circle",
+          "caption": "Retelling the beaver story to a friend by the window."
+        }
+      ]
+    },
+    "chinese": {
+      "rating": 1,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": null,
+      "chinese_feedback": "本学期Ellis在唱儿歌时愿意跟着老师一起拍手，并能说出“早上好”。看图书时，Ellis常用手指着图片，听老师说出动物的名称。",
+      "chinese_photos": [
+        {
+          "src": "../assets/art/rb2-scene-counting-stones.jpg",
+          "kind": "fictional_illustration",
+          "alt": "插图：小松鼠把石头排成一行",
+          "caption": "在小组时间里，跟着儿歌的节奏拍手。"
+        }
+      ]
+    }
+  }
+}

@@ -45,3 +45,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Rebuildable experiment/render output; keep source, fixtures and licensed assets.
+__pycache__/
+*.pyc
+/docs/pdf-concepts/claude/out/
+/docs/pdf-concepts/claude/compare/*.pdf
+/docs/pdf-concepts/codex/output/
+/docs/pdf-concepts/codex/previews/

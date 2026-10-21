@@ -1,0 +1,149 @@
+{
+  "$comment": "Render jobs. Each case renders in both orientations unless `orientations` says otherwise. Page 1 is the cover; domains start on page 2 (page 2 'at a glance' from the baseline is not built). `layouts` can pin a layout per domain.",
+  "cases": [
+    {
+      "name": "avery-lim-2026-s2",
+      "data": "data/avery-lim-2026-s2.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "cover": true,
+      "startPage": 2
+    },
+    {
+      "name": "avery-lim-2026-s2-full",
+      "data": "data/avery-lim-2026-s2-full.json",
+      "domains": [
+        "english",
+        "chinese",
+        "mathematics",
+        "social_emotional"
+      ],
+      "cover": true,
+      "startPage": 2,
+      "preview": true,
+      "closing": true
+    },
+    {
+      "name": "fictional-ellis-chong-2026-s2",
+      "data": "data/fictional-ellis-chong-2026-s2.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "cover": true,
+      "startPage": 2
+    },
+    {
+      "name": "test-long-content",
+      "data": "data/tests/long-content.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "cover": false,
+      "startPage": 2
+    },
+    {
+      "name": "test-sparse-no-photos",
+      "data": "data/tests/sparse-no-photos.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "cover": false,
+      "startPage": 2
+    },
+    {
+      "name": "test-semester1-crops",
+      "data": "data/tests/semester1-crops.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "cover": false,
+      "startPage": 2
+    },
+    {
+      "name": "matrix-photos-1",
+      "data": "data/tests/matrix/photos-1.json",
+      "domains": [
+        "english",
+        "chinese",
+        "mathematics",
+        "social_emotional"
+      ],
+      "cover": false,
+      "startPage": 2
+    },
+    {
+      "name": "matrix-photos-2",
+      "data": "data/tests/matrix/photos-2.json",
+      "domains": [
+        "english",
+        "chinese",
+        "mathematics",
+        "social_emotional"
+      ],
+      "cover": false,
+      "startPage": 2
+    },
+    {
+      "name": "matrix-photos-3",
+      "data": "data/tests/matrix/photos-3.json",
+      "domains": [
+        "english",
+        "chinese",
+        "mathematics",
+        "social_emotional"
+      ],
+      "cover": false,
+      "startPage": 2
+    },
+    {
+      "name": "matrix-photos-4",
+      "data": "data/tests/matrix/photos-4.json",
+      "domains": [
+        "english",
+        "chinese",
+        "mathematics",
+        "social_emotional"
+      ],
+      "cover": false,
+      "startPage": 2
+    },
+    {
+      "name": "test-unassessed-preview",
+      "data": "data/tests/unassessed-blocked.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "cover": false,
+      "startPage": 2,
+      "preview": true,
+      "orientations": [
+        "landscape"
+      ]
+    },
+    {
+      "name": "test-unassessed-blocked",
+      "data": "data/tests/unassessed-blocked.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "expectInvalid": true
+    },
+    {
+      "name": "test-invalid-leak",
+      "data": "data/tests/invalid-leak.json",
+      "domains": [
+        "english",
+        "chinese"
+      ],
+      "expectInvalid": true
+    }
+  ]
+}

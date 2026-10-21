@@ -1,0 +1,93 @@
+{
+  "schema": "riverbay.portfolio-report.v1",
+  "fixture": {
+    "kind": "fictional",
+    "notes": [
+      "Layout matrix: 1 photo(s) in every area, mixed shapes, every second photo captioned. Fictional child and text."
+    ]
+  },
+  "child": {
+    "display_name": "Mira Tan (matrix test)",
+    "student_code": "FX-MATRIX-1",
+    "class_name": "Test class"
+  },
+  "period": {
+    "year": 2026,
+    "semester": 2
+  },
+  "rating_scale_version": "sample-domain-ring-v1",
+  "domains": {
+    "english": {
+      "rating": 2,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "english_feedback": "Mira enjoyed sharing books with friends this semester and often chose stories about animals by the river. In August, Mira began joining in with repeated lines and pointed to the pictures to explain what might happen next. During a small-group activity in October, Mira retold a familiar story in order, with one question from the teacher to recall the middle. Mira is starting to write the first sound of familiar words and asks for help with longer ones.",
+      "english_photos": [
+        {
+          "src": "../../../assets/art/rb2-scene-reading-corner.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration",
+          "caption": "Looking closely at the pictures before turning the page."
+        }
+      ]
+    },
+    "chinese": {
+      "rating": 3,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "chinese_feedback": "本学期Mira在阅读角经常选择关于小动物的图画书，能一边翻页一边说出动物的名称。在小组分享时，Mira尝试用两三个短句介绍自己的画，并在老师的提示下补充颜色和动作。十月份，Mira能跟着儿歌的节奏一起拍手，并说出“早上好”“谢谢”等礼貌用语。遇到不会说的词语时，会先用手势表示，再请老师帮忙。",
+      "chinese_photos": [
+        {
+          "src": "../../../assets/art/rb2-scene-sharing-snack.jpg",
+          "kind": "fictional_illustration",
+          "alt": "插图",
+          "caption": "在阅读角翻看小动物的图画书。"
+        }
+      ]
+    },
+    "mathematics": {
+      "rating": 1,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "mathematics_feedback": "Mira counted objects with one-to-one pointing for groups up to ten and liked to line items up first to keep track. During block play, Mira sorted shapes by colour and size and used words such as bigger and smaller when comparing towers. In October, Mira copied a simple two-colour pattern and, with a reminder, extended it by two more pieces.",
+      "mathematics_photos": [
+        {
+          "src": "../../../assets/art/rb2-scene-garden-planting.mirrored.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration",
+          "caption": "Looking closely at the pictures before turning the page."
+        }
+      ]
+    },
+    "social_emotional": {
+      "rating": 2,
+      "rating_scale_version": "sample-domain-ring-v1",
+      "previous": {
+        "semester": 1,
+        "rating": 1,
+        "rating_scale_version": "sample-domain-ring-v1"
+      },
+      "social_emotional_feedback": "Mira joined friends in building and pretend play and was beginning to take turns with shared toys. When a friend was upset, Mira offered a turn with the watering can after a gentle prompt from the teacher. During group time, Mira waited for a turn to speak with a reminder and was proud to help tidy the reading corner.",
+      "social_emotional_photos": [
+        {
+          "src": "../../../assets/art/rb2-scene-counting-stones.jpg",
+          "kind": "fictional_illustration",
+          "alt": "Illustration",
+          "caption": "Looking closely at the pictures before turning the page."
+        }
+      ]
+    }
+  }
+}
