@@ -680,6 +680,7 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
 @keyframes loader-shadow { 0%,100% { transform:scaleX(1); opacity:1; } 50% { transform:scaleX(.6); opacity:.45; } }
 @keyframes loader-paddle { 0%,100% { transform:rotate(1deg); } 50% { transform:rotate(-1.5deg); } }
 @keyframes loader-wake { 0% { opacity:.9; transform:scaleX(.4); } 100% { opacity:0; transform:translateX(-14px) scaleX(1.3); } }
+.loader-runner.pending,.loader-swimmer.pending { visibility:hidden; }
 /* Reduced motion: one still animal, centred, with the text. */
 .loader-stage.still .loader-runner,.loader-stage.still .loader-runner img,.loader-stage.still .loader-runner .shadow,.loader-stage.still .loader-swimmer,.loader-stage.still .loader-swimmer img { animation:none; }
 .loader-stage.still .loader-swimmer .wake { display:none; }

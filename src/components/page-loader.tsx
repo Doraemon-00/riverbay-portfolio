@@ -25,12 +25,29 @@ let nextId = 0;
 const listeners = new Set<() => void>();
 const subscribe = (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener); }; };
 const notify = () => listeners.forEach(l => l());
+// Frames download quietly soon after any page opens, so the animals are ready before the first
+// wait. The images are kept in memory; a scene counts as ready once all its frames have decoded.
+const meadow = `${FRAMES}meadow-border.webp`;
+const sceneFrames: Record<Scene, string[]> = { runners: [...run, ...hop, meadow], beaver: [...swim, meadow] };
+const decoded = new Set<string>();
+const kept: HTMLImageElement[] = [];
 let preloaded = false;
+function preload() {
+  if (preloaded) return;
+  preloaded = true;
+  for (const src of new Set([...sceneFrames.runners, ...sceneFrames.beaver])) {
+    const img = new Image();
+    img.src = src;
+    kept.push(img);
+    img.decode().then(() => decoded.add(src), () => {});
+  }
+}
+const sceneReady = (scene: Scene) => sceneFrames[scene].every(src => decoded.has(src));
 
 export function useLoaderWait(active: boolean, label: string, kind: LoaderKind = "page") {
   useEffect(() => {
     if (!active) return;
-    if (!preloaded) { preloaded = true; [...run, ...hop, ...swim].forEach(src => { new Image().src = src; }); }
+    preload();
     const id = ++nextId;
     waits = [...waits, { id, label, kind }];
     lastLabel[kind] = label;
@@ -61,7 +78,9 @@ export function FormLoader({ label }: { label: string }) {
 const history: Record<LoaderKind, Scene[]> = { page: [], inline: [] };
 function pickScene(kind: LoaderKind): Scene {
   const [a, b] = history[kind].slice(-2);
-  const scene: Scene = a && a === b ? (a === "runners" ? "beaver" : "runners") : Math.random() < 0.5 ? "runners" : "beaver";
+  let scene: Scene = a && a === b ? (a === "runners" ? "beaver" : "runners") : Math.random() < 0.5 ? "runners" : "beaver";
+  const other: Scene = scene === "runners" ? "beaver" : "runners";
+  if (!sceneReady(scene) && sceneReady(other)) scene = other; // never show an animal that has not downloaded yet
   history[kind] = [...history[kind].slice(-1), scene];
   return scene;
 }
@@ -103,7 +122,8 @@ function useFlipbook(img: React.RefObject<HTMLImageElement | null>, files: strin
   useEffect(() => {
     if (!on) return;
     let i = 0;
-    const timer = setInterval(() => { i = (i + 1) % files.length; if (img.current) img.current.src = files[i]; }, ms);
+    // Only step to frames that have decoded, so a slow download never blanks the animal mid-run.
+    const timer = setInterval(() => { const n = (i + 1) % files.length; if (!decoded.has(files[n])) return; i = n; if (img.current) img.current.src = files[i]; }, ms);
     return () => clearInterval(timer);
   }, [img, files, ms, on]);
 }
@@ -112,22 +132,25 @@ function useFlipbook(img: React.RefObject<HTMLImageElement | null>, files: strin
 function Runners({ moving, still, compact }: { moving: boolean; still: boolean; compact: boolean }) {
   const squirrel = useRef<HTMLImageElement>(null);
   const rabbit = useRef<HTMLImageElement>(null);
+  // Each animal (and its shadow) stays hidden until its picture has loaded.
+  const [shown, setShown] = useState({ squirrel: false, rabbit: false });
   useFlipbook(squirrel, run, 105, moving);
   useFlipbook(rabbit, hop, 162, moving && !compact);
   return <>
     <div className="loader-ground" />
-    {!still && !compact && <div className="loader-runner rabbit"><span className="shadow" /><img ref={rabbit} src={hop[0]} width={76} height={59} alt="" /></div>}
-    <div className="loader-runner squirrel"><span className="shadow" /><img ref={squirrel} src={run[0]} width={74} height={59} alt="" /></div>
+    {!still && !compact && <div className={`loader-runner rabbit${shown.rabbit ? "" : " pending"}`}><span className="shadow" /><img ref={rabbit} src={hop[0]} width={76} height={59} alt="" onLoad={() => setShown(v => ({ ...v, rabbit: true }))} /></div>}
+    <div className={`loader-runner squirrel${shown.squirrel ? "" : " pending"}`}><span className="shadow" /><img ref={squirrel} src={run[0]} width={74} height={59} alt="" onLoad={() => setShown(v => ({ ...v, squirrel: true }))} /></div>
   </>;
 }
 
 // The beaver swims along the stream at the foot of the same meadow; its frames are cut at the waterline.
 function Beaver({ moving }: { moving: boolean }) {
   const beaver = useRef<HTMLImageElement>(null);
+  const [shown, setShown] = useState(false);
   useFlipbook(beaver, swim, 225, moving);
   return <>
     <div className="loader-ground" />
-    <div className="loader-swimmer"><span className="wake" /><span className="wake w2" /><img ref={beaver} src={swim[0]} width={110} height={34} alt="" /></div>
+    <div className={`loader-swimmer${shown ? "" : " pending"}`}><span className="wake" /><span className="wake w2" /><img ref={beaver} src={swim[0]} width={110} height={34} alt="" onLoad={() => setShown(true)} /></div>
   </>;
 }
 
@@ -139,6 +162,8 @@ function Stage({ scene, still, moving, compact }: { scene: Scene; still: boolean
 
 export function PageLoader() {
   const { phase, label, scene, still, moving } = useLoaderPhase("page");
+  // Mounted on every page (root layout): start the background download once the page has settled.
+  useEffect(() => { const timer = setTimeout(preload, 1500); return () => clearTimeout(timer); }, []);
   // The status region stays mounted so screen readers announce the text when it appears.
   return <div className="page-loader" role="status" aria-live="polite">
     {phase !== "hidden" && <div className={`page-loader-overlay${phase === "leaving" ? " leaving" : ""}`}>
