@@ -16,6 +16,12 @@ export function StudentNavigator({ viewerId, classmates, currentId, domain: serv
 }) {
   const router = useRouter();
   const domain = useCurrentDomain(serverDomain);
+  // Resting on a student for a moment switches on that link's full prefetch (data included), so the
+  // click opens it at once. Only the hovered link prefetches, not the whole list.
+  const hover = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const [resting, setResting] = useState<string | null>(null);
+  const prefetchOnRest = (id: string) => { clearTimeout(hover.current); hover.current = setTimeout(() => setResting(id), 150); };
+  const cancelRest = () => clearTimeout(hover.current);
   // Class picker navigates in code, so its wait is reported through a transition.
   const [classNavigating, startClassNavigation] = useTransition();
   const [classNavLabel, setClassNavLabel] = useState("");
@@ -121,7 +127,7 @@ export function StudentNavigator({ viewerId, classmates, currentId, domain: serv
         const count = c.portfolios?.readyCount ?? 0;
         const countLabel = `${count} of ${domains.length} areas ready for PDF`;
         const content = <><span className="student-link-name">{c.children.display_name}<small>{c.children.student_code}</small></span><span className="student-draft-count" aria-label={countLabel} title={countLabel}>{count}/{domains.length}</span></>;
-        return c.portfolios ? <Link prefetch={false} scroll={false} key={c.id} href={`/portfolio/${c.portfolios.id}?domain=${domain}`} aria-current={c.portfolios.id === currentId ? "page" : undefined} aria-label={`${c.children.display_name} · ${c.children.student_code} · ${countLabel}`} data-loader-label={`Opening ${c.children.display_name}…`}>{content}<LinkLoader kind="inline" label={`Opening ${c.children.display_name}…`} /></Link> : <span className="student-unavailable" key={c.id}>{c.children.display_name}<small>Awaiting setup</small></span>;
+        return c.portfolios ? <Link prefetch={resting === c.id} scroll={false} key={c.id} href={`/portfolio/${c.portfolios.id}?domain=${domain}`} aria-current={c.portfolios.id === currentId ? "page" : undefined} aria-label={`${c.children.display_name} · ${c.children.student_code} · ${countLabel}`} data-loader-label={`Opening ${c.children.display_name}…`} onPointerEnter={() => prefetchOnRest(c.id)} onPointerLeave={cancelRest}>{content}<LinkLoader kind="inline" label={`Opening ${c.children.display_name}…`} /></Link> : <span className="student-unavailable" key={c.id}>{c.children.display_name}<small>Awaiting setup</small></span>;
       })}</nav>
       {!matches.length && <p className="hint">No matching students. Try another name or ID.</p>}
       </>}

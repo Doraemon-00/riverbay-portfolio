@@ -78,7 +78,7 @@ export default async function Portfolio({
         </div>
         <nav className="child-nav" aria-label="Children">
           {previous && (
-            <KeepDomainLink scroll={false} base={`/portfolio/${previous.id}`} fallback={selected.id} data-loader-label={`Opening ${previousName}…`}>
+            <KeepDomainLink prefetch scroll={false} base={`/portfolio/${previous.id}`} fallback={selected.id} data-loader-label={`Opening ${previousName}…`}>
               <Icon name="arrow-left" size={18} /> Previous
               <LinkLoader kind="inline" label={`Opening ${previousName}…`} />
             </KeepDomainLink>
@@ -87,7 +87,7 @@ export default async function Portfolio({
             {index + 1} of {classmates.length}
           </span>
           {next && (
-            <KeepDomainLink scroll={false} base={`/portfolio/${next.id}`} fallback={selected.id} data-loader-label={`Opening ${nextName}…`}>
+            <KeepDomainLink prefetch scroll={false} base={`/portfolio/${next.id}`} fallback={selected.id} data-loader-label={`Opening ${nextName}…`}>
               Next <Icon name="arrow-right" size={18} />
               <LinkLoader kind="inline" label={`Opening ${nextName}…`} />
             </KeepDomainLink>

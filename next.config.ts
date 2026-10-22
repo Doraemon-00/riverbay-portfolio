@@ -23,7 +23,9 @@ const nextConfig: NextConfig = {
       "./docs/pdf-concepts/claude/*.md",
     ],
   },
-  partialPrefetching: true,
+  // Off so that <Link prefetch> loads a page's uncached data too: Previous/Next students are
+  // prefetched with their portfolio, and the sidebar prefetches a student on hover.
+  partialPrefetching: false,
   turbopack: {
     rules: {
       "*.css": {
