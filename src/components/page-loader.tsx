@@ -3,7 +3,7 @@
 
 import { useLinkStatus } from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { useFormStatus } from "react-dom";
+import { preload as preloadResource, useFormStatus } from "react-dom";
 
 // Approved loader from docs/design-concepts/motion. It is decoration only: it appears
 // after 250 ms of real waiting, stays at least 700 ms once shown and never takes input.
@@ -68,7 +68,11 @@ export function LinkLoader({ label, kind = "page" }: { label: string; kind?: Loa
 }
 
 // Place inside a <form>: reports its server action while it is running.
+// Used on sign-in, the first loader anyone sees: the page's HTML asks the browser to fetch every
+// frame at low priority straight away, so they are ready while people are still typing.
 export function FormLoader({ label }: { label: string }) {
+  for (const src of new Set([...sceneFrames.runners, ...sceneFrames.beaver])) preloadResource(src, { as: "image", fetchPriority: "low" });
+  useEffect(preload, []);
   const { pending } = useFormStatus();
   useLoaderWait(pending, label);
   return null;
