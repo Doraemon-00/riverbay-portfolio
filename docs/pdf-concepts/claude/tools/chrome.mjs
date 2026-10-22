@@ -54,7 +54,10 @@ export async function launch() {
       if (port && path) wsPath = `ws://127.0.0.1:${port}${path}`;
     }
   }
-  if (!wsPath) throw new Error("Chrome did not expose a DevTools port");
+  if (!wsPath) {
+    proc.kill("SIGKILL");
+    throw new Error("Chrome did not expose a DevTools port");
+  }
   const browser = await connect(wsPath);
   const version = await browser.send("Browser.getVersion");
   return {
@@ -63,9 +66,10 @@ export async function launch() {
     executable,
     async close() {
       try {
-        await browser.send("Browser.close");
+        await browser.send("Browser.close", {}, undefined, 5000);
       } catch {}
       browser.ws.close();
+      if (proc.exitCode === null) proc.kill("SIGKILL"); // a wedged browser must not keep the renderer alive
       for (let i = 0; i < 40; i++) {
         try {
           rmSync(profile, { recursive: true, force: true });
@@ -95,13 +99,24 @@ function connect(url) {
       }
     };
     ws.onerror = () => reject(new Error("DevTools connection failed"));
+    ws.onclose = () => {
+      for (const { fail } of pending.values()) fail(new Error("Chrome closed the DevTools connection"));
+      pending.clear();
+    };
     ws.onopen = () =>
       resolve({
         ws,
-        send(method, params = {}, sessionId) {
+        // Every command has a deadline, so a stalled browser fails the render instead of hanging it.
+        send(method, params = {}, sessionId, timeoutMs = 60000) {
           const id = nextId++;
           ws.send(JSON.stringify({ id, method, params, ...(sessionId ? { sessionId } : {}) }));
-          return new Promise((ok, fail) => pending.set(id, { ok, fail }));
+          return new Promise((ok, fail) => {
+            const timer = setTimeout(() => {
+              pending.delete(id);
+              fail(new Error(`${method} timed out`));
+            }, timeoutMs);
+            pending.set(id, { ok: (v) => (clearTimeout(timer), ok(v)), fail: (e) => (clearTimeout(timer), fail(e)) });
+          });
         },
         on(fn) {
           listeners.add(fn);

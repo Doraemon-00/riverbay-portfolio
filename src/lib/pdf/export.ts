@@ -68,7 +68,10 @@ async function rendererEnv(): Promise<NodeJS.ProcessEnv> {
   if (!process.env.VERCEL && !process.env.PDF_BUNDLED_CHROMIUM) return process.env;
   const { default: chromium } = await import("@sparticuz/chromium");
   const executable = await chromium.executablePath(); // also sets the library/font paths Chromium needs
-  return { ...process.env, CHROME_PATH: executable, CHROME_ARGS: JSON.stringify(chromium.args) };
+  // Serverless /dev/shm is tiny: without this flag longer reports (six portrait pages) fail with
+  // "Printing failed" or stall. Chrome then keeps that shared memory in /tmp instead.
+  const args = [...chromium.args, "--disable-dev-shm-usage"];
+  return { ...process.env, CHROME_PATH: executable, CHROME_ARGS: JSON.stringify(args) };
 }
 
 async function runRenderer(args: string[]) {
@@ -76,9 +79,18 @@ async function runRenderer(args: string[]) {
   return new Promise<{ code: number; out: string }>((resolve) => {
     const child = spawn(process.execPath, ["tools/render.mjs", ...args], { cwd: RENDERER_DIR, env });
     let out = "";
+    let timedOut = false;
+    // Stay inside the route's maxDuration so the teacher gets a clear message, not a gateway timeout.
+    const timer = setTimeout(() => {
+      timedOut = true;
+      child.kill("SIGKILL");
+    }, 100_000);
     child.stdout.on("data", (b) => (out += b));
     child.stderr.on("data", (b) => (out += b));
-    child.on("close", (code) => resolve({ code: code ?? 1, out }));
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      resolve(timedOut ? { code: 1, out: "✗ The PDF took too long to create. Please try again." } : { code: code ?? 1, out });
+    });
   });
 }
 

@@ -8,6 +8,8 @@ The shared demo runs on Vercel Hobby (region `sin1`, set in `vercel.json`) with 
 
 Vercel has no installed browser. On Vercel (`VERCEL` is set), the export adapter starts the bundled `@sparticuz/chromium` and passes its executable and flags to the renderer (`CHROME_PATH`, `CHROME_ARGS`). `next.config.ts` ships the renderer's `tools/*.mjs`, `template/` and `assets/` plus the Chromium package with the PDF route, and leaves out art sources, generated output and fixtures (about 97 MB traced; the limit is 250 MB). Local development keeps using the installed Chrome. Set `PDF_BUNDLED_CHROMIUM=1` to force the bundled path on another Linux host.
 
+The adapter adds `--disable-dev-shm-usage`. Serverless `/dev/shm` is tiny, and without the flag the first live export timed out: on the Lambda image with Vercel's limits (2 GB, 1 CPU), six-page portrait reports failed with "Printing failed" or stalled in most runs, while three-page reports passed. With the flag, 10 of 10 full reports printed. Each DevTools command now has a 60-second deadline, a wedged browser is killed on close, and the export stops the renderer after 100 seconds, so a failure returns a message instead of a gateway timeout.
+
 Verified 22 October 2026 on the AWS `nodejs:22` Lambda image (Amazon Linux 2023, as on Vercel) with `VERCEL=1`, using only the traced files on a read-only mount: both orientations of the Avery sample rendered (about 1.1 s to unpack Chromium, then about 1.6 s per PDF), with only the bundled DM Sans, Nunito and Noto Sans SC fonts embedded. Not yet verified on a real Vercel deployment.
 
 ### 1. Supabase project
