@@ -33,4 +33,4 @@ The 250/700 ms rule fits Vercel well: cold starts and Supabase round trips make 
 Both are CSS only, start after resting the pointer for 250 ms, work only on hover-capable pointers, are off with reduced motion and never take clicks.
 
 - **Beaver behind the logo** (`beaver-peek.webp`, from art #43 `rb2-beaver-peek-side.png`): slides out from behind the wordmark until its paws hold the logo edge. Hidden below 640 px.
-- **Squirrel over a photo** (`squirrel-peek.webp`, from art #7 `rb2-squirrel-peeking.png`, trimmed to the head, tail and paws): on one photo per domain, one of the first two, chosen from the entry ID so it varies between children and domains. It rises from behind the photo's top edge at its right end until its paws rest on the edge.
+- **Squirrel over a photo** (`squirrel-peek.webp`, from art #7 `rb2-squirrel-peeking.png`, trimmed to the head, tail and paws): on one photo per domain, any of them, drawn at random on every visit. The draw is scaled by the current photo count, so adding or removing a photo can move it straight away. It rises from behind the photo's top edge at its right end until its paws rest on the edge.

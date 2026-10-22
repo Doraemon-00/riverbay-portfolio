@@ -9,17 +9,12 @@ import { Icon } from "./icon";
 type Photo = { id: string; storage_key: string; caption: string; position: number; url: string | null };
 const bucket = "portfolio-photos";
 
-// Easter egg: one photo per domain hides a squirrel that peeks over its top edge on hover. It is one of
-// the first two (room above them), picked from the entry ID so it varies between children and domains.
-function eggIndex(entryId: string, count: number) {
-  let hash = 0;
-  for (const char of entryId) hash = (hash * 31 + char.charCodeAt(0)) | 0;
-  return Math.abs(hash) % Math.min(2, count);
-}
-
 export function DomainPhotos({ entryId, domainLabel }: { entryId: string; domainLabel: string }) {
   const [db] = useState(browserDatabase);
   const [photos, setPhotos] = useState<Photo[]>([]);
+  // Easter egg: one photo hides a squirrel that peeks over its top edge on hover. A fresh random draw on
+  // every visit; scaling it by the current count lets the egg move when photos are added or removed.
+  const [eggDraw] = useState(Math.random);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
@@ -119,8 +114,8 @@ export function DomainPhotos({ entryId, domainLabel }: { entryId: string; domain
     {message && <p className={failed ? "error photo-feedback" : "hint photo-feedback"} role={failed ? "alert" : "status"}>{message}</p>}
     {!loading && failed && !photos.length && !busy && <button type="button" className="text-action" onClick={() => { setLoading(true); readPhotos().then(setPhotos).then(() => { setFailed(false); setMessage(""); }).catch(() => setMessage("Could not load photos. Try again.")).finally(() => setLoading(false)); }}>Reload photos</button>}
     {!loading && !photos.length && !failed && <div className="photo-empty"><Icon name="image" size={28} /><p>No photos yet</p><span className="hint">Keep a few moments alongside the learning story.</span></div>}
-    {!!photos.length && <ul className="photo-grid">{photos.map((photo, index) => <li key={photo.id} className={`photo-card${index === eggIndex(entryId, photos.length) ? " has-peek" : ""}`}>
-      {index === eggIndex(entryId, photos.length) && <span className="photo-peek" aria-hidden="true"><img src="/assets/riverbay/motion/squirrel-peek.webp" width={64} height={42} alt="" /></span>}
+    {!!photos.length && <ul className="photo-grid">{photos.map((photo, index) => <li key={photo.id} className={`photo-card${index === Math.floor(eggDraw * photos.length) ? " has-peek" : ""}`}>
+      {index === Math.floor(eggDraw * photos.length) && <span className="photo-peek" aria-hidden="true"><img src="/assets/riverbay/motion/squirrel-peek.webp" width={64} height={42} alt="" /></span>}
       <button type="button" className="photo-preview" aria-label={`Preview ${domainLabel} image ${index + 1}`} onClick={() => setPreview(photo)} disabled={busy}>{photo.url ? <img src={photo.url} alt={photo.caption || `${domainLabel} image ${index + 1}`} loading="lazy" /> : <span>Preview unavailable</span>}</button>
       <div className="photo-card-footer"><span>{photo.storage_key.includes("/demo-") ? "Placeholder" : `Image ${index + 1}`}</span><button type="button" className="icon-button" aria-label={`Remove ${domainLabel} image ${index + 1}`} disabled={busy} onClick={() => { setRemove(photo); setFailed(false); setMessage(""); }}><Icon name="x" size={18} /></button></div>
     </li>)}</ul>}
