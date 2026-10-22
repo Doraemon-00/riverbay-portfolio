@@ -508,8 +508,14 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
 .photo-empty p { margin:0; font-weight:600; color:var(--ink); }
 .photo-empty .hint { font-size:13px; }
 .photo-grid { list-style:none; padding:0; margin:20px 0 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-.photo-card { min-width:0; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
-.photo-preview { display:block; width:100%; padding:0; aspect-ratio:3/2; border:0; border-radius:0; background:var(--mint); }
+.photo-card { min-width:0; border:1px solid var(--line); border-radius:12px; position:relative; }
+/* Easter egg: after 250 ms on the chosen photo, the squirrel rises from behind its top edge until its paws rest on it; it drops back on leave. Pointer devices only, never with reduced motion. */
+.photo-peek { position:absolute; right:12px; bottom:100%; width:64px; height:42px; overflow:hidden; pointer-events:none; z-index:2; }
+.photo-peek img { display:block; width:64px; height:42px; transform:translateY(101%); transition:transform 200ms ease-in; }
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+ .photo-card.has-peek:hover .photo-peek img { transform:translateY(0); transition:transform 420ms cubic-bezier(.2,.8,.3,1) 250ms; }
+}
+.photo-preview { display:block; width:100%; padding:0; aspect-ratio:3/2; border:0; border-radius:11px 11px 0 0; overflow:hidden; background:var(--mint); }
 .photo-preview img { width:100%; height:100%; object-fit:contain; display:block; }
 .photo-preview:hover { filter:brightness(.96); }
 .photo-preview:focus-visible { outline-offset:-3px; }

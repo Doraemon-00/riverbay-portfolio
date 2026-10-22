@@ -27,3 +27,10 @@ The 250/700 ms rule fits Vercel well: cold starts and Supabase round trips make 
 - Timing in the app: shown after 250 ms of waiting, then held at least 900 ms (full screen) or 1.1 s (compact strip). Each lap starts part-way across, so the animals are in view from the first frame.
 - Not used for saving, photo uploads, AI drafting or PDF export, which have their own progress messages.
 - Next keeps the previous page mounted but hidden for instant Back navigation; the loader resets when its page is hidden so Back never shows a frozen strip.
+
+## Easter eggs
+
+Both are CSS only, start after resting the pointer for 250 ms, work only on hover-capable pointers, are off with reduced motion and never take clicks.
+
+- **Beaver behind the logo** (`beaver-peek.webp`, from art #43 `rb2-beaver-peek-side.png`): slides out from behind the wordmark until its paws hold the logo edge. Hidden below 640 px.
+- **Squirrel over a photo** (`squirrel-peek.webp`, from art #7 `rb2-squirrel-peeking.png`, trimmed to the head, tail and paws): on one photo per domain, one of the first two, chosen from the entry ID so it varies between children and domains. It rises from behind the photo's top edge at its right end until its paws rest on the edge.
