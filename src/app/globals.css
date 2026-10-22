@@ -259,6 +259,7 @@ label h2 { margin-bottom:0; }
 .directory-table input[type="checkbox"],.check-label input[type="checkbox"],.picker-row input { width:20px; height:20px; min-height:20px; padding:0; margin:0; accent-color:var(--green); flex-shrink:0; cursor:pointer; }
 .directory-table tbody tr:hover { background:color-mix(in srgb,var(--mint) 25%,transparent); }
 .directory-table .is-selected,.picker-row.is-selected { background:color-mix(in srgb,var(--mint) 60%,transparent); }
+.directory-table .selectable-row { cursor:pointer; }
 .check-label { display:flex; gap:10px; align-items:center; min-height:44px; margin:0; font-weight:400; font-size:13px; }
 .directory-archive-toggle { margin-top:24px; align-items:flex-start; }
 .directory-archive-toggle input { margin-top:3px!important; }
