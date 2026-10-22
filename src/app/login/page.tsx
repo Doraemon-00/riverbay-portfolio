@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Brand } from "@/components/brand";
 import { Icon } from "@/components/icon";
 import { WorkspaceMotion } from "@/components/workspace-motion";
+import { FormLoader } from "@/components/page-loader";
 import { redirect } from "next/navigation";
 import { login } from "@/app/actions";
 import { isConfigured } from "@/lib/supabase/server";
@@ -49,6 +50,7 @@ export default async function Login({ searchParams }: {
                 <input name="password" type="password" autoComplete="current-password" required maxLength={200} />
               </label>
               <button className="primary">Sign in <Icon name="arrow-right" /></button>
+              <FormLoader label="Signing you in…" />
             </form>
             <div className="login-help"><p className="hint login-demo-note">Prototype · fictional children only</p></div>
           </section>

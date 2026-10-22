@@ -6,6 +6,7 @@ import { domains, type RosterItem } from "@/lib/portfolio";
 import { readyDomainCount, savedDomainProgress } from "@/lib/domain-readiness";
 import { Icon } from "./icon";
 import { TourWelcome } from "./quick-tour";
+import { LinkLoader } from "./page-loader";
 
 type Class = { id: string; name: string; academic_year: number };
 type Period = { id: string; year: number; semester: number };
@@ -75,11 +76,11 @@ export function ClassWorkspace({ viewerId, roster, classes, periods, initialPeri
         <div className="portfolio-roster" role="region" aria-label={`${current?.name} portfolio progress`}>
           <div className="roster-columns" aria-hidden="true"><span>Student</span>{domains.map(d => <span key={d.id}>{d.label}</span>)}</div>
           <ul className="roster-list">{visible.map(child => <li key={child.id} className={`roster-row ${child.portfolios ? "has-portfolio" : ""}`}>
-            <div className="roster-student"><h3>{child.portfolios ? <Link prefetch={false} className="roster-main-link" href={`/portfolio/${child.portfolios.id}`} onClick={remember} aria-label={`Open ${child.children.display_name}'s portfolio`}>{child.children.display_name}</Link> : child.children.display_name}</h3><span className="person-reference">{child.children.student_code}</span></div>
+            <div className="roster-student"><h3>{child.portfolios ? <Link prefetch={false} className="roster-main-link" href={`/portfolio/${child.portfolios.id}`} onClick={remember} aria-label={`Open ${child.children.display_name}'s portfolio`}>{child.children.display_name}<LinkLoader label="Opening the portfolio…" /></Link> : child.children.display_name}</h3><span className="person-reference">{child.children.student_code}</span></div>
             <div className="roster-domains">{domains.map(d => {
               const status = savedDomainProgress(child.portfolios?.domain_entries.find(e => e.domain === d.id));
               const tooltipId = `${statusId}-${child.id}-${d.id}`;
-              return child.portfolios ? <Link key={d.id} prefetch={false} className={`roster-domain ${status.tone}`} href={`/portfolio/${child.portfolios.id}?domain=${d.id}`} onClick={remember} aria-label={`${child.children.display_name} · ${d.label} · ${status.label}`} aria-describedby={tooltipId}><span className="roster-domain-label">{d.label}</span><span>{status.label}</span><span className="roster-status-tooltip" id={tooltipId} role="tooltip">{status.description}</span></Link> : <span key={d.id} className="roster-domain"><span className="roster-domain-label">{d.label}</span>Awaiting setup</span>;
+              return child.portfolios ? <Link key={d.id} prefetch={false} className={`roster-domain ${status.tone}`} href={`/portfolio/${child.portfolios.id}?domain=${d.id}`} onClick={remember} aria-label={`${child.children.display_name} · ${d.label} · ${status.label}`} aria-describedby={tooltipId}><span className="roster-domain-label">{d.label}</span><span>{status.label}</span><span className="roster-status-tooltip" id={tooltipId} role="tooltip">{status.description}</span><LinkLoader label="Opening the portfolio…" /></Link> : <span key={d.id} className="roster-domain"><span className="roster-domain-label">{d.label}</span>Awaiting setup</span>;
             })}</div>
             {!child.portfolios && <span className="hint">Awaiting setup</span>}
           </li>)}</ul>

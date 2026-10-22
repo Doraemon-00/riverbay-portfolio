@@ -641,3 +641,32 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
  .domain-stamp img { width:23px; height:23px; }
  .domain-tabs a:nth-child(even) .domain-readiness-tooltip { left:auto; right:0; }
 }
+
+/* Page loader (docs/design-concepts/motion): squirrel runs and rabbit hops across the meadow. Frames carry the pose; keyframes add only travel and stride height. */
+.page-loader { position:fixed; top:0; left:0; z-index:90; pointer-events:none; }
+.page-loader-overlay { position:fixed; inset:0; display:grid; place-items:center; background:rgba(251,247,238,.94); animation:page-loader-in 160ms ease both; }
+.page-loader-overlay.leaving { animation:page-loader-out 160ms ease both; }
+.page-loader-stage { position:relative; width:460px; max-width:calc(100vw - 32px); height:160px; overflow:hidden; }
+.page-loader-ground { position:absolute; left:0; right:0; bottom:0; height:56px; background:url(/assets/riverbay/motion/meadow-border.webp) repeat-x left bottom / auto 190px; }
+.page-loader-runner { position:absolute; bottom:34px; left:0; }
+.page-loader-runner img { display:block; width:100%; height:auto; transform-origin:50% 100%; position:relative; }
+.page-loader-runner .shadow { position:absolute; left:15%; right:15%; bottom:-3px; height:6px; border-radius:50%; background:rgba(43,54,49,.18); }
+.page-loader-runner.squirrel { width:74px; animation:page-loader-lap 2.6s linear infinite; }
+.page-loader-runner.squirrel img { animation:page-loader-scamper .42s ease-in-out infinite; }
+.page-loader-runner.squirrel .shadow { animation:page-loader-shadow .42s ease-in-out infinite; }
+.page-loader-runner.rabbit { width:76px; bottom:30px; animation:page-loader-lap 2.6s linear infinite; animation-delay:-.9s; }
+.page-loader-runner.rabbit img { animation:page-loader-bound .65s ease-in-out infinite; }
+.page-loader-runner.rabbit .shadow { animation:page-loader-shadow .65s ease-in-out infinite; }
+.page-loader p { margin:10px 0 0; text-align:center; color:var(--green); font-weight:600; }
+@keyframes page-loader-in { from { opacity:0; } }
+@keyframes page-loader-out { to { opacity:0; } }
+@keyframes page-loader-lap { from { transform:translateX(-90px); } to { transform:translateX(480px); } }
+@keyframes page-loader-scamper { 0%,100% { transform:translateY(0); } 40%,60% { transform:translateY(-9px); } }
+@keyframes page-loader-bound { 0%,100% { transform:translateY(0); } 25% { transform:translateY(-10px); } 50% { transform:translateY(-26px); } 75% { transform:translateY(-8px); } }
+@keyframes page-loader-shadow { 0%,100% { transform:scaleX(1); opacity:1; } 50% { transform:scaleX(.6); opacity:.45; } }
+/* Reduced motion: one still squirrel and the text. */
+@media(prefers-reduced-motion:reduce) {
+ .page-loader-runner,.page-loader-runner img,.page-loader-runner .shadow { animation:none!important; }
+ .page-loader-runner.squirrel { left:calc(50% - 37px); }
+ .page-loader-runner.rabbit { display:none; }
+}

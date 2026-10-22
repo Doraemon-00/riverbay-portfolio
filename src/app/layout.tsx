@@ -4,6 +4,7 @@ import "@fontsource-variable/noto-sans-sc";
 import "driver.js/dist/driver.css";
 import "@daypicker/react/style.css";
 import "./globals.css";
+import { PageLoader } from "@/components/page-loader";
 
 // Staff pages read the session on every request; no static authenticated shell.
 export const instant = false;
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}<PageLoader /></body>
     </html>
   );
 }

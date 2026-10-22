@@ -3,6 +3,7 @@ import { Brand } from "./brand";
 import { Icon } from "./icon";
 import { QuickTour } from "./quick-tour";
 import { WorkspaceMotion } from "./workspace-motion";
+import { LinkLoader } from "./page-loader";
 import type { Profile } from "@/lib/auth";
 import { logout } from "@/app/actions";
 export function Shell({
@@ -18,11 +19,13 @@ export function Shell({
       <header className="topbar">
         <Link href="/" className="brand">
           <Brand />
+          <LinkLoader label="Opening your classes…" />
         </Link>
         <nav aria-label="Main navigation">
           <Link href="/">
             <Icon name="books" />
             My classes
+            <LinkLoader label="Opening your classes…" />
           </Link>
           {profile.role === "admin" && (
             <Link href="/admin"><Icon name="note-pencil" />Administration</Link>
