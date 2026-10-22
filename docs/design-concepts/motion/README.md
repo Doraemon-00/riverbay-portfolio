@@ -22,7 +22,7 @@ The 250/700 ms rule fits Vercel well: cold starts and Supabase round trips make 
 ## In the app
 
 - **Two scenes, chosen at random** each time a loader shows: the squirrel and rabbit across the meadow, or the beaver swimming across a stream. Never the same scene three times in a row. With reduced motion, one still animal.
-- **Full screen** (`PageLoader`): sign-in, My classes (top bar and Back to my classes) and opening a portfolio from My classes.
+- **Full screen** (`PageLoader`): sign-in, My classes (top bar and Back to my classes), opening a portfolio from My classes, opening Administration and changing its academic year.
 - **Compact strip** (`InlineLoader`, under the domain tabs, page stays visible): domain tabs, previous/next student, the student list and class switching inside a portfolio, including after Save or Discard in the unsaved-changes dialog. Labels name the target, for example "Opening Chinese…" or "Opening Bailey Tan…".
 - Not used for saving, photo uploads, AI drafting or PDF export, which have their own progress messages.
 - Next keeps the previous page mounted but hidden for instant Back navigation; the loader resets when its page is hidden so Back never shows a frozen strip.

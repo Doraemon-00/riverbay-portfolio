@@ -8,6 +8,7 @@ import type { NotifyAdmin } from "./admin-notification";
 import { AssignmentFields } from "./assignment-fields";
 import { QuickTour } from "./quick-tour";
 import { dialogGuide } from "@/lib/quick-tours";
+import { useLoaderWait } from "./page-loader";
 
 type Confirmation = { kind: "confirm"; title: string; description: string; command: string; payload: Record<string, unknown> };
 type Modal = { kind: "class" | "students" | "student" | "teachers" | "restore" } | Confirmation;
@@ -52,6 +53,10 @@ export function AdminWorkspace({ data, notify }: { data: AdminData; notify: Noti
   const [message, setMessage] = useState("");
   const [failed, setFailed] = useState(false);
   const [pending, startTransition] = useTransition();
+  // Changing the academic year reloads the page; a transition reports that wait to the loader.
+  const [yearLoading, startYearLoad] = useTransition();
+  const [yearLabel, setYearLabel] = useState("");
+  useLoaderWait(yearLoading, yearLabel);
   const current = data.classes.find(c => c.id === selectedClass);
   const classId = current?.id ?? null;
   const belongs = (id: string, target: string | null) => { const m = data.memberships.find(m => m.child_id === id); return target ? m?.class_id === target && m.access_enabled : !m?.class_id || !m.access_enabled || !data.classes.some(c => c.id === m.class_id && !c.archived_at); };
@@ -105,7 +110,7 @@ export function AdminWorkspace({ data, notify }: { data: AdminData; notify: Noti
   const modalTitle = modal?.kind === "class" ? "Add class" : modal?.kind === "student" ? "Create student" : modal?.kind === "teachers" ? "Add teachers" : modal?.kind === "students" ? "Add students" : modal?.kind === "restore" ? "Restore students" : modal?.kind === "confirm" ? modal.title : "";
   return <div className="admin-workspace" aria-busy={pending}>
     <div className="admin-heading"><div><h2>Classes</h2><p className="hint">Manage students and teacher access by academic year.</p></div>
-      <div className="admin-heading-actions"><label className="compact-label">Academic year<select aria-label="Academic year" value={data.year} disabled={pending} onChange={e => router.push(`/admin?year=${e.target.value}`, { scroll: false })}>{data.years.map(y => <option key={y}>{y}</option>)}</select></label><button className="primary" disabled={pending} onClick={() => open({ kind: "class" })}><Icon name="books" />Add class</button></div>
+      <div className="admin-heading-actions"><label className="compact-label">Academic year<select aria-label="Academic year" value={data.year} disabled={pending} onChange={e => { const year = e.target.value; setYearLabel(`Opening the ${year} classes…`); startYearLoad(() => router.push(`/admin?year=${year}`, { scroll: false })); }}>{data.years.map(y => <option key={y}>{y}</option>)}</select></label><button className="primary" disabled={pending} onClick={() => open({ kind: "class" })}><Icon name="books" />Add class</button></div>
     </div>
     <div className="admin-directory">
       <aside className="class-directory" aria-label="Class directory">

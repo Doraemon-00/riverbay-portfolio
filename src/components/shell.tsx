@@ -28,7 +28,7 @@ export function Shell({
             <LinkLoader label="Opening your classes…" />
           </Link>
           {profile.role === "admin" && (
-            <Link href="/admin"><Icon name="note-pencil" />Administration</Link>
+            <Link href="/admin"><Icon name="note-pencil" />Administration<LinkLoader label="Opening administration…" /></Link>
           )}
         </nav>
         <QuickTour viewerId={profile.id} admin={profile.role === "admin"} />
