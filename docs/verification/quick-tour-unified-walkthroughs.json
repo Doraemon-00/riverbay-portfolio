@@ -1,0 +1,525 @@
+[
+  {
+    "context": "classes-desktop",
+    "steps": [
+      {
+        "title": "Choose the academic year",
+        "words": 12
+      },
+      {
+        "title": "Choose a class",
+        "words": 15
+      },
+      {
+        "title": "Add a class",
+        "words": 13
+      },
+      {
+        "title": "Manage this group",
+        "words": 13
+      },
+      {
+        "title": "Add students",
+        "words": 12
+      },
+      {
+        "title": "Work with a group",
+        "words": 18
+      }
+    ]
+  },
+  {
+    "context": "class-teachers-desktop",
+    "steps": [
+      {
+        "title": "Add teachers",
+        "words": 13
+      },
+      {
+        "title": "Remove class access",
+        "words": 16
+      }
+    ]
+  },
+  {
+    "context": "class-settings-desktop",
+    "steps": [
+      {
+        "title": "Update class details",
+        "words": 12
+      },
+      {
+        "title": "Archive or restore",
+        "words": 18
+      },
+      {
+        "title": "Clear the grouping",
+        "words": 14
+      }
+    ]
+  },
+  {
+    "context": "students-desktop",
+    "steps": [
+      {
+        "title": "Find a student",
+        "words": 10
+      },
+      {
+        "title": "Narrow the list",
+        "words": 16
+      },
+      {
+        "title": "Add a student",
+        "words": 10
+      },
+      {
+        "title": "Work with several students",
+        "words": 9
+      },
+      {
+        "title": "Assign a class",
+        "words": 17
+      },
+      {
+        "title": "Find archived students",
+        "words": 18
+      }
+    ]
+  },
+  {
+    "context": "student-create-desktop",
+    "steps": [
+      {
+        "title": "Name the student",
+        "words": 10
+      },
+      {
+        "title": "Choose their class",
+        "words": 18
+      },
+      {
+        "title": "Add the record",
+        "words": 9
+      }
+    ]
+  },
+  {
+    "context": "teachers-desktop",
+    "steps": [
+      {
+        "title": "Find a teacher",
+        "words": 8
+      },
+      {
+        "title": "Add a teacher",
+        "words": 15
+      },
+      {
+        "title": "Manage class access",
+        "words": 15
+      },
+      {
+        "title": "Assign classes together",
+        "words": 15
+      },
+      {
+        "title": "Archive and restore staff",
+        "words": 17
+      }
+    ]
+  },
+  {
+    "context": "teacher-access-desktop",
+    "steps": [
+      {
+        "title": "Choose the year",
+        "words": 8
+      },
+      {
+        "title": "Choose their classes",
+        "words": 13
+      },
+      {
+        "title": "Save this access list",
+        "words": 13
+      }
+    ]
+  },
+  {
+    "context": "teacher-bulk-desktop",
+    "steps": [
+      {
+        "title": "Choose the year",
+        "words": 8
+      },
+      {
+        "title": "Choose classes to add",
+        "words": 12
+      },
+      {
+        "title": "Apply to the selected teachers",
+        "words": 8
+      }
+    ]
+  },
+  {
+    "context": "teacher-create-desktop",
+    "steps": [
+      {
+        "title": "Name the teacher",
+        "words": 8
+      },
+      {
+        "title": "Set the sign-in email",
+        "words": 9
+      },
+      {
+        "title": "Assign classes if ready",
+        "words": 11
+      },
+      {
+        "title": "Create their account",
+        "words": 11
+      }
+    ]
+  },
+  {
+    "context": "my-classes-desktop",
+    "steps": [
+      {
+        "title": "Choose the semester",
+        "words": 13
+      },
+      {
+        "title": "Choose a class",
+        "words": 16
+      },
+      {
+        "title": "Find a child",
+        "words": 7
+      },
+      {
+        "title": "Open a portfolio",
+        "words": 18
+      },
+      {
+        "title": "Follow their progress",
+        "words": 17
+      }
+    ]
+  },
+  {
+    "context": "portfolio-desktop",
+    "steps": [
+      {
+        "title": "Find another child",
+        "words": 14
+      },
+      {
+        "title": "Choose a learning area",
+        "words": 19
+      },
+      {
+        "title": "Choose an indicator",
+        "words": 8
+      },
+      {
+        "title": "Record a moment",
+        "words": 18
+      },
+      {
+        "title": "Draft a starting point",
+        "words": 17
+      },
+      {
+        "title": "Make it your own",
+        "words": 18
+      },
+      {
+        "title": "Save your work",
+        "words": 18
+      },
+      {
+        "title": "Add a few moments",
+        "words": 13
+      },
+      {
+        "title": "Create their portfolio",
+        "words": 16
+      }
+    ]
+  },
+  {
+    "context": "portfolio-mobile",
+    "steps": [
+      {
+        "title": "Find another child",
+        "words": 14
+      },
+      {
+        "title": "Choose a learning area",
+        "words": 19
+      },
+      {
+        "title": "Choose an indicator",
+        "words": 8
+      },
+      {
+        "title": "Record a moment",
+        "words": 18
+      },
+      {
+        "title": "Draft a starting point",
+        "words": 17
+      },
+      {
+        "title": "Make it your own",
+        "words": 18
+      },
+      {
+        "title": "Save your work",
+        "words": 18
+      },
+      {
+        "title": "Add a few moments",
+        "words": 13
+      },
+      {
+        "title": "Create their portfolio",
+        "words": 16
+      }
+    ]
+  },
+  {
+    "context": "my-classes-mobile",
+    "steps": [
+      {
+        "title": "Choose the semester",
+        "words": 13
+      },
+      {
+        "title": "Choose a class",
+        "words": 16
+      },
+      {
+        "title": "Find a child",
+        "words": 7
+      },
+      {
+        "title": "Open a portfolio",
+        "words": 18
+      },
+      {
+        "title": "Follow their progress",
+        "words": 17
+      }
+    ]
+  },
+  {
+    "context": "classes-mobile-final",
+    "steps": [
+      {
+        "title": "Choose the academic year",
+        "words": 12
+      },
+      {
+        "title": "Choose a class",
+        "words": 15
+      },
+      {
+        "title": "Add a class",
+        "words": 13
+      },
+      {
+        "title": "Manage this group",
+        "words": 13
+      },
+      {
+        "title": "Add students",
+        "words": 12
+      },
+      {
+        "title": "Work with a group",
+        "words": 18
+      }
+    ]
+  },
+  {
+    "context": "class-teachers-mobile",
+    "steps": [
+      {
+        "title": "Add teachers",
+        "words": 13
+      },
+      {
+        "title": "Remove class access",
+        "words": 16
+      }
+    ]
+  },
+  {
+    "context": "class-settings-mobile",
+    "steps": [
+      {
+        "title": "Update class details",
+        "words": 12
+      },
+      {
+        "title": "Archive or restore",
+        "words": 18
+      },
+      {
+        "title": "Clear the grouping",
+        "words": 14
+      }
+    ]
+  },
+  {
+    "context": "students-mobile",
+    "steps": [
+      {
+        "title": "Find a student",
+        "words": 10
+      },
+      {
+        "title": "Narrow the list",
+        "words": 16
+      },
+      {
+        "title": "Add a student",
+        "words": 10
+      },
+      {
+        "title": "Work with several students",
+        "words": 9
+      },
+      {
+        "title": "Assign a class",
+        "words": 17
+      },
+      {
+        "title": "Find archived students",
+        "words": 18
+      }
+    ]
+  },
+  {
+    "context": "teachers-mobile",
+    "steps": [
+      {
+        "title": "Find a teacher",
+        "words": 8
+      },
+      {
+        "title": "Add a teacher",
+        "words": 15
+      },
+      {
+        "title": "Manage class access",
+        "words": 15
+      },
+      {
+        "title": "Assign classes together",
+        "words": 15
+      },
+      {
+        "title": "Archive and restore staff",
+        "words": 17
+      }
+    ]
+  },
+  {
+    "context": "teacher-create-mobile",
+    "steps": [
+      {
+        "title": "Name the teacher",
+        "words": 8
+      },
+      {
+        "title": "Set the sign-in email",
+        "words": 9
+      },
+      {
+        "title": "Assign classes if ready",
+        "words": 11
+      },
+      {
+        "title": "Create their account",
+        "words": 11
+      }
+    ]
+  },
+  {
+    "context": "class-create-desktop",
+    "steps": [
+      {
+        "title": "Set the year and level",
+        "words": 13
+      },
+      {
+        "title": "Name the class",
+        "words": 7
+      },
+      {
+        "title": "Create the grouping",
+        "words": 10
+      }
+    ]
+  },
+  {
+    "context": "assign-students-desktop",
+    "steps": [
+      {
+        "title": "Choose where to look",
+        "words": 17
+      },
+      {
+        "title": "Choose the students",
+        "words": 14
+      },
+      {
+        "title": "Check the selection",
+        "words": 14
+      }
+    ]
+  },
+  {
+    "context": "assign-teachers-desktop",
+    "steps": [
+      {
+        "title": "Find staff",
+        "words": 9
+      },
+      {
+        "title": "Choose teachers",
+        "words": 9
+      },
+      {
+        "title": "Check and add",
+        "words": 14
+      }
+    ]
+  },
+  {
+    "context": "empty-roster",
+    "steps": [
+      {
+        "title": "Choose the semester",
+        "words": 13
+      },
+      {
+        "title": "Choose a class",
+        "words": 16
+      },
+      {
+        "title": "Find a child",
+        "words": 7
+      },
+      {
+        "title": "Nothing here yet?",
+        "words": 21
+      }
+    ]
+  }
+]

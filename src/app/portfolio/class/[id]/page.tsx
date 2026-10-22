@@ -27,7 +27,7 @@ export default async function ClassPortfolio({ params, searchParams }: {
   const classmates = students.filter(s => s.class_id === id);
   return <>
     <Link className="text-link portfolio-back-link" href={`/?period=${period.id}&class=${id}`}><Icon name="arrow-left" size={18} /> Back to my classes</Link>
-    <div className="portfolio-workspace">
+    <div className="portfolio-workspace" data-tour-page="empty-class" data-tour-key={`${id}:${domain.id}`}>
       <StudentNavigator viewerId={profile.id} classmates={classmates} currentId="" domain={domain.id} className={current.name} classId={id} year={period.year} semester={period.semester} classChoices={classChoices} periodId={period.id} />
       <section className="portfolio-main" aria-label="Class portfolios">
         <div className="child-heading"><div><p className="eyebrow">{period.year} · Semester {period.semester}</p><h1>{current.name}</h1></div></div>

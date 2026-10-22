@@ -1,0 +1,165 @@
+[
+  {
+    "context": "sign-in",
+    "steps": [
+      "Welcome to Riverbay",
+      "Your staff email",
+      "Your password",
+      "Continue to your classes"
+    ]
+  },
+  {
+    "context": "teacher-my-classes",
+    "steps": [
+      "Every child has a story",
+      "Choose the semester",
+      "Choose a class",
+      "See the class picture",
+      "Find a child quickly",
+      "Open the whole portfolio"
+    ]
+  },
+  {
+    "context": "empty-roster",
+    "steps": [
+      "Every child has a story",
+      "Choose the semester",
+      "Choose a class",
+      "See the class picture",
+      "Find a child quickly",
+      "Nothing here yet?"
+    ]
+  },
+  {
+    "context": "teacher-portfolio-mobile",
+    "steps": [
+      "Find the next child",
+      "Move between learning areas",
+      "Choose an indicator",
+      "Capture what you noticed",
+      "Write the learning story",
+      "Save your work",
+      "Bring the portfolio together"
+    ]
+  },
+  {
+    "context": "updated-ai-guide-mobile",
+    "steps": [
+      "Capture what you noticed",
+      "Ask for a starting point",
+      "Check before using",
+      "You keep the final wording",
+      "Save your work"
+    ]
+  },
+  {
+    "context": "student-picker-mobile",
+    "steps": [
+      "Find a student",
+      "You choose when to continue"
+    ]
+  },
+  {
+    "context": "class-picker-desktop",
+    "steps": [
+      "Choose another class",
+      "You choose when to continue"
+    ]
+  },
+  {
+    "context": "empty-class-portfolio",
+    "steps": [
+      "No portfolio to open yet",
+      "Find the next child",
+      "Return to the class roster"
+    ]
+  },
+  {
+    "context": "updated-class-settings",
+    "steps": [
+      "An annual class identity",
+      "Choose a group",
+      "Students, teachers and settings",
+      "Keep the class identity",
+      "Archive or restore a class",
+      "Clear a grouping, keep the records"
+    ]
+  },
+  {
+    "context": "administration-overview",
+    "steps": [
+      "Three places, three jobs",
+      "Work in the current section",
+      "Membership and access"
+    ]
+  },
+  {
+    "context": "assign-students-dialog",
+    "steps": [
+      "Assign students together",
+      "You choose when to continue"
+    ]
+  },
+  {
+    "context": "assign-teachers-dialog",
+    "steps": [
+      "Assign teacher access",
+      "You choose when to continue"
+    ]
+  },
+  {
+    "context": "admin-students-mobile",
+    "steps": [
+      "All students, one directory",
+      "Find the right records",
+      "Add a student",
+      "Select once, act in bulk",
+      "Restore from this directory"
+    ]
+  },
+  {
+    "context": "admin-teachers-mobile",
+    "steps": [
+      "Teacher accounts and access",
+      "Add a teacher",
+      "Find active or archived staff",
+      "Choose who can access a class",
+      "Demo account limits"
+    ]
+  },
+  {
+    "context": "setup",
+    "steps": [
+      "Start the local environment",
+      "Return to sign-in"
+    ]
+  },
+  {
+    "context": "unavailable-page",
+    "steps": [
+      "Try the available recovery action"
+    ]
+  },
+  {
+    "context": "unavailable-page-mobile",
+    "steps": [
+      "Try the available recovery action"
+    ]
+  },
+  {
+    "context": "readiness-final",
+    "steps": [
+      "Three simple states",
+      "Find what is missing",
+      "One readiness rule"
+    ]
+  },
+  {
+    "context": "readiness-final-mobile",
+    "steps": [
+      "Three simple states",
+      "Find what is missing",
+      "One readiness rule"
+    ]
+  }
+]

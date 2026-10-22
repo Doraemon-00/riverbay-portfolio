@@ -50,7 +50,7 @@ export default async function Login({ searchParams }: {
               </label>
               <button className="primary">Sign in <Icon name="arrow-right" /></button>
             </form>
-            <p className="hint login-demo-note">Prototype · fictional children only</p>
+            <div className="login-help"><p className="hint login-demo-note">Prototype · fictional children only</p></div>
           </section>
         </div>
       </WorkspaceMotion>

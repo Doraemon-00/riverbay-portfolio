@@ -72,7 +72,9 @@ Visual direction: Riverbay Preschool, Riverbank Garden, pastel marker illustrati
 
 ### Riverbay visual foundation
 
-The local app now uses the selected Riverbay logo, colour tokens, Nunito/DM Sans/Noto Sans SC typography, segmented learning rings and a login welcome illustration. Quick tour is optional and context-specific; Motion respects reduced motion. See `docs/APP_STATES.md` and the asset README for scope and asset provenance. AI drafting, private photo upload and PDF export are now connected. Translation and a formal review workflow remain subsequent milestones.
+The local app now uses the selected Riverbay logo, colour tokens, Nunito/DM Sans/Noto Sans SC typography, segmented learning rings and a login welcome illustration. Quick tour starts one optional walkthrough for the current page, with short cards and inline help only for complex forms (see `docs/QUICK_TOURS.md`). Motion respects reduced motion. See `docs/APP_STATES.md` and the asset README for scope and asset provenance. AI drafting, private photo upload and PDF export are now connected. Translation and a formal review workflow remain subsequent milestones.
+
+Deployment handoff: read [docs/DEPLOYMENT_HANDOFF.md](docs/DEPLOYMENT_HANDOFF.md). Reset only tour onboarding with `NEXT_PUBLIC_TOUR_ONBOARDING_VERSION`; preserve all seeded data, accounts and files. Do not reset/reseed the database or clear browser storage for this purpose.
 
 
 ### Annual class administration (Style A)

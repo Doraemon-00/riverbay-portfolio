@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { domains, type RosterItem } from "@/lib/portfolio";
 import { readyDomainCount, savedDomainProgress } from "@/lib/domain-readiness";
 import { Icon } from "./icon";
+import { TourWelcome } from "./quick-tour";
 
 type Class = { id: string; name: string; academic_year: number };
 type Period = { id: string; year: number; semester: number };
@@ -54,7 +55,7 @@ export function ClassWorkspace({ viewerId, roster, classes, periods, initialPeri
   }
   function studentCount(id: string) { return roster.filter(r => r.class_id === id && r.period_id === periodId).length; }
 
-  return <div className="my-classes" ref={root} style={{ minHeight: floor }}>
+  return <div className="my-classes" data-tour-page="my-classes" data-tour-key={`${periodId}:${classId}`} ref={root} style={{ minHeight: floor }}>
     <header className="admin-heading page-heading"><div><p className="eyebrow">YOUR WORKSPACE</p><h1>My classes</h1><p className="hint">Every moment counts. Every child has a story.</p></div>
       {!!availablePeriods.length && <label className="compact-label">Portfolio semester<select aria-label="Portfolio semester" value={periodId} onChange={e => {
         const next = availablePeriods.find(p => p.id === e.target.value)!;
@@ -62,6 +63,7 @@ export function ClassWorkspace({ viewerId, roster, classes, periods, initialPeri
         select(nextClasses.some(c => c.id === classId) ? classId : nextClasses[0]?.id ?? "",next.id);
       }}>{availablePeriods.map(p => <option key={p.id} value={p.id}>{p.year} · Semester {p.semester}</option>)}</select></label>}
     </header>
+    <TourWelcome viewerId={viewerId} />
     {!classes.length ? <div className="directory-empty"><h2>No classes assigned yet</h2><p className="hint">Your administrator can assign you a class. Its portfolios will appear here.</p></div> : !period ? <div className="directory-empty"><h2>No reporting semesters yet</h2><p className="hint">Your administrator can prepare the reporting semesters for your classes.</p></div> : <div className="admin-directory">
       <aside className="class-directory" aria-label="My class directory"><p className="eyebrow">CLASSES · {period.year}</p>
         <label className="mobile-class-picker">Class<select aria-label="Choose my class" value={classId} onChange={e => select(e.target.value)}>{yearClasses.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>

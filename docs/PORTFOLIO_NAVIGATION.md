@@ -22,7 +22,7 @@ The editor captures in-app navigation links and other form submissions while dir
 - New-tab/modified link clicks are not blocked because the current editing page remains open. Native beforeunload warnings remain for reload/tab close; browsers control whether those warnings appear.
 - Browser Back/Forward SPA navigation is not covered by the in-app click/form guard. Cross-browser history protection and recoverable drafts remain follow-up work; do not claim every browser navigation is protected.
 
-Shared dialogs and editor field labels use unique IDs, avoiding collisions when multiple cached routes/dialogs coexist. The quick tour remains frozen. No AI, review or export integration added in this pass.
+Shared dialogs and editor field labels use unique IDs, avoiding collisions when multiple cached routes/dialogs coexist. The navigation pass did not add AI, review or export integration. Subsequent work connected drafting, photos and PDF export; the 22 October Quick tour update covers these workflows and contextual dialog help (see `QUICK_TOURS.md`). Formal review remains deferred.
 
 ## Student-switch stability fix
 

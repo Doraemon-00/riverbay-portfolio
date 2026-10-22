@@ -7,3 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Deployment: preserve seeded data
+
+Before deployment, read `docs/DEPLOYMENT_HANDOFF.md`. Reset only first-time tour indicators by changing `NEXT_PUBLIC_TOUR_ONBOARDING_VERSION` before building. Preserve all existing seeded records, accounts, portfolios, photos and files. Never reset/reseed the database or clear browser storage to reset tours.

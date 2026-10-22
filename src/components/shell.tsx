@@ -28,7 +28,7 @@ export function Shell({
             <Link href="/admin"><Icon name="note-pencil" />Administration</Link>
           )}
         </nav>
-        <QuickTour />
+        <QuickTour viewerId={profile.id} admin={profile.role === "admin"} />
         <div className="account">
           <span>
             {profile.display_name}

@@ -20,13 +20,15 @@ export function Administration({ data }: { data: AdminData }) {
   const notify = (source: Section): NotifyAdmin => value => setNotice({ ...value, id: crypto.randomUUID(), action: value.action ? { label: value.action.label, run: () => { setSection(source); value.action!.run(); } } : undefined });
   const root = useRef<HTMLDivElement>(null);
   const [floor, setFloor] = useState(0);
-  return <div ref={root} style={{ minHeight: floor }}>
+  return <div ref={root} data-tour-page="administration" data-tour-key={section} style={{ minHeight: floor }}>
     <header className="administration-heading"><p className="eyebrow">PEOPLE & CLASSES</p><h1>Administration</h1></header>
     <nav className="administration-nav" aria-label="Administration sections">
+      <span className="administration-nav-options">
       {(["classes", "students", "teachers"] as const).map(value => <button key={value} aria-current={section === value ? "page" : undefined} aria-controls={`admin-${value}`} onClick={() => {
         if (root.current) setFloor(Math.max(0, window.innerHeight - root.current.getBoundingClientRect().top));
         setSection(value);
       }}><Icon name={value === "classes" ? "books" : "users-three"} />{value[0].toUpperCase() + value.slice(1)}</button>)}
+      </span>
     </nav>
     <div id="admin-classes" hidden={section !== "classes"}><AdminWorkspace key={data.year} data={data} notify={notify("classes")} /></div>
     <div id="admin-students" hidden={section !== "students"}><PeopleDirectory kind="students" data={data} notify={notify("students")} /></div>
@@ -163,7 +165,7 @@ function PeopleDirectory({ kind, data, notify }: { kind: People; data: AdminData
       </tr>)}</tbody></table></div>
     {!rows.length && <div className="directory-empty"><h3>{search ? "No matching names" : students && status === "inactive" ? "No archived students" : !students && status === "inactive" ? "No archived teachers" : students && classFilter === "unassigned" ? "No unassigned students" : `No ${kind} here yet`}</h3><p className="hint">{search ? `Try a different ${students ? "name or student ID" : "name, staff ID or email"}, or choose All ${kind}.` : students ? "Try another class, year or status filter." : "Change the status filter to see other records."}</p></div>}
     <p className="hint directory-footnote">{students ? "Student IDs stay the same across classes and years. Archived students remain searchable here." : "Archived teachers cannot sign in to the workspace or access portfolios. All demo accounts use the shared password; email invitations and password resets are not connected."}</p>
-    {sheet && <Dialog title={sheetTitle} pending={pending} close={() => { setSheet(null); if (failed) setMessage(""); }}>
+    {sheet && <Dialog tour={sheet.kind === "confirm" ? "confirm" : sheet.kind === "create" ? students ? "student-create" : "teacher-create" : sheet.kind === "restore" ? "restore-students" : sheet.kind === "teacher-classes" ? "teacher-access" : sheet.kind === "bulk-teacher-classes" ? "teacher-bulk" : "assign-students"} title={sheetTitle} pending={pending} close={() => { setSheet(null); if (failed) setMessage(""); }}>
       {message && failed && <p className="error" role="alert">{message}</p>}
       {sheet.kind === "confirm" ? <><p>{sheet.description}</p><div className="dialog-actions"><button className="secondary" disabled={pending} onClick={() => setSheet(null)}>Cancel</button><button className="primary" disabled={pending} onClick={() => run(sheet.command,{ year, ids: sheet.ids })}>{pending ? "Saving…" : sheet.action}</button></div></>
         : sheet.kind === "create" && !students ? <form onSubmit={event => { event.preventDefault(); createTeacher(new FormData(event.currentTarget)); }}><fieldset className="editor-fields" disabled={pending}>
@@ -171,7 +173,7 @@ function PeopleDirectory({ kind, data, notify }: { kind: People; data: AdminData
           <label>Email<input name="email" type="email" required maxLength={254} autoComplete="off" placeholder="teacher@riverbay.com" /></label>
           <p className="hint">Creates a sign-in account using the shared demo password. No email is sent.</p>
           <details className="optional-assignments"><summary>Assign classes (optional)</summary>
-            <label>Academic year<select value={year} onChange={e => { setYear(Number(e.target.value)); setPickedClasses([]); setClassSearch(""); }}>{years.map(y => <option key={y}>{y}</option>)}</select></label>
+            <label data-tour="assignment-year">Academic year<select value={year} onChange={e => { setYear(Number(e.target.value)); setPickedClasses([]); setClassSearch(""); }}>{years.map(y => <option key={y}>{y}</option>)}</select></label>
             <label className="search-field picker-search"><Icon name="magnifying-glass" /><span className="sr-only">Search classes</span><input type="search" value={classSearch} placeholder="Search classes" onChange={e => setClassSearch(e.target.value)} /></label>
             <div className="people-picker">{matchingClasses.map(c => <label className={`picker-row ${pickedClasses.includes(c.id) ? "is-selected" : ""}`} key={c.id}><input type="checkbox" checked={pickedClasses.includes(c.id)} onChange={() => toggle(c.id,pickedClasses,setPickedClasses)} /><span>{c.name}<small>{c.academic_year} · Both semesters</small></span></label>)}{!matchingClasses.length && <p className="hint">No matching active classes in this year.</p>}</div>
             <p className="hint">{pickedClasses.length ? `${pickedClasses.length} classes selected.` : "You can assign classes later from Manage classes."}</p>
@@ -183,7 +185,7 @@ function PeopleDirectory({ kind, data, notify }: { kind: People; data: AdminData
           <div className="dialog-actions"><button type="button" className="secondary" onClick={() => setSheet(null)}>Cancel</button><button className="primary">{pending ? "Saving…" : "Add student"}</button></div></fieldset></form>
         : (sheet.kind === "teacher-classes" || sheet.kind === "bulk-teacher-classes") ? <>
           <p className="hint">{sheet.kind === "bulk-teacher-classes" ? `Add class access for ${sheet.ids.length} selected teacher${sheet.ids.length === 1 ? "" : "s"}, for both semesters. Existing assignments are kept.` : <>Choose the active classes this teacher can access for both semesters. {data.teachers.find(t => t.id === sheet.ids[0])?.is_active ? "" : "This account stays archived until you restore it."}</>}</p>
-          <label>Academic year<select value={year} disabled={pending || classChanges} onChange={e => { const next = Number(e.target.value); setYear(next); setPickedClasses(sheet.kind === "bulk-teacher-classes" ? [] : teacherClasses(sheet.ids[0],next)); setClassSearch(""); }}>{years.map(y => <option key={y}>{y}</option>)}</select></label>
+          <label data-tour="assignment-year">Academic year<select value={year} disabled={pending || classChanges} onChange={e => { const next = Number(e.target.value); setYear(next); setPickedClasses(sheet.kind === "bulk-teacher-classes" ? [] : teacherClasses(sheet.ids[0],next)); setClassSearch(""); }}>{years.map(y => <option key={y}>{y}</option>)}</select></label>
           {classChanges && <p className="hint">Save or cancel these changes before choosing another year.</p>}
           <label className="search-field picker-search"><Icon name="magnifying-glass" /><span className="sr-only">Search classes</span><input type="search" value={classSearch} placeholder="Search classes" onChange={e => setClassSearch(e.target.value)} /></label>
           <div className="people-picker">{matchingClasses.map(c => <label className={`picker-row ${pickedClasses.includes(c.id) ? "is-selected" : ""}`} key={c.id}><input type="checkbox" checked={pickedClasses.includes(c.id)} disabled={pending} onChange={() => toggle(c.id,pickedClasses,setPickedClasses)} /><span>{c.name}<small>{c.academic_year} · Both semesters</small></span></label>)}{!matchingClasses.length && <p className="hint">{availableClasses.length ? "No matching classes. Try another name." : "No active classes in this year. Add a class in Classes first."}</p>}</div>
@@ -195,7 +197,7 @@ function PeopleDirectory({ kind, data, notify }: { kind: People; data: AdminData
           <div className="dialog-actions"><span className="hint">{sheet.ids.length} selected</span><button className="secondary" disabled={pending} onClick={() => setSheet(null)}>Cancel</button><button className="primary" disabled={pending || (sheet.kind === "assign" && !classId)} onClick={() => run(sheet.kind === "restore" ? "restore_students" : "assign_students",{ year, class_id: classId || null, ids: sheet.ids })}>{pending ? "Saving…" : sheet.kind === "restore" ? classId ? "Restore & assign" : "Restore unassigned" : "Assign class"}</button></div>
         </>}
     </Dialog>}
-    {credentials && <Dialog title="Teacher added" pending={false} close={finishCredentials}>
+    {credentials && <Dialog tour="credentials" title="Teacher added" pending={false} close={finishCredentials}>
       <p className="hint">Save these initial sign-in details now. The password won’t be shown again after closing. No email has been sent.</p>
       <label>Email<input readOnly value={credentials.email} autoComplete="off" /></label>
       <label>Demo password<div className="credential-field"><input readOnly type={showPassword ? "text" : "password"} value={credentials.password} autoComplete="new-password" /><button type="button" className="text-action" aria-label={showPassword ? "Hide password" : "Show password"} onClick={() => setShowPassword(!showPassword)}>{showPassword ? "Hide" : "Show"}</button></div></label>

@@ -185,7 +185,7 @@ export function DomainEditor({
         </div>
       </fieldset>
     </form>
-    {navigation && <Dialog title="Save your changes?" pending={pending} close={() => setNavigation(null)}>
+    {navigation && <Dialog tour="unsaved" title="Save your changes?" pending={pending} close={() => setNavigation(null)}>
       <p>You have unsaved changes in {domain.label}. Save them before continuing, or discard them and open your next page.</p>
       {failed && <p role="alert" className="error">{message}</p>}
       <div className="dialog-actions unsaved-actions">

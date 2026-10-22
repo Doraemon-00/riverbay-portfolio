@@ -20,7 +20,7 @@ The server still authenticates the viewer, uses RLS-protected queries, and filte
 
 ## Pending
 
-Quick-tour content remains frozen per instruction. Its old home/table selectors and sideways-scroll description need revision only when authorised. Actual review/AI/photo/PDF integrations remain their own milestone; this pass does not claim they are implemented.
+One five-step Quick tour covers navigation and saved-field statuses, with an optional first-visit invitation shared by teacher and admin accounts. There is no topic picker. See `QUICK_TOURS.md`. AI drafting, private photo import and direct PDF export are connected locally; formal review remains deferred.
 
 ## Row interaction and scroll follow-up
 

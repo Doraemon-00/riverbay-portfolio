@@ -88,7 +88,7 @@ export function ObservationDatePicker({ id, value, onChange }: { id: string; val
     </div>
     <span id={`${dialogId}-format`} className="sr-only">Date format: day, month, year. Dates are optional.</span>
     {value && <button type="button" className="text-action" onClick={() => choose(null)}>Clear date</button>}
-    {open && <dialog ref={dialog} id={dialogId} className="date-picker-dialog" aria-labelledby={`${dialogId}-title`} onCancel={event => { event.preventDefault(); setOpen(false); }} onClick={event => {
+    {open && <dialog ref={dialog} id={dialogId} className="date-picker-dialog" data-tour-dialog="calendar" aria-labelledby={`${dialogId}-title`} onCancel={event => { event.preventDefault(); setOpen(false); }} onClick={event => {
       if (event.target !== event.currentTarget) return;
       const bounds = event.currentTarget.getBoundingClientRect();
       if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) setOpen(false);

@@ -64,7 +64,7 @@ export default async function Portfolio({
       <Link className="text-link portfolio-back-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
         <Icon name="arrow-left" size={18} /> Back to my classes
       </Link>
-      <div className="portfolio-workspace">
+      <div className="portfolio-workspace" data-tour-page="portfolio" data-tour-key={`${id}:${selected.id}`}>
         <StudentNavigator viewerId={profile.id} classmates={classmates} currentId={id} domain={selected.id} className={child.classes.name} year={child.reporting_periods.year} semester={child.reporting_periods.semester} classId={child.class_id} classChoices={classChoices} periodId={child.period_id} />
         <section className="portfolio-main" aria-label="Student portfolio">
       <div className="child-heading">

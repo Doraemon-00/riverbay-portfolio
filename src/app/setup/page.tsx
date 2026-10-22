@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { QuickTour } from "@/components/quick-tour";
 export default function Setup() {
   return (
-    <main className="auth-page">
+    <main className="auth-page" data-tour-page="setup">
       <section className="panel auth-panel">
+        <QuickTour inline />
         <p className="eyebrow">RIVERBAY · LOCAL SETUP</p>
         <h1>A home for learning stories.</h1>
         <p>Connect the local database to start the working prototype.</p>
