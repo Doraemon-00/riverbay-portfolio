@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riverbay loading motion</title>
+<style>
+  :root { --paper: #FBF7EE; --ink: #2B3631; --muted: #5B6862; --green: #2F5C4D; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.6 "DM Sans", system-ui, sans-serif; }
+  main { padding: 40px; max-width: 760px; }
+  h2 { font: 700 19px/1.3 "Nunito", system-ui, sans-serif; margin: 28px 0 6px; }
+  .note { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+  button { background: var(--green); color: white; border: 0; border-radius: 10px; padding: 10px 16px; font: inherit; font-weight: 600; cursor: pointer; margin: 0 8px 8px 0; }
+
+  /* ---- Beaver swim: plays once when the pointer rests on the logo ---- */
+  .topbar { position: relative; display: flex; align-items: center; gap: 24px; padding: 18px 40px 26px; background: white; }
+  .topbar .logo { height: 44px; }
+  .meadow { position: absolute; left: 0; right: 0; bottom: -22px; height: 40px; overflow-x: clip; pointer-events: none;
+    background: url(../../../public/assets/riverbay/motion/meadow-border.webp) repeat-x left bottom / auto 150px; }
+  .swimmer { position: absolute; left: 0; bottom: 4px; width: 66px; height: 21px; opacity: 0; transform: translateX(-80px); }
+  .swimmer img { width: 66px; display: block; transform-origin: 50% 100%; }   /* frames are cut at the waterline */
+  .swimmer .wake { position: absolute; right: 30px; bottom: 1px; width: 26px; height: 8px; border-bottom: 2px solid #8DBBD6; border-radius: 0 0 50% 50%; opacity: 0; }
+  .swimmer .wake.w2 { right: 44px; width: 18px; bottom: 3px; }
+  .topbar.swim .swimmer { animation: glide 4.2s cubic-bezier(.45,.05,.55,.95) forwards; }
+  .topbar.swim .swimmer img { animation: paddle .9s ease-in-out infinite; }
+  .topbar.swim .swimmer .wake { animation: wake .9s ease-out infinite; }
+  .topbar.swim .swimmer .wake.w2 { animation-delay: .45s; }
+  @keyframes glide { 0% { transform: translateX(-60px); opacity: 0 } 6%, 94% { opacity: 1 } 100% { transform: translateX(calc(100vw + 20px)); opacity: 0 } }
+  @keyframes paddle { 0%,100% { transform: rotate(1deg) } 50% { transform: rotate(-1.5deg) } }   /* frames bob the head; this adds a gentle rock */
+  @keyframes wake { 0% { opacity: .9; transform: scaleX(.4) } 100% { opacity: 0; transform: translateX(-14px) scaleX(1.3) } }
+
+  /* ---- Loader: squirrel runs and rabbit hops across a meadow ---- */
+  .loader { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(251,247,238,.94); z-index: 40; opacity: 0; pointer-events: none; transition: opacity 160ms; }
+  .loader.show { opacity: 1; pointer-events: auto; }
+  .stage { position: relative; width: 460px; max-width: calc(100vw - 32px); height: 160px; overflow: hidden; }
+  .stage .ground { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: url(../../../public/assets/riverbay/motion/meadow-border.webp) repeat-x left bottom / auto 190px; }
+  .who { position: absolute; bottom: 34px; left: 0; }
+  .who img { display: block; width: 100%; transform-origin: 50% 100%; position: relative; }
+  .who .shadow { position: absolute; left: 15%; right: 15%; bottom: -3px; height: 6px; border-radius: 50%; background: rgba(43,54,49,.18); }
+  .squirrel { width: 74px; animation: lap 2.6s linear infinite; }
+  .squirrel img { animation: scamper .42s ease-in-out infinite; }
+  .squirrel .shadow { animation: shadow .42s ease-in-out infinite; }
+  .rabbit { width: 76px; bottom: 30px; animation: lap 2.6s linear infinite; animation-delay: -.9s; }
+  .rabbit img { animation: bound .65s ease-in-out infinite; }
+  .rabbit .shadow { animation: shadow .65s ease-in-out infinite; }
+  @keyframes lap { from { transform: translateX(-90px) } to { transform: translateX(480px) } }
+  /* The frames carry the pose; the keyframes add only the height of each stride or hop. */
+  @keyframes scamper { 0%,100% { transform: translateY(0) } 40%,60% { transform: translateY(-9px) } }
+  @keyframes bound { 0%,100% { transform: translateY(0) } 25% { transform: translateY(-10px) } 50% { transform: translateY(-26px) } 75% { transform: translateY(-8px) } }
+  @keyframes shadow { 0%,100% { transform: scaleX(1); opacity: 1 } 50% { transform: scaleX(.6); opacity: .45 } }
+  .loader p { text-align: center; color: var(--green); font-weight: 600; margin: 10px 0 0; }
+
+  /* Reduced motion: no swim; the loader shows one still squirrel. */
+  @media (prefers-reduced-motion: reduce) {
+    .swimmer { display: none; }
+    .who, .who img, .who .shadow { animation: none !important; }
+    .squirrel { transform: translateX(190px); }
+    .rabbit { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <img class="logo" src="../../../public/assets/riverbay/riverbay-logo.svg" alt="Riverbay">
+  <div class="meadow" aria-hidden="true">
+    <div class="swimmer"><span class="wake"></span><span class="wake w2"></span><img id="swim-img" src="../../../public/assets/riverbay/motion/swim-f1.webp" alt=""></div>
+  </div>
+</header>
+<main>
+  <h2>Beaver swim</h2>
+  <p class="note">Rest the pointer on the logo for 250 ms. The beaver swims the stream once (4.2 s), flipping through four frames every 225 ms. Pointer devices only; off with reduced motion.</p>
+  <h2>Loading</h2>
+  <p class="note">Appears only after 250 ms of real waiting, then stays at least 700 ms so it never flashes. Squirrel frames every 105 ms, rabbit every 162 ms.</p>
+  <button data-load="150">Fast load (150 ms)</button>
+  <button data-load="1200">Load 1.2 s</button>
+  <button data-load="3000">Load 3 s</button>
+</main>
+<div class="loader" role="status" aria-live="polite">
+  <div>
+    <div class="stage" aria-hidden="true">
+      <div class="ground"></div>
+      <div class="who rabbit"><span class="shadow"></span><img id="hop-img" src="../../../public/assets/riverbay/motion/hop-f1.webp" alt=""></div>
+      <div class="who squirrel"><span class="shadow"></span><img id="run-img" src="../../../public/assets/riverbay/motion/run-f1.webp" alt=""></div>
+    </div>
+    <p>Opening your classes…</p>
+  </div>
+</div>
+<script>
+  const $ = (s) => document.querySelector(s);
+  const FRAMES = "../../../public/assets/riverbay/motion/";
+  const frames = (name) => [1, 2, 3, 4].map((n) => `${FRAMES}${name}-f${n}.webp`);
+  const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Swap an <img> through its frames; returns a stop function.
+  function flipbook(img, files, ms) {
+    files.forEach((f) => { new Image().src = f; });
+    let i = 0, timer;
+    const step = () => { img.src = files[i]; i = (i + 1) % files.length; timer = setTimeout(step, ms); };
+    step();
+    return () => clearTimeout(timer);
+  }
+
+  // Swim: after a 250 ms rest on the logo, replay once.
+  const bar = $(".topbar");
+  let rest;
+  $(".logo").addEventListener("pointerenter", () => {
+    if (reduced() || !matchMedia("(hover: hover)").matches) return;
+    rest = setTimeout(() => {
+      bar.classList.remove("swim"); void bar.offsetWidth; bar.classList.add("swim");
+      const stop = flipbook($("#swim-img"), frames("swim"), 225);
+      setTimeout(stop, 4300);
+    }, 250);
+  });
+  $(".logo").addEventListener("pointerleave", () => clearTimeout(rest));
+
+  // Loader: show after 250 ms of waiting, keep for at least 700 ms.
+  const loader = $(".loader");
+  let stopRunners = [];
+  function showLoader() {
+    loader.classList.add("show");
+    if (!reduced()) stopRunners = [flipbook($("#run-img"), frames("run"), 105), flipbook($("#hop-img"), frames("hop"), 162)];
+  }
+  function hideLoader() { loader.classList.remove("show"); stopRunners.forEach((f) => f()); stopRunners = []; }
+  document.querySelectorAll("[data-load]").forEach((b) => b.addEventListener("click", () => {
+    let shownAt = null;
+    const showTimer = setTimeout(() => { showLoader(); shownAt = performance.now(); }, 250);
+    setTimeout(() => {
+      clearTimeout(showTimer);
+      if (shownAt === null) return;
+      setTimeout(hideLoader, Math.max(0, 700 - (performance.now() - shownAt)));
+    }, +b.dataset.load);
+  }));
+</script>
+</body>
+</html>
