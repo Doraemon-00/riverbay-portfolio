@@ -653,21 +653,22 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
 .loader-runner { position:absolute; bottom:34px; left:0; }
 .loader-runner img { display:block; width:100%; height:auto; transform-origin:50% 100%; position:relative; }
 .loader-runner .shadow { position:absolute; left:15%; right:15%; bottom:-3px; height:6px; border-radius:50%; background:rgba(43,54,49,.18); }
-.loader-runner.squirrel { width:74px; animation:loader-lap var(--lap) linear infinite; }
+/* Negative delays start each lap part-way across, so the animals are already in view when the loader appears. */
+.loader-runner.squirrel { width:74px; animation:loader-lap var(--lap) linear infinite; animation-delay:-.78s; }
 .loader-runner.squirrel img { animation:loader-scamper .42s ease-in-out infinite; }
 .loader-runner.squirrel .shadow { animation:loader-shadow .42s ease-in-out infinite; }
-.loader-runner.rabbit { width:76px; bottom:30px; animation:loader-lap var(--lap) linear infinite; animation-delay:-.9s; }
+.loader-runner.rabbit { width:76px; bottom:30px; animation:loader-lap var(--lap) linear infinite; animation-delay:-1.65s; }
 .loader-runner.rabbit img { animation:loader-bound .65s ease-in-out infinite; }
 .loader-runner.rabbit .shadow { animation:loader-shadow .65s ease-in-out infinite; }
-.loader-swimmer { position:absolute; left:0; bottom:5px; width:110px; animation:loader-lap 3.4s linear infinite; }
+.loader-swimmer { position:absolute; left:0; bottom:5px; width:110px; animation:loader-lap 3.4s linear infinite; animation-delay:-1.2s; }
 .loader-swimmer img { display:block; width:100%; height:auto; transform-origin:50% 100%; animation:loader-paddle .9s ease-in-out infinite; }
 .loader-swimmer .wake { position:absolute; left:-30px; bottom:-4px; width:40px; height:10px; border-bottom:2px solid #8DBBD6; border-radius:0 0 50% 50%; opacity:0; animation:loader-wake .9s ease-out infinite; }
 .loader-swimmer .wake.w2 { left:-54px; width:28px; bottom:-1px; animation-delay:.45s; }
 .loader-stage.compact { --lap-from:-80px; --lap-to:200px; --lap:1.9s; --stride:-5px; width:180px; height:46px; flex:none; border-radius:999px; }
 .loader-stage.compact .loader-ground { height:22px; background-size:auto 76px; }
 .loader-stage.compact .loader-runner { bottom:12px; }
-.loader-stage.compact .loader-runner.squirrel { width:38px; }
-.loader-stage.compact .loader-swimmer { bottom:1px; width:62px; animation-duration:2.4s; }
+.loader-stage.compact .loader-runner.squirrel { width:38px; animation-delay:-.8s; }
+.loader-stage.compact .loader-swimmer { bottom:1px; width:62px; animation-duration:2.4s; animation-delay:-1s; }
 .loader-stage.compact .loader-swimmer .wake { left:-18px; width:22px; height:6px; bottom:-3px; }
 .loader-stage.compact .loader-swimmer .wake.w2 { left:-32px; width:16px; bottom:-1px; }
 .inline-loader { position:relative; height:0; z-index:30; }

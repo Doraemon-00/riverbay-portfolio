@@ -6,10 +6,12 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { preload as preloadResource, useFormStatus } from "react-dom";
 
 // Approved loader from docs/design-concepts/motion. It is decoration only: it appears
-// after 250 ms of real waiting, stays at least 700 ms once shown and never takes input.
+// after 250 ms of real waiting, stays long enough to read as motion once shown and never takes input.
 // "page" covers the screen (sign-in, My classes, opening a portfolio); "inline" is a small
 // strip under the domain tabs for the frequent domain and student switches.
-const SHOW_AFTER = 250, MIN_VISIBLE = 700, FADE = 160;
+const SHOW_AFTER = 250, FADE = 160;
+// The full screen covers the page, so it holds briefly; the strip leaves the page usable, so it can stay a beat longer.
+const MIN_VISIBLE: Record<"page" | "inline", number> = { page: 900, inline: 1100 };
 const FRAMES = "/assets/riverbay/motion/";
 const frames = (name: string) => [1, 2, 3, 4].map(n => `${FRAMES}${name}-f${n}.webp`);
 const run = frames("run"), hop = frames("hop"), swim = frames("swim");
@@ -110,7 +112,7 @@ function useLoaderPhase(kind: LoaderKind) {
       return () => clearTimeout(timer);
     }
     if (phase === "shown") {
-      const timer = setTimeout(() => setPhase("leaving"), Math.max(0, MIN_VISIBLE - (performance.now() - shownAt.current)));
+      const timer = setTimeout(() => setPhase("leaving"), Math.max(0, MIN_VISIBLE[kind] - (performance.now() - shownAt.current)));
       return () => clearTimeout(timer);
     }
     if (phase === "leaving") {
