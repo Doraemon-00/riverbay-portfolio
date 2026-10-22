@@ -6,9 +6,9 @@ Implemented 20 October 2026. Uses the Administration cream/forest theme, annual 
 
 - Left class directory on desktop; class dropdown on mobile. Only active classes visible through the viewer's database permissions are loaded. Empty assigned classes remain visible.
 - Portfolio semester updates immediately without a full page navigation. The selected class is retained within its year; another year selects its first available class.
-- Class heading shows name/year and a compact total-students / portfolios-with-drafts summary. A portfolio counts as having drafts when at least one saved domain narrative contains text; it does not imply all domains are complete or reviewed.
+- Class heading shows name/year, total students and the number whose every domain is ready for PDF. This measures saved required fields, not formal review.
 - Search by name or permanent student ID. Each domain links directly to its editor, and clicking the rest of a student row opens the portfolio's default domain. The student name is the semantic row link, with a stretched hit area; domain links sit above it and keep their own destinations. No separate Open button is shown.
-- Saved workflow states: Not started (no rating/comments/narrative), In progress (rating/comments), Draft available (narrative). These are distinct from learning indicators. No Reviewed or export-ready state is claimed.
+- Saved workflow states: Not started (no saved indicator, story, nonblank observation/comment or photo), In progress (some saved content, but indicator or story is missing), Ready for PDF (saved indicator plus nonblank story). Photos are optional. These describe field completeness, not teacher approval or a quality check.
 - Mobile rows show name, ID, Open, and four labelled domain links in a two-column grid. No horizontal scrolling is required.
 - Previous/Next remains in the selected class, semester and domain. Back to my classes now includes both class and period identifiers.
 
@@ -29,3 +29,10 @@ Rows highlight on hover, have keyboard focus feedback, and use normal links (inc
 Saved roster search/scroll restoration is skipped for explicit class or semester switches; it remains available on return from a portfolio, including when Next preserves a cached route. Browser automatic scroll anchoring is disabled so changed roster heights do not shift the viewport. My classes retains enough page height when switching to shorter rosters to avoid clamping the current scroll position.
 
 Final polish: decorative row arrows removed at the user’s request. Whole-row and domain links remain; no extra action column is reserved on desktop.
+
+
+## Current roster readiness — 22 October 2026
+
+Page introduction: “Every moment counts. Every child has a story.” Removed the outdated review instruction. Class summary shows student count and the number with every configured domain ready for PDF, independent of the search filter. Domain links retain direct navigation and use neutral / soft blue / mint states. Hover and keyboard focus describe missing saved fields. Whole-row opening remains available.
+
+Roster and editor sidebar counts share the saved-field readiness helper with the editor stamps and export panel. Sidebar N/4 now means domains with both indicator and narrative saved, not narratives alone. Photo IDs are read through the existing RLS-protected relationship so photo-only work counts as In progress; no image bytes or signed URLs are added to roster data. No schema or permission changes.

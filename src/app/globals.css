@@ -351,7 +351,6 @@ input:focus-visible,textarea:focus-visible,select:focus-visible { outline-width:
 .my-classes .page-heading h1 { font-size:36px; }
 .my-classes .class-detail-heading { align-items:flex-start; }
 .roster-search { margin-bottom:12px; }
-.roster-help { margin-bottom:20px; }
 .roster-columns,.roster-row { display:grid; grid-template-columns:minmax(145px,1.5fr) repeat(4,minmax(100px,1fr)); gap:12px; align-items:center; }
 .roster-columns { font-size:12px; color:var(--muted); padding:12px 0; border-bottom:1px solid var(--line); }
 .roster-columns span:nth-child(5) { line-height:1.5; }
@@ -362,8 +361,13 @@ input:focus-visible,textarea:focus-visible,select:focus-visible { outline-width:
 .roster-domains { display:contents; }
 .roster-domain { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; min-height:44px; padding:8px 10px; border-radius:10px; background:color-mix(in srgb,var(--line) 25%,transparent); color:var(--muted); font-size:12px; line-height:1.5; }
 a.roster-domain:hover { background:var(--mint); color:var(--green); }
-.roster-domain.has-draft { background:var(--rb-status-info-bg); color:var(--rb-status-info); }
-.roster-domain.has-input { background:color-mix(in srgb,var(--yellow) 35%,transparent); color:var(--ink); }
+.roster-domain.is-ready { background:var(--rb-action-primary-tint); color:var(--green); }
+.roster-domain.has-input { background:var(--rb-status-info-bg); color:var(--rb-status-info); }
+.roster-domain:focus-visible { background:var(--mint); color:var(--green); }
+.roster-status-tooltip { position:absolute; z-index:5; top:calc(100% + 6px); left:0; width:max-content; max-width:min(240px,calc(100vw - 40px)); padding:8px 12px; border-radius:10px; background:var(--ink); color:white; font-size:12px; font-weight:400; line-height:1.5; pointer-events:none; visibility:hidden; opacity:0; }
+.roster-domain:nth-child(even) .roster-status-tooltip { left:auto; right:0; }
+.roster-domain:hover,.roster-domain:focus-visible { z-index:2; }
+.roster-domain:hover .roster-status-tooltip,.roster-domain:focus-visible .roster-status-tooltip { visibility:visible; opacity:1; }
 .roster-domain-label { display:none; }
 @media(max-width:1150px) {
  .roster-columns { display:none; }
@@ -376,7 +380,6 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
  .my-classes .admin-heading > .compact-label { width:100%; }
  .my-classes .admin-heading > .compact-label select { width:100%; }
  .roster-domain { padding:10px 12px; min-height:64px; }
- .roster-help { font-size:12px; }
 }
 
 /* Roster changes must not let browser anchoring move the viewport. */

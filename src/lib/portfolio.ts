@@ -23,6 +23,7 @@ export type Entry = {
   revision: number;
   reviewed_revision: number | null;
   rating_scale_version: string;
+  photos?: { id: string }[];
 };
 export type RosterItem = {
   id: string;
@@ -35,4 +36,4 @@ export type RosterItem = {
   portfolios: { id: string; domain_entries: Entry[] } | null;
 };
 export const rosterSelect =
-  "id, child_id, class_id, period_id, children(display_name, student_code, archived_at), classes(name, archived_at, academic_year), reporting_periods(year, semester), portfolios(id, domain_entries(*))";
+  "id, child_id, class_id, period_id, children(display_name, student_code, archived_at), classes(name, archived_at, academic_year), reporting_periods(year, semester), portfolios(id, domain_entries(*, photos(id)))";

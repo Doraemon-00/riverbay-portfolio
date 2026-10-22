@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { readyDomainCount } from "@/lib/domain-readiness";
 import { useRouter } from "next/navigation";
 import { useLayoutEffect, useRef, useState } from "react";
 import { domains, type Domain, type RosterItem } from "@/lib/portfolio";
@@ -110,9 +111,10 @@ export function StudentNavigator({ viewerId, classmates, currentId, domain, clas
       <label className="search-field"><Icon name="magnifying-glass" /><span className="sr-only">Search class students</span><input type="search" placeholder="Name or student ID" value={search} onChange={e => { setSearch(e.target.value); remember(e.target.value,0); if (desktopList.current) desktopList.current.scrollTop = 0; if (mobileList.current) mobileList.current.scrollTop = 0; }} /></label>
       {!currentVisible && <button type="button" className="text-action show-current-student" onClick={() => showCurrent(mobile)}>Show current student</button>}
       <nav ref={mobile ? mobileList : desktopList} className="student-links" aria-label="Choose student" onScroll={e => { if (e.currentTarget.offsetParent !== null) { remember(search,e.currentTarget.scrollTop); updateVisibility(e.currentTarget); } }}>{matches.map(c => {
-        const count = domains.filter(d => c.portfolios?.domain_entries.some(e => e.domain === d.id && e.narrative.trim())).length;
-        const content = <><span className="student-link-name">{c.children.display_name}<small>{c.children.student_code}</small></span><span className="student-draft-count" aria-label={`${count} of ${domains.length} domains have drafts`}>{count}/{domains.length}</span></>;
-        return c.portfolios ? <Link prefetch={false} scroll={false} key={c.id} href={`/portfolio/${c.portfolios.id}?domain=${domain}`} aria-current={c.portfolios.id === currentId ? "page" : undefined} aria-label={`${c.children.display_name} · ${c.children.student_code} · ${count} of ${domains.length} drafts`}>{content}</Link> : <span className="student-unavailable" key={c.id}>{c.children.display_name}<small>Awaiting setup</small></span>;
+        const count = readyDomainCount(c.portfolios?.domain_entries);
+        const countLabel = `${count} of ${domains.length} areas ready for PDF`;
+        const content = <><span className="student-link-name">{c.children.display_name}<small>{c.children.student_code}</small></span><span className="student-draft-count" aria-label={countLabel} title={countLabel}>{count}/{domains.length}</span></>;
+        return c.portfolios ? <Link prefetch={false} scroll={false} key={c.id} href={`/portfolio/${c.portfolios.id}?domain=${domain}`} aria-current={c.portfolios.id === currentId ? "page" : undefined} aria-label={`${c.children.display_name} · ${c.children.student_code} · ${countLabel}`}>{content}</Link> : <span className="student-unavailable" key={c.id}>{c.children.display_name}<small>Awaiting setup</small></span>;
       })}</nav>
       {!matches.length && <p className="hint">No matching students. Try another name or ID.</p>}
       </>}

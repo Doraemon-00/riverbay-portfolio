@@ -101,7 +101,7 @@ The teacher roster now follows the open class-directory layout, with direct doma
 
 ## Portfolio student navigation
 
-Portfolio editors include a searchable student sidebar/mobile picker, saved narrative counts and Save/Discard/Stay protection for in-app navigation. See [portfolio navigation](docs/PORTFOLIO_NAVIGATION.md) and [verification](docs/verification/PORTFOLIO_NAVIGATION.md) for scope and browser-history limits.
+Portfolio editors include a searchable student sidebar/mobile picker, ready-domain counts and Save/Discard/Stay protection for in-app navigation. See [portfolio navigation](docs/PORTFOLIO_NAVIGATION.md) and [verification](docs/verification/PORTFOLIO_NAVIGATION.md) for scope and browser-history limits.
 
 Observation timeline behaviour and storage: [docs/OBSERVATIONS.md](docs/OBSERVATIONS.md).
 
@@ -112,7 +112,7 @@ AI drafting setup, behaviour and verification: [docs/AI_DRAFTING.md](docs/AI_DRA
 
 - Optional dated/general observations, editable AI draft suggestions, manual indicators and narratives, private photo uploads/placeholders, and direct PDF download are connected.
 - Gemini is the locally verified development provider. OpenAI and Groq adapters have transport contract checks; their live availability/output are not verified. Model output needs teacher checking; no school-specific guideline enforcement or production quality acceptance is claimed.
-- Domain stamps describe saved fields: mint base = indicator, animal = narrative, both = export-ready fields. There is no formal review flag in this workflow. The student sidebar count describes saved narratives only.
+- Domain stamps describe saved fields: mint base = indicator, animal = narrative, both = export-ready fields. There is no formal review flag in this workflow. The student sidebar count describes domains with both required saved fields, matching My classes readiness; it does not assert formal review.
 - Apply pending migrations with `node node_modules/supabase/dist/supabase.js migration up --local`; do not reset existing records.
 
 ### PDF runtime and limits

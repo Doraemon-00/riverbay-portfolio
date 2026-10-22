@@ -4,12 +4,12 @@ Implemented 20 October 2026. The portfolio editor now uses the same cream/forest
 
 ## Student selector
 
-- Desktop: sticky, searchable student sidebar scoped to the current class and semester. Shows name, permanent student ID and a compact narrative-draft count.
+- Desktop: sticky, searchable student sidebar scoped to the current class and semester. Shows name, permanent student ID and a compact ready-domain count.
 - Mobile: Choose student opens a searchable dialog with the same list; it closes after a successful switch.
 - Search supports name or ID. Search/list scroll are optional tab-session navigation memory, keyed by viewer/class/year/semester. They are kept when moving between students; no search text is sent to the server or put in URLs.
 - Previous/Next remain. Student links preserve the current domain. The server still authenticates and uses RLS-protected class/semester queries; archived children are excluded.
-- Draft counts use configured domain definitions rather than dots or a hard-coded denominator. This supports adding more domains to the configuration later without adding eight visual dots. It does not mean eight domains are implemented now.
-- Draft count means saved narratives, not reviewed/completed reports. Domain navigation can wrap if additional configured subjects are added.
+- Ready-domain counts use configured domain definitions rather than dots or a hard-coded denominator. This supports adding more domains to the configuration later without adding eight visual dots. It does not mean eight domains are implemented now.
+- Ready-domain count means saved indicator plus nonblank saved narrative, consistent with domain stamps and PDF field requirements; it is not a formal review or content-quality check. Domain navigation can wrap if additional configured subjects are added.
 
 ## Unsaved changes
 
@@ -18,7 +18,7 @@ The editor captures in-app navigation links and other form submissions while dir
 - Stay preserves current text and destination can be chosen again.
 - Discard restores the last saved editor values before navigating, so cached pages do not retain discarded text as if it were saved.
 - Save and continue navigates only after a successful revision-checked save. Validation/errors/conflicts retain text and keep the dialog on the current page.
-- Controls disable during saving. Saving invalidates roster and portfolio routes so sidebar draft counts refresh.
+- Controls disable during saving. Saving invalidates roster and portfolio routes so sidebar ready-domain counts refresh.
 - New-tab/modified link clicks are not blocked because the current editing page remains open. Native beforeunload warnings remain for reload/tab close; browsers control whether those warnings appear.
 - Browser Back/Forward SPA navigation is not covered by the in-app click/form guard. Cross-browser history protection and recoverable drafts remain follow-up work; do not claim every browser navigation is protected.
 
