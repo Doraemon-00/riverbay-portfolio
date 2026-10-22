@@ -21,13 +21,17 @@ export function findChrome() {
   return found;
 }
 
+// Serverless hosts supply a bundled headless Chromium and the flags it needs as a JSON array
+// (set by the app's export adapter); those flags include their own headless mode.
+const HOST_ARGS = process.env.CHROME_ARGS ? JSON.parse(process.env.CHROME_ARGS) : null;
+
 export async function launch() {
   const executable = findChrome();
   const profile = mkdtempSync(join(tmpdir(), "riverbay-pdf-"));
   const proc = spawn(
     executable,
     [
-      "--headless=new",
+      ...(HOST_ARGS ?? ["--headless=new"]),
       "--remote-debugging-port=0",
       `--user-data-dir=${profile}`,
       "--no-first-run",

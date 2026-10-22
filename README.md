@@ -119,11 +119,11 @@ AI drafting setup, behaviour and verification: [docs/AI_DRAFTING.md](docs/AI_DRA
 
 ### PDF runtime and limits
 
-The app calls the selected renderer under `docs/pdf-concepts/claude/`. Keep its template, schema, tools and assets with the app. Node.js 22+ and a separately installed Chromium browser are required; set `CHROME_PATH` if automatic detection fails. `PDF_RENDERER_DIR` optionally overrides the renderer directory. Generated concept PDFs and previews are ignored and can be reproduced with the renderer's commands.
+The app calls the selected renderer under `docs/pdf-concepts/claude/`. Keep its template, schema, tools and assets with the app. Locally, Node.js 22+ and a separately installed Chromium browser are required; set `CHROME_PATH` if automatic detection fails. On Vercel the export uses the bundled `@sparticuz/chromium` instead (see [deployment handoff](docs/DEPLOYMENT_HANDOFF.md)). `PDF_RENDERER_DIR` optionally overrides the renderer directory. Generated concept PDFs and previews are ignored and can be reproduced with the renderer's commands.
 
 Exports read saved text and private photos, preserve Chinese text, and store the PDF in the private `portfolio-exports` bucket with a ten-minute signed download link. Each domain currently allows at most four photos in the PDF. The prototype keeps only the newest export for each portfolio; it does not retain an immutable issued-report history. Production evidence retention/versioning remains a separate decision.
 
-This runtime has been exercised locally, not on a hosted deployment. Chromium packaging, child processes, filesystem use and request duration must be proven on the chosen host before claiming compatibility with Vercel or another service. Provider keys belong in ignored local environment files or server environment settings, never source control. Only fictional data is authorised for the current demo.
+The Vercel packaging has been rendered on the AWS Lambda Node 22 image (Amazon Linux 2023) from the traced files only; it still needs confirming on the real Vercel deployment, including request duration and memory. Provider keys belong in ignored local environment files or server environment settings, never source control. Only fictional data is authorised for the current demo.
 
 ### Verification at this checkpoint
 

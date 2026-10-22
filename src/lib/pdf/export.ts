@@ -63,9 +63,18 @@ export function finalExportBlockers(entries: Pick<Entry, "domain" | "rating" | "
   return reasons;
 }
 
-function runRenderer(args: string[]) {
+/** Vercel has no installed browser: use the bundled serverless Chromium and its required flags. */
+async function rendererEnv(): Promise<NodeJS.ProcessEnv> {
+  if (!process.env.VERCEL && !process.env.PDF_BUNDLED_CHROMIUM) return process.env;
+  const { default: chromium } = await import("@sparticuz/chromium");
+  const executable = await chromium.executablePath(); // also sets the library/font paths Chromium needs
+  return { ...process.env, CHROME_PATH: executable, CHROME_ARGS: JSON.stringify(chromium.args) };
+}
+
+async function runRenderer(args: string[]) {
+  const env = await rendererEnv();
   return new Promise<{ code: number; out: string }>((resolve) => {
-    const child = spawn(process.execPath, ["tools/render.mjs", ...args], { cwd: RENDERER_DIR });
+    const child = spawn(process.execPath, ["tools/render.mjs", ...args], { cwd: RENDERER_DIR, env });
     let out = "";
     child.stdout.on("data", (b) => (out += b));
     child.stderr.on("data", (b) => (out += b));
