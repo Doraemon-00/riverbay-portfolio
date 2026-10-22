@@ -2,21 +2,20 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import type { ComponentProps, MouseEvent } from "react";
+import { useEffect, type MouseEvent } from "react";
 import { domains, type Domain, type Entry } from "@/lib/portfolio";
 import { DomainEditor } from "./domain-editor";
 import { DomainStamp } from "./domain-stamp";
 import { InlineLoader } from "./page-loader";
 
-/** The domain in the address bar; tabs change it in the browser, so links must read it here. */
+// Student links (Previous, Next, sidebar) carry no domain, so one prefetch of a student serves every
+// tab. The open domain is remembered here instead, and written back to the address bar on arrival.
+let rememberedDomain: Domain | null = null;
+
+/** The open domain: the address bar wins, then the domain remembered from the last portfolio. */
 export function useCurrentDomain(fallback: Domain): Domain {
   const value = useSearchParams().get("domain");
-  return domains.find(d => d.id === value)?.id ?? fallback;
-}
-
-/** A link to another portfolio that keeps the domain currently open. */
-export function KeepDomainLink({ base, fallback, ...props }: { base: string; fallback: Domain } & Omit<ComponentProps<typeof Link>, "href">) {
-  return <Link {...props} href={`${base}?domain=${useCurrentDomain(fallback)}`} />;
+  return domains.find(d => d.id === value)?.id ?? rememberedDomain ?? fallback;
 }
 
 const plainClick = (event: MouseEvent) => event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
@@ -34,6 +33,15 @@ export function PortfolioDomains({ portfolioId, entries, priorRatings, fallback 
 }) {
   const current = useCurrentDomain(fallback);
   const entry = entries.find(e => e.domain === current);
+  useEffect(() => {
+    rememberedDomain = current;
+    // Keep reloads, bookmarks and Back/Forward on this domain.
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("domain") !== current) {
+      url.searchParams.set("domain", current);
+      window.history.replaceState(null, "", url);
+    }
+  }, [current]);
   return <>
     <nav className="domain-tabs" aria-label="Learning domains">
       {domains.map(d => {

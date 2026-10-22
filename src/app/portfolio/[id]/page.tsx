@@ -16,7 +16,7 @@ import { StudentNavigator } from "@/components/student-navigator";
 import { loadPortfolioNavigation } from "@/lib/portfolio-navigation";
 import { LinkLoader } from "@/components/page-loader";
 import { PdfExport } from "@/components/pdf-export";
-import { KeepDomainLink, PortfolioDomains } from "@/components/portfolio-domains";
+import { PortfolioDomains } from "@/components/portfolio-domains";
 
 // One query finds the portfolio's enrolment: the inner join filters enrolments by portfolio ID.
 const portfolioSelect = rosterSelect.replace("portfolios(", "portfolios!inner(");
@@ -78,19 +78,19 @@ export default async function Portfolio({
         </div>
         <nav className="child-nav" aria-label="Children">
           {previous && (
-            <KeepDomainLink prefetch scroll={false} base={`/portfolio/${previous.id}`} fallback={selected.id} data-loader-label={`Opening ${previousName}…`}>
+            <Link prefetch scroll={false} href={`/portfolio/${previous.id}`} data-loader-label={`Opening ${previousName}…`}>
               <Icon name="arrow-left" size={18} /> Previous
               <LinkLoader kind="inline" label={`Opening ${previousName}…`} />
-            </KeepDomainLink>
+            </Link>
           )}
           <span>
             {index + 1} of {classmates.length}
           </span>
           {next && (
-            <KeepDomainLink prefetch scroll={false} base={`/portfolio/${next.id}`} fallback={selected.id} data-loader-label={`Opening ${nextName}…`}>
+            <Link prefetch scroll={false} href={`/portfolio/${next.id}`} data-loader-label={`Opening ${nextName}…`}>
               Next <Icon name="arrow-right" size={18} />
               <LinkLoader kind="inline" label={`Opening ${nextName}…`} />
-            </KeepDomainLink>
+            </Link>
           )}
         </nav>
       </div>
