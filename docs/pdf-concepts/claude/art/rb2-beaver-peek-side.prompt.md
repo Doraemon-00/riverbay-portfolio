@@ -71,6 +71,7 @@ The beaver peeking out sideways from behind a straight vertical edge on the LEFT
 
 ## Claude review of Revision 2 (22 October 2026)
 
-- Revision 2 rejected and kept as `rb2-beaver-peek-side.rev2.png`: a large soft semi-transparent halo surrounds the beaver, and the paws are cut by the edge again.
+- Revision 2 rejected: a large soft semi-transparent halo surrounds the beaver, and the paws are cut by the edge again.
 - Accepted instead (user's choice): an earlier generation supplied by the user, saved as `rb2-beaver-peek-side.png`. The body is cut on a clean vertical line at x=15 and both paws are whole, with fingers reaching x=0, so they wrap round in front of the edge. Transparent, no halo.
 - In the app, the body's cut line is aligned with the logo's right edge; the fingers overlap the logo by about 1 px at display size.
+- Clean-up: the rejected files `rb2-beaver-peek-side.rev1.png` (paws sliced by the edge) and `rb2-beaver-peek-side.rev2.png` (halo) were removed from this folder; both remain in git history at commit 1b2d8a3. Only the accepted `rb2-beaver-peek-side.png` is kept, and the app uses `public/assets/riverbay/motion/beaver-peek.webp` made from it.
