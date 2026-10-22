@@ -7,76 +7,81 @@ import { useFormStatus } from "react-dom";
 
 // Approved loader from docs/design-concepts/motion. It is decoration only: it appears
 // after 250 ms of real waiting, stays at least 700 ms once shown and never takes input.
+// "page" covers the screen (sign-in, My classes, opening a portfolio); "inline" is a small
+// strip under the domain tabs for the frequent domain and student switches.
 const SHOW_AFTER = 250, MIN_VISIBLE = 700, FADE = 160;
 const FRAMES = "/assets/riverbay/motion/";
-const run = [1, 2, 3, 4].map(n => `${FRAMES}run-f${n}.webp`);
-const hop = [1, 2, 3, 4].map(n => `${FRAMES}hop-f${n}.webp`);
+const frames = (name: string) => [1, 2, 3, 4].map(n => `${FRAMES}${name}-f${n}.webp`);
+const run = frames("run"), hop = frames("hop"), swim = frames("swim");
 
-// Pending work registered by links and the sign-in form; the newest label wins.
+export type LoaderKind = "page" | "inline";
+type Scene = "runners" | "beaver";
+
+// Pending work registered by links, forms and transitions; the newest label of each kind wins.
 // The last label is kept so the text does not vanish during the minimum display time.
-let waits: { id: number; label: string }[] = [];
-let lastLabel = "";
+let waits: { id: number; label: string; kind: LoaderKind }[] = [];
+const lastLabel: Record<LoaderKind, string> = { page: "", inline: "" };
 let nextId = 0;
 const listeners = new Set<() => void>();
 const subscribe = (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener); }; };
-const isWaiting = () => waits.length > 0;
-const currentLabel = () => lastLabel;
+const notify = () => listeners.forEach(l => l());
 let preloaded = false;
 
-function useWait(active: boolean, label: string) {
+export function useLoaderWait(active: boolean, label: string, kind: LoaderKind = "page") {
   useEffect(() => {
     if (!active) return;
-    if (!preloaded) { preloaded = true; [...run, ...hop].forEach(src => { new Image().src = src; }); }
+    if (!preloaded) { preloaded = true; [...run, ...hop, ...swim].forEach(src => { new Image().src = src; }); }
     const id = ++nextId;
-    waits = [...waits, { id, label }];
-    lastLabel = label;
-    listeners.forEach(l => l());
+    waits = [...waits, { id, label, kind }];
+    lastLabel[kind] = label;
+    notify();
     return () => {
       waits = waits.filter(w => w.id !== id);
-      lastLabel = waits.at(-1)?.label ?? lastLabel;
-      listeners.forEach(l => l());
+      lastLabel[kind] = waits.filter(w => w.kind === kind).at(-1)?.label ?? lastLabel[kind];
+      notify();
     };
-  }, [active, label]);
+  }, [active, label, kind]);
 }
 
 // Place inside a <Link>: reports that link's navigation while it is still waiting.
-export function LinkLoader({ label }: { label: string }) {
+export function LinkLoader({ label, kind = "page" }: { label: string; kind?: LoaderKind }) {
   const { pending } = useLinkStatus();
-  useWait(pending, label);
+  useLoaderWait(pending, label, kind);
   return null;
 }
 
 // Place inside a <form>: reports its server action while it is running.
 export function FormLoader({ label }: { label: string }) {
   const { pending } = useFormStatus();
-  useWait(pending, label);
+  useLoaderWait(pending, label);
   return null;
 }
 
-function useFlipbook(img: React.RefObject<HTMLImageElement | null>, files: string[], ms: number, on: boolean) {
-  useEffect(() => {
-    if (!on) return;
-    let i = 0;
-    const timer = setInterval(() => { i = (i + 1) % files.length; if (img.current) img.current.src = files[i]; }, ms);
-    return () => clearInterval(timer);
-  }, [img, files, ms, on]);
+// A coin flip between the two scenes, but never the same one three times in a row.
+const history: Record<LoaderKind, Scene[]> = { page: [], inline: [] };
+function pickScene(kind: LoaderKind): Scene {
+  const [a, b] = history[kind].slice(-2);
+  const scene: Scene = a && a === b ? (a === "runners" ? "beaver" : "runners") : Math.random() < 0.5 ? "runners" : "beaver";
+  history[kind] = [...history[kind].slice(-1), scene];
+  return scene;
 }
 
-export function PageLoader() {
-  const waiting = useSyncExternalStore(subscribe, isWaiting, () => false);
-  const label = useSyncExternalStore(subscribe, currentLabel, () => "");
+function useLoaderPhase(kind: LoaderKind) {
+  const waiting = useSyncExternalStore(subscribe, () => waits.some(w => w.kind === kind), () => false);
+  const label = useSyncExternalStore(subscribe, () => lastLabel[kind], () => "");
   const [phase, setPhase] = useState<"hidden" | "shown" | "leaving">("hidden");
-  const [still, setStill] = useState(false);
+  const [look, setLook] = useState<{ scene: Scene; still: boolean }>({ scene: "runners", still: false });
   const shownAt = useRef(0);
-  const squirrel = useRef<HTMLImageElement>(null);
-  const rabbit = useRef<HTMLImageElement>(null);
+  // Next keeps the previous page mounted but hidden for instant Back navigation. Its effects are
+  // cleaned up when it is hidden: reset there, so Back never reveals a loader frozen mid-show.
+  useEffect(() => () => setPhase("hidden"), []);
 
   useEffect(() => {
     if (waiting) {
       if (phase === "shown") return;
       const timer = setTimeout(() => {
         shownAt.current = performance.now();
-        setStill(matchMedia("(prefers-reduced-motion: reduce)").matches);
+        setLook({ scene: pickScene(kind), still: matchMedia("(prefers-reduced-motion: reduce)").matches });
         setPhase("shown");
       }, phase === "leaving" ? 0 : SHOW_AFTER);
       return () => clearTimeout(timer);
@@ -89,23 +94,69 @@ export function PageLoader() {
       const timer = setTimeout(() => setPhase("hidden"), FADE);
       return () => clearTimeout(timer);
     }
-  }, [waiting, phase]);
+  }, [waiting, phase, kind]);
 
-  const moving = phase !== "hidden" && !still;
+  return { phase, label, ...look, moving: phase !== "hidden" && !look.still };
+}
+
+function useFlipbook(img: React.RefObject<HTMLImageElement | null>, files: string[], ms: number, on: boolean) {
+  useEffect(() => {
+    if (!on) return;
+    let i = 0;
+    const timer = setInterval(() => { i = (i + 1) % files.length; if (img.current) img.current.src = files[i]; }, ms);
+    return () => clearInterval(timer);
+  }, [img, files, ms, on]);
+}
+
+// Squirrel runs and rabbit hops across the meadow; the compact strip keeps only the squirrel.
+function Runners({ moving, still, compact }: { moving: boolean; still: boolean; compact: boolean }) {
+  const squirrel = useRef<HTMLImageElement>(null);
+  const rabbit = useRef<HTMLImageElement>(null);
   useFlipbook(squirrel, run, 105, moving);
-  useFlipbook(rabbit, hop, 162, moving);
+  useFlipbook(rabbit, hop, 162, moving && !compact);
+  return <>
+    <div className="loader-ground" />
+    {!still && !compact && <div className="loader-runner rabbit"><span className="shadow" /><img ref={rabbit} src={hop[0]} width={76} height={59} alt="" /></div>}
+    <div className="loader-runner squirrel"><span className="shadow" /><img ref={squirrel} src={run[0]} width={74} height={59} alt="" /></div>
+  </>;
+}
 
+// The beaver swims along the stream at the foot of the same meadow; its frames are cut at the waterline.
+function Beaver({ moving }: { moving: boolean }) {
+  const beaver = useRef<HTMLImageElement>(null);
+  useFlipbook(beaver, swim, 225, moving);
+  return <>
+    <div className="loader-ground" />
+    <div className="loader-swimmer"><span className="wake" /><span className="wake w2" /><img ref={beaver} src={swim[0]} width={110} height={34} alt="" /></div>
+  </>;
+}
+
+function Stage({ scene, still, moving, compact }: { scene: Scene; still: boolean; moving: boolean; compact: boolean }) {
+  return <div className={`loader-stage ${compact ? "compact" : ""} ${still ? "still" : ""}`} aria-hidden="true">
+    {scene === "beaver" ? <Beaver moving={moving} /> : <Runners moving={moving} still={still} compact={compact} />}
+  </div>;
+}
+
+export function PageLoader() {
+  const { phase, label, scene, still, moving } = useLoaderPhase("page");
   // The status region stays mounted so screen readers announce the text when it appears.
   return <div className="page-loader" role="status" aria-live="polite">
     {phase !== "hidden" && <div className={`page-loader-overlay${phase === "leaving" ? " leaving" : ""}`}>
       <div>
-        <div className="page-loader-stage" aria-hidden="true">
-          <div className="page-loader-ground" />
-          {!still && <div className="page-loader-runner rabbit"><span className="shadow" /><img ref={rabbit} src={hop[0]} width={76} height={59} alt="" /></div>}
-          <div className="page-loader-runner squirrel"><span className="shadow" /><img ref={squirrel} src={run[0]} width={74} height={59} alt="" /></div>
-        </div>
+        <Stage scene={scene} still={still} moving={moving} compact={false} />
         <p>{label}</p>
       </div>
+    </div>}
+  </div>;
+}
+
+// Small strip for domain and student switches: the page stays visible underneath.
+export function InlineLoader() {
+  const { phase, label, scene, still, moving } = useLoaderPhase("inline");
+  return <div className="inline-loader" role="status" aria-live="polite">
+    {phase !== "hidden" && <div className={`inline-loader-pill${phase === "leaving" ? " leaving" : ""}`}>
+      <Stage scene={scene} still={still} moving={moving} compact />
+      <span>{label}</span>
     </div>}
   </div>;
 }

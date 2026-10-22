@@ -642,31 +642,51 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
  .domain-tabs a:nth-child(even) .domain-readiness-tooltip { left:auto; right:0; }
 }
 
-/* Page loader (docs/design-concepts/motion): squirrel runs and rabbit hops across the meadow. Frames carry the pose; keyframes add only travel and stride height. */
+/* Loaders (docs/design-concepts/motion): squirrel and rabbit across the meadow, or the beaver across a stream, chosen at random. Frames carry the pose; keyframes add only travel and stride height. */
 .page-loader { position:fixed; top:0; left:0; z-index:90; pointer-events:none; }
-.page-loader-overlay { position:fixed; inset:0; display:grid; place-items:center; background:rgba(251,247,238,.94); animation:page-loader-in 160ms ease both; }
-.page-loader-overlay.leaving { animation:page-loader-out 160ms ease both; }
-.page-loader-stage { position:relative; width:460px; max-width:calc(100vw - 32px); height:160px; overflow:hidden; }
-.page-loader-ground { position:absolute; left:0; right:0; bottom:0; height:56px; background:url(/assets/riverbay/motion/meadow-border.webp) repeat-x left bottom / auto 190px; }
-.page-loader-runner { position:absolute; bottom:34px; left:0; }
-.page-loader-runner img { display:block; width:100%; height:auto; transform-origin:50% 100%; position:relative; }
-.page-loader-runner .shadow { position:absolute; left:15%; right:15%; bottom:-3px; height:6px; border-radius:50%; background:rgba(43,54,49,.18); }
-.page-loader-runner.squirrel { width:74px; animation:page-loader-lap 2.6s linear infinite; }
-.page-loader-runner.squirrel img { animation:page-loader-scamper .42s ease-in-out infinite; }
-.page-loader-runner.squirrel .shadow { animation:page-loader-shadow .42s ease-in-out infinite; }
-.page-loader-runner.rabbit { width:76px; bottom:30px; animation:page-loader-lap 2.6s linear infinite; animation-delay:-.9s; }
-.page-loader-runner.rabbit img { animation:page-loader-bound .65s ease-in-out infinite; }
-.page-loader-runner.rabbit .shadow { animation:page-loader-shadow .65s ease-in-out infinite; }
+.page-loader-overlay { position:fixed; inset:0; display:grid; place-items:center; background:rgba(251,247,238,.94); animation:loader-in 160ms ease both; }
+.page-loader-overlay.leaving,.inline-loader-pill.leaving { animation:loader-out 160ms ease both; }
 .page-loader p { margin:10px 0 0; text-align:center; color:var(--green); font-weight:600; }
-@keyframes page-loader-in { from { opacity:0; } }
-@keyframes page-loader-out { to { opacity:0; } }
-@keyframes page-loader-lap { from { transform:translateX(-90px); } to { transform:translateX(480px); } }
-@keyframes page-loader-scamper { 0%,100% { transform:translateY(0); } 40%,60% { transform:translateY(-9px); } }
-@keyframes page-loader-bound { 0%,100% { transform:translateY(0); } 25% { transform:translateY(-10px); } 50% { transform:translateY(-26px); } 75% { transform:translateY(-8px); } }
-@keyframes page-loader-shadow { 0%,100% { transform:scaleX(1); opacity:1; } 50% { transform:scaleX(.6); opacity:.45; } }
-/* Reduced motion: one still squirrel and the text. */
+.loader-stage { --lap-from:-120px; --lap-to:480px; --lap:2.6s; --stride:-9px; --bound:-26px; position:relative; width:460px; max-width:calc(100vw - 32px); height:160px; overflow:hidden; }
+.loader-ground { position:absolute; left:0; right:0; bottom:0; height:56px; background:url(/assets/riverbay/motion/meadow-border.webp) repeat-x left bottom / auto 190px; }
+.loader-runner { position:absolute; bottom:34px; left:0; }
+.loader-runner img { display:block; width:100%; height:auto; transform-origin:50% 100%; position:relative; }
+.loader-runner .shadow { position:absolute; left:15%; right:15%; bottom:-3px; height:6px; border-radius:50%; background:rgba(43,54,49,.18); }
+.loader-runner.squirrel { width:74px; animation:loader-lap var(--lap) linear infinite; }
+.loader-runner.squirrel img { animation:loader-scamper .42s ease-in-out infinite; }
+.loader-runner.squirrel .shadow { animation:loader-shadow .42s ease-in-out infinite; }
+.loader-runner.rabbit { width:76px; bottom:30px; animation:loader-lap var(--lap) linear infinite; animation-delay:-.9s; }
+.loader-runner.rabbit img { animation:loader-bound .65s ease-in-out infinite; }
+.loader-runner.rabbit .shadow { animation:loader-shadow .65s ease-in-out infinite; }
+.loader-swimmer { position:absolute; left:0; bottom:5px; width:110px; animation:loader-lap 3.4s linear infinite; }
+.loader-swimmer img { display:block; width:100%; height:auto; transform-origin:50% 100%; animation:loader-paddle .9s ease-in-out infinite; }
+.loader-swimmer .wake { position:absolute; left:-30px; bottom:-4px; width:40px; height:10px; border-bottom:2px solid #8DBBD6; border-radius:0 0 50% 50%; opacity:0; animation:loader-wake .9s ease-out infinite; }
+.loader-swimmer .wake.w2 { left:-54px; width:28px; bottom:-1px; animation-delay:.45s; }
+.loader-stage.compact { --lap-from:-80px; --lap-to:200px; --lap:1.9s; --stride:-5px; width:180px; height:46px; flex:none; border-radius:999px; }
+.loader-stage.compact .loader-ground { height:22px; background-size:auto 76px; }
+.loader-stage.compact .loader-runner { bottom:12px; }
+.loader-stage.compact .loader-runner.squirrel { width:38px; }
+.loader-stage.compact .loader-swimmer { bottom:1px; width:62px; animation-duration:2.4s; }
+.loader-stage.compact .loader-swimmer .wake { left:-18px; width:22px; height:6px; bottom:-3px; }
+.loader-stage.compact .loader-swimmer .wake.w2 { left:-32px; width:16px; bottom:-1px; }
+.inline-loader { position:relative; height:0; z-index:30; }
+.inline-loader-pill { position:absolute; top:-18px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:12px; max-width:calc(100vw - 32px); padding:6px 18px 6px 6px; background:#fff; border:1px solid var(--line); border-radius:999px; box-shadow:0 8px 22px rgba(43,54,49,.12); pointer-events:none; animation:loader-in 160ms ease both; }
+.inline-loader-pill > span { color:var(--green); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+@keyframes loader-in { from { opacity:0; } }
+@keyframes loader-out { to { opacity:0; } }
+@keyframes loader-lap { from { transform:translateX(var(--lap-from)); } to { transform:translateX(var(--lap-to)); } }
+@keyframes loader-scamper { 0%,100% { transform:translateY(0); } 40%,60% { transform:translateY(var(--stride)); } }
+@keyframes loader-bound { 0%,100% { transform:translateY(0); } 25% { transform:translateY(-10px); } 50% { transform:translateY(var(--bound)); } 75% { transform:translateY(-8px); } }
+@keyframes loader-shadow { 0%,100% { transform:scaleX(1); opacity:1; } 50% { transform:scaleX(.6); opacity:.45; } }
+@keyframes loader-paddle { 0%,100% { transform:rotate(1deg); } 50% { transform:rotate(-1.5deg); } }
+@keyframes loader-wake { 0% { opacity:.9; transform:scaleX(.4); } 100% { opacity:0; transform:translateX(-14px) scaleX(1.3); } }
+/* Reduced motion: one still animal, centred, with the text. */
+.loader-stage.still .loader-runner,.loader-stage.still .loader-runner img,.loader-stage.still .loader-runner .shadow,.loader-stage.still .loader-swimmer,.loader-stage.still .loader-swimmer img { animation:none; }
+.loader-stage.still .loader-swimmer .wake { display:none; }
+.loader-stage.still .loader-runner.squirrel { left:calc(50% - 37px); }
+.loader-stage.still .loader-swimmer { left:calc(50% - 55px); }
+.loader-stage.compact.still .loader-runner.squirrel { left:calc(50% - 19px); }
+.loader-stage.compact.still .loader-swimmer { left:calc(50% - 31px); }
 @media(prefers-reduced-motion:reduce) {
- .page-loader-runner,.page-loader-runner img,.page-loader-runner .shadow { animation:none!important; }
- .page-loader-runner.squirrel { left:calc(50% - 37px); }
- .page-loader-runner.rabbit { display:none; }
+ .page-loader-overlay,.inline-loader-pill,.loader-stage *,.loader-stage * img { animation:none!important; }
 }

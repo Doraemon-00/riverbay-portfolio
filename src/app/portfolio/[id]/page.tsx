@@ -13,6 +13,7 @@ import {
 } from "@/lib/portfolio";
 import { StudentNavigator } from "@/components/student-navigator";
 import { loadPortfolioNavigation } from "@/lib/portfolio-navigation";
+import { InlineLoader, LinkLoader } from "@/components/page-loader";
 import { DomainEditor } from "@/components/domain-editor";
 import { PdfExport } from "@/components/pdf-export";
 import { DomainStamp } from "@/components/domain-stamp";
@@ -59,10 +60,13 @@ export default async function Portfolio({
   const index = classmates.findIndex((c) => c.id === child.id);
   const previous = classmates[index - 1]?.portfolios,
     next = classmates[index + 1]?.portfolios;
+  const previousName = classmates[index - 1]?.children.display_name,
+    nextName = classmates[index + 1]?.children.display_name;
   return (
     <>
       <Link className="text-link portfolio-back-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
         <Icon name="arrow-left" size={18} /> Back to my classes
+        <LinkLoader label="Opening your classes…" />
       </Link>
       <div className="portfolio-workspace" data-tour-page="portfolio" data-tour-key={`${id}:${selected.id}`}>
         <StudentNavigator viewerId={profile.id} classmates={classmates} currentId={id} domain={selected.id} className={child.classes.name} year={child.reporting_periods.year} semester={child.reporting_periods.semester} classId={child.class_id} classChoices={classChoices} periodId={child.period_id} />
@@ -77,16 +81,18 @@ export default async function Portfolio({
         </div>
         <nav className="child-nav" aria-label="Children">
           {previous && (
-            <Link scroll={false} href={`/portfolio/${previous.id}?domain=${selected.id}`}>
+            <Link scroll={false} href={`/portfolio/${previous.id}?domain=${selected.id}`} data-loader-label={`Opening ${previousName}…`}>
               <Icon name="arrow-left" size={18} /> Previous
+              <LinkLoader kind="inline" label={`Opening ${previousName}…`} />
             </Link>
           )}
           <span>
             {index + 1} of {classmates.length}
           </span>
           {next && (
-            <Link scroll={false} href={`/portfolio/${next.id}?domain=${selected.id}`}>
+            <Link scroll={false} href={`/portfolio/${next.id}?domain=${selected.id}`} data-loader-label={`Opening ${nextName}…`}>
               Next <Icon name="arrow-right" size={18} />
+              <LinkLoader kind="inline" label={`Opening ${nextName}…`} />
             </Link>
           )}
         </nav>
@@ -104,13 +110,16 @@ export default async function Portfolio({
             scroll={false} href={`/portfolio/${id}?domain=${d.id}`}
             aria-current={selected.id === d.id ? "page" : undefined}
             aria-describedby={`readiness-${id}-${selected.id}-${d.id}`}
+            data-loader-label={`Opening ${d.label}…`}
           >
+            <LinkLoader kind="inline" label={`Opening ${d.label}…`} />
             <span className={`domain-badge ${d.id}`}>{d.short}</span>
             <span className="domain-tab-label">{d.label}</span>
             <DomainStamp domain={d.id} tooltipId={`readiness-${id}-${selected.id}-${d.id}`} hasIndicator={Boolean(saved?.rating)} hasStory={Boolean(saved?.narrative.trim())} />
           </Link>
         ); })}
       </nav>
+      <InlineLoader />
       <DomainEditor
         key={entry.id}
         entry={entry}

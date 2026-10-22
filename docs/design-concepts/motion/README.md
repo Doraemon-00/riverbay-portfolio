@@ -1,9 +1,9 @@
 # Loading and swim motion
 
-Approved prototype motion, exported 22 October 2026 for a later loading-page build. Not wired into the app yet.
+Approved prototype motion, exported 22 October 2026. The loader is wired into the app by `src/components/page-loader.tsx`; the logo swim easter egg is on hold.
 
 - **Demo:** [demo.html](demo.html). Serve the repository root (for example `python -m http.server` from the repo folder) and open `/docs/design-concepts/motion/demo.html`; it loads the frames from `public/`.
-- **Frames:** `public/assets/riverbay/motion/`. WebP at twice display width (swim 132 px, run 148 px, hop 152 px), 106 KB in total, plus `meadow-border.webp` for the ground strip. Sliced from Codex's frame sheets (`docs/pdf-concepts/claude/art/rb2-*-sheet.png`, `_INDEX.md` rows 32 to 42) and registered so the animal does not jump between frames.
+- **Frames:** `public/assets/riverbay/motion/`. WebP (swim 220 px wide, run 148 px, hop 152 px), about 120 KB in total, plus `meadow-border.webp` for the ground strip. Sliced from Codex's frame sheets (`docs/pdf-concepts/claude/art/rb2-*-sheet.png`, `_INDEX.md` rows 32 to 42) and registered so the animal does not jump between frames.
 
 ## Behaviour to keep
 
@@ -18,3 +18,11 @@ The frames carry the pose (legs, body); CSS keyframes add only travel and the he
 ## On Vercel
 
 The 250/700 ms rule fits Vercel well: cold starts and Supabase round trips make some sign-ins and portfolio openings take a second or more, while warm requests stay fast and show nothing. In Next.js, a route-level `loading.tsx` (or a pending state on the sign-in form) can host the loader; the delay and minimum time still need a small client component so it does not flash.
+
+## In the app
+
+- **Two scenes, chosen at random** each time a loader shows: the squirrel and rabbit across the meadow, or the beaver swimming across a stream. Never the same scene three times in a row. With reduced motion, one still animal.
+- **Full screen** (`PageLoader`): sign-in, My classes (top bar and Back to my classes) and opening a portfolio from My classes.
+- **Compact strip** (`InlineLoader`, under the domain tabs, page stays visible): domain tabs, previous/next student, the student list and class switching inside a portfolio, including after Save or Discard in the unsaved-changes dialog. Labels name the target, for example "Opening Chinese…" or "Opening Bailey Tan…".
+- Not used for saving, photo uploads, AI drafting or PDF export, which have their own progress messages.
+- Next keeps the previous page mounted but hidden for instant Back navigation; the loader resets when its page is hidden so Back never shows a frozen strip.

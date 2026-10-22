@@ -9,6 +9,7 @@ import { ObservationTimeline } from "./observation-timeline";
 import { NarrativeDraft } from "./narrative-draft";
 import { RatingRing } from "./rating-ring";
 import { DomainPhotos } from "./domain-photos";
+import { type LoaderKind, useLoaderWait } from "./page-loader";
 
 export function DomainEditor({
   entry,
@@ -31,7 +32,11 @@ export function DomainEditor({
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const bypass = useRef(false);
-  const [navigation, setNavigation] = useState<{ href: string } | { form: HTMLFormElement } | null>(null);
+  const [navigation, setNavigation] = useState<{ href: string; label?: string } | { form: HTMLFormElement } | null>(null);
+  // After Save or Discard the editor navigates in code; a transition reports that wait to the loader.
+  const [navigating, startNavigation] = useTransition();
+  const [navLoader, setNavLoader] = useState<{ label: string; kind: LoaderKind }>({ label: "", kind: "inline" });
+  useLoaderWait(navigating, navLoader.label, navLoader.kind);
   useEffect(() => {
     if (!dirty) return;
     const unload = (event: BeforeUnloadEvent) => { if (!bypass.current) event.preventDefault(); };
@@ -40,7 +45,7 @@ export function DomainEditor({
       const link = (event.target as Element).closest("a[href]") as HTMLAnchorElement | null;
       if (!link || link.target === "_blank" || link.hasAttribute("download") || link.href === window.location.href) return;
       event.preventDefault(); event.stopPropagation();
-      setNavigation({ href: link.href });
+      setNavigation({ href: link.href, label: link.dataset.loaderLabel });
     };
     const submit = (event: SubmitEvent) => {
       if (bypass.current || event.target === formRef.current) return;
@@ -49,9 +54,9 @@ export function DomainEditor({
     };
     const requested = (event: Event) => {
       if (bypass.current) return;
-      const href = (event as CustomEvent<{ href: string }>).detail?.href;
+      const { href, label } = (event as CustomEvent<{ href: string; label?: string }>).detail ?? {};
       if (!href) return;
-      event.preventDefault(); setNavigation({ href });
+      event.preventDefault(); setNavigation({ href, label });
     };
     window.addEventListener("riverbay:before-navigate",requested);
     window.addEventListener("beforeunload",unload);
@@ -81,7 +86,13 @@ export function DomainEditor({
     setDirty(false); setNavigation(null);
     if ("form" in navigation) { navigation.form.requestSubmit(); return; }
     const target = new URL(navigation.href,window.location.href);
-    if (target.origin === window.location.origin) router.push(`${target.pathname}${target.search}${target.hash}`,{ scroll:false });
+    if (target.origin === window.location.origin) {
+      // Domain and student switches use the small strip; leaving the portfolio uses the full loader.
+      const kind: LoaderKind = target.pathname.startsWith("/portfolio/") ? "inline" : "page";
+      const label = navigation.label ?? (kind === "inline" ? "Opening the portfolio…" : target.pathname === "/" ? "Opening your classes…" : "Loading…");
+      setNavLoader({ label, kind });
+      startNavigation(() => router.push(`${target.pathname}${target.search}${target.hash}`,{ scroll:false }));
+    }
     else window.location.assign(target.href);
   }
   const changed = () => {
