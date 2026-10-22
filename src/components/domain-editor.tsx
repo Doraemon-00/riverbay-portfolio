@@ -86,8 +86,11 @@ export function DomainEditor({
     setDirty(false); setNavigation(null);
     if ("form" in navigation) { navigation.form.requestSubmit(); return; }
     const target = new URL(navigation.href,window.location.href);
-    if (target.origin === window.location.origin) {
-      // Domain and student switches use the small strip; leaving the portfolio uses the full loader.
+    if (target.origin === window.location.origin && target.pathname === window.location.pathname) {
+      // Another domain of this portfolio is already loaded: switch in the browser, no request.
+      window.history.pushState(null, "", `${target.pathname}${target.search}${target.hash}`);
+    } else if (target.origin === window.location.origin) {
+      // Student switches use the small strip; leaving the portfolio uses the full loader.
       const kind: LoaderKind = target.pathname.startsWith("/portfolio/") ? "inline" : "page";
       const label = navigation.label ?? (kind === "inline" ? "Opening the portfolio…" : target.pathname === "/" ? "Opening your classes…" : "Loading…");
       setNavLoader({ label, kind });

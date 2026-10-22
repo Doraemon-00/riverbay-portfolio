@@ -72,3 +72,12 @@ Migration `202610190003_people_directory.sql` adds stable generated student refe
 ## Teacher provisioning
 
 `provision-teacher.ts` is server-only and checks active administrator identity before using the server account key. Supabase Auth creates a demo account with the shared demo password `teach2LEARN` and trusted provisioning-actor metadata. The acting administrator's session calls `finish_teacher_setup` to validate that marker and atomically insert a teacher profile plus active class assignments for the selected year. The RPC rechecks active administrator status, does not overwrite existing profiles and never accepts a caller-selected role. Failure triggers compensation against only that request's new auth user. Demo credentials are returned to the authorised administrator; they are not logged, emailed, or stored in application tables. The prototype does not force password expiry/change; verified invitations, recovery and password setup are production follow-ups.
+
+## Request performance
+
+Measured on the hosted demo (22 October 2026): Vercel functions and Supabase both run in Singapore, so the network between them is not the cost. Each portfolio switch took about 0.55-0.7 s, almost all of it server-side data loading. Changes made:
+
+- Domain tabs switch in the browser. All four domain entries of the open portfolio are already loaded, so a tab updates the address bar (`history.pushState`) and swaps the editor without a server request. The unsaved-changes guard still intercepts the click first; after Save or Discard, a switch within the same portfolio also stays in the browser. Saving still re-renders the page through `revalidatePath`, so stamps and saved text stay current.
+- Sign-in checks use `getClaims`, which verifies the access token locally with the project's asymmetric signing keys instead of calling Supabase Auth on every request. A revoked session remains valid until its token expires (about an hour); archived staff are still refused by the profile check and the database policies.
+- The portfolio page runs the staff check alongside one query that finds the enrolment by portfolio ID, instead of three requests in sequence.
+- Class navigation loads only names, classes and each classmate's ready-for-PDF count, not every classmate's notes and stories.

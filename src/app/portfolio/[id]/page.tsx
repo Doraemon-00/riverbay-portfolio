@@ -2,21 +2,25 @@ import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { notFound } from "next/navigation";
 import { z } from "zod";
-import { requireViewer } from "@/lib/auth";
+import { requireProfile, viewerSession } from "@/lib/auth";
 import {
   domains,
   ratingLabels,
   rosterSelect,
   scaleVersion,
+  type Domain,
   type Entry,
   type RosterItem,
 } from "@/lib/portfolio";
 import { StudentNavigator } from "@/components/student-navigator";
 import { loadPortfolioNavigation } from "@/lib/portfolio-navigation";
-import { InlineLoader, LinkLoader } from "@/components/page-loader";
-import { DomainEditor } from "@/components/domain-editor";
+import { LinkLoader } from "@/components/page-loader";
 import { PdfExport } from "@/components/pdf-export";
-import { DomainStamp } from "@/components/domain-stamp";
+import { KeepDomainLink, PortfolioDomains } from "@/components/portfolio-domains";
+
+// One query finds the portfolio's enrolment: the inner join filters enrolments by portfolio ID.
+const portfolioSelect = rosterSelect.replace("portfolios(", "portfolios!inner(");
+
 export const instant = false;
 export default async function Portfolio({
   params,
@@ -25,36 +29,29 @@ export default async function Portfolio({
   params: Promise<{ id: string }>;
   searchParams: Promise<{ domain?: string }>;
 }) {
-  const { db, profile } = await requireViewer();
+  const { db, userId } = await viewerSession();
   const { id } = await params,
     query = await searchParams;
   if (!z.uuid().safeParse(id).success) notFound();
-  const { data: portfolio, error: portfolioError } = await db
-    .from("portfolios")
-    .select("enrolment_id")
-    .eq("id", id)
-    .maybeSingle();
-  if (portfolioError) throw new Error("Could not load this portfolio.");
-  if (!portfolio) notFound();
-  const { data, error } = await db
-    .from("enrolments")
-    .select(rosterSelect)
-    .eq("id", portfolio.enrolment_id)
-    .single();
+  // The staff check and the portfolio load run together; database policies apply to both.
+  const [profile, { data, error }] = await Promise.all([
+    requireProfile(db, userId),
+    db.from("enrolments").select(portfolioSelect).eq("portfolios.id", id).maybeSingle(),
+  ]);
   if (error) throw new Error("Could not load this portfolio.");
+  if (!data) notFound();
   const child = data as unknown as RosterItem;
   const selected = domains.find((d) => d.id === query.domain) ?? domains[0];
-  const entry = child.portfolios?.domain_entries.find(
-    (e) => e.domain === selected.id,
-  );
-  if (!entry) notFound();
+  const entries = child.portfolios?.domain_entries ?? [];
+  if (!entries.some((e) => e.domain === selected.id)) notFound();
   const [history, navigation] = await Promise.all([
     db.rpc("previous_semester_ratings", { current_portfolio: id }),
     loadPortfolioNavigation(db, child.period_id, child.reporting_periods.year),
   ]);
   if (history.error) throw new Error("Could not load semester history.");
-  const prior = (history.data as Pick<Entry, "domain" | "rating" | "rating_scale_version">[])
-    .find(e => e.domain === selected.id && e.rating_scale_version === scaleVersion);
+  const priorRatings: Partial<Record<Domain, number>> = {};
+  for (const e of history.data as Pick<Entry, "domain" | "rating" | "rating_scale_version">[])
+    if (e.rating != null && e.rating_scale_version === scaleVersion) priorRatings[e.domain] = e.rating;
   const { classChoices } = navigation;
   const classmates = navigation.students.filter(c => c.class_id === child.class_id);
   const index = classmates.findIndex((c) => c.id === child.id);
@@ -81,50 +78,27 @@ export default async function Portfolio({
         </div>
         <nav className="child-nav" aria-label="Children">
           {previous && (
-            <Link scroll={false} href={`/portfolio/${previous.id}?domain=${selected.id}`} data-loader-label={`Opening ${previousName}…`}>
+            <KeepDomainLink scroll={false} base={`/portfolio/${previous.id}`} fallback={selected.id} data-loader-label={`Opening ${previousName}…`}>
               <Icon name="arrow-left" size={18} /> Previous
               <LinkLoader kind="inline" label={`Opening ${previousName}…`} />
-            </Link>
+            </KeepDomainLink>
           )}
           <span>
             {index + 1} of {classmates.length}
           </span>
           {next && (
-            <Link scroll={false} href={`/portfolio/${next.id}?domain=${selected.id}`} data-loader-label={`Opening ${nextName}…`}>
+            <KeepDomainLink scroll={false} base={`/portfolio/${next.id}`} fallback={selected.id} data-loader-label={`Opening ${nextName}…`}>
               Next <Icon name="arrow-right" size={18} />
               <LinkLoader kind="inline" label={`Opening ${nextName}…`} />
-            </Link>
+            </KeepDomainLink>
           )}
         </nav>
       </div>
       <PdfExport key={id} portfolioId={id} areas={domains.map((d) => {
-        const e = child.portfolios?.domain_entries.find((x) => x.domain === d.id) as (Entry & { updated_at: string }) | undefined;
+        const e = entries.find((x) => x.domain === d.id) as (Entry & { updated_at: string }) | undefined;
         return { id: d.id, label: d.label, indicator: e?.rating ? ratingLabels[e.rating - 1] : null, hasStory: Boolean(e?.narrative.trim()), savedAt: e?.updated_at ?? new Date(0).toISOString() };
       })} />
-      <nav className="domain-tabs" aria-label="Learning domains">
-        {domains.map((d) => {
-          const saved = child.portfolios?.domain_entries.find(e => e.domain === d.id);
-          return (
-          <Link
-            key={d.id}
-            scroll={false} href={`/portfolio/${id}?domain=${d.id}`}
-            aria-current={selected.id === d.id ? "page" : undefined}
-            aria-describedby={`readiness-${id}-${selected.id}-${d.id}`}
-            data-loader-label={`Opening ${d.label}…`}
-          >
-            <LinkLoader kind="inline" label={`Opening ${d.label}…`} />
-            <span className={`domain-badge ${d.id}`}>{d.short}</span>
-            <span className="domain-tab-label">{d.label}</span>
-            <DomainStamp domain={d.id} tooltipId={`readiness-${id}-${selected.id}-${d.id}`} hasIndicator={Boolean(saved?.rating)} hasStory={Boolean(saved?.narrative.trim())} />
-          </Link>
-        ); })}
-      </nav>
-      <InlineLoader />
-      <DomainEditor
-        key={entry.id}
-        entry={entry}
-        previousRating={prior?.rating ?? null}
-      />
+      <PortfolioDomains portfolioId={id} entries={entries} priorRatings={priorRatings} fallback={selected.id} />
         </section>
       </div>
     </>
