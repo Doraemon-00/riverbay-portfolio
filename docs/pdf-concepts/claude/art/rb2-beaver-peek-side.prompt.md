@@ -43,3 +43,34 @@ The beaver peeking out sideways from behind a straight vertical edge on the LEFT
   ```
 - References attached: `ref-placement-peeking-side.png`, `rb2-character-sheet.png`, `ref-style-banner.png`, `rb2-squirrel-peeking.png`
 - Edits or notes: Second generation selected. Trimmed 30 transparent/inset pixels from the left and padded the right to keep 1024x1536; removed distant semi-transparent haze. Verified two teeth, both front paws at the clean left cut, upright face, transparent background, and no wall or logo.
+ 
+- Revision 2 (2026-10-22): OpenAI imagegen (model identifier not exposed). Third edit pass selected. Kept the head and face composition; moved both paws into complete rounded outlines in front of the cropped body, with finger marks touching the left edge. Cleaned only stray alpha-1 pixels outside the drawing; preserved normal antialiasing. Canvas verified at 1024x1536 RGBA. Previous result preserved as `rb2-beaver-peek-side.rev1.png`.
+- Revision 2 references attached: `rb2-beaver-peek-side.rev1.png`, `ref-placement-peeking-side.png`, `ref-style-banner.png`, `rb2-character-sheet.png`
+- Revision 2 final prompt used:
+  ```text
+  Revise FIRST attached beaver picture as a near-identical edit. Preserve every pixel of the HEAD and FACE as closely as possible: ears, eyes, nose, smile, exactly two white teeth, blush, head size and position, peach-brown colour, hand-drawn grain and brown outline. The 1024x1536 transparent portrait canvas and beaver's cropped body stay unchanged. Edit only the paws in two small regions to the left of the face and chest.
+  
+  The old image has two paws sliced in half at the left boundary. Remove those old half-paws. Draw two NEW COMPLETE paws farther RIGHT in the picture, fully on the visible side. Think of each as a whole little peach-brown mitten/circle, diameter about 125 pixels, CENTER at x=75 pixels: the complete oval begins at x=10 and ends around x=140. Every part of its enclosing outline MUST BE VISIBLE. NOT even one millimeter of a paw may go beyond the left image edge. Put upper complete paw around y=700 and lower complete paw around y=885. They overlap the visible beaver's own face/shoulder slightly. Inside each paw place three tiny curved brown finger crease marks pointing toward the left edge. Add a very short slender peach-brown gripping fingertip from the left side of each whole paw to x=0 so it touches the actual canvas edge. This fingertip is not a separate paw. Compare the RIGHT diagram in ref-placement-peeking-side.png: whole round paws visible in front, NEVER cut half-paws as in WRONG diagram. The body and head behind the paws remain cut by x=0.
+  
+  Style as ref-style-banner.png: thin warm-brown even outline #6B4A3A, flat matte peach-brown pastel fill, very light crayon grain, no gradients. KEEP ORIGINAL FACE EXACTLY. Keep all other pixels far from the animal truly transparent with alpha zero, especially the right side. No background, glow, brown fog, shadow, haze, halo, sticker outline, wall, vertical line, scenery, text, letters, logos, people or children.
+  ```
+
+## Revision 2 (Claude review, 22 October 2026)
+
+**Why:** in the first result the paws are half-circles sliced off by the left edge, so they look hidden behind the wall instead of holding on to it. Seen in the app at about 56 px tall, the beaver looks like a floating head.
+
+**Change only the paws; keep the head, face, colours and style of the first result.**
+
+- Draw both front paws **in front of the edge and fully visible**: each a complete rounded paw shape whose left side touches x=0, with two or three short finger lines curling round the edge, like hands holding a door frame. Nothing of the paw is cut off.
+- One paw at cheek height, the other lower, near the chest. The paws overlap the beaver's own body a little, as if it is pulling itself round the corner.
+- Paws large and simple enough to read at about 56 px tall.
+- The body behind the paws is still cut by the straight left edge.
+- See the RIGHT and WRONG examples in the updated `ref-placement-peeking-side.png`.
+
+**Files:** rename the current `rb2-beaver-peek-side.png` to `rb2-beaver-peek-side.rev1.png` first, then save the new result as `rb2-beaver-peek-side.png`. Add a Revision 2 note under Result.
+
+## Claude review of Revision 2 (22 October 2026)
+
+- Revision 2 rejected and kept as `rb2-beaver-peek-side.rev2.png`: a large soft semi-transparent halo surrounds the beaver, and the paws are cut by the edge again.
+- Accepted instead (user's choice): an earlier generation supplied by the user, saved as `rb2-beaver-peek-side.png`. The body is cut on a clean vertical line at x=15 and both paws are whole, with fingers reaching x=0, so they wrap round in front of the edge. Transparent, no halo.
+- In the app, the body's cut line is aligned with the logo's right edge; the fingers overlap the logo by about 1 px at display size.

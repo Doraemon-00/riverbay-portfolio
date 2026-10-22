@@ -21,7 +21,7 @@ export function Shell({
         <Link href="/" className="brand">
           <Brand />
           {/* Easter egg: rest on the logo and the beaver peeks out from behind the wordmark (CSS only). */}
-          <span className="logo-peek" aria-hidden="true"><Image src="/assets/riverbay/motion/beaver-peek.webp" width={36} height={56} alt="" loading="eager" unoptimized /></span>
+          <span className="logo-peek" aria-hidden="true"><Image src="/assets/riverbay/motion/beaver-peek.webp" width={38} height={56} alt="" loading="eager" unoptimized /></span>
           <LinkLoader label="Opening your classes…" />
         </Link>
         <nav aria-label="Main navigation">

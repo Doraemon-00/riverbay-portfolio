@@ -171,9 +171,25 @@ def placement_peeking_side() -> None:
     d.rectangle((560, 210, 880, 690), outline=ACCENT, width=6)
     d.text((580, 225), "the image", fill=ACCENT, font=font(26))
     d.text((580, 258), "= this box", fill=ACCENT, font=font(26))
-    for i, line in enumerate(["LEFT edge = clean vertical cut", "paws grip the LEFT edge", "head and face turned to the viewer",
+    for i, line in enumerate(["LEFT edge = clean vertical cut", "head and face turned to the viewer",
                               "body continues behind the logo", "nothing drawn left of the box"]):
-        d.text((920, 300 + i * 52), line, fill=INK, font=font(26))
+        d.text((920, 240 + i * 46), line, fill=INK, font=font(26))
+    # Paws: drawn in FRONT of the edge and fully visible, fingers curling round it (Revision 2).
+    paw, line_w = (246, 196, 160), 5
+    for top in (430, 560):
+        d.rounded_rectangle((562, top, 640, top + 70), radius=34, fill=paw, outline=(107, 74, 58), width=line_w)
+        for k in range(3):
+            y = top + 18 + k * 17
+            d.line((566, y, 584, y), fill=(107, 74, 58), width=4)
+    d.text((660, 470), "RIGHT: whole paw", fill=(47, 92, 77), font=font(22))
+    d.text((660, 498), "in front, fingers", fill=(47, 92, 77), font=font(22))
+    d.text((660, 526), "curl round the edge", fill=(47, 92, 77), font=font(22))
+    d.text((920, 440), "WRONG (not this):", fill=ACCENT, font=font(26))
+    d.rectangle((920, 480, 1180, 640), outline=LINE, width=3)
+    d.line((960, 480, 960, 640), fill=MUTED, width=4)
+    d.pieslice((900, 520, 1020, 610), 270, 90, fill=paw, outline=(107, 74, 58), width=line_w)
+    d.text((1030, 540), "paw sliced", fill=ACCENT, font=font(22))
+    d.text((1030, 566), "by the edge", fill=ACCENT, font=font(22))
     img.save(OUT / "ref-placement-peeking-side.png", optimize=True)
 
 

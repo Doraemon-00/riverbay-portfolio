@@ -48,7 +48,7 @@ Claude reads this table to find finished files: only rows marked `done`, at the 
 | 40 | `rb2-squirrel-count-finish.png` | 6 app animation frames | 1536x1024 | done | generated and QA checked |
 | 41 | `rb2-bear-rabbit-walk-sheet.png` | 6 app animation frames | 1024x1024 | done | generated and QA checked |
 | 42 | `rb2-bear-rabbit-mat-finish.png` | 6 app animation frames | 1926x817 | done | generated and QA checked |
-| 43 | `rb2-beaver-peek-side.png` | 7 app easter egg | 1024x1536 | done | Upright side peek; two paws grip the clean left cut; two teeth; transparent portrait asset. |
+| 43 | `rb2-beaver-peek-side.png` | 7 app easter egg | 1024x1536 | done | Accepted by user and Claude review: earlier generation with the body cut at x=15 and whole paws whose fingers reach x=0. Revision 2 (`.rev2.png`) rejected: large soft halo and paws cut again. First pick kept as `.rev1.png`. |
 
 ## References in this folder (do not edit)
 
