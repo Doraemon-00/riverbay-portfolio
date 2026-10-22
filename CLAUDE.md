@@ -13,6 +13,7 @@ Riverbay Preschool is a fictional school for a paid prototype (the real client i
 
 ## Cloud sessions (no local machine)
 
+- A SessionStart hook (`.claude/hooks/install-deps.sh`) installs packages with `npm ci --ignore-scripts` when `node_modules` is missing. If it failed, run that command first.
 - There is no Docker, so the local Supabase stack cannot run here. Check changes with `npm run lint`, `npm run typecheck` and `npm run build`.
 - To see a change running, push a branch: Vercel builds a Preview deployment with its own URL. Previews use the same hosted fictional demo database as production, so test with care and never reset, reseed or bulk-edit it.
 - Production deploys from `codex/riverbay-foundation`. Work on a separate branch and merge only when the user asks.
