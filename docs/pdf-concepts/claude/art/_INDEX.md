@@ -48,6 +48,7 @@ Claude reads this table to find finished files: only rows marked `done`, at the 
 | 40 | `rb2-squirrel-count-finish.png` | 6 app animation frames | 1536x1024 | done | generated and QA checked |
 | 41 | `rb2-bear-rabbit-walk-sheet.png` | 6 app animation frames | 1024x1024 | done | generated and QA checked |
 | 42 | `rb2-bear-rabbit-mat-finish.png` | 6 app animation frames | 1926x817 | done | generated and QA checked |
+| 43 | `rb2-beaver-peek-side.png` | 7 app easter egg | 1024x1536 | done | Upright side peek; two paws grip the clean left cut; two teeth; transparent portrait asset. |
 
 ## References in this folder (do not edit)
 
@@ -59,6 +60,7 @@ Claude reads this table to find finished files: only rows marked `done`, at the 
 | `ref-placement-hanging.png` | Willow strand and paw positions (hanging beaver, beaver with letters) |
 | `ref-placement-tail.png` | Squirrel holding a frame corner with its tail |
 | `ref-placement-peeking.png` | Edge placement for the peeking squirrel |
+| `ref-placement-peeking-side.png` | Side-edge placement for the beaver peeking from behind the logo (#43) |
 | `ref-placement-vine.png` | Growth path for the edge vine |
 | `ref-river-path.png` | Path for both river assets |
 | `ref-sheet-grid.png` | 2 x 2 frame-sheet layout with ground line (#32, #33, #35) |

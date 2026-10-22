@@ -8,6 +8,7 @@ Outputs (all derived from canonical Riverbay files, deterministic, no AI):
   ref-palette.png            brand palette swatches with hex codes
   ref-placement-hanging.png  where the hanging beaver's paws must be, relative to a photo frame
   ref-placement-peeking.png  how the peeking squirrel sits on a frame edge
+  ref-placement-peeking-side.png  how the beaver peeks out sideways from behind the logo
   ref-placement-tail.png     how the hanging squirrel holds a frame corner with its tail
   ref-placement-vine.png     how the edge vine climbs the page edge beside a photo
   ref-river-path.png         the S/C path of the background river
@@ -158,6 +159,24 @@ def placement_peeking() -> None:
     img.save(OUT / "ref-placement-peeking.png", optimize=True)
 
 
+def placement_peeking_side() -> None:
+    img = Image.new("RGB", (1400, 900), PAPER)
+    d = ImageDraw.Draw(img)
+    d.text((30, 20), "rb2-beaver-peek-side.png: draw ONLY the beaver (no logo, no wall).", fill=ACCENT, font=font(30))
+    d.rectangle((110, 250, 560, 650), fill=(226, 231, 228), outline=LINE, width=6)
+    d.text((150, 410), "LOGO", fill=MUTED, font=font(34))
+    d.text((150, 460), "(placed later, not drawn)", fill=MUTED, font=font(24))
+    d.line((560, 700, 560, 740), fill=INK, width=4)
+    d.text((470, 750), "logo right edge", fill=INK, font=font(24))
+    d.rectangle((560, 210, 880, 690), outline=ACCENT, width=6)
+    d.text((580, 225), "the image", fill=ACCENT, font=font(26))
+    d.text((580, 258), "= this box", fill=ACCENT, font=font(26))
+    for i, line in enumerate(["LEFT edge = clean vertical cut", "paws grip the LEFT edge", "head and face turned to the viewer",
+                              "body continues behind the logo", "nothing drawn left of the box"]):
+        d.text((920, 300 + i * 52), line, fill=INK, font=font(26))
+    img.save(OUT / "ref-placement-peeking-side.png", optimize=True)
+
+
 def placement_vine() -> None:
     img = Image.new("RGB", (1300, 1300), PAPER)
     d = ImageDraw.Draw(img)
@@ -210,6 +229,7 @@ def main() -> None:
     placement_hanging()
     placement_tail()
     placement_peeking()
+    placement_peeking_side()
     placement_vine()
     river_path()
     print("refs written to", OUT)
