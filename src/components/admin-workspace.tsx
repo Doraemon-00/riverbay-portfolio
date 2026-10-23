@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useId, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { adminChange } from "@/app/admin/actions";
+import { adminChange } from "@/app/(workspace)/admin/actions";
 import type { AdminData } from "@/lib/admin";
 import { Icon } from "./icon";
 import type { NotifyAdmin } from "./admin-notification";

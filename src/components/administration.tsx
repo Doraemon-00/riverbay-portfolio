@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState, useTransition } from "react";
-import { addTeacherAccount, adminChange } from "@/app/admin/actions";
+import { addTeacherAccount, adminChange } from "@/app/(workspace)/admin/actions";
 import type { AdminData, AdminStudent, AdminTeacher } from "@/lib/admin";
 import { AdminWorkspace, Dialog } from "./admin-workspace";
 import { Icon } from "./icon";

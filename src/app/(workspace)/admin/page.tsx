@@ -1,10 +1,9 @@
 import { requireViewer } from "@/lib/auth";
-import { Shell } from "@/components/shell";
 import { Administration } from "@/components/administration";
 import type { AdminClass, AdminStudent, AdminTeacher, Membership, ClassTeacher } from "@/lib/admin";
 export const instant = false;
 export default async function Admin({ searchParams }: { searchParams: Promise<{ year?: string; class?: string }> }) {
-  const { db, profile } = await requireViewer(true);
+  const { db } = await requireViewer(true);
   const query = await searchParams;
   const requested = Number(query.year);
   const year = Number.isInteger(requested) && requested >= 2020 && requested <= 2200 ? requested : new Date().getFullYear();
@@ -19,5 +18,5 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   if (results.some(result => result.error)) throw new Error("Could not load class administration. Please retry.");
   const years = [...new Set([year, new Date().getFullYear(), new Date().getFullYear() + 1, ...results[5].data!.map(p => p.year as number)])].sort((a,b) => b-a);
   const allClasses = results[0].data as AdminClass[], allMemberships = results[3].data as Membership[];
-  return <Shell profile={profile} framed current="administration"><Administration data={{ year, years, initialClass: query.class, classes: allClasses.filter(c => c.academic_year === year), allClasses, students: results[1].data as AdminStudent[], teachers: results[2].data as AdminTeacher[], memberships: allMemberships.filter(m => m.academic_year === year), allMemberships, assignments: results[4].data as ClassTeacher[] }} /></Shell>;
+  return <Administration data={{ year, years, initialClass: query.class, classes: allClasses.filter(c => c.academic_year === year), allClasses, students: results[1].data as AdminStudent[], teachers: results[2].data as AdminTeacher[], memberships: allMemberships.filter(m => m.academic_year === year), allMemberships, assignments: results[4].data as ClassTeacher[] }} />;
 }
