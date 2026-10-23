@@ -716,3 +716,48 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
 @media(prefers-reduced-motion:reduce) {
  .page-loader-overlay,.inline-loader-pill,.loader-stage *,.loader-stage * img { animation:none!important; }
 }
+
+/* Trial frame (My classes): the logo heads a full-height left column holding the page's own list; the top bar spans only the content. */
+.app-frame { --rail:264px; --bar:72px; display:grid; grid-template-columns:var(--rail) minmax(0,1fr); grid-template-rows:var(--bar) 1fr; min-height:100svh; }
+.frame-rail { grid-column:1; grid-row:1 / span 2; background:color-mix(in srgb,var(--mint) 25%,var(--paper)); border-right:1px solid var(--line); }
+.frame-brand { position:sticky; top:0; z-index:6; height:var(--bar); display:flex; align-items:center; padding:0 22px; background:inherit; }
+.frame-brand .brand-lockup img { width:160px; height:40px; }
+.frame-brand .brand-lockup small { padding-left:40px; }
+.frame-topbar { grid-column:2; grid-row:1; position:sticky; top:0; z-index:5; height:var(--bar); padding:0 32px; gap:16px; }
+.frame-topbar nav { justify-content:flex-start; gap:6px; }
+.frame-topbar nav a[aria-current="page"] { background:var(--mint); }
+.frame-page { grid-column:1 / span 2; grid-row:2; min-width:0; }
+.app-frame .admin-directory { grid-template-columns:var(--rail) minmax(0,1fr); gap:0; }
+.app-frame .class-directory { position:sticky; top:var(--bar); align-self:start; max-height:calc(100svh - var(--bar)); overflow:auto; padding:22px 14px; background:transparent; border-right:0; }
+.app-frame .class-detail { padding:30px 40px 70px; max-width:1240px; }
+.app-frame .my-classes > .directory-empty { margin:30px 40px 0 calc(var(--rail) + 40px); }
+.rail-semester { display:flex; flex-direction:column; gap:6px; padding:0 10px 22px; margin-bottom:18px; border-bottom:1px solid var(--line); }
+.rail-semester .eyebrow { margin:0; }
+.rail-semester select { margin:0; width:100%; }
+/* Portfolio: the student list becomes the left column. */
+.app-frame .portfolio-workspace { grid-template-columns:var(--rail) minmax(0,1fr); gap:0; margin-top:0; }
+.app-frame .student-sidebar { top:var(--bar); max-height:calc(100svh - var(--bar)); padding:22px 14px; background:transparent; border-right:0; }
+.app-frame .portfolio-main { padding:18px 40px 70px; max-width:1280px; }
+.app-frame .portfolio-back-link { margin:0 0 6px -12px; }
+/* Administration: sections, then the academic year and the class list on Classes. */
+.app-frame .class-directory .administration-nav { display:block; padding:0 0 18px; margin:0 0 18px; border-bottom:1px solid var(--line); }
+.app-frame .class-directory .administration-nav:last-child { border-bottom:0; }
+.app-frame .administration-nav-options { flex-direction:column; gap:4px; }
+.app-frame .administration-nav button { justify-content:flex-start; width:100%; min-height:42px; padding:8px 12px; }
+.rail-add-class { width:calc(100% - 20px); margin:14px 10px 4px; }
+@media(max-width:1000px) {
+ .app-frame { display:block; }
+ .frame-rail { background:white; border-right:0; }
+ .frame-brand { position:static; height:auto; padding:14px 20px; }
+ .frame-topbar { position:static; height:auto; padding:10px 20px; flex-wrap:wrap; }
+ .app-frame .admin-directory { grid-template-columns:200px minmax(0,1fr); }
+ .app-frame .class-directory { position:static; max-height:none; }
+ .app-frame .class-detail { padding:24px 20px 50px; }
+ .app-frame .my-classes > .directory-empty { margin:24px 20px 0; }
+ .app-frame .class-directory,.app-frame .student-sidebar { background:color-mix(in srgb,var(--mint) 25%,transparent); border-right:1px solid var(--line); }
+ .app-frame .portfolio-workspace { grid-template-columns:220px minmax(0,1fr); gap:24px; padding:20px; }
+ .app-frame .student-sidebar { top:20px; max-height:calc(100svh - 40px); }
+ .app-frame .portfolio-main { padding:0; }
+}
+@media(max-width:800px) { .app-frame .portfolio-workspace { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:700px) { .app-frame .admin-directory { grid-template-columns:minmax(0,1fr); } .app-frame .class-directory { padding:16px 20px 0; } .app-frame .class-directory nav.administration-nav { display:block; } .app-frame .administration-nav-options { flex-direction:row; } }

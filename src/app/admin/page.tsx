@@ -19,5 +19,5 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   if (results.some(result => result.error)) throw new Error("Could not load class administration. Please retry.");
   const years = [...new Set([year, new Date().getFullYear(), new Date().getFullYear() + 1, ...results[5].data!.map(p => p.year as number)])].sort((a,b) => b-a);
   const allClasses = results[0].data as AdminClass[], allMemberships = results[3].data as Membership[];
-  return <Shell profile={profile}><Administration data={{ year, years, initialClass: query.class, classes: allClasses.filter(c => c.academic_year === year), allClasses, students: results[1].data as AdminStudent[], teachers: results[2].data as AdminTeacher[], memberships: allMemberships.filter(m => m.academic_year === year), allMemberships, assignments: results[4].data as ClassTeacher[] }} /></Shell>;
+  return <Shell profile={profile} framed current="administration"><Administration data={{ year, years, initialClass: query.class, classes: allClasses.filter(c => c.academic_year === year), allClasses, students: results[1].data as AdminStudent[], teachers: results[2].data as AdminTeacher[], memberships: allMemberships.filter(m => m.academic_year === year), allMemberships, assignments: results[4].data as ClassTeacher[] }} /></Shell>;
 }

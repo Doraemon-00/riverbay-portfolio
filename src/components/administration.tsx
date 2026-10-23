@@ -20,19 +20,22 @@ export function Administration({ data }: { data: AdminData }) {
   const notify = (source: Section): NotifyAdmin => value => setNotice({ ...value, id: crypto.randomUUID(), action: value.action ? { label: value.action.label, run: () => { setSection(source); value.action!.run(); } } : undefined });
   const root = useRef<HTMLDivElement>(null);
   const [floor, setFloor] = useState(0);
-  return <div ref={root} data-tour-page="administration" data-tour-key={section} style={{ minHeight: floor }}>
-    <header className="administration-heading"><p className="eyebrow">PEOPLE & CLASSES</p><h1>Administration</h1></header>
-    <nav className="administration-nav" aria-label="Administration sections">
+  // The sections head the left column; the class list follows them on the Classes section.
+  const sectionNav = <nav className="administration-nav" aria-label="Administration sections">
       <span className="administration-nav-options">
       {(["classes", "students", "teachers"] as const).map(value => <button key={value} aria-current={section === value ? "page" : undefined} aria-controls={`admin-${value}`} onClick={() => {
         if (root.current) setFloor(Math.max(0, window.innerHeight - root.current.getBoundingClientRect().top));
         setSection(value);
       }}><Icon name={value === "classes" ? "books" : "users-three"} />{value[0].toUpperCase() + value.slice(1)}</button>)}
       </span>
-    </nav>
-    <div id="admin-classes" hidden={section !== "classes"}><AdminWorkspace key={data.year} data={data} notify={notify("classes")} /></div>
-    <div id="admin-students" hidden={section !== "students"}><PeopleDirectory kind="students" data={data} notify={notify("students")} /></div>
-    <div id="admin-teachers" hidden={section !== "teachers"}><PeopleDirectory kind="teachers" data={data} notify={notify("teachers")} /></div>
+    </nav>;
+  return <div ref={root} data-tour-page="administration" data-tour-key={section} style={{ minHeight: floor }}>
+    <h1 className="sr-only">Administration</h1>
+    <div id="admin-classes" hidden={section !== "classes"}><AdminWorkspace key={data.year} data={data} notify={notify("classes")} sectionNav={sectionNav} /></div>
+    {(["students", "teachers"] as const).map(kind => <div key={kind} id={`admin-${kind}`} hidden={section !== kind} className="admin-directory">
+      <aside className="class-directory" aria-label="Administration sections">{sectionNav}</aside>
+      <div className="class-detail"><PeopleDirectory kind={kind} data={data} notify={notify(kind)} /></div>
+    </div>)}
     {notice && <AdminNotification key={notice.id} notice={notice} dismiss={dismissNotice} />}
   </div>;
 }

@@ -11,8 +11,10 @@ import { Icon } from "./icon";
 import { LinkLoader, useLoaderWait } from "./page-loader";
 
 type ClassChoice = { id: string; name: string; portfolioIds: string[] };
-export function StudentNavigator({ viewerId, classmates, currentId, domain: serverDomain, className, classId, year, semester, classChoices, periodId }: {
-  viewerId: string; classmates: NavigationItem[]; currentId: string; domain: Domain; className: string; classId: string; year: number; semester: number; classChoices: ClassChoice[]; periodId: string;
+/** A semester to switch to: this student's portfolio in it, or My classes for that semester. */
+export type SemesterChoice = { id: string; label: string; href: string; portfolio: boolean };
+export function StudentNavigator({ viewerId, classmates, currentId, domain: serverDomain, className, classId, year, semester, classChoices, periodId, semesterChoices = [] }: {
+  viewerId: string; classmates: NavigationItem[]; currentId: string; domain: Domain; className: string; classId: string; year: number; semester: number; classChoices: ClassChoice[]; periodId: string; semesterChoices?: SemesterChoice[];
 }) {
   const router = useRouter();
   const domain = useCurrentDomain(serverDomain);
@@ -85,6 +87,13 @@ export function StudentNavigator({ viewerId, classmates, currentId, domain: serv
     const allowed = window.dispatchEvent(new CustomEvent("riverbay:before-navigate",{ cancelable:true, detail:{ href, label } }));
     if (allowed) { setClassNavLabel(label); startClassNavigation(() => router.push(href,{ scroll:false })); }
   }
+  function chooseSemester(id: string) {
+    const choice = semesterChoices.find(c => c.id === id);
+    if (!choice || id === periodId) return;
+    const href = choice.portfolio ? `${choice.href}?domain=${domain}` : choice.href, label = `Opening ${choice.label}…`;
+    const allowed = window.dispatchEvent(new CustomEvent("riverbay:before-navigate",{ cancelable:true, detail:{ href, label } }));
+    if (allowed) { setClassNavLabel(label); startClassNavigation(() => router.push(href,{ scroll:false })); }
+  }
   function updateVisibility(list: HTMLElement | null) {
     if (!list || list.offsetParent === null) return;
     const active = list.querySelector('[aria-current="page"]');
@@ -114,6 +123,7 @@ export function StudentNavigator({ viewerId, classmates, currentId, domain: serv
   const matches = classmates.filter(c => `${c.children.display_name} ${c.children.student_code}`.toLowerCase().includes(search.trim().toLowerCase()));
   function picker(mobile: boolean) {
     return <>
+      {semesterChoices.length > 0 && <label className="compact-label rail-semester"><span className="eyebrow">PORTFOLIO SEMESTER</span><select aria-label="Portfolio semester" value={periodId} onChange={e => chooseSemester(e.target.value)}>{semesterChoices.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}</select></label>}
       {mobile ? <label>Class<select aria-label="Portfolio class" value={classId} onChange={e => chooseClass(e.target.value)}>{classChoices.map(c => <option key={c.id} value={c.id}>{c.name}{!c.portfolioIds.length ? " · No students" : ""}</option>)}</select></label> : <div className="sidebar-class-navigation">
         {previousClass ? <Link className="icon-button" aria-label={`Previous class: ${previousClass.name}`} title={`Previous class: ${previousClass.name}`} prefetch={false} scroll={false} href={classHref(previousClass)} data-loader-label={`Opening ${previousClass.name}…`}><Icon name="arrow-left" /><LinkLoader kind="inline" label={`Opening ${previousClass.name}…`} /></Link> : <span aria-hidden="true" />}
         <button className="class-title-picker" aria-label={`Choose class, current ${className}`} onClick={() => setClassesOpen(true)}>{className}<small>{year}</small></button>

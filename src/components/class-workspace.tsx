@@ -57,20 +57,20 @@ export function ClassWorkspace({ viewerId, roster, classes, periods, initialPeri
   function studentCount(id: string) { return roster.filter(r => r.class_id === id && r.period_id === periodId).length; }
 
   return <div className="my-classes" data-tour-page="my-classes" data-tour-key={`${periodId}:${classId}`} ref={root} style={{ minHeight: floor }}>
-    <header className="admin-heading page-heading"><div><p className="eyebrow">YOUR WORKSPACE</p><h1>My classes</h1><p className="hint">Every moment counts. Every child has a story.</p></div>
-      {!!availablePeriods.length && <label className="compact-label">Portfolio semester<select aria-label="Portfolio semester" value={periodId} onChange={e => {
+    <h1 className="sr-only">My classes</h1>
+    {!classes.length ? <div className="directory-empty"><h2>No classes assigned yet</h2><p className="hint">Your administrator can assign you a class. Its portfolios will appear here.</p></div> : !period ? <div className="directory-empty"><h2>No reporting semesters yet</h2><p className="hint">Your administrator can prepare the reporting semesters for your classes.</p></div> : <div className="admin-directory">
+      <aside className="class-directory" aria-label="My class directory">
+        <label className="compact-label rail-semester"><span className="eyebrow">PORTFOLIO SEMESTER</span><select aria-label="Portfolio semester" value={periodId} onChange={e => {
         const next = availablePeriods.find(p => p.id === e.target.value)!;
         const nextClasses = classes.filter(c => c.academic_year === next.year);
         select(nextClasses.some(c => c.id === classId) ? classId : nextClasses[0]?.id ?? "",next.id);
-      }}>{availablePeriods.map(p => <option key={p.id} value={p.id}>{p.year} · Semester {p.semester}</option>)}</select></label>}
-    </header>
-    <TourWelcome viewerId={viewerId} />
-    {!classes.length ? <div className="directory-empty"><h2>No classes assigned yet</h2><p className="hint">Your administrator can assign you a class. Its portfolios will appear here.</p></div> : !period ? <div className="directory-empty"><h2>No reporting semesters yet</h2><p className="hint">Your administrator can prepare the reporting semesters for your classes.</p></div> : <div className="admin-directory">
-      <aside className="class-directory" aria-label="My class directory"><p className="eyebrow">CLASSES · {period.year}</p>
+      }}>{availablePeriods.map(p => <option key={p.id} value={p.id}>{p.year} · Semester {p.semester}</option>)}</select></label>
+        <p className="eyebrow">CLASSES · {period.year}</p>
         <label className="mobile-class-picker">Class<select aria-label="Choose my class" value={classId} onChange={e => select(e.target.value)}>{yearClasses.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
         <nav aria-label="Choose my class">{yearClasses.map(c => <button key={c.id} aria-current={classId === c.id ? "page" : undefined} onClick={() => select(c.id)}><Icon name="books" /><span>{c.name}</span><span className="directory-count">{studentCount(c.id)}</span></button>)}</nav>
       </aside>
       <section className="class-detail class-section" aria-labelledby="roster-heading">
+        <TourWelcome viewerId={viewerId} />
         <header className="class-detail-heading section-heading"><div><h2 id="roster-heading">{current?.name} · {period.year}</h2><p>{children.length} {children.length === 1 ? "student" : "students"} · {ready} ready for PDF</p></div></header>
         <label className="search-field roster-search"><Icon name="magnifying-glass" /><span className="sr-only">Search my students</span><input type="search" placeholder="Search by name or student ID" value={search} onChange={e => setSearch(e.target.value)} /></label>
         <div className="portfolio-roster" role="region" aria-label={`${current?.name} portfolio progress`}>

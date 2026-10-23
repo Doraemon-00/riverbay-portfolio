@@ -28,7 +28,7 @@ export function Dialog({ title, children, close, pending, tour = "dialog" }: { t
   </dialog>;
 }
 
-export function AdminWorkspace({ data, notify }: { data: AdminData; notify: NotifyAdmin }) {
+export function AdminWorkspace({ data, notify, sectionNav }: { data: AdminData; notify: NotifyAdmin; sectionNav?: React.ReactNode }) {
   const router = useRouter();
   const detailRef = useRef<HTMLElement>(null);
   const [detailFloor, setDetailFloor] = useState(0);
@@ -111,16 +111,16 @@ export function AdminWorkspace({ data, notify }: { data: AdminData; notify: Noti
   const peopleLabel = `${selection.length} ${tab === "teachers" ? (selection.length === 1 ? "teacher" : "teachers") : (selection.length === 1 ? "student" : "students")}`;
   const modalTitle = modal?.kind === "class" ? "Add class" : modal?.kind === "student" ? "Create student" : modal?.kind === "teachers" ? "Add teachers" : modal?.kind === "students" ? "Add students" : modal?.kind === "restore" ? "Restore students" : modal?.kind === "confirm" ? modal.title : "";
   return <div className="admin-workspace" aria-busy={pending}>
-    <div className="admin-heading"><div><h2>Classes</h2><p className="hint">Manage students and teacher access by academic year.</p></div>
-      <div className="admin-heading-actions"><label className="compact-label">Academic year<select aria-label="Academic year" value={data.year} disabled={pending} onChange={e => { const year = e.target.value; setYearLabel(`Opening the ${year} classes…`); startYearLoad(() => router.push(`/admin?year=${year}`, { scroll: false })); }}>{data.years.map(y => <option key={y}>{y}</option>)}</select></label><button className="primary" disabled={pending} onClick={() => open({ kind: "class" })}><Icon name="books" />Add class</button></div>
-    </div>
     <div className="admin-directory">
       <aside className="class-directory" aria-label="Class directory">
+        {sectionNav}
+        <label className="compact-label rail-semester"><span className="eyebrow">ACADEMIC YEAR</span><select aria-label="Academic year" value={data.year} disabled={pending} onChange={e => { const year = e.target.value; setYearLabel(`Opening the ${year} classes…`); startYearLoad(() => router.push(`/admin?year=${year}`, { scroll: false })); }}>{data.years.map(y => <option key={y}>{y}</option>)}</select></label>
         <p className="eyebrow">CLASSES · {data.year}</p>
         <label className="mobile-class-picker">Class<select aria-label="Choose class" value={selectedClass} disabled={pending} onChange={e => choose(e.target.value)}>{visibleClasses.map(c => <option key={c.id} value={c.id}>{c.name}{c.archived_at ? " · Archived" : ""}</option>)}<option value="unassigned">Unassigned</option></select></label>
         <nav aria-label="Choose class">{visibleClasses.map(c => <button key={c.id} disabled={pending} aria-current={selectedClass === c.id ? "page" : undefined} onClick={() => choose(c.id)}><Icon name="books" /><span>{c.name}{c.archived_at && <small>Archived</small>}</span><span className="directory-count">{count(c.id)}</span></button>)}
           <button className="unassigned-class" disabled={pending} aria-current={selectedClass === "unassigned" ? "page" : undefined} onClick={() => choose("unassigned")}><Icon name="users-three" /><span>Unassigned</span><span className="directory-count">{count(null)}</span></button></nav>
         {!data.classes.length && <p className="hint">No classes yet. Add the first class for {data.year}.</p>}
+        <button className="secondary rail-add-class" disabled={pending} onClick={() => open({ kind: "class" })}><Icon name="books" />Add class</button>
         <label className="check-label directory-archive-toggle"><input type="checkbox" checked={showArchivedClasses} onChange={e => { setShowArchivedClasses(e.target.checked); if (!e.target.checked && current?.archived_at) choose("unassigned"); }} />Show archived classes</label>
       </aside>
       <section ref={detailRef} className="class-detail" style={{ minHeight: detailFloor }} aria-labelledby="class-detail-title">

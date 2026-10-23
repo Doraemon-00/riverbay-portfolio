@@ -14,5 +14,5 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
   ]);
   if (results.some(r => r.error)) throw new Error("Could not load your classes. Please try again.");
   const all = (results[0].data as unknown as RosterItem[]).filter(item => item.children && !item.children.archived_at && !item.classes.archived_at && results[2].data!.some(m => m.child_id === item.child_id && m.class_id === item.class_id && m.academic_year === item.reporting_periods.year && m.access_enabled));
-  return <Shell profile={profile}><ClassWorkspace viewerId={profile.id} roster={all} classes={results[3].data!} periods={results[1].data!} initialPeriod={query.period} initialClass={query.class} /></Shell>;
+  return <Shell profile={profile} framed current="classes"><ClassWorkspace viewerId={profile.id} roster={all} classes={results[3].data!} periods={results[1].data!} initialPeriod={query.period} initialClass={query.class} /></Shell>;
 }

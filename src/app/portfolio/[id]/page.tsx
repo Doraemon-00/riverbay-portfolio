@@ -12,7 +12,7 @@ import {
   type Entry,
   type RosterItem,
 } from "@/lib/portfolio";
-import { StudentNavigator } from "@/components/student-navigator";
+import { StudentNavigator, type SemesterChoice } from "@/components/student-navigator";
 import { loadPortfolioNavigation } from "@/lib/portfolio-navigation";
 import { LinkLoader } from "@/components/page-loader";
 import { PdfExport } from "@/components/pdf-export";
@@ -45,7 +45,7 @@ export default async function Portfolio({
   const entries = child.portfolios?.domain_entries ?? [];
   if (!entries.some((e) => e.domain === selected.id)) notFound();
   const secondSemester = child.reporting_periods.semester > 1;
-  const [history, navigation, earlier] = await Promise.all([
+  const [history, navigation, earlier, enrolled, periods] = await Promise.all([
     db.rpc("previous_semester_ratings", { current_portfolio: id }),
     loadPortfolioNavigation(db, child.period_id, child.reporting_periods.year),
     // The same student's Semester 1 portfolio. Database policies hide it if this teacher did not have their class then.
@@ -53,7 +53,15 @@ export default async function Portfolio({
       ? db.from("enrolments").select("portfolios(id), reporting_periods!inner(year, semester)")
         .eq("child_id", child.child_id).eq("reporting_periods.year", child.reporting_periods.year).eq("reporting_periods.semester", 1).maybeSingle()
       : null,
+    // Every semester this student has a portfolio in, for the semester picker.
+    db.from("enrolments").select("period_id, portfolios(id)").eq("child_id", child.child_id),
+    db.from("reporting_periods").select("id,year,semester").order("year", { ascending: false }).order("semester", { ascending: false }),
   ]);
+  if (enrolled.error || periods.error) throw new Error("Could not load this student's semesters.");
+  const portfolioIn = new Map(enrolled.data.map(e => [e.period_id as string, (e.portfolios as unknown as { id: string } | null)?.id]));
+  const semesterChoices: SemesterChoice[] = periods.data
+    .filter(p => portfolioIn.get(p.id) || p.year === child.reporting_periods.year)
+    .map(p => { const target = portfolioIn.get(p.id); return { id: p.id, label: `${p.year} · Semester ${p.semester}`, href: target ? `/portfolio/${target}` : `/?period=${p.id}`, portfolio: !!target }; });
   const previousPortfolioId = (earlier?.data?.portfolios as unknown as { id: string } | null)?.id ?? null;
   if (history.error) throw new Error("Could not load semester history.");
   const priorRatings: Partial<Record<Domain, number>> = {};
@@ -68,13 +76,13 @@ export default async function Portfolio({
     nextName = classmates[index + 1]?.children.display_name;
   return (
     <>
-      <Link className="text-link portfolio-back-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
-        <Icon name="arrow-left" size={18} /> Back to my classes
-        <LinkLoader label="Opening your classes…" />
-      </Link>
       <div className="portfolio-workspace" data-tour-page="portfolio" data-tour-key={`${id}:${selected.id}`}>
-        <StudentNavigator viewerId={profile.id} classmates={classmates} currentId={id} domain={selected.id} className={child.classes.name} year={child.reporting_periods.year} semester={child.reporting_periods.semester} classId={child.class_id} classChoices={classChoices} periodId={child.period_id} />
+        <StudentNavigator viewerId={profile.id} classmates={classmates} currentId={id} domain={selected.id} className={child.classes.name} year={child.reporting_periods.year} semester={child.reporting_periods.semester} classId={child.class_id} classChoices={classChoices} periodId={child.period_id} semesterChoices={semesterChoices} />
         <section className="portfolio-main" aria-label="Student portfolio">
+          <Link className="text-link portfolio-back-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
+            <Icon name="arrow-left" size={18} /> Back to my classes
+            <LinkLoader label="Opening your classes…" />
+          </Link>
       <div className="child-heading">
         <div>
           <p className="eyebrow">
