@@ -209,21 +209,17 @@ export function DomainEditor({
   </>);
 }
 
-/** Semester 1's indicator; when that portfolio is open to this teacher, the whole line opens it on the same domain. */
+/** Semester 1's indicator, with a link to that portfolio on the same domain when this teacher can open it. */
 function PreviousRating({ rating, portfolioId, domain }: { rating: number | null; portfolioId: string | null; domain: Entry["domain"] }) {
   const [resting, setResting] = useState(false);
-  const content = <>
+  // Load Semester 1 once the pointer rests on the link, so opening it is quick. Like Previous and Next, it keeps the scroll position.
+  return <div className="previous-rating">
     Semester 1:
     {rating !== null && <RatingRing level={rating} />}
     <strong>{rating === null ? "Not available / not assessed" : ratingLabels[rating - 1]}</strong>
-  </>;
-  if (!portfolioId) return <div className="previous-rating">{content}</div>;
-  // Load Semester 1 once the pointer rests on the line, so opening it is quick.
-  return <div className="previous-rating">
-    <Link className="previous-rating-link" href={`/portfolio/${portfolioId}?domain=${domain}`} prefetch={resting} onPointerEnter={() => setResting(true)} onFocus={() => setResting(true)} data-loader-label="Opening Semester 1…">
-      {content}
-      <span className="previous-rating-open">View Semester 1 report <Icon name="arrow-right" size={16} /></span>
+    {portfolioId && <Link className="previous-rating-link" scroll={false} href={`/portfolio/${portfolioId}?domain=${domain}`} prefetch={resting} onPointerEnter={() => setResting(true)} onFocus={() => setResting(true)} data-loader-label="Opening Semester 1…">
+      View Semester 1 report <Icon name="arrow-right" size={16} />
       <LinkLoader label="Opening Semester 1…" />
-    </Link>
+    </Link>}
   </div>;
 }
