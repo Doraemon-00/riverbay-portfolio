@@ -736,11 +736,17 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
 .rail-semester .eyebrow { margin:0; }
 .rail-semester select { margin:0; width:100%; }
 .rail-add-class { width:calc(100% - 20px); margin:14px 10px 4px; }
-/* Administration sections: a tab row at the top of the content. Students and Teachers keep an empty left column on wide screens. */
-.class-detail > .administration-nav { margin-bottom:24px; padding-bottom:16px; }
-@media(max-width:1000px) { .admin-directory:has(> .class-directory:empty) { grid-template-columns:minmax(0,1fr); } .class-directory:empty { display:none; } }
+.class-directory .administration-nav { display:block; padding:0 0 18px; margin:0 0 18px; border-bottom:1px solid var(--line); }
+.class-directory .administration-nav:last-child { border-bottom:0; }
+.class-directory .administration-nav-options { flex-direction:column; gap:4px; }
+.class-directory .administration-nav button { justify-content:flex-start; width:100%; min-height:42px; padding:8px 12px; }
 .crumb-link { display:inline-block; margin:-4px -8px; padding:4px 8px; border-radius:8px; color:inherit; transition:background-color 140ms ease; }
 .crumb-link:hover,.crumb-link:focus-visible { background:var(--mint); text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:700px) {
+ .class-directory nav.administration-nav { display:block; margin-bottom:12px; padding-bottom:12px; }
+ .class-directory .administration-nav-options { flex-direction:row; }
+ .class-directory .administration-nav button { justify-content:center; }
+}
 @media(max-width:600px) {
  .frame-brand { padding:12px 0 4px 16px; }
  .frame-brand .brand-lockup img { width:144px; height:36px; }

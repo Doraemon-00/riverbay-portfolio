@@ -17,7 +17,7 @@ export function introductionSteps(page: string, admin: boolean, workspaceSeen: b
   });
   if (admin && page === "administration" && !administrationSeen) introductions.push({
     selector:'.administration-nav-options', intro:"administration", title:"Three places to manage the school",
-    description:"Choose a section in the tabs at the top of the page. Classes organises groups. Students manages children’s records. Teachers manages staff accounts and access.",
+    description:"Choose a section at the top of the left column. Classes organises groups. Students manages children’s records. Teachers manages staff accounts and access.",
   });
   return introductions;
 }
