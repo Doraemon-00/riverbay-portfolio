@@ -149,6 +149,7 @@ export function DomainEditor({
               </div>
               <button type="button" className={`unassessed-option ${rating === null ? "selected" : ""}`} aria-pressed={rating === null} onClick={() => { setRating(null); changed(); }}><RatingRing level={null} />Not yet assessed</button>
               <div className="previous-rating">
+                {previousRating !== null && <RatingRing level={previousRating} />}
                 Semester 1:{" "}
                 <strong>
                   {previousRating === null

@@ -30,14 +30,14 @@ export function pageGuide(page: string, root: HTMLElement): Guide {
   if (page === "my-classes") return guide("my-classes", "Your class portfolios", [
     step('[aria-label="Portfolio semester"]', "Choose the semester", "Choose which semester to work on. Each semester keeps its own portfolio content."),
     step('.class-directory nav, .mobile-class-picker', "Choose a class", "Open a class to see its students. The number beside its name is the student count."),
-    step('.roster-search', "Find a child", "Search by name or permanent student ID."),
+    step('.roster-search', "Find a student", "Search by name or permanent student ID."),
     step('.roster-student', "Open a portfolio", "Click the student row to open their portfolio, or a domain status to go straight to that area."),
     step('.roster-domains', "Follow their progress", "Not started: no saved work. In progress: partly filled. Ready for PDF: indicator and learning story saved."),
     step('.directory-empty', "Nothing here yet?", "Clear your search to see more students. If the class is empty or unassigned, ask your administrator to set it up."),
   ]);
   if (page === "portfolio") return guide("portfolio", "Work on a portfolio", [
-    step('.student-sidebar .search-field, .mobile-student-selector button', "Find another child", "Search the class by name or ID. Previous and Next also move between students."),
-    step('.domain-tabs a[aria-current="page"]', "Choose a learning area", "Open a domain tab. Its stamp fills as you save: mint circle for the indicator, animal for the story."),
+    step('.student-sidebar .search-field, .mobile-student-selector button', "Find another student", "Search the class by name or ID. Previous and Next also move between students."),
+    step('.domain-tabs a[aria-current="page"]', "Choose a domain", "Open a domain tab. Its stamp fills as you save: mint circle for the indicator, animal for the story."),
     step('.rating-options', "Choose an indicator", "Choose the level that best reflects your observations."),
     step('.observation-panel .section-heading button', "Record a moment", "Add a short factual observation. Set when it happened, or leave the date blank for a general note."),
     step('.draft-toolbar > button', "Draft a starting point", "Use this domain’s observations to draft a narrative. Review its facts and wording before choosing Use draft."),
@@ -131,7 +131,7 @@ export function dialogGuide(kind: string): Guide | null {
       step(submit, "Apply to the selected teachers", "Add access for both semesters of this year."),
     ]);
     case 'assign-students': return guide(kind, "Assign students", [
-      step('[aria-label="Student source"]', "Choose where to look", "Unassigned shows children without a class. All active students also lets you move children from another class."),
+      step('[aria-label="Student source"]', "Choose where to look", "Unassigned shows students without a class. All active students also lets you move students from another class."),
       step('.people-picker', "Choose the students", "Select existing students to move into this class. Their saved portfolios stay with them."),
       step('.settings-fields', "Choose the destination", "Assign the selected students to this year and class. Existing membership in that year will be replaced."),
       step('.dialog-actions', "Check the selection", "Check the selected count before applying. Selections can include names hidden by your search."),

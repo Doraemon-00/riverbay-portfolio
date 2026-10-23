@@ -76,7 +76,7 @@ export default async function Portfolio({
           </p>
           <h1>{child.children.display_name}</h1>
         </div>
-        <nav className="child-nav" aria-label="Children">
+        <nav className="child-nav" aria-label="Students">
           {previous && (
             <Link prefetch scroll={false} href={`/portfolio/${previous.id}`} data-loader-label={`Opening ${previousName}…`}>
               <Icon name="arrow-left" size={18} /> Previous
