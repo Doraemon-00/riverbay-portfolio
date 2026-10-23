@@ -16,7 +16,8 @@ export function DomainEditor({
   previousRating,
 }: {
   entry: Entry;
-  previousRating: number | null;
+  /** Undefined in Semester 1, which has no earlier report. */
+  previousRating?: number | null;
 }) {
   const fieldId = useId();
   const [rating, setRating] = useState(entry.rating);
@@ -148,15 +149,11 @@ export function DomainEditor({
                 ))}
               </div>
               <button type="button" className={`unassessed-option ${rating === null ? "selected" : ""}`} aria-pressed={rating === null} onClick={() => { setRating(null); changed(); }}><RatingRing level={null} />Not yet assessed</button>
-              <div className="previous-rating">
+              {previousRating !== undefined && <div className="previous-rating">
+                Semester 1:
                 {previousRating !== null && <RatingRing level={previousRating} />}
-                Semester 1:{" "}
-                <strong>
-                  {previousRating === null
-                    ? "Not available / not assessed"
-                    : ratingLabels[previousRating - 1]}
-                </strong>
-              </div>
+                <strong>{previousRating === null ? "Not available / not assessed" : ratingLabels[previousRating - 1]}</strong>
+              </div>}
             </section>
             <ObservationTimeline observations={observations} chinese={entry.domain === "chinese"} onChange={items => { setObservations(items); changed(); }} />
             <DomainPhotos entryId={entry.id} domainLabel={domain.label} />

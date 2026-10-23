@@ -98,7 +98,7 @@ export default async function Portfolio({
         const e = entries.find((x) => x.domain === d.id) as (Entry & { updated_at: string }) | undefined;
         return { id: d.id, label: d.label, indicator: e?.rating ? ratingLabels[e.rating - 1] : null, hasStory: Boolean(e?.narrative.trim()), savedAt: e?.updated_at ?? new Date(0).toISOString(), photos: e?.photos?.length ?? 0 };
       })} />
-      <PortfolioDomains portfolioId={id} entries={entries} priorRatings={priorRatings} fallback={selected.id} />
+      <PortfolioDomains portfolioId={id} entries={entries} priorRatings={child.reporting_periods.semester > 1 ? priorRatings : null} fallback={selected.id} />
         </section>
       </div>
     </>

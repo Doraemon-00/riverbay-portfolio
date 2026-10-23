@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import type { LoginError } from "@/app/api/auth/login/route";
 import { Icon } from "./icon";
@@ -19,7 +18,6 @@ const messages: Record<LoginError, string> = {
 export function LoginForm({ initialError }: { initialError?: string }) {
   const [error, setError] = useState<LoginError | null>(initialError && initialError in messages ? initialError as LoginError : null);
   const [pending, setPending] = useState(false);
-  const router = useRouter();
   useLoaderWait(pending, "Signing you in…");
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -33,7 +31,10 @@ export function LoginForm({ initialError }: { initialError?: string }) {
         body: JSON.stringify({ email: fields.get("email"), password: fields.get("password") }),
       });
       const body = await response.json().catch(() => ({ ok: false, error: "service" }));
-      if (body.ok) { router.replace("/"); return; }   // the response set the session cookies; stay pending until My classes opens
+      // A full page load, not router.replace: the router still holds the signed-out redirect from / to
+      // this page and would send the teacher straight back here. Stay pending until My classes opens.
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+      if (body.ok) { window.location.assign("/"); return; }
       setError(body.error in messages ? body.error : "service");
       (form.elements.namedItem("password") as HTMLInputElement | null)?.select();
     } catch { setError("service"); }

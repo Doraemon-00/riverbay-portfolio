@@ -28,7 +28,8 @@ const plainClick = (event: MouseEvent) => event.button === 0 && !event.metaKey &
 export function PortfolioDomains({ portfolioId, entries, priorRatings, fallback }: {
   portfolioId: string;
   entries: Entry[];
-  priorRatings: Partial<Record<Domain, number>>;
+  /** Null in Semester 1: there is no earlier semester to show. */
+  priorRatings: Partial<Record<Domain, number>> | null;
   fallback: Domain;
 }) {
   const current = useCurrentDomain(fallback);
@@ -65,6 +66,6 @@ export function PortfolioDomains({ portfolioId, entries, priorRatings, fallback 
       })}
     </nav>
     <InlineLoader />
-    {entry && <DomainEditor key={entry.id} entry={entry} previousRating={priorRatings[current] ?? null} />}
+    {entry && <DomainEditor key={entry.id} entry={entry} previousRating={priorRatings ? priorRatings[current] ?? null : undefined} />}
   </>;
 }
