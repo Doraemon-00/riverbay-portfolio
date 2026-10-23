@@ -9,11 +9,15 @@ export function introductionSteps(page: string, admin: boolean, workspaceSeen: b
   if (!workspaceSeen) introductions.push({
     selector:'nav[aria-label="Main navigation"]', documentTarget:true, intro:"workspace",
     title:"Your workspace",
-    description:admin ? "My classes is for portfolio work. Administration manages classes, students and teacher access." : "My classes brings together the students and portfolios you can work on.",
+    description:admin ? "The top bar stays the same on every page. My classes is for portfolio work. Administration manages classes, students and teacher access." : "The top bar stays the same on every page. My classes brings together the students and portfolios you can work on.",
+  }, {
+    selector:'.class-directory, .student-sidebar', intro:"workspace",
+    title:"The list for this page",
+    description:"The left column lists what this page works on: classes, or the students of a class. The choice at its top decides what the list shows.",
   });
   if (admin && page === "administration" && !administrationSeen) introductions.push({
     selector:'.administration-nav-options', intro:"administration", title:"Three places to manage the school",
-    description:"Classes organises groups. Students manages children’s records. Teachers manages staff accounts and access.",
+    description:"Choose a section at the top of the left column. Classes organises groups. Students manages children’s records. Teachers manages staff accounts and access.",
   });
   return introductions;
 }
@@ -28,17 +32,23 @@ export function visibleTarget(root: ParentNode, selector: string): HTMLElement |
 
 export function pageGuide(page: string, root: HTMLElement): Guide {
   if (page === "my-classes") return guide("my-classes", "Your class portfolios", [
-    step('[aria-label="Portfolio semester"]', "Choose the semester", "Choose which semester to work on. Each semester keeps its own portfolio content."),
-    step('.class-directory nav, .mobile-class-picker', "Choose a class", "Open a class to see its students. The number beside its name is the student count."),
+    step('[aria-label="Portfolio semester"]', "Choose the semester", "The semester at the top of the list decides which classes and portfolios you see. Each semester keeps its own portfolio content."),
+    step('.class-directory nav, .mobile-class-picker', "Choose a class", "Open a class to see its students. The number beside its name is the student count. My classes reopens the last class you worked in."),
     step('.roster-search', "Find a student", "Search by name or permanent student ID."),
     step('.roster-student', "Open a portfolio", "Click the student row to open their portfolio, or a domain status to go straight to that area."),
     step('.roster-domains', "Follow their progress", "Not started: no saved work. In progress: partly filled. Ready for PDF: indicator and learning story saved."),
     step('.directory-empty', "Nothing here yet?", "Clear your search to see more students. If the class is empty or unassigned, ask your administrator to set it up."),
   ]);
   if (page === "portfolio") return guide("portfolio", "Work on a portfolio", [
+    step('.student-sidebar [aria-label="Portfolio semester"]', "Switch semester", "Open this student’s portfolio in another semester. The same domain stays open."),
+    step('.student-sidebar .sidebar-class-navigation', "Change class", "The arrows open the previous or next class. Select the class name to choose from all your classes."),
     step('.student-sidebar .search-field, .mobile-student-selector button', "Find another student", "Search the class by name or ID. Previous and Next also move between students."),
+    step('.crumb-link', "Back to the class", "Open this class’s list on My classes."),
     step('.domain-tabs a[aria-current="page"]', "Choose a domain", "Open a domain tab. Its stamp fills as you save: mint circle for the indicator, animal for the story."),
     step('.rating-options', "Choose an indicator", "Choose the level that best reflects your observations."),
+    visibleTarget(root, '.return-link')
+      ? step('.return-link', "Return to where you were", "Go back to the report you came from, on the domain that is open now.")
+      : step('.previous-rating-link', "Compare with Semester 1", "See the Semester 1 indicator here. View Semester 1 report opens it on the same domain, with a way back."),
     step('.observation-panel .section-heading button', "Record a moment", "Add a short factual observation. Set when it happened, or leave the date blank for a general note."),
     step('.draft-toolbar > button', "Draft a starting point", "Use this domain’s observations to draft a narrative. Review its facts and wording before choosing Use draft."),
     visibleTarget(root, '.draft-actions .primary')
@@ -51,6 +61,7 @@ export function pageGuide(page: string, root: HTMLElement): Guide {
   if (page === "empty-class") return guide("empty-class", "Continue from an empty class", [
     step('.portfolio-empty-state h2', "No students yet", "There are no student portfolios in this class yet."),
     step('.class-title-picker, .mobile-student-selector button', "Choose another class", "Choose a different class to continue. Your semester and learning area stay selected."),
+    step('.student-sidebar [aria-label="Portfolio semester"]', "Try another semester", "Open My classes for another semester of this class."),
   ]);
   if (page === "administration") return adminGuide(root);
   if (page === "setup") return guide("setup", "Local setup help", [
@@ -91,9 +102,9 @@ function adminGuide(root: HTMLElement): Guide {
     step('.class-detail .selection-column', "Remove class access", "Select teachers to remove their access to this class. Their accounts and other class assignments remain."),
   ]);
   return guide("classes", "Manage classes", [
-    step('[aria-label="Academic year"]', "Choose the academic year", "Classes belong to a year. Both semesters use the same class grouping."),
-    step('.class-directory nav, .mobile-class-picker', "Choose a class", "Select a class, or Unassigned to find students without an active class in this year."),
-    step('.admin-heading-actions > button', "Add a class", "Create a year, level and class name, then assign its students and teachers."),
+    step('[aria-label="Academic year"]', "Choose the academic year", "The year at the top of the class list decides which classes it shows. Both semesters use the same class grouping."),
+    step('.class-directory nav[aria-label="Choose class"], .mobile-class-picker', "Choose a class", "Select a class, or Unassigned to find students without an active class in this year."),
+    step('.rail-add-class', "Add a class", "Create a year, level and class name, then assign its students and teachers."),
     step('.admin-tab-options', "Manage this group", "Students handles membership, Teachers handles access, and Settings handles class details and archiving."),
     step('.class-detail .directory-toolbar > button', "Add students", "Select existing students together. Moving from another class keeps their saved portfolios."),
     step('.class-detail .selection-column', "Work with a group", "Select students to move, unassign or archive them. Removing class membership leaves the child’s record and portfolio intact."),
