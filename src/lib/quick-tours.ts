@@ -6,11 +6,20 @@ const guide = (id: string, label: string, steps: GuideStep[]): Guide => ({ id, l
 
 export function introductionSteps(page: string, admin: boolean, workspaceSeen: boolean, administrationSeen: boolean): GuideStep[] {
   const introductions: GuideStep[] = [];
-  if (!workspaceSeen) introductions.push({
-    selector:'nav[aria-label="Main navigation"]', documentTarget:true, intro:"workspace",
-    title:"Your workspace",
-    description:admin ? "The top bar stays the same on every page. My classes is for portfolio work. Administration manages classes, students and teacher access." : "The top bar stays the same on every page. My classes brings together the students and portfolios you can work on.",
+  // Administrators get one step per top-bar link, so the second place is hard to miss.
+  if (!workspaceSeen) introductions.push(...(admin ? [{
+    selector:'nav[aria-label="Main navigation"] a[href="/"]', documentTarget:true, intro:"workspace" as const,
+    title:"My classes",
+    description:"Portfolio work for your classes. The top bar stays the same on every page.",
   }, {
+    selector:'nav[aria-label="Main navigation"] a[href="/admin"]', documentTarget:true, intro:"workspace" as const,
+    title:"Administration",
+    description:"Set up classes, students and teacher access. Its own short introduction starts the first time you open it.",
+  }] : [{
+    selector:'nav[aria-label="Main navigation"]', documentTarget:true, intro:"workspace" as const,
+    title:"Your workspace",
+    description:"The top bar stays the same on every page. My classes brings together the students and portfolios you can work on.",
+  }]), {
     selector:'.class-directory, .student-sidebar', intro:"workspace",
     title:"The list for this page",
     description:"The left column lists what this page works on: classes, or the students of a class. The choice at its top decides what the list shows.",
