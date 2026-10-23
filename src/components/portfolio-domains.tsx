@@ -25,11 +25,12 @@ const plainClick = (event: MouseEvent) => event.button === 0 && !event.metaKey &
  * and updates the address bar: no server request. Unsaved changes are still caught by the editor's
  * guard, which intercepts the click before it reaches the tab.
  */
-export function PortfolioDomains({ portfolioId, entries, priorRatings, fallback }: {
+export function PortfolioDomains({ portfolioId, entries, priorRatings, previousPortfolioId, fallback }: {
   portfolioId: string;
   entries: Entry[];
   /** Null in Semester 1: there is no earlier semester to show. */
   priorRatings: Partial<Record<Domain, number>> | null;
+  previousPortfolioId: string | null;
   fallback: Domain;
 }) {
   const current = useCurrentDomain(fallback);
@@ -66,6 +67,6 @@ export function PortfolioDomains({ portfolioId, entries, priorRatings, fallback 
       })}
     </nav>
     <InlineLoader />
-    {entry && <DomainEditor key={entry.id} entry={entry} previousRating={priorRatings ? priorRatings[current] ?? null : undefined} />}
+    {entry && <DomainEditor key={entry.id} entry={entry} previousRating={priorRatings ? priorRatings[current] ?? null : undefined} previousPortfolioId={previousPortfolioId} />}
   </>;
 }

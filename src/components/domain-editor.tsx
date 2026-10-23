@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useId, useRef, useState, useTransition } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Dialog } from "./admin-workspace";
 import { saveEntry } from "@/app/actions";
@@ -9,15 +10,18 @@ import { ObservationTimeline } from "./observation-timeline";
 import { NarrativeDraft } from "./narrative-draft";
 import { RatingRing } from "./rating-ring";
 import { DomainPhotos } from "./domain-photos";
-import { type LoaderKind, useLoaderWait } from "./page-loader";
+import { type LoaderKind, LinkLoader, useLoaderWait } from "./page-loader";
 
 export function DomainEditor({
   entry,
   previousRating,
+  previousPortfolioId,
 }: {
   entry: Entry;
   /** Undefined in Semester 1, which has no earlier report. */
   previousRating?: number | null;
+  /** The same student's Semester 1 portfolio, when this teacher can open it. */
+  previousPortfolioId?: string | null;
 }) {
   const fieldId = useId();
   const [rating, setRating] = useState(entry.rating);
@@ -149,11 +153,7 @@ export function DomainEditor({
                 ))}
               </div>
               <button type="button" className={`unassessed-option ${rating === null ? "selected" : ""}`} aria-pressed={rating === null} onClick={() => { setRating(null); changed(); }}><RatingRing level={null} />Not yet assessed</button>
-              {previousRating !== undefined && <div className="previous-rating">
-                Semester 1:
-                {previousRating !== null && <RatingRing level={previousRating} />}
-                <strong>{previousRating === null ? "Not available / not assessed" : ratingLabels[previousRating - 1]}</strong>
-              </div>}
+              {previousRating !== undefined && <PreviousRating rating={previousRating} portfolioId={previousPortfolioId ?? null} domain={entry.domain} />}
             </section>
             <ObservationTimeline observations={observations} chinese={entry.domain === "chinese"} onChange={items => { setObservations(items); changed(); }} />
             <DomainPhotos entryId={entry.id} domainLabel={domain.label} />
@@ -207,4 +207,23 @@ export function DomainEditor({
       </div>
     </Dialog>}
   </>);
+}
+
+/** Semester 1's indicator; when that portfolio is open to this teacher, the whole line opens it on the same domain. */
+function PreviousRating({ rating, portfolioId, domain }: { rating: number | null; portfolioId: string | null; domain: Entry["domain"] }) {
+  const [resting, setResting] = useState(false);
+  const content = <>
+    Semester 1:
+    {rating !== null && <RatingRing level={rating} />}
+    <strong>{rating === null ? "Not available / not assessed" : ratingLabels[rating - 1]}</strong>
+  </>;
+  if (!portfolioId) return <div className="previous-rating">{content}</div>;
+  // Load Semester 1 once the pointer rests on the line, so opening it is quick.
+  return <div className="previous-rating">
+    <Link className="previous-rating-link" href={`/portfolio/${portfolioId}?domain=${domain}`} prefetch={resting} onPointerEnter={() => setResting(true)} onFocus={() => setResting(true)} data-loader-label="Opening Semester 1…">
+      {content}
+      <span className="previous-rating-open">View Semester 1 report <Icon name="arrow-right" size={16} /></span>
+      <LinkLoader label="Opening Semester 1…" />
+    </Link>
+  </div>;
 }

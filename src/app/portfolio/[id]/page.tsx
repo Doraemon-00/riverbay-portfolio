@@ -44,10 +44,17 @@ export default async function Portfolio({
   const selected = domains.find((d) => d.id === query.domain) ?? domains[0];
   const entries = child.portfolios?.domain_entries ?? [];
   if (!entries.some((e) => e.domain === selected.id)) notFound();
-  const [history, navigation] = await Promise.all([
+  const secondSemester = child.reporting_periods.semester > 1;
+  const [history, navigation, earlier] = await Promise.all([
     db.rpc("previous_semester_ratings", { current_portfolio: id }),
     loadPortfolioNavigation(db, child.period_id, child.reporting_periods.year),
+    // The same student's Semester 1 portfolio. Database policies hide it if this teacher did not have their class then.
+    secondSemester
+      ? db.from("enrolments").select("portfolios(id), reporting_periods!inner(year, semester)")
+        .eq("child_id", child.child_id).eq("reporting_periods.year", child.reporting_periods.year).eq("reporting_periods.semester", 1).maybeSingle()
+      : null,
   ]);
+  const previousPortfolioId = (earlier?.data?.portfolios as unknown as { id: string } | null)?.id ?? null;
   if (history.error) throw new Error("Could not load semester history.");
   const priorRatings: Partial<Record<Domain, number>> = {};
   for (const e of history.data as Pick<Entry, "domain" | "rating" | "rating_scale_version">[])
@@ -98,7 +105,7 @@ export default async function Portfolio({
         const e = entries.find((x) => x.domain === d.id) as (Entry & { updated_at: string }) | undefined;
         return { id: d.id, label: d.label, indicator: e?.rating ? ratingLabels[e.rating - 1] : null, hasStory: Boolean(e?.narrative.trim()), savedAt: e?.updated_at ?? new Date(0).toISOString(), photos: e?.photos?.length ?? 0 };
       })} />
-      <PortfolioDomains portfolioId={id} entries={entries} priorRatings={child.reporting_periods.semester > 1 ? priorRatings : null} fallback={selected.id} />
+      <PortfolioDomains portfolioId={id} entries={entries} priorRatings={secondSemester ? priorRatings : null} previousPortfolioId={previousPortfolioId} fallback={selected.id} />
         </section>
       </div>
     </>
