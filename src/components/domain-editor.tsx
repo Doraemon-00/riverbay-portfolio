@@ -16,12 +16,18 @@ export function DomainEditor({
   entry,
   previousRating,
   previousPortfolioId,
+  portfolioId,
+  returnTo,
 }: {
   entry: Entry;
   /** Undefined in Semester 1, which has no earlier report. */
   previousRating?: number | null;
   /** The same student's Semester 1 portfolio, when this teacher can open it. */
   previousPortfolioId?: string | null;
+  /** This portfolio, so the Semester 1 report can offer the way back here. */
+  portfolioId: string;
+  /** Set when the teacher came here from another semester's report: the way back to it. */
+  returnTo?: { portfolioId: string; label: string } | null;
 }) {
   const fieldId = useId();
   const [rating, setRating] = useState(entry.rating);
@@ -153,7 +159,8 @@ export function DomainEditor({
                 ))}
               </div>
               <button type="button" className={`unassessed-option ${rating === null ? "selected" : ""}`} aria-pressed={rating === null} onClick={() => { setRating(null); changed(); }}><RatingRing level={null} />Not yet assessed</button>
-              {previousRating !== undefined && <PreviousRating rating={previousRating} portfolioId={previousPortfolioId ?? null} domain={entry.domain} />}
+              {previousRating !== undefined && <PreviousRating rating={previousRating} portfolioId={previousPortfolioId ?? null} domain={entry.domain} from={portfolioId} />}
+              {returnTo && <ReturnLink to={returnTo} domain={entry.domain} />}
             </section>
             <ObservationTimeline observations={observations} chinese={entry.domain === "chinese"} onChange={items => { setObservations(items); changed(); }} />
             <DomainPhotos entryId={entry.id} domainLabel={domain.label} />
@@ -210,16 +217,27 @@ export function DomainEditor({
 }
 
 /** Semester 1's indicator, with a link to that portfolio on the same domain when this teacher can open it. */
-function PreviousRating({ rating, portfolioId, domain }: { rating: number | null; portfolioId: string | null; domain: Entry["domain"] }) {
+function PreviousRating({ rating, portfolioId, domain, from }: { rating: number | null; portfolioId: string | null; domain: Entry["domain"]; from: string }) {
   const [resting, setResting] = useState(false);
   // Load Semester 1 once the pointer rests on the link, so opening it is quick. Like Previous and Next, it keeps the scroll position.
   return <div className="previous-rating">
     Semester 1:
     {rating !== null && <RatingRing level={rating} />}
     <strong>{rating === null ? "Not available / not assessed" : ratingLabels[rating - 1]}</strong>
-    {portfolioId && <Link className="previous-rating-link" scroll={false} href={`/portfolio/${portfolioId}?domain=${domain}`} prefetch={resting} onPointerEnter={() => setResting(true)} onFocus={() => setResting(true)} data-loader-label="Opening Semester 1…">
+    {portfolioId && <Link className="previous-rating-link" scroll={false} href={`/portfolio/${portfolioId}?domain=${domain}&from=${from}`} prefetch={resting} onPointerEnter={() => setResting(true)} onFocus={() => setResting(true)} data-loader-label="Opening Semester 1…">
       View Semester 1 report <Icon name="arrow-right" size={16} />
       <LinkLoader label="Opening Semester 1…" />
     </Link>}
+  </div>;
+}
+
+/** The way back sits where the way in was: shown only after View Semester 1 report, until the teacher moves on. */
+function ReturnLink({ to, domain }: { to: { portfolioId: string; label: string }; domain: Entry["domain"] }) {
+  const [resting, setResting] = useState(false);
+  return <div className="previous-rating return-row">
+    <Link className="previous-rating-link return-link" scroll={false} href={`/portfolio/${to.portfolioId}?domain=${domain}`} prefetch={resting} onPointerEnter={() => setResting(true)} onFocus={() => setResting(true)} data-loader-label={`Opening ${to.label}…`}>
+      <Icon name="arrow-left" size={16} /> Back to {to.label} report
+      <LinkLoader label={`Opening ${to.label}…`} />
+    </Link>
   </div>;
 }
