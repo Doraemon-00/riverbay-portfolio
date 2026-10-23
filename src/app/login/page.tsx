@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { Brand } from "@/components/brand";
-import { Icon } from "@/components/icon";
 import { WorkspaceMotion } from "@/components/workspace-motion";
-import { FormLoader } from "@/components/page-loader";
+import { LoginForm } from "@/components/login-form";
 import { redirect } from "next/navigation";
-import { login } from "@/app/actions";
 import { isConfigured } from "@/lib/supabase/server";
 
 export const instant = false;
@@ -33,25 +31,8 @@ export default async function Login({ searchParams }: {
               <h2 id="signin-heading">Welcome back</h2>
               <p>Every little observation, part of their story.</p>
             </div>
-            {error && (
-              <p role="alert" className="error">
-                {error === "inactive" ? "Your account is archived. Contact your administrator." : error === "profile"
-                  ? "Your account needs a staff profile. Contact your administrator."
-                  : "Unable to sign in. Check your email and password."}
-              </p>
-            )}
-            <form action={login}>
-              <label>
-                Email
-                <input name="email" type="email" autoComplete="username" required />
-              </label>
-              <label>
-                Password
-                <input name="password" type="password" autoComplete="current-password" required maxLength={200} />
-              </label>
-              <button className="primary">Sign in <Icon name="arrow-right" /></button>
-              <FormLoader label="Signing you in…" />
-            </form>
+            {/* ?error= comes from a sign-in posted before the script loaded, or from other pages (inactive, profile). */}
+            <LoginForm initialError={error} />
             <div className="login-help"><p className="hint login-demo-note">Prototype · fictional children only</p></div>
           </section>
         </div>
