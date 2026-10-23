@@ -113,7 +113,6 @@ export function AdminWorkspace({ data, notify, sectionNav }: { data: AdminData; 
   return <div className="admin-workspace" aria-busy={pending}>
     <div className="admin-directory">
       <aside className="class-directory" aria-label="Class directory">
-        {sectionNav}
         <label className="compact-label rail-semester"><span className="eyebrow">ACADEMIC YEAR</span><select aria-label="Academic year" value={data.year} disabled={pending} onChange={e => { const year = e.target.value; setYearLabel(`Opening the ${year} classes…`); startYearLoad(() => router.push(`/admin?year=${year}`, { scroll: false })); }}>{data.years.map(y => <option key={y}>{y}</option>)}</select></label>
         <p className="eyebrow">CLASSES · {data.year}</p>
         <label className="mobile-class-picker">Class<select aria-label="Choose class" value={selectedClass} disabled={pending} onChange={e => choose(e.target.value)}>{visibleClasses.map(c => <option key={c.id} value={c.id}>{c.name}{c.archived_at ? " · Archived" : ""}</option>)}<option value="unassigned">Unassigned</option></select></label>
@@ -124,6 +123,7 @@ export function AdminWorkspace({ data, notify, sectionNav }: { data: AdminData; 
         <label className="check-label directory-archive-toggle"><input type="checkbox" checked={showArchivedClasses} onChange={e => { setShowArchivedClasses(e.target.checked); if (!e.target.checked && current?.archived_at) choose("unassigned"); }} />Show archived classes</label>
       </aside>
       <section ref={detailRef} className="class-detail" style={{ minHeight: detailFloor }} aria-labelledby="class-detail-title">
+        {sectionNav}
         <header className="class-detail-heading"><h2 id="class-detail-title">{current ? `${current.name} · ${data.year}` : `Unassigned students · ${data.year}`}</h2><p>{count(classId)} active {count(classId) === 1 ? "student" : "students"}{current && ` · ${teacherCount} ${teacherCount === 1 ? "teacher" : "teachers"}`} · {data.year}{current?.archived_at && " · Archived class"}</p></header>
         {current && <nav className="admin-tabs" aria-label="Class sections"><span className="admin-tab-options">{(["students", "teachers", "settings"] as const).map(value => <button key={value} data-tour-tab={value} disabled={pending} aria-current={tab === value ? "page" : undefined} onClick={() => { preserveView(); setTab(value); setSelection([]); setSearch(""); setMessage(""); }}>{value[0].toUpperCase() + value.slice(1)}</button>)}</span></nav>}
         {tab !== "settings" ? <>
