@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Riverbay Architecture",
+    "output": ".archify/architecture-riverbay/architecture.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/Doraemon-00/riverbay-portfolio.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "be9c5a880dcb112ae66db2032eb08236644fb07c"
+    }
+  },
+  "components": [
+    {
+      "id": "gemini",
+      "type": "external",
+      "label": "Gemini API",
+      "sublabel": "3.1 Flash-Lite · JSON out",
+      "pos": [580, 40],
+      "size": [170, 64],
+      "sources": [{ "path": "src/lib/ai/narrative-provider.ts", "line": 7, "end_line": 13 }]
+    },
+    {
+      "id": "teacher",
+      "type": "external",
+      "label": "Teacher or Admin",
+      "sublabel": "desktop or tablet browser",
+      "icon": "person",
+      "pos": [40, 190],
+      "size": [170, 64]
+    },
+    {
+      "id": "web",
+      "type": "frontend",
+      "label": "Riverbay Web App",
+      "sublabel": "React · client domain tabs",
+      "pos": [310, 190],
+      "size": [170, 64],
+      "sources": [
+        { "path": "src/components/portfolio-domains.tsx", "line": 24, "end_line": 62 },
+        { "path": "src/components/domain-editor.tsx", "line": 14, "end_line": 40 }
+      ]
+    },
+    {
+      "id": "server",
+      "type": "backend",
+      "label": "Next.js 16 Server",
+      "sublabel": "routes · server actions",
+      "pos": [580, 190],
+      "size": [170, 64],
+      "sources": [
+        { "path": "src/app/api/narrative/draft/route.ts", "line": 8, "end_line": 52 },
+        { "path": "src/app/actions.ts", "line": 13, "end_line": 51 },
+        { "path": "src/proxy.ts", "line": 3, "end_line": 37 }
+      ]
+    },
+    {
+      "id": "chrome",
+      "type": "backend",
+      "label": "PDF Renderer",
+      "sublabel": "headless Chrome · fonts",
+      "pos": [860, 190],
+      "size": [170, 64],
+      "sources": [{ "path": "src/lib/pdf/export.ts", "line": 69, "end_line": 97 }]
+    },
+    {
+      "id": "storage",
+      "type": "database",
+      "label": "Supabase Storage",
+      "sublabel": "private photos · PDFs",
+      "pos": [310, 360],
+      "size": [170, 64],
+      "sources": [
+        { "path": "src/components/domain-photos.tsx", "line": 77, "end_line": 81 },
+        { "path": "src/lib/pdf/export.ts", "line": 189, "end_line": 195 }
+      ]
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "Supabase Postgres",
+      "sublabel": "row-level security",
+      "pos": [580, 360],
+      "size": [170, 64],
+      "sources": [{ "path": "supabase/migrations/202610180001_foundation.sql", "line": 123, "end_line": 202 }]
+    },
+    {
+      "id": "auth",
+      "type": "security",
+      "label": "Supabase Auth",
+      "sublabel": "admin · teacher roles",
+      "pos": [860, 360],
+      "size": [170, 64],
+      "sources": [
+        { "path": "src/app/api/auth/login/route.ts", "line": 1, "end_line": 40 },
+        { "path": "src/lib/auth.ts", "line": 12, "end_line": 24 }
+      ]
+    }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Vercel, Singapore", "wraps": ["server", "chrome"] },
+    { "kind": "region", "label": "Supabase, Singapore", "wraps": ["storage", "postgres", "auth"] }
+  ],
+  "connections": [
+    { "id": "teacher-to-web", "from": "teacher", "to": "web", "label": "write a portfolio", "variant": "emphasis" },
+    { "id": "web-to-server", "from": "web", "to": "server", "label": "HTTPS" },
+    { "id": "web-to-storage", "from": "web", "to": "storage", "label": "photo upload" },
+    { "id": "server-to-gemini", "from": "server", "to": "gemini", "label": "observations only" },
+    { "id": "server-to-chrome", "from": "server", "to": "chrome", "label": "HTML template" },
+    { "id": "server-to-postgres", "from": "server", "to": "postgres", "label": "SQL" },
+    { "id": "server-to-auth", "from": "server", "to": "auth", "label": "sign in" }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "Teacher Decides",
+      "items": [
+        "The AI drafts one narrative from one domain's observations; no name, student ID or photo is sent",
+        "Nothing changes until the teacher presses Use draft and saves; the teacher picks every indicator"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Access",
+      "items": [
+        "Row-level security limits every table and photo path to the teacher's assigned classes",
+        "Private buckets with expiring links: one hour for photos, ten minutes for PDFs"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Hosting",
+      "items": [
+        "Vercel Hobby and a free Supabase project, both in Singapore",
+        "Fictional data only; the write-up covers hosting for real records"
+      ]
+    }
+  ]
+}
