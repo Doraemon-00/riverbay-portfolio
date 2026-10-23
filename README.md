@@ -93,14 +93,14 @@ Built in October 2026 as a working prototype for a preschool's portfolio brief. 
     <td width="50%" valign="top" align="left">
       <img src="/docs/readme/screenshots/my-classes.png" alt="My classes" width="100%">
       <br />
-      <strong>My Classes</strong> · Each student's four domains at a glance: not started, in progress, or ready for the PDF.
+      <strong>My Classes</strong> · The semester and classes on the left; each student's four domains at a glance: not started, in progress, or ready for the PDF.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="left">
       <img src="/docs/readme/screenshots/portfolio-editor.png" alt="Portfolio editor" width="100%">
       <br />
-      <strong>Portfolio Editor</strong> · The class list, the four domain tabs, the indicator and the narrative on one screen.
+      <strong>Portfolio Editor</strong> · The semester and the class’s students on the left, then the four domain tabs, the indicator and the narrative.
     </td>
     <td width="50%" valign="top" align="left">
       <img src="/docs/readme/screenshots/chinese-domain.png" alt="Chinese domain" width="100%">
@@ -112,7 +112,7 @@ Built in October 2026 as a working prototype for a preschool's portfolio brief. 
     <td width="50%" valign="top" align="left">
       <img src="/docs/readme/screenshots/administration.png" alt="Administration" width="100%">
       <br />
-      <strong>Administration</strong> · Classes, students and teacher accounts for each school year.
+      <strong>Administration</strong> · Sections, academic year and classes on the left; students, teachers and settings for the chosen class.
     </td>
     <td width="50%" valign="top" align="left">
       <img src="/docs/readme/screenshots/pdf-cover.jpg" alt="PDF cover" width="100%">
@@ -136,7 +136,7 @@ One student's English domain in Semester 2, as the screenshots show it.
 
     <img src="/docs/readme/steps/2-draft.png" alt="AI draft" width="100%">
 
-3.  **Pick the indicator.** Choose Beginning, Developing or Consistently shown. In Semester 2, the Semester 1 indicator sits below the choices, and **View Semester 1 report** opens that semester on the same domain.
+3.  **Pick the indicator.** Choose Beginning, Developing or Consistently shown. In Semester 2, the Semester 1 indicator sits below the choices, and **View Semester 1 report** opens that semester on the same domain, with **Back to Semester 2 report** in the same spot to return.
 
     <img src="/docs/readme/steps/3-indicator.png" alt="Indicator" width="100%">
 
@@ -154,9 +154,10 @@ One student's English domain in Semester 2, as the screenshots show it.
 
 - **Four learning domains:** English, Chinese, Mathematics and Social-emotional, each with an indicator, dated observations, a narrative and photos, for every child in every semester.
 - **AI drafting with the teacher in charge:** the AI writes from the teacher's observations only, keeps support needs and frequency words as written, and asks for more detail when the notes are too thin. The provider is replaceable: Gemini, OpenAI and Groq adapters, with a local Qwen model benchmarked.
-- **Progress across the year:** Semester 2 shows each Semester 1 indicator, links to the Semester 1 report, and prints both rings in the PDF.
+- **Progress across the year:** Semester 2 shows each Semester 1 indicator, links to the Semester 1 report and back, and prints both rings in the PDF. A semester picker opens the same student in another semester.
 - **Bilingual PDF:** English and Simplified Chinese, landscape or portrait, with fonts embedded and a check that no Chinese character falls back to an empty box.
-- **Fast class workflow:** domains switch in the browser, neighbouring students load in the background, and an unsaved-changes guard protects typing.
+- **Fast class workflow:** domains switch in the browser, neighbouring students load in the background, My classes reopens the last class you worked in, and an unsaved-changes guard protects typing.
+- **One layout everywhere:** on wide screens, the logo heads a left column with each page's own list, and the top bar stays the same on every page. Phones keep a compact top layout.
 - **Access control:** Supabase Auth with administrator and teacher roles, row-level security on every table and photo path, and private storage with expiring links.
 - **Administration:** classes, students and teacher accounts by school year, with archiving instead of deletion.
 - **Small touches:** a quick tour on every page, river-animal loaders and two hidden easter eggs.
@@ -182,7 +183,7 @@ Made with [Archify](https://github.com/tt-a1i/archify) from [`architecture.json`
 ```text
 .
 ├── src/
-│   ├── app/            # Pages, server actions and API routes (sign-in, drafting, PDF)
+│   ├── app/            # (workspace) pages in one shared frame, server actions and API routes
 │   ├── components/     # Portfolio editor, class list, administration, loaders and tours
 │   └── lib/            # Access checks, AI provider, PDF export and portfolio rules
 ├── supabase/
