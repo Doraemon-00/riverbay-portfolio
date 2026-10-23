@@ -79,15 +79,14 @@ export default async function Portfolio({
       <div className="portfolio-workspace" data-tour-page="portfolio" data-tour-key={`${id}:${selected.id}`}>
         <StudentNavigator viewerId={profile.id} classmates={classmates} currentId={id} domain={selected.id} className={child.classes.name} year={child.reporting_periods.year} semester={child.reporting_periods.semester} classId={child.class_id} classChoices={classChoices} periodId={child.period_id} semesterChoices={semesterChoices} />
         <section className="portfolio-main" aria-label="Student portfolio">
-          <Link className="text-link portfolio-back-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
-            <Icon name="arrow-left" size={18} /> Back to my classes
-            <LinkLoader label="Opening your classes…" />
-          </Link>
       <div className="child-heading">
         <div>
+          {/* Breadcrumb back to this class's list on My classes. */}
           <p className="eyebrow">
-            {child.classes.name} · {child.reporting_periods.year} · SEMESTER{" "}
-            {child.reporting_periods.semester}
+            <Link className="crumb-link" href={`/?period=${child.period_id}&class=${child.class_id}`}>
+              {child.classes.name} · {child.reporting_periods.year} · SEMESTER {child.reporting_periods.semester}
+              <LinkLoader label="Opening your classes…" />
+            </Link>
           </p>
           <h1>{child.children.display_name}</h1>
         </div>

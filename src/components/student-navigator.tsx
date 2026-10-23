@@ -9,6 +9,7 @@ import { useCurrentDomain } from "./portfolio-domains";
 import { Dialog } from "./admin-workspace";
 import { Icon } from "./icon";
 import { LinkLoader, useLoaderWait } from "./page-loader";
+import { rememberLastClass } from "@/lib/last-class";
 
 type ClassChoice = { id: string; name: string; portfolioIds: string[] };
 /** A semester to switch to: this student's portfolio in it, or My classes for that semester. */
@@ -42,6 +43,7 @@ export function StudentNavigator({ viewerId, classmates, currentId, domain: serv
   const classIndex = classChoices.findIndex(c => c.id === classId);
   const previousClass = classChoices[classIndex - 1];
   const nextClass = classChoices[classIndex + 1];
+  useLayoutEffect(() => rememberLastClass(periodId, classId), [periodId, classId]);
   useLayoutEffect(() => {
     try {
       const saved = JSON.parse(sessionStorage.getItem(lastKey) ?? "{}");

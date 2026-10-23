@@ -5,7 +5,6 @@ import { requireViewer } from "@/lib/auth";
 import { domains } from "@/lib/portfolio";
 import { loadPortfolioNavigation } from "@/lib/portfolio-navigation";
 import { StudentNavigator, type SemesterChoice } from "@/components/student-navigator";
-import { Icon } from "@/components/icon";
 
 export const instant = false;
 export default async function ClassPortfolio({ params, searchParams }: {
@@ -35,8 +34,7 @@ export default async function ClassPortfolio({ params, searchParams }: {
     <div className="portfolio-workspace" data-tour-page="empty-class" data-tour-key={`${id}:${domain.id}`}>
       <StudentNavigator viewerId={profile.id} classmates={classmates} currentId="" domain={domain.id} className={current.name} classId={id} year={period.year} semester={period.semester} classChoices={classChoices} periodId={period.id} semesterChoices={semesterChoices} />
       <section className="portfolio-main" aria-label="Class portfolios">
-        <Link className="text-link portfolio-back-link" href={`/?period=${period.id}&class=${id}`}><Icon name="arrow-left" size={18} /> Back to my classes</Link>
-        <div className="child-heading"><div><p className="eyebrow">{period.year} · Semester {period.semester}</p><h1>{current.name}</h1></div></div>
+        <div className="child-heading"><div><p className="eyebrow"><Link className="crumb-link" href={`/?period=${period.id}&class=${id}`}>{period.year} · SEMESTER {period.semester}</Link></p><h1>{current.name}</h1></div></div>
         <div className="portfolio-empty-state">
           <h2>{classmates.length ? "Portfolios aren't ready yet" : "No students in this class yet"}</h2>
           <p>{classmates.length ? "Student portfolios are awaiting setup. Choose another class to continue." : "Choose another class to continue working on portfolios."}</p>

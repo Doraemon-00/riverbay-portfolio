@@ -7,6 +7,7 @@ import { readyDomainCount, savedDomainProgress } from "@/lib/domain-readiness";
 import { Icon } from "./icon";
 import { TourWelcome } from "./quick-tour";
 import { LinkLoader } from "./page-loader";
+import { rememberLastClass } from "@/lib/last-class";
 
 type Class = { id: string; name: string; academic_year: number };
 type Period = { id: string; year: number; semester: number };
@@ -31,6 +32,7 @@ export function ClassWorkspace({ viewerId, roster, classes, periods, initialPeri
   const visible = children.filter(r => `${r.children.display_name} ${r.children.student_code}`.toLowerCase().includes(search.trim().toLowerCase()));
   const ready = children.filter(r => readyDomainCount(r.portfolios?.domain_entries) === domains.length).length;
 
+  useEffect(() => rememberLastClass(periodId, classId), [periodId, classId]);
   useEffect(() => {
     if (skipSwitchRestore.current) { skipSwitchRestore.current = false; return; }
     let second = 0;

@@ -738,7 +738,8 @@ a.roster-domain:hover { background:var(--mint); color:var(--green); }
 .app-frame .portfolio-workspace { grid-template-columns:var(--rail) minmax(0,1fr); gap:0; margin-top:0; }
 .app-frame .student-sidebar { top:var(--bar); max-height:calc(100svh - var(--bar)); padding:22px 14px; background:transparent; border-right:0; }
 .app-frame .portfolio-main { padding:18px 40px 70px; max-width:1280px; }
-.app-frame .portfolio-back-link { margin:0 0 6px -12px; }
+.crumb-link { display:inline-block; margin:-4px -8px; padding:4px 8px; border-radius:8px; color:inherit; transition:background-color 140ms ease; }
+.crumb-link:hover,.crumb-link:focus-visible { background:var(--mint); text-decoration:underline; text-underline-offset:3px; }
 /* Administration: sections, then the academic year and the class list on Classes. */
 .app-frame .class-directory .administration-nav { display:block; padding:0 0 18px; margin:0 0 18px; border-bottom:1px solid var(--line); }
 .app-frame .class-directory .administration-nav:last-child { border-bottom:0; }
