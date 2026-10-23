@@ -5,7 +5,7 @@ import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { domains, rosterSelect, scaleVersion, type Entry, type RosterItem } from "@/lib/portfolio";
+import { domains, maxPdfPhotos, rosterSelect, scaleVersion, type Entry, type RosterItem } from "@/lib/portfolio";
 
 /**
  * Portfolio PDF export (store, then link).
@@ -31,7 +31,7 @@ export type ExportResult = {
 
 const PHOTO_BUCKET = "portfolio-photos";
 const EXPORT_BUCKET = "portfolio-exports";
-const MAX_PHOTOS = 4; // the template's current limit per learning area
+const MAX_PHOTOS = maxPdfPhotos;
 const RENDERER_DIR = process.env.PDF_RENDERER_DIR ?? path.join(process.cwd(), "docs/pdf-concepts/claude");
 const LINK_SECONDS = 10 * 60;
 

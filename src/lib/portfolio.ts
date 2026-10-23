@@ -11,6 +11,8 @@ export const domains = [
 ] as const;
 export const ratingLabels = ["Beginning", "Developing", "Consistently shown"];
 export const scaleVersion = "sample-domain-ring-v1";
+/** The PDF template lays out at most this many photos per domain. */
+export const maxPdfPhotos = 4;
 export type Domain = (typeof domains)[number]["id"];
 export type Observation = { id: string; date: string | null; text: string };
 export type Entry = {

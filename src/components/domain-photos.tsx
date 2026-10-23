@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- Private short-lived storage URLs; avoid routing originals through the image optimiser. */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { browserDatabase } from "@/lib/supabase/browser";
 import { placeholderPhoto, preparePhoto } from "@/lib/photo-files";
 import { Dialog } from "./admin-workspace";
@@ -12,6 +13,10 @@ const bucket = "portfolio-photos";
 export function DomainPhotos({ entryId, domainLabel }: { entryId: string; domainLabel: string }) {
   const [db] = useState(browserDatabase);
   const [photos, setPhotos] = useState<Photo[]>([]);
+  // Photos save on their own; refresh the page data so the PDF panel sees the new count. Unsaved typing is kept.
+  const router = useRouter();
+  const [, startRefresh] = useTransition();
+  const refreshPortfolio = () => startRefresh(() => router.refresh());
   // Easter egg: one photo hides a squirrel that peeks over its top edge on hover. A fresh random draw on
   // every visit; scaling it by the current count lets the egg move when photos are added or removed.
   const [eggDraw] = useState(Math.random);
@@ -85,7 +90,7 @@ export function DomainPhotos({ entryId, domainLabel }: { entryId: string; domain
       setFailed(true);
       setMessage(`${added ? `${added} image${added === 1 ? "" : "s"} saved. ` : ""}${error instanceof Error ? error.message : "Could not add images."}${cleanupFailed ? " An unattached private file may need administrator cleanup." : ""}`);
       try { setPhotos(await readPhotos()); } catch { /* Keep existing previews and error. */ }
-    } finally { lock.current = false; setBusy(false); if (fileInput.current) fileInput.current.value = ""; }
+    } finally { lock.current = false; setBusy(false); if (fileInput.current) fileInput.current.value = ""; if (added) refreshPortfolio(); }
   }
 
   async function removePhoto() {
@@ -98,6 +103,7 @@ export function DomainPhotos({ entryId, domainLabel }: { entryId: string; domain
       setPhotos(items => items.filter(p => p.id !== remove.id)); setRemove(null);
       setFailed(Boolean(cleaned.error));
       setMessage(cleaned.error ? "Image removed from this domain. Its private file still needs administrator cleanup." : "Image removed.");
+      refreshPortfolio();
     } catch (error) { setFailed(true); setMessage(error instanceof Error ? error.message : "Could not remove this image."); }
     finally { lock.current = false; setBusy(false); }
   }
