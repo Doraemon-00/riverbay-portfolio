@@ -29,7 +29,16 @@ export async function proxy(request: NextRequest) {
       },
     },
   );
-  await client.auth.getClaims();
+  const { data } = await client.auth.getClaims();
+  // Signed-out visits to the workspace get a real redirect here. In the shared layout it would arrive
+  // inside a streamed page, after a blank frame.
+  const path = request.nextUrl.pathname;
+  if (!data?.claims?.sub && (path === "/" || path.startsWith("/portfolio") || path.startsWith("/admin"))) {
+    const signIn = NextResponse.redirect(new URL("/login", request.url));
+    response.cookies.getAll().forEach(cookie => signIn.cookies.set(cookie));
+    signIn.headers.set("Cache-Control", "private, no-store");
+    return signIn;
+  }
   return response;
 }
 export const config = {
