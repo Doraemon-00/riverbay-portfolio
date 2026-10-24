@@ -66,21 +66,21 @@ aside{padding:16px 18px;border-radius:12px;background:#e3eee5;margin:16px 0}.lea
 .story{white-space:pre-wrap;overflow-wrap:anywhere}.metrics{display:none;border-top:1px solid #ddd;padding-top:10px;margin-top:8px;font-size:13px}.revealed .metrics{display:block}
 .round summary .done{display:none;margin-left:10px;color:#315f50;font-size:14px}.round.picked summary .done{display:inline}
 .pickbar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;padding:10px 16px;background:#fffef9;border-top:1px solid #cdd4c9;box-shadow:0 -6px 18px #2b363114}
-.pickbar[hidden]{display:none}.pickbar-inner{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:1500px;width:100%}.pickbar-inner strong{margin-right:auto}
+.pickbar-inner{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:1500px;width:100%}.pick-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-left:auto}.pick-controls[hidden]{display:none}.switch{display:inline-flex;align-items:center;gap:10px;border-color:transparent;background:transparent;padding:8px 10px}.switch .track{position:relative;width:38px;height:22px;border-radius:999px;background:#d5d9cc;transition:background-color .15s;flex:none}.switch .knob{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px #0003;transition:transform .15s}.switch[aria-checked="true"] .track{background:#315f50}.switch[aria-checked="true"] .knob{transform:translateX(16px)}
 #results{border-top:0}#results table{border-collapse:collapse;margin:10px 0 18px}#results th,#results td{padding:6px 14px 6px 0;border-bottom:1px solid #d5d9cc;text-align:left;vertical-align:top}.ranking{font-size:20px;font-weight:700;margin:6px 0}
-@media(max-width:850px){.grid{grid-template-columns:1fr}main{padding:20px 20px 130px}h1{font-size:28px}.pickbar-inner strong{flex-basis:100%}}'''
+@media(max-width:850px){.grid{grid-template-columns:1fr}main{padding:20px 20px 150px}h1{font-size:28px}.pick-controls{margin-left:0}.pick-controls strong{flex-basis:100%}}'''
 
 PICK_SCRIPT=r"""<script>(function(){
 var KEY='riverbay-classroom-picks-v2',MODELS=['Qwen','GPT','Gemini'];
 var picks={},peeked=false;
 try{picks=JSON.parse(localStorage.getItem(KEY)||'{}')||{};peeked=localStorage.getItem(KEY+':peeked')==='1';}catch(e){}
-var rounds=[].slice.call(document.querySelectorAll('.pick')),total=rounds.length,bar=document.querySelector('.pickbar'),results=document.querySelector('#results'),body=document.querySelector('#results-body');
+var rounds=[].slice.call(document.querySelectorAll('.pick')),total=rounds.length,controls=document.querySelector('.pick-controls'),results=document.querySelector('#results'),body=document.querySelector('#results-body');
 function save(){try{localStorage.setItem(KEY,JSON.stringify(picks));localStorage.setItem(KEY+':peeked',peeked?'1':'0');}catch(e){}}
 function answered(){return Object.keys(picks).length;}
 function paint(){
   rounds.forEach(function(r){var v=picks[r.dataset.round];r.querySelectorAll('.draft').forEach(function(card){card.setAttribute('aria-pressed',String(card.dataset.choice===v));});r.closest('.round').classList.toggle('picked',!!v);});
   document.querySelector('[data-pick-progress]').textContent=answered()+' of '+total+' picked';
-  bar.hidden=answered()===0&&results.hidden;
+  controls.hidden=answered()===0&&results.hidden;
 }
 function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
 function render(){
@@ -124,8 +124,10 @@ rounds.forEach(function(r){
   r.addEventListener('click',function(ev){var card=ev.target.closest('.draft');if(card&&!window.getSelection().toString())choose(card);});
   r.addEventListener('keydown',function(ev){var card=ev.target.closest('.draft');if(card&&(ev.key==='Enter'||ev.key===' ')){ev.preventDefault();choose(card);}});
 });
-document.querySelector('#reveal').addEventListener('click',function(){var shown=document.body.classList.toggle('revealed');this.setAttribute('aria-pressed',String(shown));this.textContent=shown?'Hide models':'Reveal models';
+var reveal=document.querySelector('#reveal');
+reveal.addEventListener('click',function(){var shown=document.body.classList.toggle('revealed');reveal.setAttribute('aria-checked',String(shown));
   if(shown&&answered()<total&&results.hidden){peeked=true;save();}});
+document.addEventListener('keydown',function(ev){if((ev.key==='m'||ev.key==='M')&&!ev.ctrlKey&&!ev.metaKey&&!ev.altKey&&!/INPUT|TEXTAREA|SELECT/.test(ev.target.tagName))reveal.click();});
 document.querySelector('[data-show-results]').onclick=render;
 document.querySelector('[data-reset-picks]').onclick=function(){picks={};peeked=false;save();results.hidden=true;paint();};
 paint();
@@ -136,12 +138,12 @@ page=('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="robots" 
   '<p>RIVERBAY · MILESTONE B · FICTIONAL DATA</p><h1>What does each draft actually say?</h1>'
   '<p class="lead">Three AI writers drafted the same four portfolio domains from the same notes and prompt. Read the sources, compare the drafts, then reveal which model wrote each.</p>'
   '<aside>All three writers completed all 12 drafts. Gemini\'s first run on 20 October stopped at an HTTP 503 after one draft; the rerun on 24 October completed, resuming twice after 45-second timeouts. This is one fictional child, not teacher validation or a production-readiness verdict.</aside>'
-  '<p><strong>Optional:</strong> click the draft you prefer in each round, then Show results to see which model you picked most. <button type="button" id="reveal" aria-pressed="false">Reveal models</button></p>'
+  '<p><strong>Optional:</strong> click the draft you prefer in each round, then Show results to see which model you picked most. Use Show models in the bar below at any time.</p>'
   '<details class="about"><summary>About this comparison</summary><p>Same prompt and evidence; different execution settings. GPT uses three fresh four-case agent batches, not comparable API timing. Qwen memory is sampled total device usage, not exact model-only allocation. Draft order rotates each attempt so every model sits in every position once per domain; this is not a formal blinded trial. Picks stay in your browser; nothing is sent anywhere.</p></details>'
   '</header><section id="results" hidden aria-live="polite"><h2>Your results</h2><div id="results-body"></div></section>'
   '<nav>'+''.join(f'<a href="#{c["id"]}">{e(c["input"]["domain"])}</a>' for c in cases)+'</nav>'+''.join(sections)
   +f'<section><h2>Earlier saved drafts</h2><details><summary>Historical reference only: original generation inputs and edits not established</summary>{old}</details><p><a href="RESULTS.md">Read findings and limitations</a><a href="summary.json">Measurements</a><a href="prompt.txt">Frozen prompt</a></p></section></main>'
-  '<div class="pickbar" hidden><div class="pickbar-inner"><strong data-pick-progress>0 of 12 picked</strong><button type="button" data-show-results>Show results</button><button type="button" class="quiet" data-reset-picks>Start again</button></div></div>'
+  '<div class="pickbar"><div class="pickbar-inner"><button type="button" id="reveal" class="switch" role="switch" aria-checked="false" title="Shortcut: M"><span class="track" aria-hidden="true"><span class="knob"></span></span>Show models</button>''<span class="pick-controls" hidden><strong data-pick-progress>0 of 12 picked</strong><button type="button" data-show-results>Show results</button><button type="button" class="quiet" data-reset-picks>Start again</button></span></div></div>'
   +PICK_SCRIPT+'</html>')
 assert page.count('class="draft"')==36 and 'noindex' in page and '—' not in page
 (ROOT/'COMPARISON.html').write_text(page,encoding='utf8')
