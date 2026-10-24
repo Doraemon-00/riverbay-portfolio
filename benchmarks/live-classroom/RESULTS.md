@@ -2,7 +2,7 @@
 
 20 October 2026, with the Gemini run repeated on 24 October 2026. One fictional child's four current Semester 2 domains. This evaluates drafting from realistic persisted app inputs, not full browser-to-host latency or production readiness. Portfolio records and the app prompt/provider were not changed.
 
-Open **COMPARISON.html** in this directory for sources, all attempts, optional model/measurement reveal, and earlier saved narratives. No best-output selection. The historical drafts are not controlled comparators: their original request snapshots, generation metadata and subsequent edits cannot be established from persisted narrative text.
+Open **COMPARISON.html** in this directory for sources, all attempts, optional model/measurement reveal, and earlier saved narratives. No best-output selection. Readers can also make optional blind picks, one per round, and see which model they preferred; picks stay in their browser and nothing is sent anywhere. The historical drafts are not controlled comparators: their original request snapshots, generation metadata and subsequent edits cannot be established from persisted narrative text.
 
 ## Frozen scope
 
