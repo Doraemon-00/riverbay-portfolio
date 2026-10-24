@@ -55,7 +55,7 @@ Sign in as each demo account, open a portfolio, save an observation, upload a ph
 
 ### Required for the demo deployment
 
-Before the deployment build, set `NEXT_PUBLIC_TOUR_ONBOARDING_VERSION` to a new value for that release, for example `2026-10-demo-1`. This public value is compiled into the browser bundle, so rebuild/redeploy after changing it. Keep it stable across ordinary builds unless a fresh introduction is deliberately required. Without access to this setting, bump `replay` in `src/lib/tour-onboarding.ts` instead; it has the same effect.
+Before the deployment build, set `NEXT_PUBLIC_TOUR_ONBOARDING_VERSION` to a new value for that release, for example `2026-10-demo-1`. This public value is compiled into the browser bundle, so rebuild/redeploy after changing it. Keep it stable across ordinary builds unless a fresh introduction is deliberately required.
 
 **Reset only the tour onboarding indicators. All existing seeded data must remain.**
 
