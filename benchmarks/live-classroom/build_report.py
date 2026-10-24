@@ -137,7 +137,6 @@ page=('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="robots" 
   '<title>Riverbay · Classroom drafting comparison</title><style>'+STYLE+'</style><main><header>'
   '<p>RIVERBAY · MILESTONE B · FICTIONAL DATA</p><h1>What does each draft actually say?</h1>'
   '<p class="lead">Three AI writers drafted the same four portfolio domains from the same notes and prompt. Read the sources, compare the drafts, then reveal which model wrote each.</p>'
-  '<aside>All three writers completed all 12 drafts. Gemini\'s first run on 20 October stopped at an HTTP 503 after one draft; the rerun on 24 October completed, resuming twice after 45-second timeouts. This is one fictional child, not teacher validation or a production-readiness verdict.</aside>'
   '<p><strong>Optional:</strong> click the draft you prefer in each round, then Show results to see which model you picked most. Use Show models in the bar below at any time.</p>'
   '<details class="about"><summary>About this comparison</summary><p>Same prompt and evidence; different execution settings. GPT uses three fresh four-case agent batches, not comparable API timing. Qwen memory is sampled total device usage, not exact model-only allocation. Draft order rotates each attempt so every model sits in every position once per domain; this is not a formal blinded trial. Picks stay in your browser; nothing is sent anywhere.</p></details>'
   '</header><section id="results" hidden aria-live="polite"><h2>Your results</h2><div id="results-body"></div></section>'
