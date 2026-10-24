@@ -3,9 +3,15 @@
   "planned_attempts": 36,
   "qwen_completed": 12,
   "gpt_completed": 12,
-  "gemini_completed": 1,
-  "gemini_failed": 1,
-  "gemini_unattempted": 10,
+  "gemini_completed": 12,
+  "gemini_failed": 2,
+  "gemini_unattempted": 0,
+  "gemini_seconds": {
+    "median": 1.983,
+    "minimum": 1.466,
+    "maximum": 33.837
+  },
+  "gemini_first_run": "gemini-2026-10-20.jsonl: English completed, then HTTP 503; run stopped",
   "qwen_warm_seconds": {
     "median": 3.557,
     "minimum": 2.332,

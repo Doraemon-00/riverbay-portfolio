@@ -2,7 +2,10 @@
 // Same model/configuration as app, frozen revised prompt. No retries or fallback.
 const fs=require('node:fs');const path=require('node:path');
 const root=__dirname,output=path.join(root,'gemini.jsonl');
-if(fs.existsSync(output))throw Error('Do not overwrite a completed run');
+// RESUME=1 continues a stopped run: rows already written stay, including failures; only missing successes are requested.
+const resume=process.env.RESUME==='1';
+if(fs.existsSync(output)&&!resume)throw Error('Do not overwrite a completed run');
+const done=new Set(fs.existsSync(output)?fs.readFileSync(output,'utf8').trim().split(/\r?\n/).filter(Boolean).map(l=>JSON.parse(l)).filter(r=>r.valid).map(r=>`${r.case_id}:${r.attempt}`):[]);
 if(!process.env.GEMINI_API_KEY)throw Error('Gemini key missing');
 const model=process.env.GEMINI_MODEL||'gemini-3.1-flash-lite';
 const schema={type:'object',properties:{narrative:{type:'string'},clarification:{type:'string'}},required:['narrative','clarification'],additionalProperties:false};
@@ -10,6 +13,7 @@ const prompt=fs.readFileSync(path.join(root,'prompt.txt'),'utf8');
 const cases=JSON.parse(fs.readFileSync(path.join(root,'cases.json'),'utf8'));
 (async()=>{
   for(let attempt=1;attempt<=3;attempt++)for(const c of cases){
+    if(done.has(`${c.id}:${attempt}`))continue;
     const start=performance.now(),row={case_id:c.id,attempt,model};
     let halt=false;
     try{

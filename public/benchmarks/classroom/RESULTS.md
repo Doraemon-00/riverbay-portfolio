@@ -1,6 +1,6 @@
 # Milestone B: current classroom drafting comparison
 
-20 October 2026. One fictional child's four current Semester 2 domains. This evaluates drafting from realistic persisted app inputs, not full browser-to-host latency or production readiness. Portfolio records and the app prompt/provider were not changed.
+20 October 2026, with the Gemini run repeated on 24 October 2026. One fictional child's four current Semester 2 domains. This evaluates drafting from realistic persisted app inputs, not full browser-to-host latency or production readiness. Portfolio records and the app prompt/provider were not changed.
 
 Open **COMPARISON.html** in this directory for sources, all attempts, optional model/measurement reveal, and earlier saved narratives. No best-output selection. The historical drafts are not controlled comparators: their original request snapshots, generation metadata and subsequent edits cannot be established from persisted narrative text.
 
@@ -21,15 +21,15 @@ Open **COMPARISON.html** in this directory for sources, all attempts, optional m
 | --- | --- | --- | --- |
 | Qwen3.5-9B Q4_K_M | 12/12, valid JSON and nonempty narrative | First request 9.016 s including 5.903 s reported model load; remaining 11 requests median 3.557 s, range 2.332–4.202 s | Sampled device peak 5409 MiB = 5.282 GiB |
 | GPT via Codex agents | 12/12, valid JSON and nonempty narrative | No comparable per-case API latency | Unavailable |
-| Gemini 3.1 Flash-Lite | 1 success, 1 failed attempt, 10 not attempted | English 12.505 s; Chinese HTTP 503 after 3.318 s | Unavailable |
+| Gemini 3.1 Flash-Lite | 12/12, valid JSON and nonempty narrative (rerun, 24 October) | Median 1.983 s, range 1.466–33.837 s; 9 of 12 under 3 s. Two further requests timed out at 45 s and were resumed | Unavailable |
 
-Gemini stopped on its first unavailable request. HTTP 503 is an availability failure, not proof of exhausted free quota. No retry was made. There are **25 completed narratives out of 36 planned**, plus one retained failed request. No aggregate three-model quality ranking is justified from one Gemini output.
+The first Gemini run (20 October, kept as `gemini-2026-10-20.jsonl`) stopped after one draft, on an HTTP 503: an availability failure, not exhausted free quota. The rerun used the same prompt and cases (hashes in `summary.json` unchanged). It stops at the first error, so it was resumed twice after 45-second timeouts; the failed rows stay in `gemini.jsonl`. All **36 of 36 planned narratives** are now complete.
 
 GPU sampling used nvidia-smi, roughly every 200 ms plus command overhead. It measures the whole device and can miss shorter peaks. First baseline reported 0 MiB on an 8192 MiB GPU; this is the driver-reported measure, not a guarantee that no graphics workload existed. Warm baselines already include the resident model, so their small increases are not model memory requirements. Raw sample times, utilization, load/evaluation durations and token counts remain in `qwen.jsonl`. Cloud GPU metrics are not exposed. No concurrency or school-machine performance claim follows.
 
 ## Source-grounded inspection
 
-These are primary-agent observations, not blinded independent grading or bilingual teacher acceptance. The page hides provider labels for the user's first reading, but this does not make this analysis blinded. JSON validity does not measure factual faithfulness.
+These are primary-agent observations, not blinded independent grading or bilingual teacher acceptance. The page hides provider labels for the user's first reading, but this does not make this analysis blinded. JSON validity does not measure factual faithfulness. Gemini notes in the per-domain sections below refer to the single 20 October draft; the rerun has its own review after them.
 
 ### English
 
@@ -56,9 +56,27 @@ These are primary-agent observations, not blinded independent grading or bilingu
 - GPT generally keeps the teacher introduction, waiting reminder, shared materials and teacher help with disagreement grounded in their recorded situations.
 - Qwen attempt 1 adds **patiently** to waiting. Attempt 3 generalises a single crayon disagreement into **“When conflicts arise”** and adds **often** to an undated transition note. Attempt 2 is closer to the source, though it still chooses chronological framing.
 
+## Gemini rerun review (24 October 2026)
+
+Reviewed against the source observations, with interpretive wording left to the teacher. These drafts use our placeholder style; Peterhouse's own style needs its wording guide, examples and fresh testing in any case.
+
+**What works.** All 12 drafts stay with what was recorded: no invented activities, names or diagnoses. The support the child needed stays visible in every draft: the picture prompt, the teacher's question about the ending, reminders to wait or to move scattered objects, waiting time and gestures in Chinese. Most drafts use every observation, and the English and Social-emotional drafts sit inside the length target.
+
+**Worth a teacher's check.**
+
+- **Frequency.** Social-emotional attempt 2 says the child *frequently* engages and is *often* waiting for a turn or asking for help. Each of those was recorded once. The prompt asks to keep frequency as written, so this is the one pattern worth catching in review.
+- **Merged details.** Mathematics attempt 3 links arranging objects in a line to the pretend-shop count of ten; the notes record that only for the shells. Attempts 2 and 3 also leave out numeral matching (attempt 3 leaves out shapes too). Shorter is fine; the teacher may want those skills back in.
+- **Length.** Chinese attempts 2 and 3 run past the 220-character target (254 and 233 characters).
+
+**Judgement calls, not errors.** Words such as *growing ability*, *demonstrated patience*, *showed initiative*, *自信地* (confidently) and *enjoys* read naturally and are reasonable from the notes. Whether they fit a school's reports is for the teacher, and Peterhouse's wording guide would settle it. A few drafts write from the school's side (*our small-group games*, *我们…支持孩子*); that voice is also a wording-guide decision. English attempts 1 and 3 follow the months in order, which suits notes that show steady change.
+
+**Speed.** Most drafts took about 2 seconds. Two Mathematics drafts took 24.6 and 33.8 seconds, and the Social-emotional request straight after each one hit the 45-second timeout; a second try then took about 2 seconds. In the app a teacher would see the error and press Try again. If Peterhouse uses a cloud model, one automatic retry after a timeout is worth adding.
+
+**Bottom line.** On this sample, Gemini's drafts are faithful and readable in this style. The teacher's normal review of each draft covers what came up here, with frequency words the main thing to watch.
+
 ## Recommendation
 
-The revised instruction reduces compulsory date use in some outputs, but it does **not** reliably solve qualifier loss, invented confidence or forced educational conclusions in Qwen. Its latency and laptop memory footprint are promising. Its writing is still a candidate needing review, not an accepted replacement model. GPT gives useful style references but also changes facts, so no writer passes a zero-material-error acceptance gate on this sample. Gemini's writing/availability cannot be judged broadly from one successful call.
+The revised instruction reduces compulsory date use in some outputs, but it does **not** reliably solve qualifier loss, invented confidence or forced educational conclusions in Qwen. Its latency and laptop memory footprint are promising. Its writing is still a candidate needing review, not an accepted replacement model. GPT gives useful style references but also changes facts, so no writer passes a zero-material-error acceptance gate on this sample. Gemini's rerun is reviewed above: faithful on this sample, with frequency words to watch and variable response times.
 
 Do not tune again against these outputs and call it fresh validation. Next: user/teacher review of the visible comparisons, then agree which concrete failure categories to address and test a small unseen set. School-specific guideline ingestion/checking is still unimplemented. Cross-semester narrative synthesis is deferred; Semester 2 display of Semester 1 ratings remains a separate requirement.
 
@@ -66,10 +84,10 @@ Do not tune again against these outputs and call it fresh validation. Next: user
 
 1. `prepare.cjs` freezes authenticated local demo inputs once; it refuses to overwrite `cases.json`. Never use it on real child data.
 2. `run_qwen.py` records 12 local attempts and sampled device metrics; it unloads only this model before the first request. Requires Ollama and nvidia-smi.
-3. `run_gemini.cjs`, run with Node's `--env-file=.env.local`, records up to 12 requests and stops on its first API/transport error. It refuses to overwrite output. Credentials are not saved to artifacts.
+3. `run_gemini.cjs`, run with Node's `--env-file=.env.local`, records up to 12 requests and stops on its first API/transport error. It refuses to overwrite output; `RESUME=1` continues a stopped run, keeping every earlier row and requesting only drafts not yet completed. Credentials are not saved to artifacts.
 4. GPT JSON files are agent-written artifacts, not reproducible API calls. Exact model identity/settings remain unknown.
 5. `build_report.py` validates case/attempt uniqueness and output shape and rebuilds static HTML plus summary. It makes no network or database calls.
 
 To repeat the experiment, create a new run directory and preserve this run; do not delete/overwrite the failed attempts. Raw results include provider response metadata, not API keys. The comparison page contains no remote assets or external scripts.
 
-Verification: report builder checks all 24 Qwen/GPT outputs and the successful Gemini output for schema/attempt uniqueness; script ESLint and Python compilation passed. Comparison page inspected at desktop and 390px viewport, including reveal controls and Chinese layout; no horizontal overflow at 390px. Screenshots: `desktop.png`, `mobile.png`. No app code changed, so app lint/typecheck/build were not rerun for this standalone experiment. The local Qwen model was unloaded after measurement to release GPU memory.
+Verification: report builder checks all 24 Qwen/GPT outputs and the 12 Gemini outputs for schema/attempt uniqueness; script ESLint and Python compilation passed. Comparison page inspected at desktop and 390px viewport, including reveal controls and Chinese layout; no horizontal overflow at 390px. Screenshots: `desktop.png`, `mobile.png`. No app code changed, so app lint/typecheck/build were not rerun for this standalone experiment. The local Qwen model was unloaded after measurement to release GPU memory.
