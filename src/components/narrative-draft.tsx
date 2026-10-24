@@ -43,10 +43,10 @@ export function NarrativeDraft({ entryId, revision, rating, observations, narrat
     <p className="hint" role="status">{generating ? "Drafting from your current observations. You can keep editing." : !snapshot.observations.length ? "Add an observation to draft a narrative." : "Uses your current observations, including unsaved notes. Your narrative stays unchanged until you choose Use draft."}</p>
     {error && <p className="error" role="alert">{error}</p>}
     {candidate && <section className="draft-preview" aria-labelledby={`${id}-title`} aria-busy={generating}>
-      <h3 id={`${id}-title`}>Proposed AI draft</h3>
+      <h3 id={`${id}-title`}>{candidate.result.clarification ? "The AI needs more detail" : "Proposed AI draft"}</h3>
       {outdated && <p role="status" className="draft-warning">Your observations or narrative have changed since this request. Generate a fresh draft before using it.</p>}
       {candidate.result.clarification ? <p role="status">{candidate.result.clarification}</p> : <p className="draft-prose" lang={language}>{candidate.result.narrative}</p>}
-      <p className="hint">Check the wording and facts before using this draft.{narrative.trim() ? " Use draft replaces the narrative above; it does not save it." : " Use draft places it in the narrative above; it does not save it."}</p>
+      {candidate.result.clarification ? <p className="hint">Add what it asks for to your observations, then try again.</p> : <p className="hint">Check the wording and facts before using this draft.{narrative.trim() ? " Use draft replaces the narrative above; it does not save it." : " Use draft places it in the narrative above; it does not save it."}</p>}
       <div className="draft-actions">
         {!!candidate.result.narrative && <button type="button" className="primary" disabled={generating || outdated} onClick={() => { onAccept(candidate.result.narrative); setCandidate(null); setError(""); }}>Use draft</button>}
         <button type="button" className="secondary" disabled={generating || !snapshot.observations.length} onClick={generate}>Try again</button>

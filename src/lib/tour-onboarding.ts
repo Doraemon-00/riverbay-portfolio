@@ -1,7 +1,7 @@
 /** Bump only this public build setting when deployment should replay introductions. */
 const version = process.env.NEXT_PUBLIC_TOUR_ONBOARDING_VERSION || "1";
 export type TourIntro = "workspace" | "administration";
-export function tourOnboardingKey(viewerId: string, part: TourIntro | "welcome") {
+export function tourOnboardingKey(viewerId: string, part: TourIntro | `offer:${string}`) {
   return `riverbay:tour-onboarding:${version}:${viewerId}:${part}`;
 }
 export function hasSeenTourIntro(viewerId: string, part: TourIntro) {

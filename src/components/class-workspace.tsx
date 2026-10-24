@@ -5,7 +5,6 @@ import { useEffect, useId, useRef, useState } from "react";
 import { domains, type RosterItem } from "@/lib/portfolio";
 import { readyDomainCount, savedDomainProgress } from "@/lib/domain-readiness";
 import { Icon } from "./icon";
-import { TourWelcome } from "./quick-tour";
 import { LinkLoader } from "./page-loader";
 import { rememberLastClass } from "@/lib/last-class";
 
@@ -72,7 +71,6 @@ export function ClassWorkspace({ viewerId, roster, classes, periods, initialPeri
         <nav aria-label="Choose my class">{yearClasses.map(c => <button key={c.id} aria-current={classId === c.id ? "page" : undefined} onClick={() => select(c.id)}><Icon name="books" /><span>{c.name}</span><span className="directory-count">{studentCount(c.id)}</span></button>)}</nav>
       </aside>
       <section className="class-detail class-section" aria-labelledby="roster-heading">
-        <TourWelcome viewerId={viewerId} />
         <header className="class-detail-heading section-heading"><div><h2 id="roster-heading">{current?.name} · {period.year}</h2><p>{children.length} {children.length === 1 ? "student" : "students"} · {ready} ready for PDF</p></div></header>
         <label className="search-field roster-search"><Icon name="magnifying-glass" /><span className="sr-only">Search my students</span><input type="search" placeholder="Search by name or student ID" value={search} onChange={e => setSearch(e.target.value)} /></label>
         <div className="portfolio-roster" role="region" aria-label={`${current?.name} portfolio progress`}>

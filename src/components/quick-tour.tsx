@@ -23,6 +23,9 @@ export function QuickTour({ inline = false, disabled = false, viewerId, admin = 
   const cleanup = useRef<(() => void) | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  // Once per person and kind of page: offer the tour; after Not now, point at this button once.
+  const [offer, setOffer] = useState<string | null>(null);
+  const [nudge, setNudge] = useState(false);
 
   useEffect(() => {
     mounted.current = true;
@@ -107,6 +110,24 @@ export function QuickTour({ inline = false, disabled = false, viewerId, admin = 
   }, [inline, viewerId, admin]);
 
   useEffect(() => {
+    if (inline || !viewerId) return;
+    const offered = new Set(["my-classes", "portfolio", "empty-class", "administration"]);
+    const timer = setTimeout(() => {
+      const page = visibleTarget(document, "[data-tour-page]")?.dataset.tourPage;
+      if (!page || !offered.has(page) || active.current || document.querySelector("dialog[open]")) return;
+      try { if (!localStorage.getItem(tourOnboardingKey(viewerId, `offer:${page}`))) setOffer(page); } catch { /* No storage: no offer; the button still works. */ }
+    }, 700);
+    const started = () => setOffer(page => { if (page) answerOffer(viewerId, page, "started"); return null; });
+    window.addEventListener("riverbay:tour-started", started);
+    return () => { clearTimeout(timer); window.removeEventListener("riverbay:tour-started", started); setOffer(null); };
+  }, [inline, viewerId, pathname]);
+  useEffect(() => {
+    if (!nudge) return;
+    const timer = setTimeout(() => setNudge(false), 4500);
+    return () => clearTimeout(timer);
+  }, [nudge]);
+
+  useEffect(() => {
     if (inline) return;
     const startWelcome = () => {
       const current = context(trigger.current);
@@ -122,25 +143,19 @@ export function QuickTour({ inline = false, disabled = false, viewerId, admin = 
     if (!current) { setError(true); return; }
     void start(current.guide, current.root);
   }
+  function decline() {
+    if (offer && viewerId) answerOffer(viewerId, offer, "declined");
+    setOffer(null); setNudge(true);
+  }
   return <span className={`tour-control${inline ? " tour-inline" : ""}`}>
-    <button ref={trigger} type="button" className="tour-button" onClick={open} disabled={loading || disabled} aria-label={inline ? "Quick tour" : undefined} title={inline ? "Quick tour" : undefined} aria-haspopup="dialog"><Icon name="book-open" size={inline ? 16 : 18} /><span className="tour-button-label">{loading ? "Opening…" : "Quick tour"}</span></button>
+    <button ref={trigger} type="button" className={`tour-button${nudge ? " nudge" : ""}`} onClick={open} disabled={loading || disabled} aria-label={inline ? "Quick tour" : undefined} title={inline ? "Quick tour" : undefined} aria-haspopup="dialog"><Icon name="book-open" size={inline ? 16 : 18} /><span className="tour-button-label">{loading ? "Opening…" : "Quick tour"}</span></button>
     {error && <span role="alert" className="hint">Tour unavailable. Try again.</span>}
+    {offer && <span className="tour-offer" role="status"><strong>New to this page?</strong> Take a one-minute tour of what it does.
+      <span className="tour-offer-actions"><button type="button" className="primary" onClick={open}>Start tour</button><button type="button" className="text-action" onClick={decline}>Not now</button></span></span>}
+    {nudge && <span className="tour-offer tour-nudge-hint" role="status">You can start the tour here anytime.</span>}
   </span>;
 }
 
-/** A once-per-account invitation, not an automatic or blocking tour. */
-export function TourWelcome({ viewerId }: { viewerId:string }) {
-  const key = tourOnboardingKey(viewerId, "welcome");
-  const [open,setOpen] = useState(false);
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      try { setOpen(localStorage.getItem(key) !== "dismissed"); } catch { setOpen(true); }
-    });
-    const dismissed = () => { setOpen(false); try { localStorage.setItem(key,"dismissed"); } catch { /* Guidance still works without storage. */ } };
-    window.addEventListener("riverbay:tour-started",dismissed);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("riverbay:tour-started",dismissed); };
-  },[key]);
-  function dismiss() { setOpen(false); try { localStorage.setItem(key,"dismissed"); } catch { /* Optional preference only. */ } }
-  if (!open) return null;
-  return <aside className="tour-welcome" aria-label="Welcome help"><span><strong>New here?</strong> A short tour can help you find your way. Replay it anytime from Quick tour.</span><div><button type="button" className="text-action" onClick={() => { dismiss(); window.dispatchEvent(new Event("riverbay:start-tour")); }}>Show me around</button><button type="button" className="icon-button" aria-label="Dismiss welcome help" onClick={dismiss}><Icon name="x" size={18} /></button></div></aside>;
+function answerOffer(viewerId: string, page: string, answer: "started" | "declined") {
+  try { localStorage.setItem(tourOnboardingKey(viewerId, `offer:${page}`), answer); } catch { /* Optional preference only. */ }
 }

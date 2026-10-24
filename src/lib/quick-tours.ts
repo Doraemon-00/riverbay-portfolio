@@ -16,7 +16,7 @@ export function introductionSteps(page: string, admin: boolean, workspaceSeen: b
     title:"Administration",
     description:"Set up classes, students and teacher access. Its own short introduction starts the first time you open it.",
   }] : [{
-    selector:'nav[aria-label="Main navigation"]', documentTarget:true, intro:"workspace" as const,
+    selector:'nav[aria-label="Main navigation"] a[href="/"]', documentTarget:true, intro:"workspace" as const,
     title:"Your workspace",
     description:"The top bar stays the same on every page. My classes brings together the students and portfolios you can work on.",
   }]), {
@@ -52,7 +52,7 @@ export function pageGuide(page: string, root: HTMLElement): Guide {
     step('.student-sidebar [aria-label="Portfolio semester"]', "Switch semester", "Open this student’s portfolio in another semester. The same domain stays open."),
     step('.student-sidebar .sidebar-class-navigation', "Change class", "The arrows open the previous or next class. Select the class name to choose from all your classes."),
     step('.student-sidebar .search-field, .mobile-student-selector button', "Find another student", "Search the class by name or ID. Previous and Next also move between students."),
-    step('.crumb-link', "Back to the class", "Open this class’s list on My classes."),
+    step('.crumb-link', "Back to the class", "This line, or My classes in the top bar, opens this class’s list again."),
     step('.domain-tabs a[aria-current="page"]', "Choose a domain", "Open a domain tab. Its stamp fills as you save: mint circle for the indicator, animal for the story."),
     step('.rating-options', "Choose an indicator", "Choose the level that best reflects your observations."),
     visibleTarget(root, '.return-link')
