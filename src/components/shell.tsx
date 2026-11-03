@@ -17,7 +17,8 @@ export function Shell({
   profile: Profile;
   children: React.ReactNode;
 }) {
-  return (
+  return (<>
+    {profile.guest && <p className="guest-banner" role="note"><strong>Guest demo.</strong> Shared with other visitors and reset every day at 3am SGT. Fictional names and placeholder images only.</p>}
     <div className="app-frame">
       <a href="#main-content" className="skip-link">Skip to workspace</a>
       <div className="frame-rail">
@@ -45,10 +46,7 @@ export function Shell({
           </form>
         </div>
       </header>
-      <main className="frame-page" id="main-content">
-        {profile.guest && <p className="guest-banner" role="note"><strong>Guest demo.</strong> Other visitors share this school, and it resets every day at 3am SGT. Use fictional names and placeholder images only.</p>}
-        <WorkspaceMotion>{children}</WorkspaceMotion>
-      </main>
+      <main className="frame-page" id="main-content"><WorkspaceMotion>{children}</WorkspaceMotion></main>
     </div>
-  );
+  </>);
 }
