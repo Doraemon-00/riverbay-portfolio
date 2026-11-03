@@ -104,6 +104,14 @@ label h2 { margin-bottom:0; }
 .login-page .login-auth { min-width:0; }
 .login-page input { font-size:16px; }
 .login-demo-note { margin-bottom:0; }
+.login-divider { display:flex; align-items:center; gap:14px; margin:0 0 18px; font-size:13px; }
+.login-divider::before,.login-divider::after { content:""; flex:1; border-top:1px solid var(--line); }
+.auth-panel form.guest-signin { margin:0 0 12px; }
+.guest-button { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:11px 20px; border:1.5px solid var(--ink); border-radius:10px; background:#ECD657; color:var(--ink); font-weight:700; font-size:15px; transition:filter 140ms ease,transform 140ms ease; }
+.guest-button:hover:not(:disabled) { filter:brightness(.96); }
+.guest-button:active:not(:disabled) { transform:translateY(1px); }
+.auth-panel > p.guest-note { margin:0; text-align:center; }
+.guest-banner { margin:0 0 18px; padding:10px 14px; border-radius:10px; background:var(--yellow); color:var(--ink); font-size:13px; }
 .child-heading { display:flex; justify-content:space-between; align-items:center; gap:24px; margin:22px 0 28px; }
 .child-heading h1 { margin:0; }
 .child-nav { display:flex; gap:16px; font-size:14px; align-items:center; }

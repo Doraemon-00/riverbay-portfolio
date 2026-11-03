@@ -1,4 +1,5 @@
 import "server-only";
+import { randomBytes } from "node:crypto";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { z } from "zod";
 
@@ -8,7 +9,7 @@ export type TeacherSetup = { ok: boolean; message: string; id?: string; email?: 
 export async function provisionTeacher(db: SupabaseClient, input: unknown): Promise<TeacherSetup> {
   const { data: session, error: authError } = await db.auth.getUser();
   if (authError || !session.user) return { ok: false, message: "Administrator access required." };
-  const { data: actor } = await db.from("profiles").select("role,is_active").eq("id",session.user.id).single();
+  const { data: actor } = await db.from("profiles").select("role,is_active,school:schools(is_guest)").eq("id",session.user.id).single();
   if (actor?.role !== "admin" || !actor.is_active) return { ok: false, message: "Administrator access required." };
   const parsed = schema.safeParse(input);
   if (!parsed.success) return { ok: false, message: "Check the name, email and class selections." };
@@ -21,8 +22,10 @@ export async function provisionTeacher(db: SupabaseClient, input: unknown): Prom
     if (error || data.length !== new Set(class_ids).size || new Set(class_ids).size !== class_ids.length) return { ok: false, message: "Some classes are no longer available. Check your selections." };
   }
   const auth = createClient(url,key,{ auth: { persistSession: false, autoRefreshToken: false } });
-  // Shared credentials are an explicit requirement of this fictional demo.
-  const initialPassword = "teach2LEARN";
+  // Shared credentials are an explicit requirement of this fictional demo. Accounts made in the
+  // public guest school get a one-off password, shown only to the guest who made them.
+  const guest = (actor.school as unknown as { is_guest: boolean } | null)?.is_guest;
+  const initialPassword = guest ? `Guest-${randomBytes(9).toString("base64url")}` : "teach2LEARN";
   const { data: created, error } = await auth.auth.admin.createUser({ email, password: initialPassword, email_confirm: true, app_metadata: { riverbay_setup_by: session.user.id } });
   if (error || !created.user) return { ok: false, message: error?.code === "email_exists" || error?.code === "email_address_exists" ? "This email already has an account. Use the existing teacher record or another email." : "Could not create the account. Check the email and try again." };
   const id = created.user.id;

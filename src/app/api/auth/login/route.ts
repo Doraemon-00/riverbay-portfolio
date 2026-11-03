@@ -3,7 +3,7 @@ import { database, isConfigured } from "@/lib/supabase/server";
 
 // Sign-in is a plain endpoint rather than a Server Action: its address never changes between
 // deployments, so a sign-in page left open across a deploy still works.
-export type LoginError = "invalid" | "credentials" | "busy" | "service" | "inactive" | "profile";
+export type LoginError = "invalid" | "credentials" | "busy" | "service" | "inactive" | "profile" | "guest";
 const credentials = z.object({ email: z.email(), password: z.string().min(1).max(200) });
 export async function POST(request: Request) {
   // Before the page's script loads, the form posts here natively; answer with redirects then, never

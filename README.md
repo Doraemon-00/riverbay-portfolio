@@ -231,6 +231,8 @@ No setup is needed to try Riverbay: open the [live demo](https://riverbay-portfo
 
 All demo accounts use the password `teach2LEARN`.
 
+To explore without an account, press **Sign in as guest**. It opens a separate copy of the school as its administrator, shared with other visitors and reset every day at 3am SGT. Changes there never reach the accounts above.
+
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
 ### Prerequisites
@@ -282,9 +284,10 @@ npm run lint
 npm run typecheck
 npm run build
 npm run test:access
+npm run test:guest
 ```
 
-`test:access` runs only against the local database. It checks class isolation, denied direct writes, archiving and private storage with disposable records.
+`test:access` runs only against the local database. It checks class isolation, denied direct writes, archiving and private storage with disposable records. `test:guest` (with `npm run dev` running) checks that the guest school and the staff school stay apart, and that the nightly reset restores the guest school.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 

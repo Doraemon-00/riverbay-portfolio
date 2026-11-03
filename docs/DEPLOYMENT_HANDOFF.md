@@ -46,6 +46,26 @@ Import the GitHub repository. The default branch deploys as production. Node 22 
 | `AI_PROVIDER` | `gemini` |
 | `GEMINI_API_KEY` | Free-tier key; fictional notes only |
 | `NEXT_PUBLIC_TOUR_ONBOARDING_VERSION` | A new value per release, for example `2026-10-demo-1` (see below) |
+| `GUEST_EMAIL` | Optional. Sign-in for the public guest school, for example `guest@riverbay.com`. Leave blank to hide **Sign in as guest**. |
+| `GUEST_PASSWORD` | Optional. A long random password for that sign-in. Server-only; visitors never see it. |
+| `CRON_SECRET` | Optional. A long random string. Vercel Cron sends it to `/api/guest/reset`. |
+
+### Guest school
+
+**Sign in as guest** opens a second, separate Riverbay as its administrator. Every account, class and child belongs to one school (`public.schools`). Administrators see and change only their own school, and the database refuses any change that links records across schools, so guests cannot see or touch the staff accounts' data.
+
+- **First run:** with the three guest variables set, call the reset route once. It creates the guest sign-in, copies the staff school's current classes, children, portfolios and photos into the guest school (teacher copies get sign-ins nobody knows), and saves that as the snapshot.
+
+  ```bash
+  curl -H "Authorization: Bearer $CRON_SECRET" https://<production-url>/api/guest/reset
+  ```
+
+- **Every night:** Vercel Cron calls the same route at 19:00 UTC (3am SGT; Hobby runs it some time within that hour). It deletes photos, PDFs and teacher accounts guests added, copies back snapshot photos guests deleted (from the private `guest-snapshot` bucket), and restores the guest school's records in one transaction. The staff school is never changed.
+- **New starting point:** to make the guest school's current state the new snapshot, run `select public.capture_guest_snapshot();` as the database owner. Copy any new photos into the `guest-snapshot` bucket under the same paths first, or a reset will treat them as guest uploads.
+- Teachers a guest adds get a one-off password, shown only to that guest, and are deleted at the next reset.
+- Guests share the free Gemini quota with the staff accounts.
+
+`npm run test:guest` checks the separation and the reset locally (start `npm run dev` first, and set the three variables in `.env.local`).
 
 ### 3. After the first deployment
 

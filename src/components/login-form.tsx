@@ -12,10 +12,11 @@ const messages: Record<LoginError, string> = {
   service: "We couldn’t reach the sign-in service. Please try again.",
   inactive: "Your account is archived. Contact your administrator.",
   profile: "Your account needs a staff profile. Contact your administrator.",
+  guest: "Guest sign-in isn’t available right now. Please try again later.",
 };
 
 /** Sign-in keeps the typed email after a failed attempt and hides the message once either field changes. */
-export function LoginForm({ initialError }: { initialError?: string }) {
+export function LoginForm({ initialError, guest }: { initialError?: string; guest?: boolean }) {
   const [error, setError] = useState<LoginError | null>(initialError && initialError in messages ? initialError as LoginError : null);
   const [pending, setPending] = useState(false);
   useLoaderWait(pending, "Signing you in…");
@@ -24,20 +25,21 @@ export function LoginForm({ initialError }: { initialError?: string }) {
     event.preventDefault();
     const form = event.currentTarget;
     const fields = new FormData(form);
+    const asGuest = form.dataset.guest === "true";
     setPending(true); setError(null);
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch(asGuest ? "/api/auth/guest" : "/api/auth/login", {
         method: "POST", headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email: fields.get("email"), password: fields.get("password") }),
+        body: JSON.stringify(asGuest ? {} : { email: fields.get("email"), password: fields.get("password") }),
       });
-      const body = await response.json().catch(() => ({ ok: false, error: "service" }));
+      const body = await response.json().catch(() => ({ ok: false, error: asGuest ? "guest" : "service" }));
       // A full page load, not router.replace: the router still holds the signed-out redirect from / to
       // this page and would send the teacher straight back here. Stay pending until My classes opens.
       // eslint-disable-next-line @next/next/no-location-assign-relative-destination
       if (body.ok) { window.location.assign("/"); return; }
       setError(body.error in messages ? body.error : "service");
-      (form.elements.namedItem("password") as HTMLInputElement | null)?.select();
-    } catch { setError("service"); }
+      if (!asGuest) (form.elements.namedItem("password") as HTMLInputElement | null)?.select();
+    } catch { setError(asGuest ? "guest" : "service"); }
     setPending(false);
   }
 
@@ -55,5 +57,12 @@ export function LoginForm({ initialError }: { initialError?: string }) {
       </label>
       <button className="primary" disabled={pending}>Sign in <Icon name="arrow-right" /></button>
     </form>
+    {guest && <>
+      <p className="login-divider"><span>or</span></p>
+      <form className="guest-signin" method="post" action="/api/auth/guest" data-guest="true" onSubmit={event => void submit(event)}>
+        <button className="guest-button" disabled={pending}>Sign in as guest</button>
+      </form>
+      <p className="hint guest-note">Opens a shared demo school as an administrator. Fictional data only; it resets every day at 3am SGT.</p>
+    </>}
   </>;
 }

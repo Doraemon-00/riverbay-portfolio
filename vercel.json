@@ -3,6 +3,12 @@
   "regions": [
     "sin1"
   ],
+  "crons": [
+    {
+      "path": "/api/guest/reset",
+      "schedule": "0 19 * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/(benchmarks|pdf-template)/(.*)",

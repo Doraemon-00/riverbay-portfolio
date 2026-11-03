@@ -16,7 +16,8 @@ Riverbay Preschool is a fictional school for a paid prototype (the real client i
 - A SessionStart hook (`.claude/hooks/install-deps.sh`) installs packages with `npm ci --ignore-scripts` when `node_modules` is missing. If it failed, run that command first.
 - There is no Docker, so the local Supabase stack cannot run here. Check changes with `npm run lint`, `npm run typecheck` and `npm run build`.
 - To see a change running, push a branch: Vercel builds a Preview deployment with its own URL. Previews use the same hosted fictional demo database as production, so test with care and never reset, reseed or bulk-edit it.
-- Production deploys from `codex/riverbay-foundation`. Work on a separate branch and merge only when the user asks.
+- Production deploys from `main`. Work on a separate branch and merge only when the user asks.
+- The guest school (`public.schools`, "Sign in as guest") resets itself nightly through `/api/guest/reset`. That reset touches only the guest school; the staff school's records stay preserved. See `docs/DEPLOYMENT_HANDOFF.md`.
 - Never run `scripts/setup-local.mjs`, `scripts/copy-demo-to-hosted.mjs` or the access test scripts against the hosted project.
 
 ## Rules

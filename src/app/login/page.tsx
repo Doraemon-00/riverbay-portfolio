@@ -4,6 +4,7 @@ import { WorkspaceMotion } from "@/components/workspace-motion";
 import { LoginForm } from "@/components/login-form";
 import { redirect } from "next/navigation";
 import { isConfigured } from "@/lib/supabase/server";
+import { guestAccount } from "@/lib/guest";
 
 export const instant = false;
 
@@ -32,7 +33,7 @@ export default async function Login({ searchParams }: {
               <p>Every little observation, part of their story.</p>
             </div>
             {/* ?error= comes from a sign-in posted before the script loaded, or from other pages (inactive, profile). */}
-            <LoginForm initialError={error} />
+            <LoginForm initialError={error} guest={Boolean(guestAccount())} />
             <div className="login-help"><p className="hint login-demo-note">Prototype · fictional children only</p></div>
           </section>
         </div>

@@ -15,7 +15,8 @@
     "setup:local": "node scripts/setup-local.mjs",
     "test:access": "node --env-file=.env.local scripts/check-access.mjs",
     "test:directory": "node --env-file=.env.local scripts/check-directory.mjs",
-    "test:teacher-setup": "node --experimental-strip-types --conditions=react-server --env-file=.env.local scripts/check-teacher-setup.mjs"
+    "test:teacher-setup": "node --experimental-strip-types --conditions=react-server --env-file=.env.local scripts/check-teacher-setup.mjs",
+    "test:guest": "node --env-file=.env.local scripts/check-guest-school.mjs"
   },
   "dependencies": {
     "@daypicker/react": "10.0.2",

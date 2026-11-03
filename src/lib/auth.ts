@@ -5,6 +5,8 @@ export type Profile = {
   id: string;
   display_name: string;
   role: "teacher" | "admin";
+  /** Signed in to the shared guest school, which resets every night. */
+  guest: boolean;
 };
 type Database = Awaited<ReturnType<typeof database>>;
 
@@ -31,7 +33,7 @@ export async function requireViewer(adminOnly = false) {
 export async function requireProfile(db: Database, userId: string, adminOnly = false) {
   const { data: profile } = await db
     .from("profiles")
-    .select("id, display_name, role, is_active")
+    .select("id, display_name, role, is_active, school:schools(is_guest)")
     .eq("id", userId)
     .single();
   if (!profile) redirect("/login?error=profile");
@@ -40,5 +42,6 @@ export async function requireProfile(db: Database, userId: string, adminOnly = f
     redirect("/login?error=inactive");
   }
   if (adminOnly && profile.role !== "admin") redirect("/?notice=admin-only");
-  return profile as Profile;
+  const school = profile.school as unknown as { is_guest: boolean } | null;
+  return { id: profile.id, display_name: profile.display_name, role: profile.role, guest: Boolean(school?.is_guest) } as Profile;
 }
